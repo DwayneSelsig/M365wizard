@@ -1,23 +1,10 @@
-yangshun:
-  name: Yangshun Tay
-  title: Front End Engineer @ Facebook
-  url: https://github.com/yangshun
-  image_url: https://github.com/yangshun.png
+dwayne:
+  name: Dwayne Selsig
+  title: Cloud solution Architect
+  url: www.dwayneselsig.eu
+  image_url: https://lh3.googleusercontent.com/VRBG6fTArJEBw1oIdoDyaMnkWMey_NUWRrrf9GzJ-OuuPAbzYEA_SuynniKCcy7hJCzqVzeKZv1k7buEiL-0VjI=w1280
   page: true
   socials:
-    x: yangshunz
-    github: yangshun
-
-slorber:
-  name: Sébastien Lorber
-  title: Docusaurus maintainer
-  url: https://sebastienlorber.com
-  image_url: https://github.com/slorber.png
-  page:
-    # customize the url of the author page at /blog/authors/<permalink>
-    permalink: '/all-sebastien-lorber-articles'
-  socials:
-    x: sebastienlorber
-    linkedin: sebastienlorber
-    github: slorber
-    newsletter: https://thisweekinreact.com
+    x: dwayneselsig
+    github: dwayneselsig
+    linkedin: dwayneselsig
