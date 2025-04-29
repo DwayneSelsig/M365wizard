@@ -2,7 +2,7 @@ dwayne:
   name: Dwayne Selsig
   title: Cloud solution Architect
   url: www.dwayneselsig.eu
-  image_url: ./img/dwayne.jpg
+  image_url: /img/dwayne.jpg
   page: true
   socials:
     x: dwayneselsig
