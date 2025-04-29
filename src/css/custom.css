@@ -1,0 +1,37 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  
+  /* Infima primaire palet koppelen aan --accent  */
+  --ifm-color-primary:            var(--accent);
+  --ifm-color-primary-dark:       color-mix(in srgb, var(--accent) 90%, black);
+  --ifm-color-primary-darker:     color-mix(in srgb, var(--accent) 75%, black);
+  --ifm-color-primary-darkest:    color-mix(in srgb, var(--accent) 60%, black);
+  --ifm-color-primary-light:      color-mix(in srgb, var(--accent) 90%, white);
+  --ifm-color-primary-lighter:    color-mix(in srgb, var(--accent) 95%, white);
+  --ifm-color-primary-lightest:   color-mix(in srgb, var(--accent) 98%, white);
+
+  /* Code-weergave */
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.08);
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+
+  --ifm-color-primary:            var(--accent);
+  --ifm-color-primary-dark:       color-mix(in srgb, var(--accent) 80%, black);
+  --ifm-color-primary-darker:     color-mix(in srgb, var(--accent) 65%, black);
+  --ifm-color-primary-darkest:    color-mix(in srgb, var(--accent) 50%, black);
+  --ifm-color-primary-light:      color-mix(in srgb, var(--accent) 80%, white);
+  --ifm-color-primary-lighter:    color-mix(in srgb, var(--accent) 88%, white);
+  --ifm-color-primary-lightest:   color-mix(in srgb, var(--accent) 94%, white);
+
+  --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.07);
+}
+
