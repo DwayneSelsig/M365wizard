@@ -1,0 +1,8 @@
+{
+  "label": "Azure Entra ID",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "title": "Azure Entra ID overview"
+  }
+}
