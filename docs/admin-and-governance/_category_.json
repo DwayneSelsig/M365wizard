@@ -1,0 +1,9 @@
+{
+  "label": "Admin & Governance",
+  "position": 5,
+  "link": {
+    "type": "generated-index",
+    "title": "Admin and governance guides",
+    "description": "Patterns for ownership, permissions, publishing, templates, and organization-wide setup."
+  }
+}

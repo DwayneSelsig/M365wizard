@@ -1,47 +1,32 @@
 ---
+title: Start Here
 sidebar_position: 1
+roles: [EndUser, KeyUser, IT]
+level: beginner
+license: ""
+tags: [start-here, m365]
+accent: default
+prereqs: []
 ---
 
-# Tutorial Intro
+# Start Here
 
-Let's discover **Docusaurus in less than 5 minutes**.
+M365Wizard helps people choose the right Microsoft 365 tool for the work in front of them.
 
-## Getting Started
+Microsoft Learn is excellent when you need the official steps. This site focuses on the decisions around those steps: why a service exists, when it fits, when it creates friction, and how to move from a personal draft to team collaboration or organization-wide publishing.
 
-Get started by **creating a new site**.
+## How To Use These Guides
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+Start with a decision guide when you are unsure which tool to use. Use a scenario guide when you recognize the work pattern. Use a service guide when you already know the Microsoft 365 app and want a practical orientation.
 
-### What you'll need
+## The Core Idea
 
-- [Node.js](https://nodejs.org/en/download/) version 18.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+Most Microsoft 365 confusion comes from overlap. Teams, SharePoint, OneDrive, Planner, Forms, Viva Engage, Sway, Word, Excel, and PowerPoint can all be useful, but they should not all be used for the same job.
 
-## Generate a new site
+The goal is not to memorize every feature. The goal is to make better choices:
 
-Generate a new Docusaurus site using the **classic template**.
-
-The classic template will automatically be added to your project after you run the command:
-
-```bash
-npm init docusaurus@latest my-website classic
-```
-
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
-
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+- Use personal spaces for personal work.
+- Use team spaces for shared work.
+- Use publishing spaces for stable information.
+- Use community spaces for conversation and engagement.
+- Use governance patterns when content becomes reusable, official, or organization-wide.

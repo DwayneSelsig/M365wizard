@@ -1,0 +1,9 @@
+{
+  "label": "Scenarios",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "title": "Scenario guides",
+    "description": "Practical patterns for common Microsoft 365 work."
+  }
+}

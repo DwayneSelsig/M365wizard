@@ -41,10 +41,8 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/DwayneSelsig/M365wizard/tree/main/',
         },
         blog: {
           showReadingTime: true,
@@ -52,10 +50,8 @@ const config: Config = {
             type: ['rss', 'atom'],
             xslt: true,
           },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/DwayneSelsig/M365wizard/tree/main/',
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
@@ -91,9 +87,9 @@ const config: Config = {
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
+          sidebarId: 'guidesSidebar',
           position: 'left',
-          label: 'Tutorial',
+          label: 'Guides',
         },
         {to: '/blog', label: 'Blog', position: 'left'},
         {
@@ -107,41 +103,41 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: 'Guides',
           items: [
             {
-              label: 'Tutorial',
+              label: 'Start Here',
               to: '/docs/intro',
             },
-          ],
-        },
-        {
-          title: 'Community',
-          items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+              label: 'Decisions',
+              to: '/docs/category/decisions',
             },
             {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
+              label: 'Scenarios',
+              to: '/docs/category/scenarios',
             },
             {
-              label: 'X',
-              href: 'https://x.com/docusaurus',
+              label: 'Services',
+              to: '/docs/category/services',
             },
           ],
         },
         {
-          title: 'More',
+          title: 'Updates',
           items: [
             {
               label: 'Blog',
               to: '/blog',
             },
+          ],
+        },
+        {
+          title: 'Project',
+          items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              href: 'https://github.com/DwayneSelsig/M365wizard',
             },
           ],
         },

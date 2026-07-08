@@ -1,0 +1,9 @@
+{
+  "label": "Services",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "title": "Service guides",
+    "description": "Short orientation pages for Microsoft 365 services and apps."
+  }
+}
