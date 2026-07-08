@@ -17,6 +17,19 @@ Forms, Lists, and Planner all collect information, but they answer different que
 
 Use Forms to collect responses. Use Lists to track structured records. Use Planner to manage work that needs owners, due dates, and progress.
 
+## Decision Flow
+
+```mermaid
+flowchart TD
+    Start{What do you need to manage?}
+    Start -->|Responses submitted by people| Forms[Microsoft Forms]
+    Start -->|Structured records over time| Lists[Microsoft Lists]
+    Start -->|Work with owners and due dates| Planner[Microsoft Planner]
+
+    Forms -. Automate intake .-> Lists
+    Lists -. Create actionable work .-> Planner
+```
+
 ## Use Forms When
 
 Use Microsoft Forms when people submit information and the submitter does not need to manage the item afterward.

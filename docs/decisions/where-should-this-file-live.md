@@ -17,6 +17,20 @@ Choosing where a file lives is really choosing who owns it, who should work on i
 
 Use OneDrive for personal work documents. Use Teams when the document becomes shared team work. Use SharePoint when the document is published, official, or meant for a wider audience.
 
+## Decision Flow
+
+```mermaid
+flowchart TD
+    Start{Who should own the file?}
+    Start -->|One person| Personal{Is it still personal work?}
+    Start -->|A defined team| Teams[Teams]
+    Start -->|The organization| SharePoint[SharePoint]
+
+    Personal -->|Yes| OneDrive[OneDrive]
+    Personal -->|No, the team depends on it| Teams
+    Teams -->|Publish an approved version| SharePoint
+```
+
 ## Use OneDrive When
 
 - You are the main owner of the document.

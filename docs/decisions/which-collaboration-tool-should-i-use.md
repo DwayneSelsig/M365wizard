@@ -17,6 +17,17 @@ Microsoft 365 collaboration tools overlap on purpose. The right choice depends o
 
 Use Teams for active work with a defined group. Use SharePoint for structured content and publishing. Use Viva Engage for open community conversation. Use Outlook when the conversation is transactional and does not need a shared workspace.
 
+## Decision Flow
+
+```mermaid
+flowchart TD
+    Start{What does the group need most?}
+    Start -->|Active work with a defined group| Teams[Teams]
+    Start -->|Structured or published content| SharePoint[SharePoint]
+    Start -->|Open community conversation| VivaEngage[Viva Engage]
+    Start -->|A short transactional exchange| Outlook[Outlook]
+```
+
 ## Choose Teams For Active Work
 
 Teams is strongest when a group works together repeatedly. It brings chat, meetings, files, channels, Planner, Loop, and apps into one workspace.
