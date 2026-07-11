@@ -6,6 +6,7 @@
 
 /* You can override the default Infima variables here. */
 :root {
+  --accent: #2f8f4e;
   
   /* Infima primaire palet koppelen aan --accent  */
   --ifm-color-primary:            var(--accent);

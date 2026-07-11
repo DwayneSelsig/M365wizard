@@ -1,23 +1,201 @@
-/**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
- */
-
 .heroBanner {
-  padding: 4rem 0;
-  text-align: center;
   position: relative;
   overflow: hidden;
+  padding: 6rem 0 5rem;
+  color: #fff;
+  background-color: #172033;
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(23, 32, 51, 0.98) 0%,
+      rgba(23, 32, 51, 0.92) 54%,
+      rgba(23, 32, 51, 0.42) 100%
+    ),
+    var(--hero-image);
+  background-position: center, right center;
+  background-repeat: no-repeat;
+  background-size: auto, auto 115%;
 }
 
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
-  }
+.heroContent {
+  max-width: 760px;
+}
+
+.eyebrow,
+.sectionLabel {
+  margin: 0 0 0.75rem;
+  color: #f4c542;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.heroTitle {
+  margin: 0;
+  font-size: 4rem;
+  line-height: 1.05;
+  letter-spacing: 0;
+}
+
+.heroSubtitle {
+  max-width: 680px;
+  margin: 1.25rem 0 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.35rem;
+  line-height: 1.5;
 }
 
 .buttons {
   display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 2rem;
+}
+
+.byline {
+  max-width: 660px;
+  margin: 1.5rem 0 0;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.byline a {
+  color: #fff;
+  font-weight: 700;
+  text-decoration-color: rgba(244, 197, 66, 0.75);
+  text-underline-offset: 0.2rem;
+}
+
+.main {
+  background: var(--ifm-background-color);
+}
+
+.aboutSection {
+  padding: 4.5rem 0 5rem;
+  background:
+    linear-gradient(
+      180deg,
+      var(--ifm-background-color) 0%,
+      var(--ifm-color-emphasis-100) 100%
+    );
+}
+
+.noteSection {
+  padding: 0 0 5rem;
+  background: var(--ifm-color-emphasis-100);
+}
+
+.notePanel {
+  max-width: 880px;
+  padding: 2rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  background: var(--ifm-card-background-color);
+}
+
+.notePanel h2 {
+  margin-bottom: 1rem;
+}
+
+.notePanel p {
+  font-size: 1.03rem;
+  line-height: 1.65;
+}
+
+.noteLink {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-weight: 700;
+}
+
+.aboutGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(240px, 0.65fr);
+  gap: 3rem;
   align-items: center;
-  justify-content: center;
+}
+
+.aboutText {
+  max-width: 760px;
+}
+
+.aboutText h2 {
+  margin-bottom: 1rem;
+}
+
+.aboutText p {
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.profileLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  align-items: center;
+}
+
+.portraitPanel {
+  justify-self: end;
+  width: min(100%, 320px);
+}
+
+.portrait {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(23, 32, 51, 0.18);
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 4.5rem 0;
+    background-image:
+      linear-gradient(rgba(23, 32, 51, 0.86), rgba(23, 32, 51, 0.92)),
+      var(--hero-image);
+    background-position: center, center;
+    background-size: auto, cover;
+  }
+
+  .heroTitle {
+    font-size: 2.7rem;
+  }
+
+  .heroSubtitle {
+    font-size: 1.15rem;
+  }
+
+  .aboutGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .portraitPanel {
+    justify-self: start;
+    width: min(100%, 260px);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .heroBanner {
+    padding: 3.5rem 0;
+  }
+
+  .heroTitle {
+    font-size: 2.25rem;
+  }
+
+  .buttons,
+  .profileLinks {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .notePanel {
+    padding: 1.5rem;
+  }
 }

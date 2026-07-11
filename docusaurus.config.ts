@@ -81,7 +81,7 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
+    image: 'img/social-card.jpg',
     navbar: {
       title: 'M365Wizard',
       logo: {
@@ -142,6 +142,23 @@ const config: Config = {
             {
               label: 'GitHub',
               href: 'https://github.com/DwayneSelsig/M365wizard',
+            },
+          ],
+        },
+        {
+          title: 'Dwayne',
+          items: [
+            {
+              label: 'Website',
+              href: 'https://www.dwayneselsig.eu/',
+            },
+            {
+              label: 'GitHub',
+              href: 'https://github.com/DwayneSelsig/',
+            },
+            {
+              label: 'LinkedIn',
+              href: 'https://www.linkedin.com/in/dwayne-selsig/',
             },
           ],
         },

@@ -1,11 +1,63 @@
 .features {
-  display: flex;
-  align-items: center;
-  padding: 2rem 0;
+  padding: 4.5rem 0;
   width: 100%;
 }
 
-.featureSvg {
-  height: 200px;
-  width: 200px;
+.featuresHeader {
+  max-width: 760px;
+  margin-bottom: 2rem;
+}
+
+.featuresHeader h2 {
+  margin-bottom: 0.75rem;
+}
+
+.featuresHeader p {
+  color: var(--ifm-color-emphasis-700);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.featureCard {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+  padding: 1.5rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  background: var(--ifm-card-background-color);
+}
+
+.featureLabel {
+  margin: 0 0 0.75rem;
+  color: #2f8f4e;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.featureCard h3 {
+  margin-bottom: 0.75rem;
+}
+
+.featureCard p {
+  line-height: 1.6;
+}
+
+.featureLink {
+  margin-top: auto;
+  font-weight: 700;
+}
+
+@media screen and (max-width: 996px) {
+  .featureGrid {
+    grid-template-columns: 1fr;
+  }
 }

@@ -1,58 +1,67 @@
 import type {ReactNode} from 'react';
-import clsx from 'clsx';
+import Link from '@docusaurus/Link';
 import Heading from '@theme/Heading';
 import styles from './styles.module.css';
 
 type FeatureItem = {
   title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
+  label: string;
+  to: string;
+  linkLabel: string;
   description: ReactNode;
 };
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: 'Choose the right tool',
+    label: 'Decisions',
+    to: '/docs/category/decisions',
+    linkLabel: 'Open decision guides',
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Compare Microsoft 365 services by the work people need to do, not by a
+        list of overlapping features.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: 'Understand tradeoffs',
+    label: 'Ownership',
+    to: '/docs/admin-and-governance/permissions-and-ownership',
+    linkLabel: 'Review ownership guidance',
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        See where lifecycle, sharing, permissions, and reuse can make a simple
+        tool choice succeed or create friction.
       </>
     ),
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: 'Work from real scenarios',
+    label: 'Scenarios',
+    to: '/docs/category/scenarios',
+    linkLabel: 'Browse scenarios',
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Start with the pattern you recognize: collecting information, publishing
+        content, managing tasks, or collaborating on documents.
       </>
     ),
   },
 ];
 
-function Feature({title, Svg, description}: FeatureItem) {
+function Feature({title, label, to, linkLabel, description}: FeatureItem) {
   return (
-    <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
-      </div>
-      <div className="text--center padding-horiz--md">
+    <article className={styles.featureCard}>
+      <p className={styles.featureLabel}>{label}</p>
+      <div>
         <Heading as="h3">{title}</Heading>
         <p>{description}</p>
       </div>
-    </div>
+      <Link className={styles.featureLink} to={to}>
+        {linkLabel}
+      </Link>
+    </article>
   );
 }
 
@@ -60,7 +69,15 @@ export default function HomepageFeatures(): ReactNode {
   return (
     <section className={styles.features}>
       <div className="container">
-        <div className="row">
+        <div className={styles.featuresHeader}>
+          <Heading as="h2">Start with the choice in front of you</Heading>
+          <p>
+            M365Wizard is organized around practical decisions, common work
+            scenarios, and governance questions that shape how Microsoft 365 is
+            used every day.
+          </p>
+        </div>
+        <div className={styles.featureGrid}>
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />
           ))}
