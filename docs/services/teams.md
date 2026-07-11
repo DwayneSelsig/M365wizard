@@ -25,3 +25,4 @@ Do not create a Team for every announcement, community, or published page. Teams
 
 - [Which Collaboration Tool Should I Use?](../decisions/which-collaboration-tool-should-i-use.md)
 - [Teams Or Viva Engage?](../decisions/teams-or-viva-engage.md)
+- [My Calendars](../tools/my-calendars.md)

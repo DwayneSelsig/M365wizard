@@ -25,3 +25,5 @@ SharePoint can become messy when ownership is unclear. Every important site or l
 
 - [Publish Information](../scenarios/publish-information.md)
 - [Organization Assets Library](../admin-and-governance/organization-assets-library.md)
+- [My Enterprise Apps](../tools/my-enterprise-apps.md)
+- [My Calendars](../tools/my-calendars.md)

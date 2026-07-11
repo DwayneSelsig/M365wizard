@@ -24,3 +24,4 @@ Identity settings affect every service. Changes should be tested, communicated, 
 ## Related Guides
 
 - [Conditional Access](../admin-and-governance/conditional-access.md)
+- [My Enterprise Apps](../tools/my-enterprise-apps.md)

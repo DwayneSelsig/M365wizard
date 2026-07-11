@@ -28,3 +28,7 @@ Use Bookings when external or internal people need to schedule time with a servi
 ## Why It Matters
 
 Bookings turns availability into a managed service. It reduces manual scheduling and makes the appointment process feel consistent for the person booking time.
+
+## Related Tool
+
+Use [My Calendars](../tools/my-calendars.md) when the problem is not appointment intake, but showing calendar information from multiple Microsoft 365 sources in one SharePoint page.

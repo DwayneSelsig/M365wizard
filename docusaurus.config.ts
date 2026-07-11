@@ -95,6 +95,7 @@ const config: Config = {
           position: 'left',
           label: 'Guides',
         },
+        {to: '/docs/category/tools', label: 'Tools', position: 'left'},
         {to: '/blog', label: 'Blog', position: 'left'},
         {
           href: 'https://github.com/DwayneSelsig/M365wizard',

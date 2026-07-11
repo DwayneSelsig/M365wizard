@@ -25,3 +25,4 @@ Planner is not designed for complex project management. Keep it focused on work 
 
 - [Forms, Lists, Or Planner?](../decisions/forms-list-or-planner.md)
 - [Manage Tasks And Work](../scenarios/manage-tasks-and-work.md)
+- [My Calendars](../tools/my-calendars.md)

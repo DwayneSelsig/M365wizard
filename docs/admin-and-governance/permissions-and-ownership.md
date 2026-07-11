@@ -26,3 +26,8 @@ For every important workspace, define the business owner, technical owner, inten
 Prefer groups over individual permissions. Use clear names. Avoid unique permissions unless there is a real reason.
 
 Simple permission models are easier to support and safer to maintain.
+
+## Related Guides
+
+- [My Enterprise Apps](../tools/my-enterprise-apps.md)
+- [My Calendars](../tools/my-calendars.md)
