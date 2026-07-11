@@ -21,13 +21,15 @@ const config: Config = {
   projectName: 'M365Wizard', // Usually your repo name.
 
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
 
   deploymentBranch: 'gh-pages',
   trailingSlash: false,
 
   markdown: {
     mermaid: true,
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
   },
 
   // Even if you don't use internationalization, you can use this field to set
