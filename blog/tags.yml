@@ -1,19 +1,14 @@
-facebook:
-  label: Facebook
-  permalink: /facebook
-  description: Facebook tag description
+microsoft-365:
+  label: Microsoft 365
+  permalink: /microsoft-365
+  description: Practical guidance for Microsoft 365.
 
-hello:
-  label: Hello
-  permalink: /hello
-  description: Hello tag description
+microsoft-education:
+  label: Microsoft Education
+  permalink: /microsoft-education
+  description: Microsoft 365 guidance for education.
 
-docusaurus:
-  label: Docusaurus
-  permalink: /docusaurus
-  description: Docusaurus tag description
-
-hola:
-  label: Hola
-  permalink: /hola
-  description: Hola tag description
+copilot:
+  label: Copilot
+  permalink: /copilot
+  description: Guidance for using Microsoft 365 Copilot.
