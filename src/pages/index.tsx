@@ -100,6 +100,33 @@ function AboutDwayne() {
   );
 }
 
+function Tools() {
+  return (
+    <section className={styles.toolsSection} aria-labelledby="tools">
+      <div className="container">
+        <div className={styles.toolsPanel}>
+          <p className={styles.sectionLabel}>Custom work</p>
+          <Heading as="h2" id="tools">
+            Tools
+          </Heading>
+          <p>
+            Standard Microsoft 365 configuration covers many needs. When it
+            does not, I design focused tools, integrations, and SharePoint
+            solutions that make everyday work easier.
+          </p>
+          <p>
+            Each solution starts with the work people need to do, with clear
+            ownership and a realistic fit for the tenant.
+          </p>
+          <Link className={styles.toolsLink} to="/docs/category/tools">
+            Explore the tools
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function EditorialNote() {
   return (
     <section className={styles.noteSection} aria-labelledby="editorial-note">
@@ -146,6 +173,7 @@ export default function Home(): ReactNode {
       <HomepageHeader />
       <main className={styles.main}>
         <HomepageFeatures />
+        <Tools />
         <AboutDwayne />
         <EditorialNote />
       </main>

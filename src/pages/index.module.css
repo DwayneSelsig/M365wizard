@@ -70,6 +70,33 @@
   background: var(--ifm-background-color);
 }
 
+.toolsSection {
+  padding: 0 0 4.5rem;
+}
+
+.toolsPanel {
+  max-width: 880px;
+  padding: 2rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  background: var(--ifm-card-background-color);
+}
+
+.toolsPanel h2 {
+  margin-bottom: 1rem;
+}
+
+.toolsPanel p {
+  font-size: 1.03rem;
+  line-height: 1.65;
+}
+
+.toolsLink {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-weight: 700;
+}
+
 .aboutSection {
   padding: 4.5rem 0 5rem;
   background:
@@ -196,6 +223,10 @@
   }
 
   .notePanel {
+    padding: 1.5rem;
+  }
+
+  .toolsPanel {
     padding: 1.5rem;
   }
 }
