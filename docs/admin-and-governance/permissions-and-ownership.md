@@ -31,3 +31,4 @@ Simple permission models are easier to support and safer to maintain.
 
 - [My Enterprise Apps](../tools/my-enterprise-apps.md)
 - [My Calendars](../tools/my-calendars.md)
+- [Somtoday To Microsoft School Data Sync](../tools/somtoday-to-school-data-sync.md)
