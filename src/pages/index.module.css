@@ -14,7 +14,7 @@
     var(--hero-image);
   background-position: center, right center;
   background-repeat: no-repeat;
-  background-size: auto, auto 115%;
+  background-size: auto, auto 100%;
 }
 
 .heroContent {

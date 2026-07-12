@@ -10,7 +10,7 @@ import styles from './index.module.css';
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
-  const heroImage = useBaseUrl('/img/dwayne.jpg');
+  const heroImage = useBaseUrl('/img/setupwizard.png');
   const heroStyle = {
     '--hero-image': `url("${heroImage}")`,
   } as CSSProperties;
