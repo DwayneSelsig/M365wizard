@@ -1,10 +1,11 @@
 dwayne:
   name: Dwayne Selsig
-  title: Cloud solution Architect
-  url: www.dwayneselsig.eu
+  title: Microsoft Certified Azure Solutions Architect | Microsoft 365 & Education
+  url: https://www.dwayneselsig.eu
   image_url: /img/dwayne.jpg
   page: true
   socials:
-    x: dwayneselsig
     github: dwayneselsig
     linkedin: dwayne-selsig
+    email: dwayne@dwayneselsig.com
+    url: https://www.dwayneselsig.eu
