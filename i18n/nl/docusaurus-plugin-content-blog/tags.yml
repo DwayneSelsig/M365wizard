@@ -1,0 +1,14 @@
+microsoft-365:
+  label: Microsoft 365
+  permalink: /microsoft-365
+  description: Praktische richtlijnen voor Microsoft 365.
+
+microsoft-education:
+  label: Microsoft Education
+  permalink: /microsoft-education
+  description: Microsoft 365-richtlijnen voor het onderwijs.
+
+copilot:
+  label: Copilot
+  permalink: /copilot
+  description: Richtlijnen voor het gebruik van Microsoft 365 Copilot.

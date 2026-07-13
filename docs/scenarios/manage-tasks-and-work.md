@@ -15,7 +15,7 @@ Task management is about visibility, ownership, and follow-through.
 
 ## Recommended Pattern
 
-Use Planner for lightweight team work. Keep the plan connected to the Team where the conversation and files live. Use Lists when the items are more like records than tasks.
+Use a basic Planner plan for lightweight team work. Keep the plan connected to the Team where the conversation and files live. Use Lists when the items are more like records than tasks.
 
 ## Use Planner For
 
@@ -25,6 +25,6 @@ Use Planner for lightweight team work. Keep the plan connected to the Team where
 - Small project execution.
 - Recurring operational work.
 
-## When Planner Is Not Enough
+## Use A Premium Planner Plan For More Complex Projects
 
-Planner is not a full project management system. If you need dependencies, baselines, formal resource planning, or portfolio reporting, you may need Microsoft Project or another specialized tool.
+A basic Planner plan is for straightforward team work. If you need dependencies, baselines, formal resource planning, or portfolio management, use a premium plan in Planner. This requires an additional Planner license. Choose another specialized tool only when Planner does not fit your way of working.

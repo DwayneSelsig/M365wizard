@@ -1,0 +1,66 @@
+{
+  "version.label": {
+    "message": "Huidig",
+    "description": "The label for version current"
+  },
+  "sidebar.guidesSidebar.category.Decisions": {
+    "message": "Keuzes",
+    "description": "The label for category 'Decisions' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.Decisions.link.generated-index.title": {
+    "message": "Keuzegidsen",
+    "description": "The generated-index page title for category 'Decisions' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.Decisions.link.generated-index.description": {
+    "message": "Kies het juiste Microsoft 365-hulpmiddel voordat je begint met het werk.",
+    "description": "The generated-index page description for category 'Decisions' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.Scenarios": {
+    "message": "Scenario's",
+    "description": "The label for category 'Scenarios' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.Scenarios.link.generated-index.title": {
+    "message": "Scenariogidsen",
+    "description": "The generated-index page title for category 'Scenarios' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.Scenarios.link.generated-index.description": {
+    "message": "Praktische werkwijzen voor veelvoorkomend werk in Microsoft 365.",
+    "description": "The generated-index page description for category 'Scenarios' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.Services": {
+    "message": "Diensten",
+    "description": "The label for category 'Services' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.Services.link.generated-index.title": {
+    "message": "Dienstengidsen",
+    "description": "The generated-index page title for category 'Services' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.Services.link.generated-index.description": {
+    "message": "Korte oriëntatiepagina's voor Microsoft 365-diensten en -apps.",
+    "description": "The generated-index page description for category 'Services' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.Admin & Governance": {
+    "message": "Beheer en governance",
+    "description": "The label for category 'Admin & Governance' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.Admin & Governance.link.generated-index.title": {
+    "message": "Gidsen voor beheer en governance",
+    "description": "The generated-index page title for category 'Admin & Governance' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.Admin & Governance.link.generated-index.description": {
+    "message": "Patronen voor eigenaarschap, machtigingen, publiceren, sjablonen en organisatiebrede inrichting.",
+    "description": "The generated-index page description for category 'Admin & Governance' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.Tools": {
+    "message": "Tools",
+    "description": "The label for category 'Tools' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.Tools.link.generated-index.title": {
+    "message": "Tools",
+    "description": "The generated-index page title for category 'Tools' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.Tools.link.generated-index.description": {
+    "message": "Praktische Microsoft 365-hulpmiddelen, integraties en SharePoint Framework-webparts van Dwayne Selsig.",
+    "description": "The generated-index page description for category 'Tools' in sidebar 'guidesSidebar'"
+  }
+}

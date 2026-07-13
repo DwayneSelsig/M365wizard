@@ -1,50 +1,54 @@
 import type {ReactNode} from 'react';
 import Link from '@docusaurus/Link';
 import Heading from '@theme/Heading';
+import Translate from '@docusaurus/Translate';
 import styles from './styles.module.css';
 
 type FeatureItem = {
-  title: string;
-  label: string;
+  title: ReactNode;
+  label: ReactNode;
   to: string;
-  linkLabel: string;
+  linkLabel: ReactNode;
   description: ReactNode;
 };
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Choose the right tool',
-    label: 'Decisions',
+    title: <Translate id="homepageFeatures.decisions.title">Choose the right tool</Translate>,
+    label: <Translate id="homepageFeatures.decisions.label">Decisions</Translate>,
     to: '/docs/category/decisions',
-    linkLabel: 'Open decision guides',
+    linkLabel: <Translate id="homepageFeatures.decisions.link">Open decision guides</Translate>,
     description: (
       <>
-        Compare Microsoft 365 services by the work people need to do, not by a
-        list of overlapping features.
+        <Translate id="homepageFeatures.decisions.description">
+          Compare Microsoft 365 services by the work people need to do, not by a list of overlapping features.
+        </Translate>
       </>
     ),
   },
   {
-    title: 'Understand tradeoffs',
-    label: 'Ownership',
+    title: <Translate id="homepageFeatures.ownership.title">Understand tradeoffs</Translate>,
+    label: <Translate id="homepageFeatures.ownership.label">Ownership</Translate>,
     to: '/docs/admin-and-governance/permissions-and-ownership',
-    linkLabel: 'Review ownership guidance',
+    linkLabel: <Translate id="homepageFeatures.ownership.link">Review ownership guidance</Translate>,
     description: (
       <>
-        See where lifecycle, sharing, permissions, and reuse can make a simple
-        tool choice succeed or create friction.
+        <Translate id="homepageFeatures.ownership.description">
+          See where lifecycle, sharing, permissions, and reuse can make a simple tool choice succeed or create friction.
+        </Translate>
       </>
     ),
   },
   {
-    title: 'Work from real scenarios',
-    label: 'Scenarios',
+    title: <Translate id="homepageFeatures.scenarios.title">Work from real scenarios</Translate>,
+    label: <Translate id="homepageFeatures.scenarios.label">Scenarios</Translate>,
     to: '/docs/category/scenarios',
-    linkLabel: 'Browse scenarios',
+    linkLabel: <Translate id="homepageFeatures.scenarios.link">Browse scenarios</Translate>,
     description: (
       <>
-        Start with the pattern you recognize: collecting information, publishing
-        content, managing tasks, or collaborating on documents.
+        <Translate id="homepageFeatures.scenarios.description">
+          Start with the pattern you recognize: collecting information, publishing content, managing tasks, or collaborating on documents.
+        </Translate>
       </>
     ),
   },
@@ -70,11 +74,13 @@ export default function HomepageFeatures(): ReactNode {
     <section className={styles.features}>
       <div className="container">
         <div className={styles.featuresHeader}>
-          <Heading as="h2">Start with the choice in front of you</Heading>
+          <Heading as="h2">
+            <Translate id="homepageFeatures.heading">Start with the choice in front of you</Translate>
+          </Heading>
           <p>
-            M365Wizard is organized around practical decisions, common work
-            scenarios, and governance questions that shape how Microsoft 365 is
-            used every day.
+            <Translate id="homepageFeatures.introduction">
+              M365Wizard is organized around practical decisions, common work scenarios, and governance questions that shape how Microsoft 365 is used every day.
+            </Translate>
           </p>
         </div>
         <div className={styles.featureGrid}>

@@ -37,7 +37,13 @@ const config: Config = {
   // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
-    locales: ['en'],
+    locales: ['en', 'nl'],
+    localeConfigs: {
+      nl: {
+        label: 'Nederlands',
+        htmlLang: 'nl-NL',
+      },
+    },
   },
 
   presets: [
@@ -75,7 +81,7 @@ const config: Config = {
       require.resolve('@easyops-cn/docusaurus-search-local'),
       /** @type {import('@easyops-cn/docusaurus-search-local').PluginOptions} */ ({
         hashed: true,
-        // language: ['en', 'zh'],
+        language: ['en', 'nl'],
         // forceIgnoreNoIndex: true,
       }),
     ],
@@ -99,6 +105,10 @@ const config: Config = {
         },
         {to: '/docs/category/tools', label: 'Tools', position: 'left'},
         {to: '/blog', label: 'Blog', position: 'left'},
+        {
+          type: 'localeDropdown',
+          position: 'right',
+        },
         {
           href: 'https://github.com/DwayneSelsig/M365wizard',
           label: 'GitHub',

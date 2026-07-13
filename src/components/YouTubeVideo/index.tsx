@@ -1,4 +1,5 @@
 import type {ReactNode} from 'react';
+import Translate, {translate} from '@docusaurus/Translate';
 import styles from './styles.module.css';
 import {resolveYouTubeVideoId} from './parseYouTubeVideoId';
 
@@ -8,20 +9,22 @@ type YouTubeVideoProps = {
   title?: string;
 };
 
-const DEFAULT_TITLE = 'Embedded YouTube video';
-
 export default function YouTubeVideo({
   id,
   url,
-  title = DEFAULT_TITLE,
+  title = translate({
+    id: 'youtubeVideo.defaultTitle',
+    message: 'Embedded YouTube video',
+  }),
 }: YouTubeVideoProps): ReactNode {
   const videoId = resolveYouTubeVideoId({id, url});
 
   if (!videoId) {
     return (
       <p className={styles.error} role="alert">
-        Unable to load YouTube video: provide a valid 11-character YouTube video
-        ID or supported YouTube URL.
+        <Translate id="youtubeVideo.invalidVideo" description="Shown when a YouTube video ID or URL is invalid">
+          Unable to load YouTube video: provide a valid 11-character YouTube video ID or supported YouTube URL.
+        </Translate>
       </p>
     );
   }
