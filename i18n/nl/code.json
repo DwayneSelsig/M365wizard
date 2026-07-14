@@ -118,6 +118,22 @@
     "message": "Kan de YouTube-video niet laden: geef een geldige YouTube-video-ID van 11 tekens of een ondersteunde YouTube-URL op.",
     "description": "Shown when a YouTube video ID or URL is invalid"
   },
+  "youtubeVideo.privacyHeading": {
+    "message": "Deze video wordt aangeboden door YouTube.",
+    "description": "Heading in the privacy placeholder shown before loading a YouTube video"
+  },
+  "youtubeVideo.privacyDescription": {
+    "message": "Je kunt de video hier laden of rechtstreeks op YouTube openen. In beide gevallen maakt je browser verbinding met YouTube en kan YouTube gegevens verwerken, zoals je IP-adres en informatie over je apparaat en browser.",
+    "description": "Privacy notice shown before loading a YouTube video"
+  },
+  "youtubeVideo.load": {
+    "message": "Video laden",
+    "description": "Button label that loads a YouTube video in the page"
+  },
+  "youtubeVideo.openOnYouTube": {
+    "message": "Open op YouTube",
+    "description": "Button label that opens a YouTube video in a new tab"
+  },
   "theme.ErrorPageContent.title": {
     "message": "Deze pagina is gecrasht.",
     "description": "The title of the fallback page when the page crashed"
