@@ -79,6 +79,6 @@ When upgrading, upload the new `.sppkg` file and overwrite the existing package.
 
 ## Related Guides
 
-- [SharePoint](../services/sharepoint.md)
+- [SharePoint](../services/sharepoint/index.md)
 - [Entra ID](../services/entra-id.md)
 - [Permissions And Ownership](../admin-and-governance/permissions-and-ownership.md)

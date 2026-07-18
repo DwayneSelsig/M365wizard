@@ -1,0 +1,43 @@
+---
+title: SharePoint
+sidebar_position: 1
+sidebar_label: Overview
+slug: /services/sharepoint
+roles: [EndUser, KeyUser, IT]
+level: beginner
+license: ""
+tags: [service, sharepoint, publishing]
+accent: default
+prereqs: []
+---
+
+# SharePoint
+
+SharePoint is Microsoft 365's place for shared, structured, and published information. It brings sites, pages, lists, libraries, permissions, and publishing patterns together without making every visitor work in the same way.
+
+## Best For
+
+Use SharePoint for intranet content, document libraries, published information, structured lists, team sites, and organization resources.
+
+## Be Careful With
+
+SharePoint can become messy when ownership is unclear. Every important site, library, list, and page needs an owner, a purpose, and a lifecycle. Do not use a homepage to copy content that already has a managed source.
+
+## Permissions: Prefer Inheritance
+
+Let libraries, lists, pages, and items inherit their permissions from the site whenever possible. This gives people a predictable experience and lets owners review access in one place. Break inheritance only for a documented, genuinely different audience, with a named owner who reviews that exception.
+
+## Learn How SharePoint Works
+
+Start with the structure behind a site, then see how a page brings that information together, and finally follow what happens for a visitor opening a homepage.
+
+1. [Sites, Libraries, Lists, and Permissions](./sharepoint-content-structure.md)
+2. [How a SharePoint Page Is Built](./sharepoint-pages-and-web-parts.md)
+3. [What Happens When You Open a SharePoint Home Page?](./sharepoint-homepage-experience.md)
+
+## Related Guides
+
+- [Publish Information](../../scenarios/publish-information.md)
+- [Organization Assets Library](../../admin-and-governance/organization-assets-library.md)
+- [My Enterprise Apps](../../tools/my-enterprise-apps.md)
+- [My Calendars](../../tools/my-calendars.md)

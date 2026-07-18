@@ -1,0 +1,43 @@
+---
+title: SharePoint
+sidebar_position: 1
+sidebar_label: Overzicht
+slug: /services/sharepoint
+roles: [EndUser, KeyUser, IT]
+level: beginner
+license: ""
+tags: [dienst, sharepoint, publiceren]
+accent: default
+prereqs: []
+---
+
+# SharePoint
+
+SharePoint is de plek in Microsoft 365 voor gedeelde, gestructureerde en gepubliceerde informatie. Het brengt sites, pagina's, lijsten, bibliotheken, machtigingen en publicatiepatronen samen, zonder dat iedere bezoeker op dezelfde manier hoeft te werken.
+
+## Het beste voor
+
+Gebruik SharePoint voor intranetinhoud, documentbibliotheken, gepubliceerde informatie, gestructureerde lijsten, teamsites en organisatiebronnen.
+
+## Let op
+
+SharePoint kan rommelig worden wanneer eigenaarschap onduidelijk is. Elke belangrijke site, bibliotheek, lijst en pagina heeft een eigenaar, doel en levenscyclus nodig. Gebruik een homepage niet om inhoud te kopiëren die al een beheerde bron heeft.
+
+## Machtigingen: kies voor overerving
+
+Laat bibliotheken, lijsten, pagina's en items waar mogelijk hun machtigingen van de site overerven. Daardoor is de ervaring voorspelbaar en kunnen eigenaren toegang op één plek beoordelen. Verbreek overerving alleen voor een gedocumenteerde, werkelijk afwijkende doelgroep, met een benoemde eigenaar die die uitzondering controleert.
+
+## Leer hoe SharePoint werkt
+
+Begin met de structuur achter een site, bekijk daarna hoe een pagina die informatie samenbrengt en volg ten slotte wat er gebeurt wanneer een bezoeker een homepage opent.
+
+1. [Sites, bibliotheken, lijsten en machtigingen](./sharepoint-content-structure.md)
+2. [Hoe een SharePoint-pagina is opgebouwd](./sharepoint-pages-and-web-parts.md)
+3. [Wat gebeurt er wanneer je een SharePoint-homepage opent?](./sharepoint-homepage-experience.md)
+
+## Gerelateerde gidsen
+
+- [Informatie publiceren](../../scenarios/publish-information.md)
+- [Bibliotheek met organisatie-assets](../../admin-and-governance/organization-assets-library.md)
+- [My Enterprise Apps](../../tools/my-enterprise-apps.md)
+- [My Calendars](../../tools/my-calendars.md)
