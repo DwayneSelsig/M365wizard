@@ -137,6 +137,6 @@ Ga terug naar [hoe een SharePoint-pagina is opgebouwd](./sharepoint-pages-and-we
 
 ## Gerelateerde gidsen
 
-- [SharePoint](./index.md)
+- [SharePoint](./index.mdx)
 - [Informatie publiceren](../../scenarios/publish-information.md)
 - [Machtigingen en eigenaarschap](../../admin-and-governance/permissions-and-ownership.md)

@@ -137,6 +137,6 @@ Return to [how a SharePoint page is built](./sharepoint-pages-and-web-parts.md) 
 
 ## Related Guides
 
-- [SharePoint](./index.md)
+- [SharePoint](./index.mdx)
 - [Publish Information](../../scenarios/publish-information.md)
 - [Permissions And Ownership](../../admin-and-governance/permissions-and-ownership.md)

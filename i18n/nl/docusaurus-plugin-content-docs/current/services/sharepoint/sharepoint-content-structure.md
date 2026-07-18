@@ -107,6 +107,6 @@ Bekijk [hoe een SharePoint-pagina is opgebouwd](./sharepoint-pages-and-web-parts
 
 ## Gerelateerde gidsen
 
-- [SharePoint](./index.md)
+- [SharePoint](./index.mdx)
 - [Waar moet dit bestand staan?](../../decisions/where-should-this-file-live.md)
 - [Machtigingen en eigenaarschap](../../admin-and-governance/permissions-and-ownership.md)

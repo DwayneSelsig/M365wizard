@@ -103,6 +103,6 @@ Read [what happens when someone opens a SharePoint homepage](./sharepoint-homepa
 
 ## Related Guides
 
-- [SharePoint](./index.md)
+- [SharePoint](./index.mdx)
 - [Publish Information](../../scenarios/publish-information.md)
 - [Organization Assets Library](../../admin-and-governance/organization-assets-library.md)

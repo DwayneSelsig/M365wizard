@@ -103,6 +103,6 @@ Lees [wat er gebeurt wanneer iemand een SharePoint-homepage opent](./sharepoint-
 
 ## Gerelateerde gidsen
 
-- [SharePoint](./index.md)
+- [SharePoint](./index.mdx)
 - [Informatie publiceren](../../scenarios/publish-information.md)
 - [Bibliotheek met organisatie-assets](../../admin-and-governance/organization-assets-library.md)

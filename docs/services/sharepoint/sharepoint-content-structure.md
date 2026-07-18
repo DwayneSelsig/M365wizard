@@ -107,6 +107,6 @@ See [how a SharePoint page is built](./sharepoint-pages-and-web-parts.md), then 
 
 ## Related Guides
 
-- [SharePoint](./index.md)
+- [SharePoint](./index.mdx)
 - [Where Should This File Live?](../../decisions/where-should-this-file-live.md)
 - [Permissions And Ownership](../../admin-and-governance/permissions-and-ownership.md)
