@@ -88,7 +88,7 @@ Wanneer een webpart een lijst of bibliotheek toont, leest hij de bestaande infor
 Laat Sitepagina's en de bronnen die webparts gebruiken waar mogelijk machtigingen van de site overerven. Een filter, indeling of doelgroepinstelling van een webpart vervangt de machtigingen van de bron niet. Geef niet aan losse pagina's of items eigen toegang alleen om te veranderen wat op een homepage verschijnt; gebruik voor een werkelijk andere doelgroep een duidelijk beheerde bron.
 
 ```mermaid
-flowchart TD
+flowchart LR
     Home[Homepage] --> Hero[Hero: belangrijke onderwerpen]
     Home --> News[Nieuws: recente updates]
     Home --> Links[Snelle koppelingen: apps en sites]
@@ -104,5 +104,5 @@ Lees [wat er gebeurt wanneer iemand een SharePoint-homepage opent](./sharepoint-
 ## Gerelateerde gidsen
 
 - [SharePoint](./index.md)
-- [Informatie publiceren](../scenarios/publish-information.md)
-- [Bibliotheek met organisatie-assets](../admin-and-governance/organization-assets-library.md)
+- [Informatie publiceren](../../scenarios/publish-information.md)
+- [Bibliotheek met organisatie-assets](../../admin-and-governance/organization-assets-library.md)

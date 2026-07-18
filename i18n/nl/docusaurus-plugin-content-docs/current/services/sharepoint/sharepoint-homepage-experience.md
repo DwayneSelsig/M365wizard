@@ -16,7 +16,7 @@ Het openen van een SharePoint-site start meer dan één actie. SharePoint herken
 ## De homepageflow
 
 ```mermaid
-flowchart LR
+flowchart TD
     Visitor[Bezoeker opent site] --> Access[Aanmelding en paginatoegang]
     Access --> Home[Aangewezen homepage]
     Home --> Layout[Pagina-indeling en webparts]
@@ -138,5 +138,5 @@ Ga terug naar [hoe een SharePoint-pagina is opgebouwd](./sharepoint-pages-and-we
 ## Gerelateerde gidsen
 
 - [SharePoint](./index.md)
-- [Informatie publiceren](../scenarios/publish-information.md)
-- [Machtigingen en eigenaarschap](../admin-and-governance/permissions-and-ownership.md)
+- [Informatie publiceren](../../scenarios/publish-information.md)
+- [Machtigingen en eigenaarschap](../../admin-and-governance/permissions-and-ownership.md)

@@ -88,7 +88,7 @@ When a web part shows a list or library, it reads the existing information. The 
 Let Site Pages and the sources used by web parts inherit permissions from their site whenever possible. A web part's filter, layout, or audience setting is not a replacement for source permissions. Avoid giving individual pages or items unique access just to change what appears on a homepage; use a clearly owned source for a genuinely different audience.
 
 ```mermaid
-flowchart TD
+flowchart LR
     Home[Homepage] --> Hero[Hero: important topics]
     Home --> News[News: recent updates]
     Home --> Links[Quick Links: apps and sites]
@@ -104,5 +104,5 @@ Read [what happens when someone opens a SharePoint homepage](./sharepoint-homepa
 ## Related Guides
 
 - [SharePoint](./index.md)
-- [Publish Information](../scenarios/publish-information.md)
-- [Organization Assets Library](../admin-and-governance/organization-assets-library.md)
+- [Publish Information](../../scenarios/publish-information.md)
+- [Organization Assets Library](../../admin-and-governance/organization-assets-library.md)

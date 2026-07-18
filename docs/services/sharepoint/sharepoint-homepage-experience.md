@@ -16,7 +16,7 @@ Opening a SharePoint site starts more than one action. SharePoint identifies the
 ## The Homepage Flow
 
 ```mermaid
-flowchart LR
+flowchart TD
     Visitor[Visitor opens site] --> Access[Sign-in and page access]
     Access --> Home[Designated homepage]
     Home --> Layout[Page layout and web parts]
@@ -138,5 +138,5 @@ Return to [how a SharePoint page is built](./sharepoint-pages-and-web-parts.md) 
 ## Related Guides
 
 - [SharePoint](./index.md)
-- [Publish Information](../scenarios/publish-information.md)
-- [Permissions And Ownership](../admin-and-governance/permissions-and-ownership.md)
+- [Publish Information](../../scenarios/publish-information.md)
+- [Permissions And Ownership](../../admin-and-governance/permissions-and-ownership.md)
