@@ -116,6 +116,8 @@ Noem inhoud niet automatisch een archief omdat niemand haar gebruikt. Bevestig d
 
 Maak niet automatisch van iedere bovenliggende map een site. Maak een site wanneer inhoud een duidelijk doel, een eigenaar, een doelgroep en een gezamenlijke levenscyclus heeft. Gebruik een aparte site wanneer de beveiligingsgrens of het eigenaarschap wezenlijk anders is.
 
+Gebruik [Site, bibliotheek of map: waar organiseer je documenten?](../decisions/site-library-or-folder.md) om dit ontwerp te doorlopen voordat je migratiebestemmingen maakt.
+
 Binnen een site:
 
 - gebruik je documentbibliotheken voor verschillende inhoudsverzamelingen of beheerregels;
@@ -210,6 +212,7 @@ Meet succes aan vindbaarheid, juiste toegang, acceptatie door de eigenaar, conti
 ## Gerelateerde gidsen
 
 - [Waar moet dit bestand staan?](../decisions/where-should-this-file-live.md)
+- [Site, bibliotheek of map: waar organiseer je documenten?](../decisions/site-library-or-folder.md)
 - [SharePoint-inhoud: sites, bibliotheken, lijsten en machtigingen](../services/sharepoint/sharepoint-content-structure.md)
 - [Machtigingen en eigenaarschap](./permissions-and-ownership.md)
 - [Samenwerken aan documenten](../scenarios/collaborate-on-documents.md)

@@ -20,7 +20,9 @@ flowchart TD
     Site[SharePoint-site] --> Library[Documentbibliotheek]
     Site --> Pages[Sitepagina's-bibliotheek]
     Site --> List[SharePoint-lijst]
+    Library --> Folder[Map]
     Library --> File[Bestandsitem]
+    Folder --> File
     Pages --> Page[Pagina-item]
     List --> Record[Gegevensitem]
 ```
@@ -44,6 +46,12 @@ flowchart LR
     Document --> Metadata[Metadata]
     Metadata --> Fields[Titel, status, afdeling, eigenaar]
 ```
+
+## Kies het juiste niveau
+
+Als documenten in SharePoint thuishoren, kies dan eerst de grens en daarna de indeling. Gebruik een site wanneer eigenaarschap, doelgroep of toegang verandert. Gebruik een bibliotheek voor een herkenbare documentverzameling met een eigen proces of eigen instellingen. Gebruik mappen voor eenvoudige navigatie en metadata wanneer mensen dezelfde documenten op meerdere manieren moeten kunnen vinden.
+
+Volg [Site, bibliotheek of map: waar organiseer je documenten?](../../decisions/site-library-or-folder.md) voor de volledige beslisstroom, voorbeelden en governancewaarschuwingen.
 
 ## Lijsten slaan gegevensrecords op
 
@@ -109,4 +117,5 @@ Bekijk [hoe een SharePoint-pagina is opgebouwd](./sharepoint-pages-and-web-parts
 
 - [SharePoint](./index.mdx)
 - [Waar moet dit bestand staan?](../../decisions/where-should-this-file-live.md)
+- [Site, bibliotheek of map: waar organiseer je documenten?](../../decisions/site-library-or-folder.md)
 - [Machtigingen en eigenaarschap](../../admin-and-governance/permissions-and-ownership.md)

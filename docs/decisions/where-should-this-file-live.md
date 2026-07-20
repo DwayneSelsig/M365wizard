@@ -52,6 +52,8 @@ Use SharePoint when a wider audience needs stable access to published informatio
 
 This allows the team to keep improving the source document without changing what the organization currently sees.
 
+Once SharePoint is the destination, use [Site, Library, Or Folder: Where Should You Organize Documents?](./site-library-or-folder.md) to choose the right structure within SharePoint.
+
 ## Watch For These Signals
 
 - People ask, "Where is the latest version?"

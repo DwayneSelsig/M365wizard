@@ -52,6 +52,8 @@ Gebruik SharePoint wanneer een groter publiek stabiele toegang tot gepubliceerde
 
 Zo kan het team het brondocument blijven verbeteren zonder te veranderen wat de organisatie op dat moment ziet.
 
+Gebruik nadat SharePoint als bestemming is gekozen [Site, bibliotheek of map: waar organiseer je documenten?](./site-library-or-folder.md) om binnen SharePoint de juiste structuur te bepalen.
+
 ## Let op deze signalen
 
 - Mensen vragen: "Waar staat de nieuwste versie?"

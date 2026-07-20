@@ -20,7 +20,9 @@ flowchart TD
     Site[SharePoint site] --> Library[Document library]
     Site --> Pages[Site Pages library]
     Site --> List[SharePoint list]
+    Library --> Folder[Folder]
     Library --> File[File item]
+    Folder --> File
     Pages --> Page[Page item]
     List --> Record[Record item]
 ```
@@ -44,6 +46,12 @@ flowchart LR
     Document --> Metadata[Metadata]
     Metadata --> Fields[Title, status, department, owner]
 ```
+
+## Choose The Right Level
+
+Once documents belong in SharePoint, choose the boundary before the layout. Use a site when ownership, audience, or access changes. Use a library for a recognizable document set with its own process or settings. Use folders for simple navigation and metadata when people need several ways to find the same documents.
+
+Follow [Site, Library, Or Folder: Where Should You Organize Documents?](../../decisions/site-library-or-folder.md) for the full decision flow, examples, and governance cautions.
 
 ## Lists Store Records
 
@@ -109,4 +117,5 @@ See [how a SharePoint page is built](./sharepoint-pages-and-web-parts.md), then 
 
 - [SharePoint](./index.mdx)
 - [Where Should This File Live?](../../decisions/where-should-this-file-live.md)
+- [Site, Library, Or Folder: Where Should You Organize Documents?](../../decisions/site-library-or-folder.md)
 - [Permissions And Ownership](../../admin-and-governance/permissions-and-ownership.md)

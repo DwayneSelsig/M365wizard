@@ -116,6 +116,8 @@ Do not call content an archive merely because nobody uses it. Confirm its owner,
 
 Do not automatically turn every top-level folder into a site. Create a site when content shares a clear purpose, owner, audience, and lifecycle. Use a separate site when the security boundary or ownership is materially different.
 
+Use [Site, Library, Or Folder: Where Should You Organize Documents?](../decisions/site-library-or-folder.md) to work through this design before creating migration destinations.
+
 Within a site:
 
 - use document libraries for distinct content sets or management rules;
@@ -210,6 +212,7 @@ Measure success by findability, correct access, owner acceptance, process contin
 ## Related Guides
 
 - [Where Should This File Live?](../decisions/where-should-this-file-live.md)
+- [Site, Library, Or Folder: Where Should You Organize Documents?](../decisions/site-library-or-folder.md)
 - [SharePoint Content: Sites, Libraries, Lists, And Permissions](../services/sharepoint/sharepoint-content-structure.md)
 - [Permissions And Ownership](./permissions-and-ownership.md)
 - [Collaborate On Documents](../scenarios/collaborate-on-documents.md)
