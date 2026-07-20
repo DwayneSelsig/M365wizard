@@ -154,6 +154,37 @@ import YouTubeVideo from '@site/src/components/YouTubeVideo';
 - Do not change the component's `id`, `url`, or `title` API while authoring
   content.
 
+## Docusaurus Admonitions
+
+Use standard Docusaurus admonitions for standalone cautions, risks,
+prerequisites, and high-salience guidance. Do not use a separate H2 such as
+`## Be Careful With` or `## Let op` when the content is a focused warning.
+
+Use the supported types `note`, `tip`, `info`, `warning`, and `danger`. For a
+service limitation or practical caution, use `warning` with a localized title:
+
+```md
+:::warning[Be Careful With]
+
+SharePoint can become messy when ownership is unclear.
+
+:::
+```
+
+```md
+:::warning[Let op]
+
+SharePoint kan rommelig worden wanneer eigenaarschap onduidelijk is.
+
+:::
+```
+
+Keep the admonition at the same point in both locales, localize its title and
+content, and retain surrounding explanatory prose. Leave blank lines inside
+the opening and closing directives so the syntax remains stable when formatted.
+Do not use admonitions for ordinary explanatory paragraphs or to replace a
+substantial comparison or guidance section.
+
 ## Mermaid Decision Flows
 
 Mermaid support is already provided by `@docusaurus/theme-mermaid`. Do not
