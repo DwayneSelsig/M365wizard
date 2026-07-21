@@ -17,6 +17,23 @@
   background-size: auto, auto 100%;
 }
 
+@media screen and (min-width: 1440px) {
+  .heroBanner {
+    background-image:
+      linear-gradient(
+        90deg,
+        #172033fa 0%,
+        #17203330 54%,
+        #17203300 100%
+      ),
+      var(--hero-image);
+
+    background-position:
+      center,
+      right calc((100vw - var(--ifm-container-width)) / 2) center;
+  }
+}
+
 .heroContent {
   max-width: 760px;
 }
