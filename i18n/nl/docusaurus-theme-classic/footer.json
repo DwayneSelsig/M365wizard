@@ -31,6 +31,14 @@
     "message": "Diensten",
     "description": "The label of footer link with label=Services linking to /docs/category/services"
   },
+  "link.item.label.Tools": {
+    "message": "Tools",
+    "description": "The label of footer link with label=Tools linking to /docs/category/tools"
+  },
+  "link.item.label.Admin & Governance": {
+    "message": "Beheer en governance",
+    "description": "The label of footer link with label=Admin & Governance linking to /docs/category/admin--governance"
+  },
   "link.item.label.Blog": {
     "message": "Blog",
     "description": "The label of footer link with label=Blog linking to /blog"

@@ -138,6 +138,14 @@ const config: Config = {
               label: 'Services',
               to: '/docs/category/services',
             },
+            {
+              label: 'Tools',
+              to: '/docs/category/tools',
+            },
+            {
+              label: 'Admin & Governance',
+              to: '/docs/category/admin--governance',
+            },
           ],
         },
         {
@@ -181,6 +189,7 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
+      additionalLanguages: ['powershell'],
     },
 	plugins: [
     function injectMetaBadges() {
