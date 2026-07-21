@@ -1,6 +1,8 @@
 ---
 title: Excel
 sidebar_position: 11
+sidebar_custom_props:
+  cardIcon: /img/services/excel.svg
 roles: [EndUser, KeyUser]
 level: beginner
 license: ""

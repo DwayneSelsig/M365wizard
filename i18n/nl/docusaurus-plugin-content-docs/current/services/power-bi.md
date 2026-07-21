@@ -1,6 +1,8 @@
 ---
 title: Power BI
 sidebar_position: 14
+sidebar_custom_props:
+  cardIcon: /img/services/power-bi.svg
 roles: [EndUser, KeyUser, IT]
 level: intermediate
 license: ""

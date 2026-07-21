@@ -1,6 +1,8 @@
 ---
 title: Copilot
 sidebar_position: 13
+sidebar_custom_props:
+  cardIcon: /img/services/copilot.svg
 roles: [EndUser, KeyUser, IT]
 level: beginner
 license: ""

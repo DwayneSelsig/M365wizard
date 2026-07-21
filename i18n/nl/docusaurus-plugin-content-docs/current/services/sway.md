@@ -1,6 +1,8 @@
 ---
 title: Sway
 sidebar_position: 8
+sidebar_custom_props:
+  cardIcon: /img/services/sway.svg
 roles: [EndUser, KeyUser]
 level: beginner
 license: ""

@@ -1,6 +1,8 @@
 ---
 title: Bookings
 sidebar_position: 6
+sidebar_custom_props:
+  cardIcon: /img/services/bookings.svg
 roles: [EndUser, KeyUser]
 level: beginner
 license: ""

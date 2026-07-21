@@ -1,6 +1,8 @@
 ---
 title: Loop
 sidebar_position: 9
+sidebar_custom_props:
+  cardIcon: /img/services/loop.svg
 roles: [EndUser, KeyUser, IT]
 level: beginner
 license: ""

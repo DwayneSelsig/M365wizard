@@ -1,6 +1,8 @@
 ---
 title: Defender
 sidebar_position: 15
+sidebar_custom_props:
+  cardIcon: /img/services/defender.svg
 roles: [IT, KeyUser]
 level: intermediate
 license: ""

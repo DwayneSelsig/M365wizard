@@ -1,6 +1,8 @@
 ---
 title: Entra ID
 sidebar_position: 16
+sidebar_custom_props:
+  cardIcon: /img/services/entra-id.svg
 roles: [IT, KeyUser]
 level: intermediate
 license: ""

@@ -1,6 +1,8 @@
 ---
 title: PowerPoint
 sidebar_position: 12
+sidebar_custom_props:
+  cardIcon: /img/services/powerpoint.svg
 roles: [EndUser, KeyUser]
 level: beginner
 license: ""

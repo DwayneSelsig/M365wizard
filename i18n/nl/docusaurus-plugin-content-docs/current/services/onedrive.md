@@ -1,6 +1,8 @@
 ---
 title: OneDrive
 sidebar_position: 1
+sidebar_custom_props:
+  cardIcon: /img/services/onedrive.svg
 roles: [EndUser, KeyUser, IT]
 level: beginner
 license: ""

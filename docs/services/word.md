@@ -1,6 +1,8 @@
 ---
 title: Word
 sidebar_position: 10
+sidebar_custom_props:
+  cardIcon: /img/services/word.svg
 roles: [EndUser, KeyUser]
 level: beginner
 license: ""

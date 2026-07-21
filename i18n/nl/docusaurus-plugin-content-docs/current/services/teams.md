@@ -1,6 +1,8 @@
 ---
 title: Teams
 sidebar_position: 2
+sidebar_custom_props:
+  cardIcon: /img/services/teams.svg
 roles: [EndUser, KeyUser, IT]
 level: beginner
 license: ""

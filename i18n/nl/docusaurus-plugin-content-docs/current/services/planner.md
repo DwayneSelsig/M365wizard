@@ -1,6 +1,8 @@
 ---
 title: Planner
 sidebar_position: 5
+sidebar_custom_props:
+  cardIcon: /img/services/planner.svg
 roles: [EndUser, KeyUser]
 level: beginner
 license: ""

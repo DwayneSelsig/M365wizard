@@ -1,0 +1,12 @@
+.cardTitleIcon {
+  flex: 0 0 auto;
+  font-size: 1.6rem;
+  margin-right: 0.6rem;
+}
+
+.cardTitleImage {
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  object-fit: contain;
+}

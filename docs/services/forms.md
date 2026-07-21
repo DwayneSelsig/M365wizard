@@ -1,6 +1,8 @@
 ---
 title: Forms
 sidebar_position: 7
+sidebar_custom_props:
+  cardIcon: /img/services/forms.svg
 roles: [EndUser, KeyUser]
 level: beginner
 license: ""
