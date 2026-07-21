@@ -29,7 +29,7 @@ Purview-oplossingen werken vaak samen. Dat betekent niet dat ieder scenario ze a
 ## Beslisstroom
 
 ```mermaid
-flowchart TD
+flowchart LR
     Start{Welk resultaat heb je nodig?}
     Start -->|Data ontdekken en vertrouwen| Govern[Data Map en Unified Catalog]
     Start -->|Inhoud classificeren of beschermen| Protect[Information Protection, DLP en DSPM]

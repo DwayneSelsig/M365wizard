@@ -29,7 +29,7 @@ Purview solutions often work together. That does not mean every scenario needs a
 ## Decision Flow
 
 ```mermaid
-flowchart TD
+flowchart LR
     Start{What outcome do you need?}
     Start -->|Discover and trust data| Govern[Data Map and Unified Catalog]
     Start -->|Classify or protect content| Protect[Information Protection, DLP, and DSPM]
