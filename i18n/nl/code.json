@@ -118,6 +118,10 @@
     "message": "Kan de YouTube-video niet laden: geef een geldige YouTube-video-ID van 11 tekens of een ondersteunde YouTube-URL op.",
     "description": "Shown when a YouTube video ID or URL is invalid"
   },
+  "youtubeVideo.invalidConfiguration": {
+    "message": "Kan de YouTube-video niet laden: gebruik een videotaal van twee letters en positieve gehele start- en eindtijden, waarbij de eindtijd na de starttijd ligt.",
+    "description": "Shown when YouTube video language or playback times are invalid"
+  },
   "youtubeVideo.privacyHeading": {
     "message": "Deze video wordt aangeboden door YouTube.",
     "description": "Heading in the privacy placeholder shown before loading a YouTube video"

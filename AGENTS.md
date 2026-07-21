@@ -141,6 +141,7 @@ import YouTubeVideo from '@site/src/components/YouTubeVideo';
 <YouTubeVideo
   id="i_3ucu1o4ig"
   title="Descriptive, localized video title"
+  videoLanguage="en"
 />
 ```
 
@@ -148,11 +149,18 @@ import YouTubeVideo from '@site/src/components/YouTubeVideo';
   provide both.
 - Always provide a specific, accessible `title`; translate it in the locale
   counterpart because custom titles are not translated automatically.
+- For new or changed embeds, provide the video's original spoken language as
+  an ISO 639-1 code in `videoLanguage` when it is known. Keep the same value in
+  both locale counterparts. Captions are automatically requested in the page
+  language when it differs from the video language.
+- Use optional `start` and `end` values to limit playback to positive whole
+  seconds. `end` is measured from the beginning of the video, not from
+  `start`. When both are present, `end` must be later than `start`.
 - Keep the same video and surrounding meaning in both locales.
 - Explain the relevant recommendation or facts in prose so the page remains
   useful without loading or watching the video.
-- Do not change the component's `id`, `url`, or `title` API while authoring
-  content.
+- The supported authoring props are `id`, `url`, `title`, `videoLanguage`,
+  `start`, and `end`. Do not change this component API while authoring content.
 
 ## Docusaurus Admonitions
 

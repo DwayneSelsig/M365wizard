@@ -1,6 +1,8 @@
 import {useState, type ReactNode} from 'react';
 import Translate, {translate} from '@docusaurus/Translate';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './styles.module.css';
+import {buildYouTubeEmbedUrl} from './buildYouTubeEmbedUrl';
 import {resolveYouTubeVideoId} from './parseYouTubeVideoId';
 import YouTubeLogo from './youtubelogo.svg';
 
@@ -8,18 +10,36 @@ type YouTubeVideoProps = {
   id?: string;
   url?: string;
   title?: string;
+  videoLanguage?: string | null;
+  start?: number;
+  end?: number;
 };
 
 export default function YouTubeVideo({
   id,
   url,
+  videoLanguage,
+  start,
+  end,
   title = translate({
     id: 'youtubeVideo.defaultTitle',
     message: 'Embedded YouTube video',
   }),
 }: YouTubeVideoProps): ReactNode {
+  const {
+    i18n: {currentLocale},
+  } = useDocusaurusContext();
   const videoId = resolveYouTubeVideoId({id, url});
   const [isLoaded, setIsLoaded] = useState(false);
+  const embedUrl = videoId
+    ? buildYouTubeEmbedUrl({
+        videoId,
+        currentLocale,
+        videoLanguage,
+        start,
+        end,
+      })
+    : undefined;
 
   if (!videoId) {
     return (
@@ -31,11 +51,21 @@ export default function YouTubeVideo({
     );
   }
 
+  if (!embedUrl) {
+    return (
+      <p className={styles.error} role="alert">
+        <Translate id="youtubeVideo.invalidConfiguration" description="Shown when YouTube video language or playback times are invalid">
+          Unable to load YouTube video: use a two-letter video language and positive whole-number start and end times, with end after start.
+        </Translate>
+      </p>
+    );
+  }
+
   return (
     <div className={styles.video}>
       {isLoaded ? (
         <iframe
-          src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1`}
+          src={embedUrl}
           title={title}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen

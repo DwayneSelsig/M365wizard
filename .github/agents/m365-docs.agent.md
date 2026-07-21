@@ -43,12 +43,24 @@ dependency changes.
    ```mdx
    import YouTubeVideo from '@site/src/components/YouTubeVideo';
 
-   <YouTubeVideo id="i_3ucu1o4ig" title="Descriptive, localized video title" />
+   <YouTubeVideo
+     id="i_3ucu1o4ig"
+     title="Descriptive, localized video title"
+     videoLanguage="en"
+   />
    ```
 
    Prefer `id` over `url`, provide only one, and translate the accessible
-   `title` in the locale counterpart. Keep the written guidance useful without
-   the video, and do not use a video as the sole source for product claims.
+   `title` in the locale counterpart. For new or changed embeds, provide the
+   original spoken language as an ISO 639-1 `videoLanguage` when known and keep
+   that value identical between locales. The component requests captions in
+   the page language when it differs from `videoLanguage`; `null` or an omitted
+   value does not force captions. Optional `start` and `end` values must be
+   positive whole seconds, with `end` measured from the beginning of the video
+   and later than `start` when both are present. Supported authoring props are
+   `id`, `url`, `title`, `videoLanguage`, `start`, and `end`. Keep the written
+   guidance useful without the video, and do not use a video as the sole source
+   for product claims.
 8. Run `npm run build` and review warnings for both locales. Run
    `npm run typecheck` when TypeScript or configuration is affected, `npm test`
    when YouTube behavior is affected, and `git diff --check` before finishing.
