@@ -4,7 +4,7 @@ sidebar_position: 7
 roles: [KeyUser, IT]
 level: intermediate
 license: ""
-tags: [keuze, sharepoint, bestanden, informatiearchitectuur]
+tags: [decision, sharepoint, files, information-architecture]
 accent: default
 prereqs: []
 ---
@@ -143,6 +143,8 @@ Een andere bewaarbehoefte is een signaal om eigenaars voor informatiebeheer, jur
 
 Bepaal eerst het beleid en pas daarna de geschikte Microsoft Purview-bewaarbeleidsregels of -labels toe. Microsoft legt in [Bewaring voor SharePoint en OneDrive](https://learn.microsoft.com/en-us/purview/retention-policies-sharepoint) uit hoe bewaring voor deze locaties werkt.
 
+Structuur, machtigingen, gevoeligheid en bewaring beantwoorden verschillende vragen. Gebruik [Welke Microsoft Purview-oplossing moet je gebruiken?](./which-purview-solution-should-you-use.md) wanneer de vereiste verder gaat dan waar documenten moeten worden georganiseerd.
+
 ## Stel deze ontwerpvragen
 
 1. Wie is verantwoordelijk voor deze informatie?
@@ -188,6 +190,7 @@ Leg de antwoorden vast voordat je containers maakt. Als de eigenaar, doelgroep o
 ## Gerelateerde gidsen
 
 - [Waar moet dit bestand staan?](./where-should-this-file-live.md)
+- [Welke Microsoft Purview-oplossing moet je gebruiken?](./which-purview-solution-should-you-use.md)
 - [SharePoint-inhoud: sites, bibliotheken, lijsten en machtigingen](../services/sharepoint/sharepoint-content-structure.md)
 - [Machtigingen en eigenaarschap](../admin-and-governance/permissions-and-ownership.md)
 - [Van fileserver naar SharePoint: kopiëren of opnieuw indelen?](../admin-and-governance/migrate-file-server-to-sharepoint.md)

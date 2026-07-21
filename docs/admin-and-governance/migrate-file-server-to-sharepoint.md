@@ -110,6 +110,8 @@ OneDrive, Teams, and SharePoint are not interchangeable folders. The destination
 
 Do not call content an archive merely because nobody uses it. Confirm its owner, required retention period, access needs, legal holds, and approved disposal process. Configure [Microsoft Purview retention for SharePoint and OneDrive](https://learn.microsoft.com/en-us/purview/retention-policies-sharepoint) where policy or regulation requires it.
 
+Use [Which Microsoft Purview Solution Should You Use?](../decisions/which-purview-solution-should-you-use.md) when migration decisions also require sensitivity labels, DLP, records, evidence, or investigation controls.
+
 :::
 
 ## 4. Design The New Structure And Access
@@ -213,6 +215,8 @@ Measure success by findability, correct access, owner acceptance, process contin
 
 - [Where Should This File Live?](../decisions/where-should-this-file-live.md)
 - [Site, Library, Or Folder: Where Should You Organize Documents?](../decisions/site-library-or-folder.md)
+- [Which Microsoft Purview Solution Should You Use?](../decisions/which-purview-solution-should-you-use.md)
+- [Microsoft Purview](../services/purview.md)
 - [SharePoint Content: Sites, Libraries, Lists, And Permissions](../services/sharepoint/sharepoint-content-structure.md)
 - [Permissions And Ownership](./permissions-and-ownership.md)
 - [Collaborate On Documents](../scenarios/collaborate-on-documents.md)

@@ -143,6 +143,8 @@ A different retention requirement is a signal to involve records, legal, securit
 
 Define the policy first, and then apply the appropriate Microsoft Purview retention policies or labels. Microsoft explains how retention works for these locations in [Retention for SharePoint and OneDrive](https://learn.microsoft.com/en-us/purview/retention-policies-sharepoint).
 
+Structure, permissions, sensitivity, and retention answer different questions. Use [Which Microsoft Purview Solution Should You Use?](./which-purview-solution-should-you-use.md) when the requirement extends beyond where documents should be organized.
+
 ## Ask These Design Questions
 
 1. Who is accountable for this information?
@@ -188,6 +190,7 @@ Record the answers before creating containers. If the owner, audience, or purpos
 ## Related Guides
 
 - [Where Should This File Live?](./where-should-this-file-live.md)
+- [Which Microsoft Purview Solution Should You Use?](./which-purview-solution-should-you-use.md)
 - [SharePoint Content: Sites, Libraries, Lists, And Permissions](../services/sharepoint/sharepoint-content-structure.md)
 - [Permissions And Ownership](../admin-and-governance/permissions-and-ownership.md)
 - [From File Server To SharePoint: Copy Or Reorganize?](../admin-and-governance/migrate-file-server-to-sharepoint.md)

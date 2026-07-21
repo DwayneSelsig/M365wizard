@@ -110,6 +110,8 @@ OneDrive, Teams en SharePoint zijn geen onderling verwisselbare mappen. De beste
 
 Noem inhoud niet automatisch een archief omdat niemand haar gebruikt. Bevestig de eigenaar, vereiste bewaartermijn, toegangsbehoefte, juridische bewaarplichten en het goedgekeurde verwijderproces. Configureer [Microsoft Purview-bewaarbeleid voor SharePoint en OneDrive](https://learn.microsoft.com/en-us/purview/retention-policies-sharepoint) waar beleid of regelgeving dit vereist.
 
+Gebruik [Welke Microsoft Purview-oplossing moet je gebruiken?](../decisions/which-purview-solution-should-you-use.md) wanneer migratiebesluiten ook gevoeligheidslabels, DLP, records, bewijs of onderzoeksmaatregelen vereisen.
+
 :::
 
 ## 4. Ontwerp de nieuwe structuur en toegang
@@ -213,6 +215,8 @@ Meet succes aan vindbaarheid, juiste toegang, acceptatie door de eigenaar, conti
 
 - [Waar moet dit bestand staan?](../decisions/where-should-this-file-live.md)
 - [Site, bibliotheek of map: waar organiseer je documenten?](../decisions/site-library-or-folder.md)
+- [Welke Microsoft Purview-oplossing moet je gebruiken?](../decisions/which-purview-solution-should-you-use.md)
+- [Microsoft Purview](../services/purview.md)
 - [SharePoint-inhoud: sites, bibliotheken, lijsten en machtigingen](../services/sharepoint/sharepoint-content-structure.md)
 - [Machtigingen en eigenaarschap](./permissions-and-ownership.md)
 - [Samenwerken aan documenten](../scenarios/collaborate-on-documents.md)
