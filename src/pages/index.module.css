@@ -30,7 +30,7 @@
 
     background-position:
       center,
-      right calc((100vw - var(--ifm-container-width)) / 2) center;
+      right calc((90vw - var(--ifm-container-width)) / 2) center;
   }
 }
 
