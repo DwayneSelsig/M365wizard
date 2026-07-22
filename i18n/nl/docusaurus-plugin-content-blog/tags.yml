@@ -12,3 +12,23 @@ copilot:
   label: Copilot
   permalink: /copilot
   description: Richtlijnen voor het gebruik van Microsoft 365 Copilot.
+
+microsoft-teams:
+  label: Microsoft Teams
+  permalink: /microsoft-teams
+  description: Praktische richtlijnen voor Microsoft Teams.
+
+school-data-sync:
+  label: School Data Sync
+  permalink: /school-data-sync
+  description: Richtlijnen voor Microsoft School Data Sync in het onderwijs.
+
+microsoft-graph:
+  label: Microsoft Graph
+  permalink: /microsoft-graph
+  description: Richtlijnen voor automatisering en integratie met Microsoft Graph.
+
+powershell:
+  label: PowerShell
+  permalink: /powershell
+  description: Richtlijnen voor PowerShell-automatisering in Microsoft 365.

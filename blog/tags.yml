@@ -12,3 +12,23 @@ copilot:
   label: Copilot
   permalink: /copilot
   description: Guidance for using Microsoft 365 Copilot.
+
+microsoft-teams:
+  label: Microsoft Teams
+  permalink: /microsoft-teams
+  description: Practical guidance for Microsoft Teams.
+
+school-data-sync:
+  label: School Data Sync
+  permalink: /school-data-sync
+  description: Guidance for Microsoft School Data Sync in education.
+
+microsoft-graph:
+  label: Microsoft Graph
+  permalink: /microsoft-graph
+  description: Automation and integration guidance for Microsoft Graph.
+
+powershell:
+  label: PowerShell
+  permalink: /powershell
+  description: PowerShell automation guidance for Microsoft 365.
