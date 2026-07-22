@@ -54,14 +54,14 @@ function HomepageHeader() {
   );
 }
 
-function AboutDwayne() {
+function MakerSection() {
   const portrait = useBaseUrl('/img/dwayne.jpg');
 
   return (
-    <section className={styles.aboutSection} aria-labelledby="about-dwayne">
+    <section className={styles.makerSection} aria-labelledby="about-dwayne">
       <div className="container">
-        <div className={styles.aboutGrid}>
-          <div className={styles.aboutText}>
+        <div className={styles.makerGrid}>
+          <div className={styles.makerText}>
             <p className={styles.sectionLabel}>
               <Translate id="homepage.about.label">About the author</Translate>
             </p>
@@ -120,7 +120,7 @@ function Tools() {
   return (
     <section className={styles.toolsSection} aria-labelledby="tools">
       <div className="container">
-        <div className={styles.toolsPanel}>
+        <div className={styles.toolsContent}>
           <p className={styles.sectionLabel}>
             <Translate id="homepage.tools.label">Custom work</Translate>
           </p>
@@ -146,39 +146,83 @@ function Tools() {
   );
 }
 
-function EditorialNote() {
+function AboutM365Wizard() {
   return (
-    <section className={styles.noteSection} aria-labelledby="editorial-note">
+    <section className={styles.siteSection} aria-labelledby="about-m365wizard">
       <div className="container">
-        <div className={styles.notePanel}>
+        <div className={styles.siteContent}>
           <p className={styles.sectionLabel}>
-            <Translate id="homepage.editorial.label">Editorial note</Translate>
+            <Translate id="homepage.site.label">Transparency</Translate>
           </p>
-          <Heading as="h2" id="editorial-note">
-            <Translate id="homepage.editorial.title">Architected by Dwayne, written with AI support</Translate>
+          <Heading as="h2" id="about-m365wizard">
+            <Translate id="homepage.site.title">About M365Wizard</Translate>
           </Heading>
-          <p>
-            <Translate id="homepage.editorial.authorship">
-              The solution thinking, architectural direction, and final judgment behind M365Wizard are mine. I use AI tools to help draft, structure, and polish the writing so the guidance is easier to read.
-            </Translate>
-          </p>
-          <p>
-            <Translate id="homepage.editorial.responsibility">
-              I remain responsible for what is published here. Some guides may also refer to tools, scripts, or examples I make available on GitHub. Treat those references as optional starting points, not automatic recommendations for every tenant.
-            </Translate>
-          </p>
-          <p>
-            <Translate id="homepage.editorial.decision">
-              You always make the final decision about your Microsoft 365 environment, including whether a standard configuration is enough or whether custom work belongs in your tenant.
-            </Translate>
-          </p>
-          <a
-            className={styles.noteLink}
-            href="https://github.com/DwayneSelsig/"
-            target="_blank"
-            rel="noopener noreferrer">
-            <Translate id="homepage.editorial.link">Explore Dwayne&apos;s GitHub projects</Translate>
-          </a>
+          <div className={styles.siteTopic}>
+            <Heading as="h3" id="simple-by-design">
+              <Translate id="homepage.simple.title">Intentionally Built for Simplicity</Translate>
+            </Heading>
+            <p>
+              <Translate id="homepage.simple.introduction">
+                I care deeply about security, speed, and functionality. That is why M365Wizard is intentionally kept simple, with as little unnecessary technology as possible between you and the information you need.
+              </Translate>
+            </p>
+            <Heading as="h4">
+              <Translate id="homepage.simple.privacy.title">Privacy-Friendly</Translate>
+            </Heading>
+            <p>
+              <Translate id="homepage.simple.privacy.description">
+                No cookies, visitor profiles, or advertising trackers.
+              </Translate>
+            </p>
+            <Heading as="h4">
+              <Translate id="homepage.simple.security.title">Small Attack Surface</Translate>
+            </Heading>
+            <p>
+              <Translate id="homepage.simple.security.architecture">
+                The website does not use a traditional content management system or a database that must assemble pages for each visit. It is generated statically in advance and published through GitHub Pages.
+              </Translate>
+            </p>
+            <p>
+              <Translate id="homepage.simple.security.outcome">
+                Keeping the technical architecture simple and transparent limits the attack surface.
+              </Translate>
+            </p>
+            <Heading as="h4">
+              <Translate id="homepage.simple.performance.title">Fast and Functional</Translate>
+            </Heading>
+            <p>
+              <Translate id="homepage.simple.performance.description">
+                Pages and search results are ready immediately and do not need to be rebuilt for each visit. This keeps the website fast, clear, and functional.
+              </Translate>
+            </p>
+          </div>
+          <div className={styles.siteTopic}>
+            <Heading as="h3" id="editorial-note">
+              <Translate id="homepage.editorial.title">Architected by Dwayne, Written with AI Support</Translate>
+            </Heading>
+            <p>
+              <Translate id="homepage.editorial.authorship">
+                The solution thinking, architectural direction, and final judgment behind M365Wizard are mine. I use AI tools to help draft, structure, and polish the writing, making the guidance easier to read.
+              </Translate>
+            </p>
+            <p>
+              <Translate id="homepage.editorial.responsibility">
+                I remain responsible for what is published here. Some guides may also refer to tools, scripts, or examples I make available on GitHub. Treat those references as optional starting points, not automatic recommendations for every tenant.
+              </Translate>
+            </p>
+            <p>
+              <Translate id="homepage.editorial.decision">
+                You always make the final decision about your Microsoft 365 environment, including whether a standard configuration is enough or whether custom work belongs in your tenant.
+              </Translate>
+            </p>
+            <a
+              className={styles.siteLink}
+              href="https://github.com/DwayneSelsig/"
+              target="_blank"
+              rel="noopener noreferrer">
+              <Translate id="homepage.editorial.link">Explore Dwayne&apos;s GitHub projects</Translate>
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -197,8 +241,8 @@ export default function Home(): ReactNode {
       <main className={styles.main}>
         <HomepageFeatures />
         <Tools />
-        <AboutDwayne />
-        <EditorialNote />
+        <MakerSection />
+        <AboutM365Wizard />
       </main>
     </Layout>
   );

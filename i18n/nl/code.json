@@ -44,8 +44,11 @@
   "homepage.tools.link": {
     "message": "Bekijk de hulpmiddelen"
   },
-  "homepage.editorial.label": {
-    "message": "Redactionele toelichting"
+  "homepage.site.label": {
+    "message": "Transparantie"
+  },
+  "homepage.site.title": {
+    "message": "Over M365Wizard"
   },
   "homepage.editorial.title": {
     "message": "Ontworpen door Dwayne, geschreven met AI-ondersteuning"
@@ -61,6 +64,33 @@
   },
   "homepage.editorial.link": {
     "message": "Bekijk de GitHub-projecten van Dwayne"
+  },
+  "homepage.simple.title": {
+    "message": "Bewust eenvoudig gebouwd"
+  },
+  "homepage.simple.introduction": {
+    "message": "Ik hecht veel waarde aan veiligheid, snelheid en functionaliteit. Daarom is M365Wizard bewust eenvoudig opgebouwd, met zo min mogelijk onnodige techniek tussen jou en de informatie die je zoekt."
+  },
+  "homepage.simple.privacy.title": {
+    "message": "Privacyvriendelijk"
+  },
+  "homepage.simple.privacy.description": {
+    "message": "Geen cookies, bezoekersprofielen of advertentietracking."
+  },
+  "homepage.simple.security.title": {
+    "message": "Klein aanvalsoppervlak"
+  },
+  "homepage.simple.security.architecture": {
+    "message": "De website gebruikt geen traditioneel contentmanagementsysteem en geen database die bij ieder bezoek pagina’s moet samenstellen. De website wordt vooraf statisch gegenereerd en gepubliceerd via GitHub Pages."
+  },
+  "homepage.simple.security.outcome": {
+    "message": "Door de technische architectuur eenvoudig en overzichtelijk te houden, blijft het aanvalsoppervlak beperkt."
+  },
+  "homepage.simple.performance.title": {
+    "message": "Snel en functioneel"
+  },
+  "homepage.simple.performance.description": {
+    "message": "Pagina’s en zoekresultaten staan direct klaar en hoeven niet bij ieder bezoek opnieuw te worden opgebouwd. Zo blijft de website snel, overzichtelijk en functioneel."
   },
   "homepage.description": {
     "message": "Praktische Microsoft 365-keuzehulp voor het juiste hulpmiddel, de juiste werkwijze en het juiste eigenaarschapsmodel."

@@ -87,89 +87,90 @@
   background: var(--ifm-background-color);
 }
 
-.toolsSection {
-  padding: 0 0 4.5rem;
-}
-
-.toolsPanel {
-  max-width: 880px;
-  padding: 2rem;
-  border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: 8px;
-  background: var(--ifm-card-background-color);
-}
-
-.toolsPanel h2 {
-  margin-bottom: 1rem;
-}
-
-.toolsPanel p {
-  font-size: 1.03rem;
-  line-height: 1.65;
-}
-
 .toolsLink {
   display: inline-block;
   margin-top: 0.75rem;
   font-weight: 700;
 }
 
-.aboutSection {
+.toolsSection {
   padding: 4.5rem 0 5rem;
-  background:
-    linear-gradient(
-      180deg,
-      var(--ifm-background-color) 0%,
-      var(--ifm-color-emphasis-100) 100%
-    );
-}
-
-.noteSection {
-  padding: 0 0 5rem;
   background: var(--ifm-color-emphasis-100);
 }
 
-.notePanel {
+.toolsContent {
   max-width: 880px;
-  padding: 2rem;
-  border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: 8px;
-  background: var(--ifm-card-background-color);
 }
 
-.notePanel h2 {
+.toolsContent h2 {
   margin-bottom: 1rem;
 }
 
-.notePanel p {
+.toolsContent p {
   font-size: 1.03rem;
   line-height: 1.65;
 }
 
-.noteLink {
-  display: inline-block;
-  margin-top: 0.75rem;
-  font-weight: 700;
+.makerSection {
+  padding: 4.5rem 0 5rem;
+  background: var(--ifm-background-color);
 }
 
-.aboutGrid {
+.makerGrid {
   display: grid;
   grid-template-columns: minmax(0, 1.35fr) minmax(240px, 0.65fr);
   gap: 3rem;
   align-items: center;
 }
 
-.aboutText {
+.makerText {
   max-width: 760px;
 }
 
-.aboutText h2 {
+.makerText h2 {
   margin-bottom: 1rem;
 }
 
-.aboutText p {
+.makerText p {
   font-size: 1.05rem;
   line-height: 1.65;
+}
+
+.siteSection {
+  padding: 5rem 0;
+  background: var(--ifm-color-emphasis-100);
+}
+
+.siteContent {
+  max-width: 880px;
+}
+
+.siteContent > h2 {
+  margin-bottom: 2rem;
+}
+
+.siteTopic p {
+  font-size: 1.03rem;
+  line-height: 1.65;
+}
+
+.siteTopic h3 {
+  margin-bottom: 1rem;
+}
+
+.siteTopic h4 {
+  margin: 1.75rem 0 0.5rem;
+  font-size: 1.1rem;
+}
+
+.siteTopic + .siteTopic {
+  margin-top: 3rem;
+}
+
+.siteLink {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-weight: 700;
 }
 
 .profileLinks {
@@ -213,13 +214,13 @@
     font-size: 1.15rem;
   }
 
-  .aboutGrid {
+  .makerGrid {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
 
   .portraitPanel {
-    justify-self: start;
+    justify-self: center;
     width: min(100%, 260px);
   }
 }
@@ -239,11 +240,7 @@
     flex-direction: column;
   }
 
-  .notePanel {
-    padding: 1.5rem;
-  }
-
-  .toolsPanel {
-    padding: 1.5rem;
+  .siteTopic + .siteTopic {
+    margin-top: 2.5rem;
   }
 }
