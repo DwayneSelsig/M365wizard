@@ -2,6 +2,7 @@ import type {CSSProperties, ReactNode} from 'react';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
+import Head from '@docusaurus/Head';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Heading from '@theme/Heading';
@@ -17,40 +18,51 @@ function HomepageHeader() {
   } as CSSProperties;
 
   return (
-    <header className={styles.heroBanner} style={heroStyle}>
-      <div className="container">
-        <div className={styles.heroContent}>
-          <p className={styles.eyebrow}>
-            <Translate id="homepage.eyebrow">Practical Microsoft 365 guidance</Translate>
-          </p>
-          <Heading as="h1" className={styles.heroTitle}>
-            {siteConfig.title}
-          </Heading>
-          <p className={styles.heroSubtitle}>
-            <Translate id="homepage.heroSubtitle">
-              Choose the right Microsoft 365 tool, working pattern, and ownership model for the work in front of you.
-            </Translate>
-          </p>
-          <div className={styles.buttons}>
-            <Link className="button button--primary button--lg" to="/docs/intro">
-              <Translate id="homepage.startGuides">Start with the guides</Translate>
-            </Link>
-            <Link
-              className="button button--secondary button--lg"
-              to="/docs/category/decisions">
-              <Translate id="homepage.compareOptions">Compare your options</Translate>
-            </Link>
+    <>
+      <Head>
+        <link
+          rel="preload"
+          as="image"
+          href={heroImage}
+          type="image/png"
+          fetchPriority="high"
+        />
+      </Head>
+      <header className={styles.heroBanner} style={heroStyle}>
+        <div className="container">
+          <div className={styles.heroContent}>
+            <p className={styles.eyebrow}>
+              <Translate id="homepage.eyebrow">Practical Microsoft 365 guidance</Translate>
+            </p>
+            <Heading as="h1" className={styles.heroTitle}>
+              {siteConfig.title}
+            </Heading>
+            <p className={styles.heroSubtitle}>
+              <Translate id="homepage.heroSubtitle">
+                Choose the right Microsoft 365 tool, working pattern, and ownership model for the work in front of you.
+              </Translate>
+            </p>
+            <div className={styles.buttons}>
+              <Link className="button button--primary button--lg" to="/docs/intro">
+                <Translate id="homepage.startGuides">Start with the guides</Translate>
+              </Link>
+              <Link
+                className="button button--secondary button--lg"
+                to="/docs/category/decisions">
+                <Translate id="homepage.compareOptions">Compare your options</Translate>
+              </Link>
+            </div>
+            <p className={styles.byline}>
+              <Translate id="homepage.bylinePrefix">Created by</Translate>{' '}
+              <a href="#about-dwayne">Dwayne Selsig</a>{' '}
+              <Translate id="homepage.bylineSuffix">
+                for people who need practical Microsoft 365 choices, not another feature list.
+              </Translate>
+            </p>
           </div>
-          <p className={styles.byline}>
-            <Translate id="homepage.bylinePrefix">Created by</Translate>{' '}
-            <a href="#about-dwayne">Dwayne Selsig</a>{' '}
-            <Translate id="homepage.bylineSuffix">
-              for people who need practical Microsoft 365 choices, not another feature list.
-            </Translate>
-          </p>
         </div>
-      </div>
-    </header>
+      </header>
+    </>
   );
 }
 
