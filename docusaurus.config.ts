@@ -7,7 +7,26 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'M365Wizard',
   tagline: 'Getting started with M365',
-  favicon: 'img/favicon.ico',
+  // Keep the ICO first for browsers without SVG favicon support. SVG-capable
+  // browsers select the later, scalable icon based on its MIME type.
+  headTags: [
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'icon',
+        href: '/img/favicon.ico',
+        sizes: '32x32',
+      },
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'icon',
+        href: '/img/logo.svg',
+        type: 'image/svg+xml',
+      },
+    },
+  ],
 
   // Set the production url of your site here
   url: 'https://www.m365wizard.com',
