@@ -92,6 +92,36 @@
   "homepage.simple.performance.description": {
     "message": "Pagina’s en zoekresultaten staan direct klaar en hoeven niet bij ieder bezoek opnieuw te worden opgebouwd. Zo blijft de website snel, overzichtelijk en functioneel."
   },
+  "recentChanges.title": {
+    "message": "Recente wijzigingen"
+  },
+  "recentChanges.description": {
+    "message": "Recent gewijzigde inhoud op M365Wizard."
+  },
+  "recentChanges.introduction": {
+    "message": "De {count} meest recent gewijzigde inhoudspagina’s worden getoond."
+  },
+  "recentChanges.loading": {
+    "message": "Recente wijzigingen worden geladen…"
+  },
+  "recentChanges.error": {
+    "message": "De recente wijzigingen konden niet worden geladen. Probeer het opnieuw."
+  },
+  "recentChanges.retry": {
+    "message": "Opnieuw proberen"
+  },
+  "recentChanges.empty": {
+    "message": "Er zijn geen recente wijzigingen beschikbaar."
+  },
+  "recentChanges.type.blog": {
+    "message": "Blog"
+  },
+  "recentChanges.type.guide": {
+    "message": "Gids"
+  },
+  "recentChanges.type.page": {
+    "message": "Pagina"
+  },
   "homepage.description": {
     "message": "Praktische Microsoft 365-keuzehulp voor het juiste hulpmiddel, de juiste werkwijze en het juiste eigenaarschapsmodel."
   },

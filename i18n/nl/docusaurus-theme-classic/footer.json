@@ -43,6 +43,10 @@
     "message": "Blog",
     "description": "The label of footer link with label=Blog linking to /blog"
   },
+  "link.item.label.Recent Changes": {
+    "message": "Recente wijzigingen",
+    "description": "The label of footer link with label=Recent Changes linking to /recent-changes"
+  },
   "link.item.label.GitHub": {
     "message": "GitHub",
     "description": "The label of footer link with label=GitHub linking to https://github.com/DwayneSelsig/"

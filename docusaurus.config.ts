@@ -1,5 +1,5 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
+import { themes as prismThemes } from 'prism-react-renderer';
+import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
@@ -87,6 +87,9 @@ const config: Config = {
           onInlineAuthors: 'warn',
           onUntruncatedBlogPosts: 'warn',
         },
+        sitemap: {
+          lastmod: 'datetime'
+        },
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -122,8 +125,8 @@ const config: Config = {
           position: 'left',
           label: 'Guides',
         },
-        {to: '/docs/category/tools', label: 'Tools', position: 'left'},
-        {to: '/blog', label: 'Blog', position: 'left'},
+        { to: '/docs/category/tools', label: 'Tools', position: 'left' },
+        { to: '/blog', label: 'Blog', position: 'left' },
         {
           type: 'localeDropdown',
           position: 'right',
@@ -174,6 +177,10 @@ const config: Config = {
               label: 'Blog',
               to: '/blog',
             },
+            {
+              label: 'Recent Changes',
+              to: '/recent-changes',
+            },
           ],
         },
         {
@@ -210,28 +217,28 @@ const config: Config = {
       darkTheme: prismThemes.dracula,
       additionalLanguages: ['powershell'],
     },
-	plugins: [
-    function injectMetaBadges() {
-      return {
-        name: 'inject-meta-badges',
-        configureMDX() {
-          return {
-            remarkPlugins: [
-              () => (tree: any) => {
-                tree.children.unshift({
-                  type: 'mdxJsxFlowElement',
-                  name: 'MetaBadges',
-                  attributes: [],
-                  children: [],
-                });
-              },
-            ],
-          };
-        },
-      };
-    },
-  ],
-	
+    plugins: [
+      function injectMetaBadges() {
+        return {
+          name: 'inject-meta-badges',
+          configureMDX() {
+            return {
+              remarkPlugins: [
+                () => (tree: any) => {
+                  tree.children.unshift({
+                    type: 'mdxJsxFlowElement',
+                    name: 'MetaBadges',
+                    attributes: [],
+                    children: [],
+                  });
+                },
+              ],
+            };
+          },
+        };
+      },
+    ],
+
   } satisfies Preset.ThemeConfig,
 };
 
