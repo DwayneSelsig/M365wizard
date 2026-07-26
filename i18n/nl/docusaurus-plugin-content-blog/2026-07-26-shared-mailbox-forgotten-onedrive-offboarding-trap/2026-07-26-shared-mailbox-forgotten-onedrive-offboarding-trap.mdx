@@ -1,11 +1,11 @@
 ---
-slug: shared-mailbox-onedrive-lifecycle-after-offboarding
-title: "Een gedeelde mailbox verwijdert de oude OneDrive niet"
+slug: shared-mailbox-forgotten-onedrive-offboarding-trap
+title: "Gedeelde mailbox, vergeten OneDrive: de offboardingvalkuil"
 authors: [dwayne]
 tags: [microsoft-365, powershell]
 ---
 
-Piet Jansen gebruikt `piet.jansen@m365wizard.nl` voor inkoop. Dat werkt zolang Piet die rol heeft. Daarom maakt niemand een adres als `inkoop@m365wizard.nl`. Het adres is persoonlijk, maar het werk niet.
+Piet Jansen gebruikt `piet.jansen@m365wizard.nl` voor inkoop. Dat werkt zolang Piet die rol heeft. Daarom maakt niemand een adres als `inkoop@m365wizard.nl`. `piet.jansen@m365wizard.nl` hoort bij Piet, terwijl het inkoopproces bij de organisatie hoort.
 
 Dat verschil wordt zichtbaar wanneer John vertrekt. De organisatie converteert zijn postvak naar een gedeelde mailbox en verwijdert de licentie om kosten te besparen. De e-mail blijft beschikbaar, maar de persoonlijke OneDrive wordt geen onderdeel van de gedeelde mailbox. Het blijft een apart Microsoft 365-object.
 
@@ -42,25 +42,31 @@ Houd deze objecten uit elkaar wanneer je de voormalige medewerker onderzoekt:
 - **Het gebruikersaccount** verankert de gedeelde mailbox na de conversie. Laat het bestaan, blokkeer aanmelding en beheer de licentie volgens de eisen voor het postvak en compliance.
 - **De persoonlijke OneDrive-site** is een SharePoint-siteverzameling voor de bestanden van de gebruiker. De site heeft een eigen URL, gegevens, eigenaarschap, retentiestatus en lifecycle.
 
-De AVG schrijft niet letterlijk één specifiek type mailbox voor. De AVG verlangt wel dat organisaties persoonsgegevens rechtmatig beheren en beschermen tegen onbevoegde toegang, verlies en vernietiging. Een gedeelde identiteit past daarom beter bij een doorlopend bedrijfsproces: toegang volgt het team, eigenaarschap is duidelijker en het proces hangt niet af van één persoonlijk account. Dit is een proces- en governancebeslissing; een gedeelde mailbox maakt een proces niet vanzelf AVG-conform. Het [AVG-beginsel in artikel 5](https://eur-lex.europa.eu/legal-content/NL/TXT/?uri=CELEX:32016R0679) is het relevante uitgangspunt.
+De AVG schrijft niet letterlijk één specifiek type mailbox voor. De AVG verlangt wel dat organisaties persoonsgegevens rechtmatig beheren en beschermen tegen onbevoegde toegang, verlies en vernietiging. Een gedeelde identiteit past daarom beter bij een doorlopend bedrijfsproces: toegang volgt het team, eigenaarschap is duidelijker en het proces hangt niet af van één persoonlijk account. Dit is een proces- en governancebeslissing; een gedeelde mailbox maakt een proces niet vanzelf AVG-conform. Het [AVG-beginsel in artikel 5](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32016R0679#:~:text=Principles-,Article%205,for%2C%20and%20be%20able%20to%20demonstrate%20compliance%20with%2C%20paragraph%C2%A01%20(%E2%80%98accountability%E2%80%99).,-Article%206) is het relevante uitgangspunt.
 
-In het Nederlandse voorbeeld gebruikt Piet Jansen niet `piet.jansen@m365wizard.nl` voor inkoop. Begin met `inkoop@m365wizard.nl`. In het Engels begin je met `procurement@m365wizard.com` in plaats van een permanent proces rond Johns persoonlijke adres te bouwen.
+Piet Jansen hoort `piet.jansen@m365wizard.nl` niet voor inkoop te gebruiken. Begin met `inkoop@m365wizard.nl` in plaats van een permanent proces rond zijn persoonlijke adres te bouwen.
 
 ## Beslis eerst wat er met de gegevens gebeurt
 
-De IT-beheerder, de proceseigenaar en de verantwoordelijke voor retentie of juridisch onderzoek horen deze opruiming samen te beoordelen. Gebruik deze volgorde:
+De IT-beheerder, de proceseigenaar en de verantwoordelijke voor retentie of juridisch onderzoek horen deze opruiming samen te beoordelen. Controleer vóór de verwijdering de eigenaar van het bedrijfsproces, bestanden, delen, retentiebeleid, eDiscovery en juridische holds. Verplaats of bewaar belangrijke gegevens eerst. Gebruik [Waar moet dit bestand staan?](../docs/decisions/where-should-this-file-live) om een passende nieuwe plek te kiezen voor bestanden die beschikbaar moeten blijven.
 
-1. Open in het Exchange admin center **Recipients > Mailboxes** en zet het gebruikerspostvak om naar een gedeelde mailbox.
-2. Behoud het oude account als anker van de gedeelde mailbox. Controleer de licentie en bevestig dat aanmelden is geblokkeerd.
-3. Zoek de persoonlijke OneDrive-URL van de voormalige gebruiker in het SharePoint-beheercentrum.
-4. Controleer de eigenaar van het bedrijfsproces, bestanden, delen, retentiebeleid, eDiscovery en juridische holds. Beslis of belangrijke gegevens moeten worden verplaatst of behouden.
-5. Open de OneDrive-site als SharePoint-beheerder of siteverzamelingsbeheerder wanneer de gegevens niet meer nodig zijn en geen retentiemechanisme de beslissing blokkeert.
-6. Ga naar **Settings > Site settings > Delete this site** en bevestig pas nadat de gegevensbeslissing is vastgelegd.
-7. Beschouw de eerste verwijdering als een verplaatsing naar **Deleted Sites**. Voer geen permanente purge uit voordat de herstel- en compliancebeslissing rond is.
+OneDrive toont de standaardkoppelingen **Site-instellingen** en **Deze site verwijderen** niet. Gebruik daarom rechtstreeks de verwijderingspagina:
+
+1. Ga naar het [Microsoft 365-beheercentrum](https://admin.cloud.microsoft/).
+2. Ga naar **Gebruikers > Actieve gebruikers**.
+3. Zoek en selecteer het account.
+4. Zorg dat het account tijdelijk een licentie heeft waarin SharePoint is inbegrepen.
+5. Open het tabblad **OneDrive** en selecteer onder **Toegang krijgen tot bestanden** de optie **Koppeling naar bestanden maken**. Microsoft beschrijft deze route in de uitleg over [toegang tot de OneDrive-bestanden van een voormalige gebruiker](https://learn.microsoft.com/nl-nl/microsoft-365/admin/add-users/remove-former-employee-step-5?view=o365-worldwide).
+
+![Microsoft 365-beheercentrum met de optie Koppeling naar bestanden maken](./create-link-to-files.jpg)
+
+6. Kopieer de aangemaakte koppeling, bijvoorbeeld `https://dwayneselsig-my.sharepoint.com/personal/piet_jansen_m365wizard_nl`.
+7. Plak de koppeling in de browser, voeg `/_layouts/15/deleteweb.aspx` toe en druk op Enter.
+8. Controleer of je de juiste site hebt geopend en selecteer daarna **Verwijderen**.
 
 ![OneDrive-site-instellingen met Deze site verwijderen](./delete-onedrive-nl.jpg)
 
-Microsoft documenteert dat retentiebeleid, eDiscovery-holds en juridische holds verwijdering kunnen verhinderen. Een mislukte verwijdering is meestal een signaal om de hold te onderzoeken, niet om de opdracht te forceren. Zie de [Microsoft-uitleg over SharePoint-sites permanent verwijderen](https://learn.microsoft.com/en-us/troubleshoot/sharepoint/sites/cannot-permanently-delete-site).
+Beschouw deze verwijdering als een verplaatsing naar **Verwijderde sites**. Voer geen permanente verwijdering uit voordat de herstel- en compliancebeslissing rond is. Microsoft documenteert dat retentiebeleid, eDiscovery-holds en juridische holds verwijdering kunnen verhinderen. Een mislukte verwijdering is meestal een signaal om de hold te onderzoeken, niet om de opdracht te forceren. Zie de [Microsoft-uitleg over SharePoint-sites permanent verwijderen](https://learn.microsoft.com/en-us/troubleshoot/sharepoint/sites/cannot-permanently-delete-site).
 
 ## Eén bekende OneDrive verwijderen met PowerShell
 
@@ -69,7 +75,7 @@ Dit voorbeeld is bewust beperkt. Het verwijdert de OneDrive van één bekende ge
 ```powershell
 Install-Module -Name Microsoft.Online.SharePoint.PowerShell -Scope CurrentUser
 
-$AdminSiteUrl = "https://m365wizard-admin.sharepoint.com"
+$AdminSiteUrl = "https://dwayneselsig-admin.sharepoint.com"
 Connect-SPOService -Url $AdminSiteUrl
 
 $OneDriveSiteUrl = "https://dwayneselsig-my.sharepoint.com/personal/piet_jansen_m365wizard_nl"
@@ -99,6 +105,7 @@ Begin met `-WhatIf`, controleer elke koppeling tussen postvak en site en behande
 - [Manage unlicensed OneDrive user accounts](https://learn.microsoft.com/en-us/sharepoint/unlicensed-onedrive-accounts)
 - [About shared mailboxes in Microsoft 365](https://learn.microsoft.com/en-us/microsoft-365/admin/email/about-shared-mailboxes?view=o365-worldwide)
 - [Convert a user mailbox to a shared mailbox](https://learn.microsoft.com/en-us/microsoft-365/admin/email/convert-user-mailbox-to-shared-mailbox?view=o365-worldwide)
+- [Een andere werknemer toegang geven tot OneDrive- en Outlook-gegevens](https://learn.microsoft.com/nl-nl/microsoft-365/admin/add-users/remove-former-employee-step-5?view=o365-worldwide)
 - [Fix: Can't delete a Microsoft 365 group site permanently](https://learn.microsoft.com/en-us/troubleshoot/sharepoint/sites/cannot-permanently-delete-site)
 - [Remove-SPOSite](https://learn.microsoft.com/en-us/powershell/module/microsoft.online.sharepoint.powershell/remove-sposite?view=sharepoint-ps)
 - [Get-SPODeletedSite](https://learn.microsoft.com/en-us/powershell/module/microsoft.online.sharepoint.powershell/get-spodeletedsite?view=sharepoint-ps)

@@ -1,11 +1,11 @@
 ---
-slug: shared-mailbox-onedrive-lifecycle-after-offboarding
-title: "A Shared Mailbox Does Not Remove the Old OneDrive"
+slug: shared-mailbox-forgotten-onedrive-offboarding-trap
+title: "Shared Mailbox, Forgotten OneDrive: The Offboarding Trap"
 authors: [dwayne]
 tags: [microsoft-365, powershell]
 ---
 
-John Smith uses `john.smith@m365wizard.com` for purchasing. It works while John is in the role, so nobody stops to create `procurement@m365wizard.com`. The address is personal, but the work is not.
+John Smith uses `john.smith@m365wizard.com` for purchasing. It works while John is in the role, so nobody stops to create `procurement@m365wizard.com`. `john.smith@m365wizard.com` belongs to John, while the purchasing process belongs to the organization.
 
 That distinction becomes visible when John leaves. The organization converts his mailbox to a shared mailbox and removes the license to save money. The email remains available, but the personal OneDrive does not become part of the shared mailbox. It remains a separate Microsoft 365 object.
 
@@ -42,25 +42,31 @@ Keep these objects separate when you investigate the former employee:
 - **The user account** anchors the shared mailbox after conversion. Keep it in place, block sign-in, and manage its license according to the mailbox and compliance requirements.
 - **The personal OneDrive site** is a SharePoint site collection for the user's files. It has its own URL, data, ownership, retention state, and lifecycle.
 
-The GDPR does not prescribe one specific mailbox type. It does require organizations to manage personal data lawfully and protect it against unauthorized access, loss, and destruction. A shared identity is therefore a better fit for a continuing business process: access can follow the team, ownership is clearer, and the process does not depend on one person's account. This is a process and governance decision, not a claim that a shared mailbox alone makes a process GDPR-compliant. The [GDPR principles in Article 5](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32016R0679) are the useful reference point.
+The GDPR does not prescribe one specific mailbox type. It does require organizations to manage personal data lawfully and protect it against unauthorized access, loss, and destruction. A shared identity is therefore a better fit for a continuing business process: access can follow the team, ownership is clearer, and the process does not depend on one person's account. This is a process and governance decision, not a claim that a shared mailbox alone makes a process GDPR-compliant. The [GDPR principles in Article 5](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32016R0679#:~:text=Principles-,Article%205,for%2C%20and%20be%20able%20to%20demonstrate%20compliance%20with%2C%20paragraph%C2%A01%20(%E2%80%98accountability%E2%80%99).,-Article%206) are the useful reference point.
 
-For the Dutch example, Piet Jansen should not use `piet.jansen@m365wizard.nl` for purchasing. Start with `inkoop@m365wizard.nl`. In English, start with `procurement@m365wizard.com` instead of building a permanent process around John's personal address.
+John Smith should not use `john.smith@m365wizard.com` for procurement. Start with `procurement@m365wizard.com` instead of building a permanent process around his personal address.
 
 ## Decide Before You Delete
 
-The cleanup belongs with the IT administrator, the process owner, and whoever is responsible for retention or legal discovery. Use this order:
+The cleanup belongs with the IT administrator, the process owner, and whoever is responsible for retention or legal discovery. Before deleting anything, check the business owner, files, sharing, retention policy, eDiscovery, and legal holds. Move or retain important data first. Use [Where Should This File Live?](../docs/decisions/where-should-this-file-live) to choose an appropriate new home for files that must remain available.
 
-1. In the Exchange admin center, open **Recipients > Mailboxes** and convert the user mailbox to a shared mailbox.
-2. Keep the old account as the shared mailbox anchor. Check the license and confirm that sign-in is blocked.
-3. Find the former user's personal OneDrive URL in the SharePoint admin center.
-4. Check the business owner, files, sharing, retention policy, eDiscovery, and legal holds. Decide whether important data must be moved or retained.
-5. If the data is no longer needed and no retention mechanism blocks the decision, open the OneDrive site as a SharePoint administrator or site collection administrator.
-6. Go to **Settings > Site settings > Delete this site** and confirm only after the data decision is recorded.
-7. Treat the first deletion as a move to **Deleted Sites**. Do not permanently purge it until the recovery and compliance decision is complete.
+OneDrive does not expose the standard **Site Settings** or **Delete this site** links. Use the direct deletion page instead:
+
+1. Go to the [Microsoft 365 admin center](https://admin.cloud.microsoft/).
+2. Go to **Users > Active users**.
+3. Find and select the account.
+4. Make sure the account temporarily has a license that includes SharePoint.
+5. Open the **OneDrive** tab and, under **Get access to files**, select **Create link to files**. Microsoft documents this route in its guidance for [accessing a former user's OneDrive files](https://learn.microsoft.com/en-us/microsoft-365/admin/add-users/remove-former-employee-step-5?view=o365-worldwide).
+
+![Microsoft 365 admin center showing Create link to files](./create-link-to-files.jpg)
+
+6. Copy the generated link, for example `https://dwayneselsig-my.sharepoint.com/personal/john_smith_m365wizard_com`.
+7. Paste the link into the browser, append `/_layouts/15/deleteweb.aspx`, and press Enter.
+8. Verify that you opened the correct site, then select **Delete**.
 
 ![OneDrive site settings showing Delete This Site](./delete-onedrive-en.jpg)
 
-Microsoft documents that retention policies, eDiscovery holds, and legal holds can prevent deletion. A failed delete is often a signal to review the hold, not a reason to force the command. The [Microsoft guidance on permanently deleting SharePoint sites](https://learn.microsoft.com/en-us/troubleshoot/sharepoint/sites/cannot-permanently-delete-site) explains this boundary.
+Treat this deletion as a move to **Deleted Sites**. Do not permanently purge the site until the recovery and compliance decision is complete. Microsoft documents that retention policies, eDiscovery holds, and legal holds can prevent deletion. A failed delete is often a signal to review the hold, not a reason to force the command. The [Microsoft guidance on permanently deleting SharePoint sites](https://learn.microsoft.com/en-us/troubleshoot/sharepoint/sites/cannot-permanently-delete-site) explains this boundary.
 
 ## Remove One Known OneDrive With PowerShell
 
@@ -69,7 +75,7 @@ The following example is deliberately narrow. It removes one known user's OneDri
 ```powershell
 Install-Module -Name Microsoft.Online.SharePoint.PowerShell -Scope CurrentUser
 
-$AdminSiteUrl = "https://m365wizard-admin.sharepoint.com"
+$AdminSiteUrl = "https://dwayneselsig-admin.sharepoint.com"
 Connect-SPOService -Url $AdminSiteUrl
 
 $OneDriveSiteUrl = "https://dwayneselsig-my.sharepoint.com/personal/john_smith_m365wizard_com"
@@ -99,6 +105,7 @@ Start with `-WhatIf`, validate every mailbox-to-site match, and treat `-Purge` a
 - [Manage unlicensed OneDrive user accounts](https://learn.microsoft.com/en-us/sharepoint/unlicensed-onedrive-accounts)
 - [About shared mailboxes in Microsoft 365](https://learn.microsoft.com/en-us/microsoft-365/admin/email/about-shared-mailboxes?view=o365-worldwide)
 - [Convert a user mailbox to a shared mailbox](https://learn.microsoft.com/en-us/microsoft-365/admin/email/convert-user-mailbox-to-shared-mailbox?view=o365-worldwide)
+- [Give another employee access to OneDrive and Outlook data](https://learn.microsoft.com/en-us/microsoft-365/admin/add-users/remove-former-employee-step-5?view=o365-worldwide)
 - [Fix: Can't delete a Microsoft 365 group site permanently](https://learn.microsoft.com/en-us/troubleshoot/sharepoint/sites/cannot-permanently-delete-site)
 - [Remove-SPOSite](https://learn.microsoft.com/en-us/powershell/module/microsoft.online.sharepoint.powershell/remove-sposite?view=sharepoint-ps)
 - [Get-SPODeletedSite](https://learn.microsoft.com/en-us/powershell/module/microsoft.online.sharepoint.powershell/get-spodeletedsite?view=sharepoint-ps)
