@@ -18,6 +18,13 @@ Use the canonical role order `[EndUser, KeyUser, IT]` when more than one role
 applies. Keep guidance useful to readers who need to choose a service or
 working pattern, not merely learn where a feature is located.
 
+## Documentation Work Scope
+
+Work in documentation, tool guides, and blog content when requested. Change
+Docusaurus configuration, components, or dependencies only when the requested
+content requires it. Avoid unrelated code, navigation, styling, deployment,
+and dependency changes.
+
 ## Languages And Localization
 
 Maintain the English source and Dutch translation together:
@@ -112,6 +119,25 @@ prereqs: []
 Retain every field, choose only relevant roles and tags, and follow the values
 used by neighboring pages. Keep the page title and heading consistent.
 
+## Blog-Specific Instructions
+
+For every task that creates or substantially revises content under either:
+
+* `blog/**`
+* `i18n/nl/docusaurus-plugin-content-blog/**`
+
+read and follow `BLOG-AGENTS.md` in addition to this file.
+
+`BLOG-AGENTS.md` defines the personal writing voice, adaptive reasoning workflow, anonymized style examples, multi-agent editorial roles, and final voice gate for blog content.
+
+The English and Dutch versions must follow the same reasoning, editorial perspective, examples, qualifications, and recommendation. Translate the completed meaning naturally rather than translating an unfinished draft sentence by sentence.
+
+When instructions conflict:
+
+1. repository safety, factual accuracy, localization, and validation requirements in the root `AGENTS.md` take precedence;
+2. blog voice, reasoning, structure, and editorial examples in `BLOG-AGENTS.md` take precedence over the general documentation writing style.
+
+
 ## Official Microsoft Sources
 
 Verify and cite all time-sensitive claims, plus operationally relevant product
@@ -152,7 +178,8 @@ import YouTubeVideo from '@site/src/components/YouTubeVideo';
 - For new or changed embeds, provide the video's original spoken language as
   an ISO 639-1 code in `videoLanguage` when it is known. Keep the same value in
   both locale counterparts. Captions are automatically requested in the page
-  language when it differs from the video language.
+  language when it differs from the video language; `null` or an omitted value
+  does not force captions.
 - Use optional `start` and `end` values to limit playback to positive whole
   seconds. `end` is measured from the beginning of the video, not from
   `start`. When both are present, `end` must be later than `start`.
@@ -214,7 +241,10 @@ Place that section after `## Quick Answer`.
 ## Working Practices
 
 - Review the current worktree, the source page, its locale counterpart, and
-  relevant neighboring files before editing.
+  relevant neighboring files of the same type before editing.
+- Identify the relevant `EndUser`, `KeyUser`, and `IT` audience, then lead with
+  the recommendation or working pattern before explaining tradeoffs,
+  ownership, lifecycle, and cautions.
 - Make focused changes and avoid unrelated refactoring or formatting churn.
 - Use npm for dependencies and keep `package-lock.json` synchronized when a
   dependency genuinely changes.
@@ -226,5 +256,6 @@ Place that section after `## Quick Answer`.
 - Run `npm test` when changing the YouTube component, its URL parser, or related
   behavior.
 - Run `git diff --check` before finishing.
-- Report preexisting validation failures with their exact file and error; do
-  not silently expand the task to fix unrelated issues.
+- Report the changed English/Dutch locale pairs, official sources added,
+  validation results, and any preexisting failures with their exact file and
+  error. Do not silently expand the task to fix unrelated issues.
