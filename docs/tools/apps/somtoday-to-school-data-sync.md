@@ -105,6 +105,6 @@ Known operational behaviors from the source project:
 
 ## Related Guides
 
-- [Teams](../services/teams.md)
-- [Entra ID](../services/entra-id.md)
-- [Permissions And Ownership](../admin-and-governance/permissions-and-ownership.md)
+- [Teams](../../services/teams.md)
+- [Entra ID](../../services/entra-id.md)
+- [Permissions And Ownership](../../admin-and-governance/permissions-and-ownership.md)

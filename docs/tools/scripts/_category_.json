@@ -1,0 +1,9 @@
+{
+  "label": "Scripts",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "title": "Scripts",
+    "description": "Administrative scripts and small web utilities for Microsoft 365 and SharePoint."
+  }
+}

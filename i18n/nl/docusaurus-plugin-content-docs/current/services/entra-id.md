@@ -26,5 +26,5 @@ Identiteitsinstellingen raken elke dienst. Wijzigingen moeten worden getest, gec
 ## Gerelateerde gidsen
 
 - [Voorwaardelijke toegang](../admin-and-governance/conditional-access.md)
-- [My Enterprise Apps](../tools/my-enterprise-apps.md)
-- [Somtoday naar Microsoft School Data Sync](../tools/somtoday-to-school-data-sync.md)
+- [My Enterprise Apps](../tools/apps/my-enterprise-apps.md)
+- [Somtoday naar Microsoft School Data Sync](../tools/apps/somtoday-to-school-data-sync.md)

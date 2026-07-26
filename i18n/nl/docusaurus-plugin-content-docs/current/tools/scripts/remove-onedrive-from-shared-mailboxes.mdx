@@ -1,0 +1,94 @@
+---
+title: OneDrive van gedeelde postvakken verwijderen
+sidebar_position: 1
+roles: [IT]
+level: intermediate
+license: ""
+tags: [hulpmiddel, script, powershell, onedrive, exchange-online, sharepoint]
+accent: default
+prereqs: []
+---
+
+import CodeBlock from '@theme/CodeBlock';
+import scriptSource from '!!raw-loader!@site/static/scripts/remove-onedrive-from-shared-mailboxes.ps1';
+
+# OneDrive van gedeelde postvakken verwijderen
+
+Gebruik dit PowerShell-script nadat bij de uitdiensttreding is vastgesteld dat OneDrive-sites van gedeelde postvakken niet meer nodig zijn. Begin met `-WhatIf`, controleer elke koppeling tussen postvak en site en gebruik `-Purge` pas wanneer de beslissing over retentie en herstel definitief is.
+
+Het script zoekt gedeelde postvakken in Exchange Online, koppelt hun user principal names aan OneDrive-eigenaars in SharePoint Online en vraagt om bevestiging voordat elke gevonden site naar Verwijderde sites wordt verplaatst.
+
+## Het beste voor
+
+- Tenantbrede controles op OneDrive-sites die nog eigendom zijn van gedeelde postvakken.
+- Uitdienstprocessen waarin de beslissingen over postvak, account en OneDrive apart worden vastgelegd.
+- Beheerders die elke gevonden site afzonderlijk willen bevestigen.
+- Gecontroleerd opschonen waarbij vóór elke wijziging `-WhatIf` moet worden gebruikt.
+
+## Niet gebruiken voor
+
+- Het verwijderen van OneDrive-sites voordat de gegevenseigenaar, retentie-eigenaar en IT hebben afgesproken wat er met de inhoud moet gebeuren.
+- De OneDrive van één bekend account verwijderen wanneer een rechtstreeks en afzonderlijk beoordeeld commando duidelijker is.
+- Sites automatisch uitsluiten van retentiebeleid of eDiscovery-holds.
+- Onbeheerde automatisering; het script gebruikt interactieve verbindingen met Exchange Online en SharePoint Online.
+
+## Vereisten en machtigingen
+
+Voer het script uit in Windows PowerShell 5.1 en installeer deze modules:
+
+```powershell
+Install-Module -Name ExchangeOnlineManagement, Microsoft.Online.SharePoint.PowerShell -Scope CurrentUser
+```
+
+Het aangemelde account heeft rechten nodig om gedeelde postvakken in Exchange Online te lezen en de relevante OneDrive-sites in SharePoint Online te beheren. Microsoft documenteert dat `Connect-SPOService` de rol SharePoint Administrator of SharePoint Embedded Administrator vereist. Role-based access control bepaalt welke Exchange Online-cmdlets en objecten het account mag gebruiken.
+
+## Veilig uitvoeren
+
+1. [Download het PowerShell-script](/scripts/remove-onedrive-from-shared-mailboxes.ps1).
+2. Open Windows PowerShell 5.1 en beoordeel het script voordat je het uitvoert.
+3. Begin met `-WhatIf`:
+
+   ```powershell
+   .\remove-onedrive-from-shared-mailboxes.ps1 -WhatIf
+   ```
+
+4. Controleer of elk getoond gedeeld postvak bij de getoonde OneDrive-URL hoort.
+5. Voer het script zonder `-WhatIf` uit om afzonderlijk goedgekeurde sites naar Verwijderde sites te verplaatsen.
+6. Gebruik `-Purge` alleen wanneer permanente verwijdering is goedgekeurd. Voeg `-SkipConfirmation` alleen toe in een apart beheerd proces waarin de beoordeelde invoer en het bewijs worden bewaard.
+
+Geef `-SharePointAdminUrl https://contoso-admin.sharepoint.com` op wanneer het script de tenantbeheer-URL niet betrouwbaar kan afleiden.
+
+:::danger[Permanente verwijdering]
+
+`-Purge` roept `Remove-SPODeletedSite` aan nadat een geselecteerde site in Verwijderde sites staat. Microsoft beschrijft die bewerking als permanent. Retentiebeleid of een eDiscovery-hold kan verwijdering ook blokkeren. Onderzoek dat beleid in plaats van het alleen te verzwakken om het script te laten slagen.
+
+:::
+
+## Hoe de koppeling werkt
+
+Het script laadt alle persoonlijke sites, indexeert ze op de kleineletterswaarde van `Owner` en vraagt daarna alle gedeelde Exchange Online-postvakken op. Een site wordt alleen geselecteerd wanneer de eigenaar exact overeenkomt met de user principal name van het gedeelde postvak.
+
+Die exacte vergelijking vermindert giswerk, maar bewijst niet dat de inhoud mag worden verwijderd. Leg eigenaar, doel, retentiebesluit en resultaat buiten het script vast, zodat het opruimen controleerbaar blijft.
+
+## Volledig script
+
+Het codeblok en de download gebruiken hetzelfde bestand uit de repository. Wanneer het `.ps1`-bestand wordt bijgewerkt, verschijnt de nieuwe bron bij de volgende ontwikkelrefresh of sitebuild.
+
+<CodeBlock language="powershell" title="remove-onedrive-from-shared-mailboxes.ps1" showLineNumbers>
+  {scriptSource}
+</CodeBlock>
+
+## Bron en documentatie
+
+- [Download remove-onedrive-from-shared-mailboxes.ps1](/scripts/remove-onedrive-from-shared-mailboxes.ps1)
+- [Verbinding maken met Exchange Online PowerShell](https://learn.microsoft.com/en-us/powershell/exchange/connect-to-exchange-online-powershell?view=exchange-ps)
+- [Get-EXOMailbox](https://learn.microsoft.com/en-us/powershell/module/exchangepowershell/get-exomailbox?view=exchange-ps)
+- [Aan de slag met de SharePoint Online Management Shell](https://learn.microsoft.com/en-us/powershell/sharepoint/sharepoint-online/connect-sharepoint-online)
+- [Remove-SPOSite](https://learn.microsoft.com/en-us/powershell/module/microsoft.online.sharepoint.powershell/remove-sposite?view=sharepoint-ps)
+- [Remove-SPODeletedSite](https://learn.microsoft.com/en-us/powershell/module/microsoft.online.sharepoint.powershell/remove-spodeletedsite?view=sharepoint-ps)
+- [Siteverwijdering geblokkeerd door retentie of eDiscovery](https://learn.microsoft.com/en-us/troubleshoot/sharepoint/sites/requested-operation-not-supported)
+
+## Gerelateerde gidsen
+
+- [OneDrive](../../services/onedrive.md)
+- [Machtigingen en eigenaarschap](../../admin-and-governance/permissions-and-ownership.md)

@@ -60,7 +60,31 @@
     "description": "The generated-index page title for category 'Tools' in sidebar 'guidesSidebar'"
   },
   "sidebar.guidesSidebar.category.Tools.link.generated-index.description": {
-    "message": "Praktische Microsoft 365-hulpmiddelen, integraties en SharePoint Framework-webparts van Dwayne Selsig.",
+    "message": "Praktische apps en scripts voor Microsoft 365 en SharePoint van Dwayne Selsig.",
     "description": "The generated-index page description for category 'Tools' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.Apps": {
+    "message": "Apps",
+    "description": "The label for category 'Apps' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.Apps.link.generated-index.title": {
+    "message": "Apps",
+    "description": "The generated-index page title for category 'Apps' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.Apps.link.generated-index.description": {
+    "message": "Gecompileerde hulpprogramma's, SharePoint Framework-webparts en integraties voor Microsoft 365.",
+    "description": "The generated-index page description for category 'Apps' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.Scripts": {
+    "message": "Scripts",
+    "description": "The label for category 'Scripts' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.Scripts.link.generated-index.title": {
+    "message": "Scripts",
+    "description": "The generated-index page title for category 'Scripts' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.Scripts.link.generated-index.description": {
+    "message": "Beheerscripts en kleine webhulpmiddelen voor Microsoft 365 en SharePoint.",
+    "description": "The generated-index page description for category 'Scripts' in sidebar 'guidesSidebar'"
   }
 }

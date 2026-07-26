@@ -26,4 +26,4 @@ Do not use Bookings when a normal calendar invite is enough. It shines when sche
 ## Related Guides
 
 - [Schedule Appointments](../scenarios/schedule-appointments.md)
-- [My Calendars](../tools/my-calendars.md)
+- [My Calendars](../tools/apps/my-calendars.md)

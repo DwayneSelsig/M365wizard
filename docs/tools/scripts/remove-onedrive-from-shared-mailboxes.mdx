@@ -1,0 +1,94 @@
+---
+title: Remove OneDrive From Shared Mailboxes
+sidebar_position: 1
+roles: [IT]
+level: intermediate
+license: ""
+tags: [tool, script, powershell, onedrive, exchange-online, sharepoint]
+accent: default
+prereqs: []
+---
+
+import CodeBlock from '@theme/CodeBlock';
+import scriptSource from '!!raw-loader!@site/static/scripts/remove-onedrive-from-shared-mailboxes.ps1';
+
+# Remove OneDrive From Shared Mailboxes
+
+Use this PowerShell script after an offboarding review has confirmed that OneDrive sites owned by shared mailboxes are no longer required. Start with `-WhatIf`, verify every mailbox-to-site match, and use `-Purge` only after the retention and recovery decision is final.
+
+The script finds shared mailboxes in Exchange Online, matches their user principal names to OneDrive owners in SharePoint Online, and asks before moving each matching site to Deleted Sites.
+
+## Best For
+
+- Tenant-wide checks for OneDrive sites still owned by shared mailboxes.
+- Offboarding processes where mailbox, account, and OneDrive decisions are tracked separately.
+- Administrators who want an interactive confirmation for every matched site.
+- Controlled cleanup that must support `-WhatIf` before any change is made.
+
+## Do Not Use It For
+
+- Removing OneDrive sites before the data owner, retention owner, and IT have agreed what must happen to the content.
+- Deleting the OneDrive of one known account when a direct, individually reviewed command is clearer.
+- Automatically excluding sites from retention policies or eDiscovery holds.
+- Unattended automation. The script uses interactive Exchange Online and SharePoint Online connections.
+
+## Requirements And Permissions
+
+Run the script in Windows PowerShell 5.1 with these modules installed:
+
+```powershell
+Install-Module -Name ExchangeOnlineManagement, Microsoft.Online.SharePoint.PowerShell -Scope CurrentUser
+```
+
+The signed-in account needs permission to read shared mailboxes in Exchange Online and administer the relevant OneDrive sites in SharePoint Online. Microsoft documents that `Connect-SPOService` requires a SharePoint Administrator or SharePoint Embedded Administrator role. Role-based access control determines which Exchange Online cmdlets and objects the account can use.
+
+## Run It Safely
+
+1. [Download the PowerShell script](/scripts/remove-onedrive-from-shared-mailboxes.ps1).
+2. Open Windows PowerShell 5.1 and review the script before running it.
+3. Start with `-WhatIf`:
+
+   ```powershell
+   .\remove-onedrive-from-shared-mailboxes.ps1 -WhatIf
+   ```
+
+4. Check that each displayed shared mailbox belongs to the displayed OneDrive URL.
+5. Run without `-WhatIf` to move individually approved sites to Deleted Sites.
+6. Use `-Purge` only when permanent removal is approved. Add `-SkipConfirmation` only in a separately controlled process where the reviewed input and evidence are retained.
+
+Specify `-SharePointAdminUrl https://contoso-admin.sharepoint.com` when the script cannot derive the tenant admin URL reliably.
+
+:::danger[Permanent Removal]
+
+`-Purge` calls `Remove-SPODeletedSite` after a selected site reaches Deleted Sites. Microsoft describes that operation as permanent. A retention policy or eDiscovery hold can also block deletion; investigate that policy instead of weakening it simply to make the script succeed.
+
+:::
+
+## How The Matching Works
+
+The script loads all personal sites, indexes them by the lowercase `Owner` value, and then requests all Exchange Online shared mailboxes. A site is selected only when its owner exactly matches the shared mailbox user principal name.
+
+That exact match reduces guesswork but does not prove that the content may be deleted. Record the owner, purpose, retention decision, and outcome outside the script so the cleanup remains auditable.
+
+## Full Script
+
+The code block and download use the same repository file. Updating the `.ps1` file updates this displayed source on the next development refresh or site build.
+
+<CodeBlock language="powershell" title="remove-onedrive-from-shared-mailboxes.ps1" showLineNumbers>
+  {scriptSource}
+</CodeBlock>
+
+## Source And Documentation
+
+- [Download remove-onedrive-from-shared-mailboxes.ps1](/scripts/remove-onedrive-from-shared-mailboxes.ps1)
+- [Connect to Exchange Online PowerShell](https://learn.microsoft.com/en-us/powershell/exchange/connect-to-exchange-online-powershell?view=exchange-ps)
+- [Get-EXOMailbox](https://learn.microsoft.com/en-us/powershell/module/exchangepowershell/get-exomailbox?view=exchange-ps)
+- [Get started with the SharePoint Online Management Shell](https://learn.microsoft.com/en-us/powershell/sharepoint/sharepoint-online/connect-sharepoint-online)
+- [Remove-SPOSite](https://learn.microsoft.com/en-us/powershell/module/microsoft.online.sharepoint.powershell/remove-sposite?view=sharepoint-ps)
+- [Remove-SPODeletedSite](https://learn.microsoft.com/en-us/powershell/module/microsoft.online.sharepoint.powershell/remove-spodeletedsite?view=sharepoint-ps)
+- [Site deletion blocked by retention or eDiscovery](https://learn.microsoft.com/en-us/troubleshoot/sharepoint/sites/requested-operation-not-supported)
+
+## Related Guides
+
+- [OneDrive](../../services/onedrive.md)
+- [Permissions And Ownership](../../admin-and-governance/permissions-and-ownership.md)

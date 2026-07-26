@@ -26,7 +26,7 @@ Gebruik het wanneer een SharePoint-pagina een gecombineerd planningsbeeld moet t
 
 ## Niet gebruiken voor
 
-- Intake voor afspraken; gebruik [Bookings](../services/bookings.md) voor gecontroleerde beschikbaarheid.
+- Intake voor afspraken; gebruik [Bookings](../../services/bookings.md) voor gecontroleerde beschikbaarheid.
 - Eén persoonlijke agenda die Outlook al goed afhandelt.
 - Risicovolle implementaties zonder beoordeling van de gevraagde Graph-machtigingen.
 - Complexe resourceplanning, roostering of portfoliobeheer waarvoor een eigen registratiesysteem nodig is.

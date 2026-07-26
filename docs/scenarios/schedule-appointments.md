@@ -31,4 +31,4 @@ Bookings turns availability into a managed service. It reduces manual scheduling
 
 ## Related Tool
 
-Use [My Calendars](../tools/my-calendars.md) when the problem is not appointment intake, but showing calendar information from multiple Microsoft 365 sources in one SharePoint page.
+Use [My Calendars](../tools/apps/my-calendars.md) when the problem is not appointment intake, but showing calendar information from multiple Microsoft 365 sources in one SharePoint page.

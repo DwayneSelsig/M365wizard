@@ -31,4 +31,4 @@ Bookings maakt van beschikbaarheid een beheerde dienst. Het vermindert handmatig
 
 ## Gerelateerd hulpmiddel
 
-Gebruik [My Calendars](../tools/my-calendars.md) wanneer het probleem niet het maken van afspraken is, maar het tonen van agenda-informatie uit meerdere Microsoft 365-bronnen op één SharePoint-pagina.
+Gebruik [My Calendars](../tools/apps/my-calendars.md) wanneer het probleem niet het maken van afspraken is, maar het tonen van agenda-informatie uit meerdere Microsoft 365-bronnen op één SharePoint-pagina.

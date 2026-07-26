@@ -27,5 +27,5 @@ Maak niet voor elke aankondiging, community of gepubliceerde pagina een Team. Te
 
 - [Welk samenwerkingshulpmiddel moet ik gebruiken?](../decisions/which-collaboration-tool-should-i-use.md)
 - [Teams of Viva Engage?](../decisions/teams-or-viva-engage.md)
-- [My Calendars](../tools/my-calendars.md)
-- [Somtoday naar Microsoft School Data Sync](../tools/somtoday-to-school-data-sync.md)
+- [My Calendars](../tools/apps/my-calendars.md)
+- [Somtoday naar Microsoft School Data Sync](../tools/apps/somtoday-to-school-data-sync.md)

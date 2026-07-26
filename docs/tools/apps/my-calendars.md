@@ -26,7 +26,7 @@ Use it when a SharePoint page needs to show a combined planning picture from Out
 
 ## Do Not Use It For
 
-- Appointment intake. Use [Bookings](../services/bookings.md) when people need to schedule with controlled availability.
+- Appointment intake. Use [Bookings](../../services/bookings.md) when people need to schedule with controlled availability.
 - A single personal calendar that Outlook already handles well.
 - High-risk deployments where the organization has not reviewed the requested Graph permissions.
 - Complex resource scheduling, rostering, or project portfolio management that needs a dedicated system of record.
@@ -87,8 +87,8 @@ When upgrading, upload the new `.sppkg` file and overwrite the existing package.
 
 ## Related Guides
 
-- [Schedule Appointments](../scenarios/schedule-appointments.md)
-- [SharePoint](../services/sharepoint/index.mdx)
-- [Teams](../services/teams.md)
-- [Planner](../services/planner.md)
-- [Permissions And Ownership](../admin-and-governance/permissions-and-ownership.md)
+- [Schedule Appointments](../../scenarios/schedule-appointments.md)
+- [SharePoint](../../services/sharepoint/index.mdx)
+- [Teams](../../services/teams.md)
+- [Planner](../../services/planner.md)
+- [Permissions And Ownership](../../admin-and-governance/permissions-and-ownership.md)

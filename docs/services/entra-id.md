@@ -26,5 +26,5 @@ Identity settings affect every service. Changes should be tested, communicated, 
 ## Related Guides
 
 - [Conditional Access](../admin-and-governance/conditional-access.md)
-- [My Enterprise Apps](../tools/my-enterprise-apps.md)
-- [Somtoday To Microsoft School Data Sync](../tools/somtoday-to-school-data-sync.md)
+- [My Enterprise Apps](../tools/apps/my-enterprise-apps.md)
+- [Somtoday To Microsoft School Data Sync](../tools/apps/somtoday-to-school-data-sync.md)

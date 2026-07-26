@@ -1,0 +1,9 @@
+{
+  "label": "Apps",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "title": "Apps",
+    "description": "Compiled utilities, SharePoint Framework webparts, and integrations for Microsoft 365."
+  }
+}

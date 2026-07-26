@@ -26,4 +26,4 @@ Gebruik Bookings niet wanneer een gewone agenda-uitnodiging voldoende is. Het is
 ## Gerelateerde gidsen
 
 - [Afspraken plannen](../scenarios/schedule-appointments.md)
-- [My Calendars](../tools/my-calendars.md)
+- [My Calendars](../tools/apps/my-calendars.md)

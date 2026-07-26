@@ -27,4 +27,4 @@ Planner is niet bedoeld voor complex projectmanagement. Houd het gericht op werk
 
 - [Forms, Lists of Planner?](../decisions/forms-list-or-planner.md)
 - [Taken en werk beheren](../scenarios/manage-tasks-and-work.md)
-- [My Calendars](../tools/my-calendars.md)
+- [My Calendars](../tools/apps/my-calendars.md)
