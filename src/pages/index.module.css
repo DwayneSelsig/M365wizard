@@ -236,7 +236,7 @@
   }
 
   58%,
-  78% {
+  88% {
     opacity: 1;
     transform: translate(-50%, -55%) rotate(-2deg) scale(1);
   }
@@ -260,7 +260,7 @@
     }
 
     12%,
-    78% {
+    88% {
       opacity: 1;
       transform: translate(-50%, -55%) rotate(-2deg);
     }
