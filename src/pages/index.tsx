@@ -1,4 +1,5 @@
 import type {CSSProperties, ReactNode} from 'react';
+import {useCallback, useEffect, useRef, useState} from 'react';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -9,6 +10,54 @@ import Heading from '@theme/Heading';
 import Translate, {translate} from '@docusaurus/Translate';
 
 import styles from './index.module.css';
+
+const EASTER_EGG_DURATION_MS = 2200;
+
+function useDwayneEasterEgg() {
+  const [hatKey, setHatKey] = useState<number | null>(null);
+  const hideTimeout = useRef<number | null>(null);
+  const lastTrigger = useRef(0);
+
+  const trigger = useCallback(() => {
+    const now = Date.now();
+
+    if (now - lastTrigger.current < EASTER_EGG_DURATION_MS) {
+      return;
+    }
+
+    lastTrigger.current = now;
+    setHatKey(now);
+
+    if (hideTimeout.current !== null) {
+      window.clearTimeout(hideTimeout.current);
+    }
+
+    hideTimeout.current = window.setTimeout(() => {
+      setHatKey(null);
+      hideTimeout.current = null;
+    }, EASTER_EGG_DURATION_MS);
+  }, []);
+
+  useEffect(() => {
+    const handleSelectionChange = () => {
+      if (window.getSelection()?.toString().includes('Dwayne Selsig')) {
+        trigger();
+      }
+    };
+
+    document.addEventListener('selectionchange', handleSelectionChange);
+
+    return () => {
+      document.removeEventListener('selectionchange', handleSelectionChange);
+
+      if (hideTimeout.current !== null) {
+        window.clearTimeout(hideTimeout.current);
+      }
+    };
+  }, [trigger]);
+
+  return hatKey;
+}
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
@@ -66,8 +115,31 @@ function HomepageHeader() {
   );
 }
 
-function MakerSection() {
+function MakerSection({hatKey}: {hatKey: number | null}) {
   const portrait = useBaseUrl('/img/dwayne.jpg');
+  const hat = useBaseUrl('/img/logo.svg');
+  const [inlineHat, setInlineHat] = useState<string | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    fetch(hat, {cache: 'no-cache'})
+      .then((response) => (response.ok ? response.text() : null))
+      .then((svg) => {
+        if (!cancelled) {
+          setInlineHat(svg);
+        }
+      })
+      .catch(() => {
+        if (!cancelled) {
+          setInlineHat(null);
+        }
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [hat]);
 
   return (
     <section className={styles.makerSection} aria-labelledby="about-dwayne">
@@ -121,6 +193,14 @@ function MakerSection() {
           </div>
           <div className={styles.portraitPanel}>
             <img className={styles.portrait} src={portrait} alt="Dwayne Selsig" />
+            {hatKey !== null && inlineHat !== null && (
+              <div
+                key={hatKey}
+                className={styles.easterEggHat}
+                aria-hidden="true"
+                dangerouslySetInnerHTML={{__html: inlineHat}}
+              />
+            )}
           </div>
         </div>
       </div>
@@ -242,6 +322,8 @@ function AboutM365Wizard() {
 }
 
 export default function Home(): ReactNode {
+  const hatKey = useDwayneEasterEgg();
+
   return (
     <Layout
       title="M365Wizard"
@@ -253,7 +335,7 @@ export default function Home(): ReactNode {
       <main className={styles.main}>
         <HomepageFeatures />
         <Tools />
-        <MakerSection />
+        <MakerSection hatKey={hatKey} />
         <AboutM365Wizard />
       </main>
     </Layout>
