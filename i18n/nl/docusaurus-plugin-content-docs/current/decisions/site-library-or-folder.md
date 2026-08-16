@@ -60,7 +60,7 @@ Doorloop het schema van boven naar beneden. Bepaal eerst eigenaarschap en toegan
 | Map | Mensen een stabiele en herkenbare route door een bibliotheek nodig hebben | De bladerroute en het bestandspad |
 | Metadata en weergaven | Mensen dezelfde documenten via meerdere kenmerken moeten kunnen vinden | Filteren, sorteren, groeperen, zoekcontext en taakgerichte weergaven |
 
-Microsoft ondersteunt het gecombineerd gebruiken van mappen, kolommen en weergaven in een bibliotheek. Kies de kleinste combinatie waarmee de inhoud begrijpelijk en beheerbaar blijft. Bekijk [Microsofts introductie tot bibliotheken](https://support.microsoft.com/en-us/sharepoint/libraries/introduction-to-libraries) om te zien hoe deze functies elkaar aanvullen.
+Microsoft ondersteunt het gecombineerd gebruiken van mappen, kolommen en weergaven in een bibliotheek. Kies de kleinste combinatie waarmee de inhoud begrijpelijk en beheerbaar blijft. Bekijk [Microsofts introductie tot bibliotheken](https://support.microsoft.com/nl-nl/sharepoint/libraries/introduction-to-libraries) om te zien hoe deze functies elkaar aanvullen.
 
 ## Gebruik een aparte site wanneer
 
@@ -72,7 +72,7 @@ Maak een aparte site wanneer:
 - het een zelfstandig project, team, afdeling, proces of publicatiegebied betreft;
 - gebruikers het als een afzonderlijke plek ervaren om te werken of informatie te lezen.
 
-Zie een site als een grens voor eigenaarschap, werk en toegang, niet als een grote map. Moderne SharePoint-architectuur kan verwante sites met hubs en gedeelde navigatie verbinden zonder ze in een starre hiërarchie te plaatsen. Microsoft adviseert in de [richtlijnen voor het plannen van SharePoint-hubs](https://learn.microsoft.com/en-us/sharepoint/planning-hub-sites) om voor ieder samenhangend werkgebied een site te overwegen.
+Zie een site als een grens voor eigenaarschap, werk en toegang, niet als een grote map. Moderne SharePoint-architectuur kan verwante sites met hubs en gedeelde navigatie verbinden zonder ze in een starre hiërarchie te plaatsen. Microsoft adviseert in de [richtlijnen voor het plannen van SharePoint-hubs](https://learn.microsoft.com/nl-nl/sharepoint/planning-hub-sites) om voor ieder samenhangend werkgebied een site te overwegen.
 
 Maak niet alleen vanwege bestandscategorieën zoals contracten, presentaties en notulen een site. Dat zijn meestal documenttypen of verzamelingen, geen zelfstandige werkruimtes.
 
@@ -111,7 +111,7 @@ Gebruik metadata wanneer een document nuttige kenmerken nodig heeft, zoals afdel
 - contracten die dit jaar verlopen;
 - goedgekeurde resultaten per projectfase.
 
-Met kolommen kunnen mensen items sorteren, filteren en groeperen. Weergaven tonen geselecteerde kolommen en filters zonder de documenten zelf te veranderen. Bekijk Microsofts documentatie over [kolomtypen](https://support.microsoft.com/en-us/office/list-and-library-column-types-and-options-0d8ddb7b-7dc7-414d-a283-ee9dca891df7) en [weergaven voor bibliotheken en lijsten](https://support.microsoft.com/en-US/SharePoint/lists/data-and-lists/create-change-or-delete-a-view-of-a-list-or-library).
+Met kolommen kunnen mensen items sorteren, filteren en groeperen. Weergaven tonen geselecteerde kolommen en filters zonder de documenten zelf te veranderen. Bekijk Microsofts documentatie over [kolomtypen](https://support.microsoft.com/nl-nl/office/list-and-library-column-types-and-options-0d8ddb7b-7dc7-414d-a283-ee9dca891df7) en [weergaven voor bibliotheken en lijsten](https://support.microsoft.com/nl-nl/SharePoint/lists/data-and-lists/create-change-or-delete-a-view-of-a-list-or-library).
 
 Begin met een kleine verzameling metadata die een keuze, weergave, zoekpatroon of governanceregel ondersteunt. Te veel verplichte velden veroorzaken wrijving en verlagen meestal de gegevenskwaliteit. Metadata moet de navigatie verbeteren, niet iedere herkenbare route vervangen.
 
@@ -129,7 +129,7 @@ De site bepaalt de verantwoordelijkheid en toegang. Iedere bibliotheek bepaalt h
 
 ## Houd toegang begrijpelijk
 
-Laat bibliotheken, mappen en documenten hun toegang waar mogelijk van de site overnemen. Het verbreken van overerving maakt een uniek machtigingsbereik. Grote aantallen uitzonderingen maken toegang moeilijker te beoordelen en kunnen de prestaties beïnvloeden. Microsoft adviseert het aantal unieke bereiken ruim onder het ondersteunde maximum te houden. Bekijk [Machtigingsbereiken beheren in SharePoint](https://learn.microsoft.com/en-us/sharepoint/manage-permission-scope).
+Laat bibliotheken, mappen en documenten hun toegang waar mogelijk van de site overnemen. Het verbreken van overerving maakt een uniek machtigingsbereik. Grote aantallen uitzonderingen maken toegang moeilijker te beoordelen en kunnen de prestaties beïnvloeden. Microsoft adviseert het aantal unieke bereiken ruim onder het ondersteunde maximum te houden. Bekijk [Machtigingsbereiken beheren in SharePoint](https://learn.microsoft.com/nl-nl/sharepoint/manage-permission-scope).
 
 :::warning[Verberg geen toegangsmodel in mappen]
 
@@ -141,7 +141,7 @@ Als een verzameling structureel een andere doelgroep of eigenaar nodig heeft, ki
 
 Een andere bewaarbehoefte is een signaal om eigenaars voor informatiebeheer, juridische zaken, beveiliging of compliance te betrekken. Zij kan het ontwerp van de site of bibliotheek beïnvloeden, maar vereist niet automatisch één bibliotheek of site per bewaartermijn.
 
-Bepaal eerst het beleid en pas daarna de geschikte Microsoft Purview-bewaarbeleidsregels of -labels toe. Microsoft legt in [Bewaring voor SharePoint en OneDrive](https://learn.microsoft.com/en-us/purview/retention-policies-sharepoint) uit hoe bewaring voor deze locaties werkt.
+Bepaal eerst het beleid en pas daarna de geschikte Microsoft Purview-bewaarbeleidsregels of -labels toe. Microsoft legt in [Bewaring voor SharePoint en OneDrive](https://learn.microsoft.com/nl-nl/purview/retention-policies-sharepoint) uit hoe bewaring voor deze locaties werkt.
 
 Structuur, machtigingen, gevoeligheid en bewaring beantwoorden verschillende vragen. Gebruik [Welke Microsoft Purview-oplossing moet je gebruiken?](./which-purview-solution-should-you-use.md) wanneer de vereiste verder gaat dan waar documenten moeten worden georganiseerd.
 
@@ -181,11 +181,11 @@ Leg de antwoorden vast voordat je containers maakt. Als de eigenaar, doelgroep o
 
 ## Officiële Microsoft-documentatie
 
-- [Principes voor informatiearchitectuur in SharePoint](https://learn.microsoft.com/en-us/sharepoint/information-architecture-principles)
-- [SharePoint-hubs plannen](https://learn.microsoft.com/en-us/sharepoint/planning-hub-sites)
-- [Introductie tot documentbibliotheken](https://support.microsoft.com/en-us/sharepoint/libraries/introduction-to-libraries)
-- [Machtigingsbereiken beheren in SharePoint](https://learn.microsoft.com/en-us/sharepoint/manage-permission-scope)
-- [Bewaring voor SharePoint en OneDrive](https://learn.microsoft.com/en-us/purview/retention-policies-sharepoint)
+- [Principes voor informatiearchitectuur in SharePoint](https://learn.microsoft.com/nl-nl/sharepoint/information-architecture-principles)
+- [SharePoint-hubs plannen](https://learn.microsoft.com/nl-nl/sharepoint/planning-hub-sites)
+- [Introductie tot documentbibliotheken](https://support.microsoft.com/nl-nl/sharepoint/libraries/introduction-to-libraries)
+- [Machtigingsbereiken beheren in SharePoint](https://learn.microsoft.com/nl-nl/sharepoint/manage-permission-scope)
+- [Bewaring voor SharePoint en OneDrive](https://learn.microsoft.com/nl-nl/purview/retention-policies-sharepoint)
 
 ## Gerelateerde gidsen
 

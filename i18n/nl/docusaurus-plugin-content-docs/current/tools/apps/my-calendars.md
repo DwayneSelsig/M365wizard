@@ -54,5 +54,5 @@ Wijs een IT-eigenaar toe voor implementatie, Graph-machtigingen en upgrades. Wij
 
 - [My Calendars op GitHub](https://github.com/DwayneSelsig/spfx-my-calendars-webpart)
 - [Huidige releases](https://github.com/DwayneSelsig/spfx-my-calendars-webpart/releases)
-- [Apps beheren met de SharePoint Apps-site](https://learn.microsoft.com/en-us/sharepoint/use-app-catalog)
-- [Microsoft Graph-machtigingen](https://learn.microsoft.com/en-us/graph/permissions-reference)
+- [Apps beheren met de SharePoint Apps-site](https://learn.microsoft.com/nl-nl/sharepoint/use-app-catalog)
+- [Microsoft Graph-machtigingen](https://learn.microsoft.com/nl-nl/graph/permissions-reference)

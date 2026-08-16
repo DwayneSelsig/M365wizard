@@ -23,11 +23,11 @@ Purview is het nuttigst wanneer een eigenaar voor bedrijfsvoering, informatiebeh
 
 ## Oplossingsgebieden
 
-Microsoft verdeelt Purview-oplossingen in [databeveiliging, datagovernance en datacompliance](https://learn.microsoft.com/en-us/purview/purview).
+Microsoft verdeelt Purview-oplossingen in [databeveiliging, datagovernance en datacompliance](https://learn.microsoft.com/nl-nl/purview/purview).
 
 ### Databeveiliging
 
-[Microsoft Purview-oplossingen voor databeveiliging](https://learn.microsoft.com/en-us/purview/purview-security) helpen gevoelige data te ontdekken, classificeren, beschermen en onderzoeken:
+[Microsoft Purview-oplossingen voor databeveiliging](https://learn.microsoft.com/nl-nl/purview/purview-security) helpen gevoelige data te ontdekken, classificeren, beschermen en onderzoeken:
 
 - **Information Protection** gebruikt classificaties en gevoeligheidslabels om informatie te herkennen en beschermen.
 - **Data Loss Prevention (DLP)** bewaakt gevoelige data en kan geconfigureerde activiteiten registreren, waarschuwen, beperken of blokkeren.
@@ -39,7 +39,7 @@ Microsoft verdeelt Purview-oplossingen in [databeveiliging, datagovernance en da
 
 ### Datagovernance
 
-[Microsoft Purview-datagovernance](https://learn.microsoft.com/en-us/purview/data-governance-overview) is gericht op vindbare, begrijpelijke, betrouwbare data-assets met duidelijk eigenaarschap:
+[Microsoft Purview-datagovernance](https://learn.microsoft.com/nl-nl/purview/data-governance-overview) is gericht op vindbare, begrijpelijke, betrouwbare data-assets met duidelijk eigenaarschap:
 
 - **Data Map** scant ondersteunde databronnen en legt technische en bedrijfsmetadata vast.
 - **Unified Catalog** laat data-eigenaren en datastewards dataproducten, kwaliteit, bedrijfsbegrippen en toegangsprocessen beheren.
@@ -48,7 +48,7 @@ Dit gaat verder dan bestanden ordenen in een SharePoint-bibliotheek. Data Map en
 
 ### Datacompliance
 
-[Microsoft Purview-oplossingen voor datacompliance](https://learn.microsoft.com/en-us/purview/purview-compliance) helpen wettelijke, juridische en organisatorische verplichtingen te beheren:
+[Microsoft Purview-oplossingen voor datacompliance](https://learn.microsoft.com/nl-nl/purview/purview-compliance) helpen wettelijke, juridische en organisatorische verplichtingen te beheren:
 
 - **Audit** registreert ondersteunde activiteiten van gebruikers en beheerders voor onderzoek en bewijsvoering.
 - **Communication Compliance** helpt vastgelegde communicatierisico's te beoordelen met privacywaarborgen en rolgebaseerde toegang.
@@ -65,7 +65,7 @@ Purview-oplossingen versterken elkaar met gedeelde mogelijkheden zoals typen gev
 
 AI-bescherming is een doorsnijdend scenario en geen aparte vervanging voor de bovenstaande beheersmaatregelen. Afhankelijk van de ondersteunde Copilot, agent of andere AI-app kan Purview classificatie, gevoeligheidslabels, DLP, DSPM, Insider Risk Management, Audit, Communication Compliance, eDiscovery en bewaring toepassen op AI-interacties.
 
-Dekking verschilt per AI-app en agent. Controleer Microsofts [actuele ondersteuning voor Purview-databeveiliging en -compliance voor generatieve AI](https://learn.microsoft.com/en-us/purview/ai-microsoft-purview) voordat je toezegt dat een bepaalde maatregel van toepassing is.
+Dekking verschilt per AI-app en agent. Controleer Microsofts [actuele ondersteuning voor Purview-databeveiliging en -compliance voor generatieve AI](https://learn.microsoft.com/nl-nl/purview/ai-microsoft-purview) voordat je toezegt dat een bepaalde maatregel van toepassing is.
 
 ## Wat Purview niet vervangt
 
@@ -85,7 +85,7 @@ Gebruik [Welke Microsoft Purview-oplossing moet je gebruiken?](../decisions/whic
 
 :::warning[Licenties en facturering verschillen]
 
-Purview-gebruiksrechten verschillen per mogelijkheid, implementatiemethode, locatie en gebruiker die ervan profiteert. Sommige data governance-, onderzoeks- en AI-scenario's gebruiken daarnaast capaciteit of betalen naar gebruik. Controleer het precieze scenario vóór implementatie of aankoop in de [Microsoft Purview-servicebeschrijving](https://learn.microsoft.com/en-us/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-tenantlevel-services-licensing-guidance/microsoft-purview-service-description).
+Purview-gebruiksrechten verschillen per mogelijkheid, implementatiemethode, locatie en gebruiker die ervan profiteert. Sommige data governance-, onderzoeks- en AI-scenario's gebruiken daarnaast capaciteit of betalen naar gebruik. Controleer het precieze scenario vóór implementatie of aankoop in de [Microsoft Purview-servicebeschrijving](https://learn.microsoft.com/nl-nl/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-tenantlevel-services-licensing-guidance/microsoft-purview-service-description).
 
 Het [M365 Maps-diagram voor Purview Suite](https://m365maps.com/files/Microsoft-Purview-Suite.htm) en de [M365 Maps-featurematrix](https://m365maps.com/matrix.htm) zijn nuttige visuele hulpmiddelen, maar geen officiële licentievoorwaarden. Bevestig aankoopbesluiten bij Microsoft of een geautoriseerde licentiepartner.
 
@@ -99,13 +99,13 @@ Microsoft markeert proactieve AI-inzichten die DSPM en Data Security Investigati
 
 ## Officiële Microsoft-documentatie
 
-- [Kennismaken met Microsoft Purview](https://learn.microsoft.com/en-us/purview/purview)
-- [Waar te beginnen met Microsoft Purview](https://learn.microsoft.com/en-us/purview/purview-where-to-start)
-- [Microsoft Purview-oplossingen voor databeveiliging](https://learn.microsoft.com/en-us/purview/purview-security)
-- [Datagovernance met Microsoft Purview](https://learn.microsoft.com/en-us/purview/data-governance-overview)
-- [Microsoft Purview-oplossingen voor datacompliance](https://learn.microsoft.com/en-us/purview/purview-compliance)
-- [Microsoft Purview-databeveiliging en -compliance voor generatieve AI](https://learn.microsoft.com/en-us/purview/ai-microsoft-purview)
-- [Microsoft Purview-servicebeschrijving](https://learn.microsoft.com/en-us/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-tenantlevel-services-licensing-guidance/microsoft-purview-service-description)
+- [Kennismaken met Microsoft Purview](https://learn.microsoft.com/nl-nl/purview/purview)
+- [Waar te beginnen met Microsoft Purview](https://learn.microsoft.com/nl-nl/purview/purview-where-to-start)
+- [Microsoft Purview-oplossingen voor databeveiliging](https://learn.microsoft.com/nl-nl/purview/purview-security)
+- [Datagovernance met Microsoft Purview](https://learn.microsoft.com/nl-nl/purview/data-governance-overview)
+- [Microsoft Purview-oplossingen voor datacompliance](https://learn.microsoft.com/nl-nl/purview/purview-compliance)
+- [Microsoft Purview-databeveiliging en -compliance voor generatieve AI](https://learn.microsoft.com/nl-nl/purview/ai-microsoft-purview)
+- [Microsoft Purview-servicebeschrijving](https://learn.microsoft.com/nl-nl/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-tenantlevel-services-licensing-guidance/microsoft-purview-service-description)
 
 ## Gerelateerde gidsen
 

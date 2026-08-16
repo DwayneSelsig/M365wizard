@@ -52,6 +52,13 @@ pattern for blog headings. Write translations in natural Netherlands Dutch
 (`nl-NL`) with sentence case headings. Translate meaning and intent rather than
 wording mechanically.
 
+For external links on a `microsoft.com` domain, use an explicit locale segment:
+`en-us` in English content and `nl-nl` in Dutch content. Replace a different or
+missing locale segment when the Microsoft URL supports localized content. Do
+not apply this rule to other domains, because their URL and language behavior
+can differ. Do not add locale segments to Microsoft API endpoints, such as
+`graph.microsoft.com`.
+
 When source code introduces translatable UI messages, update the relevant
 Dutch catalogs under `i18n/nl`, including `code.json` or the appropriate theme
 or plugin JSON. Use `npm run write-translations -- --locale nl` to append

@@ -58,8 +58,8 @@ De eigenaar van de SharePoint-farm beheert runbook, serviceaccount, planning en 
 - [SPWakeUp PowerShell op GitHub](https://github.com/DwayneSelsig/spwakeuppowershell)
 - [SPWakeUp.ps1](https://github.com/DwayneSelsig/spwakeuppowershell/blob/master/SPWakeUp.ps1)
 - [Microsoft Public License](https://github.com/DwayneSelsig/spwakeuppowershell/blob/master/license.md)
-- [Einde van ondersteuning voor SharePoint Server 2013](https://learn.microsoft.com/en-us/lifecycle/announcements/office-2013-skype-business-end-of-support)
-- [Lifecycle van SharePoint Server 2016](https://learn.microsoft.com/en-us/lifecycle/products/sharepoint-server-2016)
+- [Einde van ondersteuning voor SharePoint Server 2013](https://learn.microsoft.com/nl-nl/lifecycle/announcements/office-2013-skype-business-end-of-support)
+- [Lifecycle van SharePoint Server 2016](https://learn.microsoft.com/nl-nl/lifecycle/products/sharepoint-server-2016)
 
 ## Gerelateerde gidsen
 

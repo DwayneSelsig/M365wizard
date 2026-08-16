@@ -89,7 +89,7 @@ Gebruik twee aanvullende beoordelingen. De bedrijfsinventarisatie beschrijft wat
 
 Behandel bestaande machtigingen als informatiebron, niet als het doelontwerp. Jaren aan uitzonderingen en individuele toegangsregels kunnen de bedoelde doelgroep verbergen. Laat de eigenaar bevestigen wie in de nieuwe locatie lees-, bewerk- of eigenaarsrechten nodig heeft.
 
-[Microsoft Migration Manager kan fileshares scannen en beoordelen](https://learn.microsoft.com/en-us/sharepointmigration/mm-fileshare-scan-assess) en vóór de migratie overzichtsrapporten en gedetailleerde logboeken maken. Gebruik de resultaten om technische blokkades te vinden, maar verwacht niet dat een scan eigenaarschap, waarde of bewaarbehoefte voor je bepaalt.
+[Microsoft Migration Manager kan fileshares scannen en beoordelen](https://learn.microsoft.com/nl-nl/sharepointmigration/mm-fileshare-scan-assess) en vóór de migratie overzichtsrapporten en gedetailleerde logboeken maken. Gebruik de resultaten om technische blokkades te vinden, maar verwacht niet dat een scan eigenaarschap, waarde of bewaarbehoefte voor je bepaalt.
 
 ## 3. Bepaal de bestemming
 
@@ -108,7 +108,7 @@ OneDrive, Teams en SharePoint zijn geen onderling verwisselbare mappen. De beste
 
 :::warning[Archiveren is een levenscyclusbesluit]
 
-Noem inhoud niet automatisch een archief omdat niemand haar gebruikt. Bevestig de eigenaar, vereiste bewaartermijn, toegangsbehoefte, juridische bewaarplichten en het goedgekeurde verwijderproces. Configureer [Microsoft Purview-bewaarbeleid voor SharePoint en OneDrive](https://learn.microsoft.com/en-us/purview/retention-policies-sharepoint) waar beleid of regelgeving dit vereist.
+Noem inhoud niet automatisch een archief omdat niemand haar gebruikt. Bevestig de eigenaar, vereiste bewaartermijn, toegangsbehoefte, juridische bewaarplichten en het goedgekeurde verwijderproces. Configureer [Microsoft Purview-bewaarbeleid voor SharePoint en OneDrive](https://learn.microsoft.com/nl-nl/purview/retention-policies-sharepoint) waar beleid of regelgeving dit vereist.
 
 Gebruik [Welke Microsoft Purview-oplossing moet je gebruiken?](../decisions/which-purview-solution-should-you-use.md) wanneer migratiebesluiten ook gevoeligheidslabels, DLP, records, bewijs of onderzoeksmaatregelen vereisen.
 
@@ -159,7 +159,7 @@ Valideer ten minste:
 - deel- en goedkeuringsprocessen;
 - gebruikersinstructies, de gereedheid van ondersteuning en acceptatie door de eigenaar.
 
-[Microsofts migratierichtlijnen voor fileshares](https://learn.microsoft.com/en-us/sharepointmigration/fileshare-to-odsp-migration-guide) adviseren een incrementele proefmigratie gevolgd door een cut-over. Gebruik de bevindingen om het doelontwerp, de herstelregels, communicatie en faseplanning bij te werken voordat je opschaalt.
+[Microsofts migratierichtlijnen voor fileshares](https://learn.microsoft.com/nl-nl/sharepointmigration/fileshare-to-odsp-migration-guide) adviseren een incrementele proefmigratie gevolgd door een cut-over. Gebruik de bevindingen om het doelontwerp, de herstelregels, communicatie en faseplanning bij te werken voordat je opschaalt.
 
 ## 7. Migreer in fasen en rond de overgang af
 
@@ -204,12 +204,12 @@ Meet succes aan vindbaarheid, juiste toegang, acceptatie door de eigenaar, conti
 
 ## Officiële Microsoft-documentatie
 
-- [Overzicht van Migration Manager voor fileshares](https://learn.microsoft.com/en-us/sharepointmigration/mm-get-started)
-- [Fileshares scannen en beoordelen met Migration Manager](https://learn.microsoft.com/en-us/sharepointmigration/mm-fileshare-scan-assess)
-- [Microsofts planningsgids voor de migratie van fileshares](https://learn.microsoft.com/en-us/sharepointmigration/fileshare-to-odsp-migration-guide)
-- [Informatiearchitectuur in modern SharePoint](https://learn.microsoft.com/en-us/sharepoint/information-architecture-modern-experience)
-- [Bewaarbeleid voor SharePoint en OneDrive](https://learn.microsoft.com/en-us/purview/retention-policies-sharepoint)
-- [Servicelimieten van SharePoint](https://learn.microsoft.com/en-us/office365/servicedescriptions/sharepoint-online-service-description/sharepoint-online-limits)
+- [Overzicht van Migration Manager voor fileshares](https://learn.microsoft.com/nl-nl/sharepointmigration/mm-get-started)
+- [Fileshares scannen en beoordelen met Migration Manager](https://learn.microsoft.com/nl-nl/sharepointmigration/mm-fileshare-scan-assess)
+- [Microsofts planningsgids voor de migratie van fileshares](https://learn.microsoft.com/nl-nl/sharepointmigration/fileshare-to-odsp-migration-guide)
+- [Informatiearchitectuur in modern SharePoint](https://learn.microsoft.com/nl-nl/sharepoint/information-architecture-modern-experience)
+- [Bewaarbeleid voor SharePoint en OneDrive](https://learn.microsoft.com/nl-nl/purview/retention-policies-sharepoint)
+- [Servicelimieten van SharePoint](https://learn.microsoft.com/nl-nl/office365/servicedescriptions/sharepoint-online-service-description/sharepoint-online-limits)
 
 ## Gerelateerde gidsen
 

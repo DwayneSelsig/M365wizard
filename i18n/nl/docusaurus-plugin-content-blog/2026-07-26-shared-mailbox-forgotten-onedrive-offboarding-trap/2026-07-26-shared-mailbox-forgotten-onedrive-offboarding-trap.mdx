@@ -24,9 +24,9 @@ In veel offboardingprocessen zie je dezelfde volgorde:
 5. Het postvak blijft bestaan.
 6. De persoonlijke OneDrive blijft een apart object.
 
-Microsoft zegt dat bij het converteren van een gebruikerspostvak de bestaande e-mail en agenda behouden blijven. Microsoft zegt ook dat je het oude gebruikersaccount niet mag verwijderen, omdat dit account het anker van de gedeelde mailbox blijft. Een gedeelde mailbox heeft meestal geen eigen Exchange Online-licentie nodig, maar iedereen die toegang heeft, heeft wel een gelicentieerd Exchange Online-postvak nodig. Zie Microsofts uitleg over [gedeelde mailboxen](https://learn.microsoft.com/en-us/microsoft-365/admin/email/about-shared-mailboxes?view=o365-worldwide) en [het converteren van een gebruikerspostvak](https://learn.microsoft.com/en-us/microsoft-365/admin/email/convert-user-mailbox-to-shared-mailbox?view=o365-worldwide).
+Microsoft zegt dat bij het converteren van een gebruikerspostvak de bestaande e-mail en agenda behouden blijven. Microsoft zegt ook dat je het oude gebruikersaccount niet mag verwijderen, omdat dit account het anker van de gedeelde mailbox blijft. Een gedeelde mailbox heeft meestal geen eigen Exchange Online-licentie nodig, maar iedereen die toegang heeft, heeft wel een gelicentieerd Exchange Online-postvak nodig. Zie Microsofts uitleg over [gedeelde mailboxen](https://learn.microsoft.com/nl-nl/microsoft-365/admin/email/about-shared-mailboxes?view=o365-worldwide) en [het converteren van een gebruikerspostvak](https://learn.microsoft.com/nl-nl/microsoft-365/admin/email/convert-user-mailbox-to-shared-mailbox?view=o365-worldwide).
 
-De licentie verwijderen was bedoeld om kosten te besparen. Het kan juist leiden tot ontoegankelijke gegevens, opslag- of reactiveringskosten, verwijderingsrisico en uiteindelijk gegevensverlies. Volgens het [Microsoft-beleid voor OneDrive-accounts zonder licentie](https://learn.microsoft.com/en-us/sharepoint/unlicensed-onedrive-accounts) wordt een account na 60 dagen zonder licentie alleen-lezen en na 93 dagen gearchiveerd. Vanaf 1 juli 2026 kunnen onbetaalde accounts bovendien na 365 cumulatieve onbetaalde dagen een verwijderingsrisico lopen. Microsoft noemt uitzonderingen voor EDU-, GCC- en DoD-tenants. Controleer daarom het beleid voor jouw type tenant.
+De licentie verwijderen was bedoeld om kosten te besparen. Het kan juist leiden tot ontoegankelijke gegevens, opslag- of reactiveringskosten, verwijderingsrisico en uiteindelijk gegevensverlies. Volgens het [Microsoft-beleid voor OneDrive-accounts zonder licentie](https://learn.microsoft.com/nl-nl/sharepoint/unlicensed-onedrive-accounts) wordt een account na 60 dagen zonder licentie alleen-lezen en na 93 dagen gearchiveerd. Vanaf 1 juli 2026 kunnen onbetaalde accounts bovendien na 365 cumulatieve onbetaalde dagen een verwijderingsrisico lopen. Microsoft noemt uitzonderingen voor EDU-, GCC- en DoD-tenants. Controleer daarom het beleid voor jouw type tenant.
 
 :::warning[Maak hier geen mailboxopruiming van]
 
@@ -66,7 +66,7 @@ OneDrive toont de standaardkoppelingen **Site-instellingen** en **Deze site verw
 
 ![OneDrive-site-instellingen met Deze site verwijderen](./delete-onedrive-nl.jpg)
 
-Beschouw deze verwijdering als een verplaatsing naar **Verwijderde sites**. Voer geen permanente verwijdering uit voordat de herstel- en compliancebeslissing rond is. Microsoft documenteert dat retentiebeleid, eDiscovery-holds en juridische holds verwijdering kunnen verhinderen. Een mislukte verwijdering is meestal een signaal om de hold te onderzoeken, niet om de opdracht te forceren. Zie de [Microsoft-uitleg over SharePoint-sites permanent verwijderen](https://learn.microsoft.com/en-us/troubleshoot/sharepoint/sites/cannot-permanently-delete-site).
+Beschouw deze verwijdering als een verplaatsing naar **Verwijderde sites**. Voer geen permanente verwijdering uit voordat de herstel- en compliancebeslissing rond is. Microsoft documenteert dat retentiebeleid, eDiscovery-holds en juridische holds verwijdering kunnen verhinderen. Een mislukte verwijdering is meestal een signaal om de hold te onderzoeken, niet om de opdracht te forceren. Zie de [Microsoft-uitleg over SharePoint-sites permanent verwijderen](https://learn.microsoft.com/nl-nl/troubleshoot/sharepoint/sites/cannot-permanently-delete-site).
 
 ## Eén bekende OneDrive verwijderen met PowerShell
 
@@ -90,7 +90,7 @@ Get-SPODeletedSite -Identity $OneDriveSiteUrl
 Remove-SPODeletedSite -Identity $OneDriveSiteUrl
 ```
 
-`Remove-SPOSite` verplaatst de siteverzameling naar de SharePoint Online-prullenbak, die beheerders vaak als **Deleted Sites** zien. `Remove-SPODeletedSite` verwijdert die verwijderde site permanent. De documentatie voor [Remove-SPOSite](https://learn.microsoft.com/en-us/powershell/module/microsoft.online.sharepoint.powershell/remove-sposite?view=sharepoint-ps), [Get-SPODeletedSite](https://learn.microsoft.com/en-us/powershell/module/microsoft.online.sharepoint.powershell/get-spodeletedsite?view=sharepoint-ps) en [Remove-SPODeletedSite](https://learn.microsoft.com/en-us/powershell/module/microsoft.online.sharepoint.powershell/remove-spodeletedsite?view=sharepoint-ps) beschrijft de benodigde rechten en lifecycle.
+`Remove-SPOSite` verplaatst de siteverzameling naar de SharePoint Online-prullenbak, die beheerders vaak als **Deleted Sites** zien. `Remove-SPODeletedSite` verwijdert die verwijderde site permanent. De documentatie voor [Remove-SPOSite](https://learn.microsoft.com/nl-nl/powershell/module/microsoft.online.sharepoint.powershell/remove-sposite?view=sharepoint-ps), [Get-SPODeletedSite](https://learn.microsoft.com/nl-nl/powershell/module/microsoft.online.sharepoint.powershell/get-spodeletedsite?view=sharepoint-ps) en [Remove-SPODeletedSite](https://learn.microsoft.com/nl-nl/powershell/module/microsoft.online.sharepoint.powershell/remove-spodeletedsite?view=sharepoint-ps) beschrijft de benodigde rechten en lifecycle.
 
 Retentiebeleid, eDiscovery-holds en juridische holds kunnen deze opdrachten blokkeren. Stopt de opdracht met een fout, controleer dan eerst het beleid voordat je het wijzigt. Het voorbeeld van [SharePoint Diary](https://www.sharepointdiary.com/2017/04/how-to-delete-onedrive-for-business-site-collection-sharepoint-online.html) is nuttige achtergrond voor deze opdrachtvolgorde, maar de Microsoft-documentatie van de cmdlets is leidend voor het actuele gedrag.
 
@@ -102,14 +102,14 @@ Begin met `-WhatIf`, controleer elke koppeling tussen postvak en site en behande
 
 ## Officiële Microsoft-documentatie
 
-- [Manage unlicensed OneDrive user accounts](https://learn.microsoft.com/en-us/sharepoint/unlicensed-onedrive-accounts)
-- [About shared mailboxes in Microsoft 365](https://learn.microsoft.com/en-us/microsoft-365/admin/email/about-shared-mailboxes?view=o365-worldwide)
-- [Convert a user mailbox to a shared mailbox](https://learn.microsoft.com/en-us/microsoft-365/admin/email/convert-user-mailbox-to-shared-mailbox?view=o365-worldwide)
+- [Manage unlicensed OneDrive user accounts](https://learn.microsoft.com/nl-nl/sharepoint/unlicensed-onedrive-accounts)
+- [About shared mailboxes in Microsoft 365](https://learn.microsoft.com/nl-nl/microsoft-365/admin/email/about-shared-mailboxes?view=o365-worldwide)
+- [Convert a user mailbox to a shared mailbox](https://learn.microsoft.com/nl-nl/microsoft-365/admin/email/convert-user-mailbox-to-shared-mailbox?view=o365-worldwide)
 - [Een andere werknemer toegang geven tot OneDrive- en Outlook-gegevens](https://learn.microsoft.com/nl-nl/microsoft-365/admin/add-users/remove-former-employee-step-5?view=o365-worldwide)
-- [Fix: Can't delete a Microsoft 365 group site permanently](https://learn.microsoft.com/en-us/troubleshoot/sharepoint/sites/cannot-permanently-delete-site)
-- [Remove-SPOSite](https://learn.microsoft.com/en-us/powershell/module/microsoft.online.sharepoint.powershell/remove-sposite?view=sharepoint-ps)
-- [Get-SPODeletedSite](https://learn.microsoft.com/en-us/powershell/module/microsoft.online.sharepoint.powershell/get-spodeletedsite?view=sharepoint-ps)
-- [Remove-SPODeletedSite](https://learn.microsoft.com/en-us/powershell/module/microsoft.online.sharepoint.powershell/remove-spodeletedsite?view=sharepoint-ps)
+- [Fix: Can't delete a Microsoft 365 group site permanently](https://learn.microsoft.com/nl-nl/troubleshoot/sharepoint/sites/cannot-permanently-delete-site)
+- [Remove-SPOSite](https://learn.microsoft.com/nl-nl/powershell/module/microsoft.online.sharepoint.powershell/remove-sposite?view=sharepoint-ps)
+- [Get-SPODeletedSite](https://learn.microsoft.com/nl-nl/powershell/module/microsoft.online.sharepoint.powershell/get-spodeletedsite?view=sharepoint-ps)
+- [Remove-SPODeletedSite](https://learn.microsoft.com/nl-nl/powershell/module/microsoft.online.sharepoint.powershell/remove-spodeletedsite?view=sharepoint-ps)
 
 **Gerelateerde bronnen:** [Reddit-discussie over OneDrive-accounts zonder licentie na de conversie](https://www.reddit.com/r/Office365/comments/1v558b0/unlicensed_onedrive_user_accounts_user_to_shared/), [SharePoint Diary: een OneDrive for Business-site verwijderen](https://www.sharepointdiary.com/2017/04/how-to-delete-onedrive-for-business-site-collection-sharepoint-online.html).
 

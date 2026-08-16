@@ -58,7 +58,7 @@ Een redirectpagina kan lang na de oorspronkelijke migratie online blijven. Geef 
 
 - [Portal Redirect op GitHub](https://github.com/DwayneSelsig/Portal-redirect)
 - [Huidige index.html](https://github.com/DwayneSelsig/Portal-redirect/blob/main/index.html)
-- [Aanmelden bij SharePoint](https://support.microsoft.com/en-us/office/sign-in-to-sharepoint-324a89ec-e77b-4475-b64a-13a0c14c45ec)
+- [Aanmelden bij SharePoint](https://support.microsoft.com/nl-nl/office/sign-in-to-sharepoint-324a89ec-e77b-4475-b64a-13a0c14c45ec)
 
 ## Gerelateerde gidsen
 

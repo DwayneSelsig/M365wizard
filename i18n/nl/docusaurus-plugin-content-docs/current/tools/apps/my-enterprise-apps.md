@@ -57,5 +57,5 @@ Wijs een bedrijfseigenaar toe voor de pagina en een IT-eigenaar voor pakket en G
 
 - [My Enterprise Apps op GitHub](https://github.com/DwayneSelsig/spfx-my-enterprise-apps-webpart)
 - [Huidige releases](https://github.com/DwayneSelsig/spfx-my-enterprise-apps-webpart/releases)
-- [Apps beheren met de SharePoint Apps-site](https://learn.microsoft.com/en-us/sharepoint/use-app-catalog)
-- [Microsoft Graph-machtigingen](https://learn.microsoft.com/en-us/graph/permissions-reference)
+- [Apps beheren met de SharePoint Apps-site](https://learn.microsoft.com/nl-nl/sharepoint/use-app-catalog)
+- [Microsoft Graph-machtigingen](https://learn.microsoft.com/nl-nl/graph/permissions-reference)

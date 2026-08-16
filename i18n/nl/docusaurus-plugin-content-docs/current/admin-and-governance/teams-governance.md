@@ -124,7 +124,7 @@ Kies bij voorkeur een nieuw Team wanneer de samenwerking:
 
 Gebruik een gedeeld kanaal voor een afgebakende samenwerking die inhoudelijk bij het bovenliggende Team hoort en dezelfde algemene levenscyclus volgt.
 
-Microsoft Teams maakt voor ieder privé- en gedeeld kanaal een afzonderlijke gekoppelde SharePoint-site. Dit maakt het beheer van bestanden, toegang, bewaring en levenscyclus complexer. Bekijk de Microsoft-documentatie over [gedeelde kanalen](https://learn.microsoft.com/microsoftteams/shared-channels), [privékanalen](https://learn.microsoft.com/microsoftteams/private-channels) en [aan Teams gekoppelde SharePoint-sites](https://learn.microsoft.com/sharepoint/teams-connected-sites).
+Microsoft Teams maakt voor ieder privé- en gedeeld kanaal een afzonderlijke gekoppelde SharePoint-site. Dit maakt het beheer van bestanden, toegang, bewaring en levenscyclus complexer. Bekijk de Microsoft-documentatie over [gedeelde kanalen](https://learn.microsoft.com/nl-nl/microsoftteams/shared-channels), [privékanalen](https://learn.microsoft.com/nl-nl/microsoftteams/private-channels) en [aan Teams gekoppelde SharePoint-sites](https://learn.microsoft.com/nl-nl/sharepoint/teams-connected-sites).
 
 ## Beperk het aanmaken van Teams
 
@@ -136,7 +136,7 @@ Key-users vormen een herkenbaar toegangspunt voor gebruikers die een Team nodig 
 
 Houd rekening met de gevolgen: de beperking geldt niet alleen voor Microsoft Teams. Zij raakt ook andere diensten die Microsoft 365-groepen gebruiken, zoals Outlook, SharePoint, Planner en Viva Engage. Controleer daarom vooraf welke processen hierdoor veranderen.
 
-Voor het configureren van de beperking en voor de gebruikers die groepen mogen aanmaken, gelden licentievoorwaarden voor Microsoft Entra ID P1, P2 of Basic EDU. Zie [bepalen wie Microsoft 365-groepen mag aanmaken](https://learn.microsoft.com/previous-versions/microsoft-365/solutions/manage-creation-of-groups?view=o365-worldwide).
+Voor het configureren van de beperking en voor de gebruikers die groepen mogen aanmaken, gelden licentievoorwaarden voor Microsoft Entra ID P1, P2 of Basic EDU. Zie [bepalen wie Microsoft 365-groepen mag aanmaken](https://learn.microsoft.com/nl-nl/previous-versions/microsoft-365/solutions/manage-creation-of-groups?view=o365-worldwide).
 
 :::warning[Maak de aanvraagroute niet tot een blokkade]
 
@@ -194,11 +194,11 @@ Maak een nieuw Team wanneer het werk een zelfstandige samenwerking vormt. Gebrui
 
 Laat een school of stichting met meerdere scholen klas-Teams en organisatieteams niet hetzelfde levenscyclusproces doorlopen.
 
-- **Klas-Teams:** gebruik waar beschikbaar het leerlinginformatiesysteem en [School Data Sync](https://learn.microsoft.com/schooldatasync/) om klassen aan te maken en te onderhouden. Stem aanmaak, lidmaatschap, archivering en opruiming af op het schooljaar.
+- **Klas-Teams:** gebruik waar beschikbaar het leerlinginformatiesysteem en [School Data Sync](https://learn.microsoft.com/nl-nl/schooldatasync/) om klassen aan te maken en te onderhouden. Stem aanmaak, lidmaatschap, archivering en opruiming af op het schooljaar.
 - **Teams voor medewerkers, vakgroepen, afdelingen, management en projecten:** gebruik de beslisvolgorde uit deze gids. Deze Teams volgen meestal een organisatie- of projectlevenscyclus in plaats van een klassenindeling.
 - **Bovenschoolse Teams:** maak een afzonderlijk Team wanneer de samenwerking een schoolonafhankelijke doelgroep, eigenaarschap of levenscyclus heeft. Plaats dit niet alleen onder het Team van een deelnemende school omdat een schoolleider lid is van beide Teams.
 
-Gebruik voor klas-Teams een expliciete [overgang tussen schooljaren](https://learn.microsoft.com/microsoft-365/education/tutorial-academic-year-transition/). Centrale IT of de eigenaar van onderwijsgegevens beheert het tenantbeleid en School Data Sync. Lokale key-users en Team-eigenaren ondersteunen aanvragen, toegang en levenscyclusbesluiten binnen iedere school.
+Gebruik voor klas-Teams een expliciete [overgang tussen schooljaren](https://learn.microsoft.com/nl-nl/microsoft-365/education/tutorial-academic-year-transition/). Centrale IT of de eigenaar van onderwijsgegevens beheert het tenantbeleid en School Data Sync. Lokale key-users en Team-eigenaren ondersteunen aanvragen, toegang en levenscyclusbesluiten binnen iedere school.
 
 ### Delegeer waar nodig via key-users
 
@@ -225,7 +225,7 @@ Een naam moet gebruikers helpen een Team te herkennen, maar mag niet te sterk af
 
 Microsoft Entra ID ondersteunt de kenmerken `[Department]`, `[Company]`, `[Office]`, `[StateOrProvince]`, `[CountryOrRegion]` en `[Title]` in een naamgevingsbeleid voor Microsoft 365-groepen en Teams.
 
-Een afgedwongen naamgevingsbeleid in Microsoft Entra is een gelicentieerde maatregel. Wanneer technische afdwinging niet gerechtvaardigd of gelicentieerd is, gebruik je dezelfde naamgevingsprincipes als gedocumenteerde afspraak en pas je ze tijdens de aanmaak toe. Zie [naamgevingsbeleid voor Microsoft 365-groepen afdwingen](https://learn.microsoft.com/entra/identity/users/groups-naming-policy).
+Een afgedwongen naamgevingsbeleid in Microsoft Entra is een gelicentieerde maatregel. Wanneer technische afdwinging niet gerechtvaardigd of gelicentieerd is, gebruik je dezelfde naamgevingsprincipes als gedocumenteerde afspraak en pas je ze tijdens de aanmaak toe. Zie [naamgevingsbeleid voor Microsoft 365-groepen afdwingen](https://learn.microsoft.com/nl-nl/entra/identity/users/groups-naming-policy).
 
 Dat een kenmerk technisch wordt ondersteund, betekent niet dat het geschikt is voor duurzame naamgeving.
 
@@ -269,7 +269,7 @@ Stel een lokale maximumlengte in voor de volledige Teamnaam, inclusief afgedwong
 
 De Teamnaam telt mee in het pad van de gekoppelde SharePoint-site en gesynchroniseerde bibliotheek. OneDrive en SharePoint staan voor een gedecodeerd bestandspad in de cloud maximaal 400 tekens toe, maar Windows Verkenner en Office-bureaubladapps lopen vaak tegen een padlimiet van 260 tekens aan. De lokale OneDrive-hoofdmap, organisatienaam, site- of bibliotheeknaam, mappen en bestandsnaam gebruiken allemaal ruimte in het pad.
 
-Lange Teamnamen laten daardoor minder ruimte over voor duidelijke map- en bestandsnamen. Houd mapstructuren ondiep en test het volledige pad met de OneDrive-synchronisatie-app en Office-bureaubladapps die de organisatie ondersteunt. Zie [limieten voor bestandspaden](https://support.microsoft.com/onedrive/what-are-file-path-length-limits) en de [SharePoint-servicelimieten](https://learn.microsoft.com/office365/servicedescriptions/sharepoint-online-service-description/sharepoint-online-limits).
+Lange Teamnamen laten daardoor minder ruimte over voor duidelijke map- en bestandsnamen. Houd mapstructuren ondiep en test het volledige pad met de OneDrive-synchronisatie-app en Office-bureaubladapps die de organisatie ondersteunt. Zie [limieten voor bestandspaden](https://support.microsoft.com/nl-nl/onedrive/what-are-file-path-length-limits) en de [SharePoint-servicelimieten](https://learn.microsoft.com/nl-nl/office365/servicedescriptions/sharepoint-online-service-description/sharepoint-online-limits).
 
 Los het probleem niet op met onbegrijpelijke afkortingen. Een korte naam moet in Teams, Outlook, SharePoint en Verkenner nog steeds herkenbaar zijn.
 
@@ -277,7 +277,7 @@ Los het probleem niet op met onbegrijpelijke afkortingen. Een korte naam moet in
 
 Een Team kan worden hernoemd wanneer het doel verandert. Controleer daarbij ook de beschrijving, eigenaren, classificatie, gekoppelde informatie en verwijzingen.
 
-Het wijzigen van de weergavenaam van een Team is niet hetzelfde als het wijzigen van het adres van de gekoppelde SharePoint-site, het groeps-e-mailadres of alle bestaande koppelingen en synchronisatierelaties. Behandel een adreswijziging als een afzonderlijke beheerhandeling en beoordeel de gevolgen. Zie [het adres van een SharePoint-site wijzigen](https://learn.microsoft.com/sharepoint/change-site-address).
+Het wijzigen van de weergavenaam van een Team is niet hetzelfde als het wijzigen van het adres van de gekoppelde SharePoint-site, het groeps-e-mailadres of alle bestaande koppelingen en synchronisatierelaties. Behandel een adreswijziging als een afzonderlijke beheerhandeling en beoordeel de gevolgen. Zie [het adres van een SharePoint-site wijzigen](https://learn.microsoft.com/nl-nl/sharepoint/change-site-address).
 
 ### Standaardiseer governance, niet de kanaalindeling
 
@@ -305,7 +305,7 @@ Team-eigenaren zijn verantwoordelijk voor:
 - het aanwijzen van vervangende eigenaren;
 - het verlengen, archiveren of beëindigen van het Team.
 
-Configureer, wanneer tenantgrootte, risico en licenties dat rechtvaardigen, het [beleid voor Microsoft 365-groepen en Teams zonder eigenaar](https://learn.microsoft.com/microsoft-365/admin/create-groups/ownerless-groups-teams?view=o365-worldwide). Dit beleid kan actieve groepsleden vragen eigenaar te worden wanneer een Team geen eigenaar meer heeft. Gebruik anders ingebouwde beheerrapportages en offboardingcontroles om Teams te vinden die een vervangende eigenaar nodig hebben.
+Configureer, wanneer tenantgrootte, risico en licenties dat rechtvaardigen, het [beleid voor Microsoft 365-groepen en Teams zonder eigenaar](https://learn.microsoft.com/nl-nl/microsoft-365/admin/create-groups/ownerless-groups-teams?view=o365-worldwide). Dit beleid kan actieve groepsleden vragen eigenaar te worden wanneer een Team geen eigenaar meer heeft. Gebruik anders ingebouwde beheerrapportages en offboardingcontroles om Teams te vinden die een vervangende eigenaar nodig hebben.
 
 Het beleid voor groepen zonder eigenaar is een vangnet. Als niemand de uitnodiging accepteert, wijst het beleid niet automatisch een eigenaar toe. Een beheerder moet het Team dan alsnog beoordelen.
 
@@ -323,7 +323,7 @@ Laat eigenaren periodiek bevestigen:
 - of kanaaleigenaren, apps, tabbladen, connectors en automatiseringen nog een verantwoordelijke eigenaar hebben;
 - of uitzonderingen nog gerechtvaardigd zijn.
 
-Beoordeel niet alleen het Teamlidmaatschap. Directe SharePoint-machtigingen kunnen blijven bestaan nadat iemand uit een Team of gedeeld kanaal is verwijderd. Bevestiging door de eigenaar is de basis. Wanneer risico, schaal en licenties automatisering rechtvaardigen, kunnen Microsoft Entra-toegangsbeoordelingen de lidmaatschapscontrole ondersteunen. Zie [toegangsbeoordelingen](https://learn.microsoft.com/entra/id-governance/access-reviews-overview), [governance voor Microsoft Teams plannen](https://learn.microsoft.com/microsoftteams/plan-teams-governance) en gebruik [Extern delen](./external-sharing.md) voor uitgebreidere afspraken over gasten en andere externe toegang.
+Beoordeel niet alleen het Teamlidmaatschap. Directe SharePoint-machtigingen kunnen blijven bestaan nadat iemand uit een Team of gedeeld kanaal is verwijderd. Bevestiging door de eigenaar is de basis. Wanneer risico, schaal en licenties automatisering rechtvaardigen, kunnen Microsoft Entra-toegangsbeoordelingen de lidmaatschapscontrole ondersteunen. Zie [toegangsbeoordelingen](https://learn.microsoft.com/nl-nl/entra/id-governance/access-reviews-overview), [governance voor Microsoft Teams plannen](https://learn.microsoft.com/nl-nl/microsoftteams/plan-teams-governance) en gebruik [Extern delen](./external-sharing.md) voor uitgebreidere afspraken over gasten en andere externe toegang.
 
 Gebruik [Machtigingen en eigenaarschap](./permissions-and-ownership.md) om eigenaarschap van de werkruimte te scheiden van technische toegang. Gebruik bij eisen voor classificatie, bescherming, bewaring of records de gids [Welke Microsoft Purview-oplossing moet je gebruiken?](../decisions/which-purview-solution-should-you-use.md).
 
@@ -341,7 +341,7 @@ Controleer tijdens de beoordeling:
 - of informatie of gekoppeld werk moet worden overgedragen;
 - of het Team moet worden behouden, gearchiveerd of verwijderd.
 
-Met een [vervalbeleid voor Microsoft 365-groepen](https://learn.microsoft.com/entra/identity/users/groups-lifecycle) kan Microsoft Entra ID inactieve groepen laten verlopen. Activiteit in ondersteunde Microsoft 365-diensten kan een groep automatisch verlengen. Wanneer dit niet gebeurt, ontvangen eigenaren herinneringen.
+Met een [vervalbeleid voor Microsoft 365-groepen](https://learn.microsoft.com/nl-nl/entra/identity/users/groups-lifecycle) kan Microsoft Entra ID inactieve groepen laten verlopen. Activiteit in ondersteunde Microsoft 365-diensten kan een groep automatisch verlengen. Wanneer dit niet gebeurt, ontvangen eigenaren herinneringen.
 
 Microsoft Entra ID ondersteunt één vervalbeleid voor Microsoft 365-groepen per organisatie. Het beleid kan op alle of op geselecteerde groepen van toepassing zijn. Kies de reikwijdte zorgvuldig wanneer afdelingen, projecten, klas-Teams en langdurige samenwerkingen verschillende levenscycli hebben. Voor leden van groepen waarop het beleid van toepassing is, gelden licentievoorwaarden. Voor een kleinere tenant kan een handmatige beoordeling met ingebouwde rapportages proportioneler zijn.
 
@@ -371,7 +371,7 @@ Bepaal vóór verwijdering:
 - welke informatie moet worden bewaard of als record moet worden aangemerkt;
 - wie de definitieve verwijdering goedkeurt.
 
-Een vervalbeleid vervangt geen bewaarbeleid, Records Management of juridische bewaarplicht. Zie [levenscyclusbeheer voor Microsoft Teams](https://learn.microsoft.com/microsoftteams/plan-teams-lifecycle) en [een Team archiveren of verwijderen](https://learn.microsoft.com/microsoftteams/archive-or-delete-a-team).
+Een vervalbeleid vervangt geen bewaarbeleid, Records Management of juridische bewaarplicht. Zie [levenscyclusbeheer voor Microsoft Teams](https://learn.microsoft.com/nl-nl/microsoftteams/plan-teams-lifecycle) en [een Team archiveren of verwijderen](https://learn.microsoft.com/nl-nl/microsoftteams/archive-or-delete-a-team).
 
 ## Ruim bestaande wildgroei op
 
@@ -416,21 +416,21 @@ Leg vast wie uitzonderingen mag goedkeuren. Noteer per uitzondering de reden, ei
 
 ## Officiële Microsoft-documentatie
 
-- [Bepalen wie Microsoft 365-groepen mag aanmaken](https://learn.microsoft.com/previous-versions/microsoft-365/solutions/manage-creation-of-groups?view=o365-worldwide)
-- [Naamgevingsbeleid voor Microsoft 365-groepen afdwingen](https://learn.microsoft.com/entra/identity/users/groups-naming-policy)
-- [Limieten voor bestandspaden in OneDrive en SharePoint](https://support.microsoft.com/onedrive/what-are-file-path-length-limits)
-- [SharePoint-servicelimieten](https://learn.microsoft.com/office365/servicedescriptions/sharepoint-online-service-description/sharepoint-online-limits)
-- [Microsoft 365-groepen en Teams zonder eigenaar beheren](https://learn.microsoft.com/microsoft-365/admin/create-groups/ownerless-groups-teams?view=o365-worldwide)
-- [Toegangsbeoordelingen plannen en beheren](https://learn.microsoft.com/entra/id-governance/access-reviews-overview)
-- [Een vervalbeleid voor Microsoft 365-groepen configureren](https://learn.microsoft.com/entra/identity/users/groups-lifecycle)
-- [School Data Sync](https://learn.microsoft.com/schooldatasync/)
-- [De overgang tussen schooljaren plannen](https://learn.microsoft.com/microsoft-365/education/tutorial-academic-year-transition/)
-- [Governance voor Microsoft Teams plannen](https://learn.microsoft.com/microsoftteams/plan-teams-governance)
-- [Levenscyclusbeheer voor Microsoft Teams plannen](https://learn.microsoft.com/microsoftteams/plan-teams-lifecycle)
-- [Een Team archiveren of verwijderen](https://learn.microsoft.com/microsoftteams/archive-or-delete-a-team)
-- [Integratie tussen Teams en SharePoint](https://learn.microsoft.com/sharepoint/teams-connected-sites)
-- [Privékanalen in Microsoft Teams](https://learn.microsoft.com/microsoftteams/private-channels)
-- [Gedeelde kanalen in Microsoft Teams](https://learn.microsoft.com/microsoftteams/shared-channels)
+- [Bepalen wie Microsoft 365-groepen mag aanmaken](https://learn.microsoft.com/nl-nl/previous-versions/microsoft-365/solutions/manage-creation-of-groups?view=o365-worldwide)
+- [Naamgevingsbeleid voor Microsoft 365-groepen afdwingen](https://learn.microsoft.com/nl-nl/entra/identity/users/groups-naming-policy)
+- [Limieten voor bestandspaden in OneDrive en SharePoint](https://support.microsoft.com/nl-nl/onedrive/what-are-file-path-length-limits)
+- [SharePoint-servicelimieten](https://learn.microsoft.com/nl-nl/office365/servicedescriptions/sharepoint-online-service-description/sharepoint-online-limits)
+- [Microsoft 365-groepen en Teams zonder eigenaar beheren](https://learn.microsoft.com/nl-nl/microsoft-365/admin/create-groups/ownerless-groups-teams?view=o365-worldwide)
+- [Toegangsbeoordelingen plannen en beheren](https://learn.microsoft.com/nl-nl/entra/id-governance/access-reviews-overview)
+- [Een vervalbeleid voor Microsoft 365-groepen configureren](https://learn.microsoft.com/nl-nl/entra/identity/users/groups-lifecycle)
+- [School Data Sync](https://learn.microsoft.com/nl-nl/schooldatasync/)
+- [De overgang tussen schooljaren plannen](https://learn.microsoft.com/nl-nl/microsoft-365/education/tutorial-academic-year-transition/)
+- [Governance voor Microsoft Teams plannen](https://learn.microsoft.com/nl-nl/microsoftteams/plan-teams-governance)
+- [Levenscyclusbeheer voor Microsoft Teams plannen](https://learn.microsoft.com/nl-nl/microsoftteams/plan-teams-lifecycle)
+- [Een Team archiveren of verwijderen](https://learn.microsoft.com/nl-nl/microsoftteams/archive-or-delete-a-team)
+- [Integratie tussen Teams en SharePoint](https://learn.microsoft.com/nl-nl/sharepoint/teams-connected-sites)
+- [Privékanalen in Microsoft Teams](https://learn.microsoft.com/nl-nl/microsoftteams/private-channels)
+- [Gedeelde kanalen in Microsoft Teams](https://learn.microsoft.com/nl-nl/microsoftteams/shared-channels)
 
 ## Gerelateerde gidsen
 

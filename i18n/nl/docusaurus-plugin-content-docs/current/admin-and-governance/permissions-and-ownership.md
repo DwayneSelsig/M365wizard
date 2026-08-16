@@ -59,11 +59,11 @@ Beoordeel eigenaarschap en toegang wanneer een project eindigt, mensen van rol v
 
 ## Officiële Microsoft-documentatie
 
-- [Deelinstellingen voor SharePoint en OneDrive beheren](https://learn.microsoft.com/en-us/sharepoint/turn-external-sharing-on-or-off)
-- [Machtigingsbereiken beheren in SharePoint](https://learn.microsoft.com/en-us/sharepoint/manage-permission-scope)
-- [Meer informatie over gevoeligheidslabels](https://learn.microsoft.com/en-us/purview/sensitivity-labels)
-- [Meer informatie over Data Loss Prevention](https://learn.microsoft.com/en-us/purview/dlp-learn-about-dlp)
-- [Meer informatie over bewaarbeleid en bewaarlabels](https://learn.microsoft.com/en-us/purview/retention)
+- [Deelinstellingen voor SharePoint en OneDrive beheren](https://learn.microsoft.com/nl-nl/sharepoint/turn-external-sharing-on-or-off)
+- [Machtigingsbereiken beheren in SharePoint](https://learn.microsoft.com/nl-nl/sharepoint/manage-permission-scope)
+- [Meer informatie over gevoeligheidslabels](https://learn.microsoft.com/nl-nl/purview/sensitivity-labels)
+- [Meer informatie over Data Loss Prevention](https://learn.microsoft.com/nl-nl/purview/dlp-learn-about-dlp)
+- [Meer informatie over bewaarbeleid en bewaarlabels](https://learn.microsoft.com/nl-nl/purview/retention)
 
 ## Gerelateerde gidsen
 

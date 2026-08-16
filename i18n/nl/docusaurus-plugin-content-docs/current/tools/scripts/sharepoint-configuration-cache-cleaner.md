@@ -62,9 +62,9 @@ De eigenaar van de SharePoint-farm moet de uitvoering goedkeuren, het incidentbe
 - [SPCacheCleaner op GitHub](https://github.com/DwayneSelsig/spcachecleaner)
 - [SPCacheCleaner.ps1](https://github.com/DwayneSelsig/spcachecleaner/blob/master/SPCacheCleaner.ps1)
 - [Microsoft Public License](https://github.com/DwayneSelsig/spcachecleaner/blob/master/license.md)
-- [Microsoft-procedure voor het wissen van de SharePoint-bestandssysteemcache](https://learn.microsoft.com/en-us/troubleshoot/sharepoint/security/update-conflict-when-modify-or-delete-alternate-access-mapping)
-- [Einde van ondersteuning voor SharePoint Server 2013](https://learn.microsoft.com/en-us/lifecycle/announcements/office-2013-skype-business-end-of-support)
-- [Lifecycle van SharePoint Server 2016](https://learn.microsoft.com/en-us/lifecycle/products/sharepoint-server-2016)
+- [Microsoft-procedure voor het wissen van de SharePoint-bestandssysteemcache](https://learn.microsoft.com/nl-nl/troubleshoot/sharepoint/security/update-conflict-when-modify-or-delete-alternate-access-mapping)
+- [Einde van ondersteuning voor SharePoint Server 2013](https://learn.microsoft.com/nl-nl/lifecycle/announcements/office-2013-skype-business-end-of-support)
+- [Lifecycle van SharePoint Server 2016](https://learn.microsoft.com/nl-nl/lifecycle/products/sharepoint-server-2016)
 
 ## Gerelateerde gidsen
 

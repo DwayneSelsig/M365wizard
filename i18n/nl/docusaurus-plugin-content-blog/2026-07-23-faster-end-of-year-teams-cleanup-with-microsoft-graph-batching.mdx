@@ -15,9 +15,9 @@ Ik voer Somtoday-gegevens met een zelfgebouwde tool aan bij School Data Sync en 
 
 Mijn hulpmiddel [Somtoday naar Microsoft School Data Sync](../docs/tools/apps/somtoday-to-school-data-sync) maakt de CSV-bestanden die SDS nodig heeft. Daarmee is de inrichting geregeld, maar ik moet de SDS-lifecycle ook afronden in plaats van de digitale klaslokalen van vorig jaar tussen de nieuwe te laten staan.
 
-Microsoft adviseert in de [richtlijnen voor de overgang naar een nieuw schooljaar](https://learn.microsoft.com/en-us/microsoft-365/education/guide/1-reference/school-data-sync) om de einddatum van de synchronisatie ongeveer drie weken voor het einde van het schooljaar te controleren en het vorige jaar ongeveer twee weken na afloop op te ruimen. In het SDS Admin Center begint die opruiming met een section usage report. Je verwijdert iedere klas die je wilt behouden uit `sectionusage.csv`, uploadt de resterende lijst en kiest de opruimopties.
+Microsoft adviseert in de [richtlijnen voor de overgang naar een nieuw schooljaar](https://learn.microsoft.com/nl-nl/microsoft-365/education/guide/1-reference/school-data-sync) om de einddatum van de synchronisatie ongeveer drie weken voor het einde van het schooljaar te controleren en het vorige jaar ongeveer twee weken na afloop op te ruimen. In het SDS Admin Center begint die opruiming met een section usage report. Je verwijdert iedere klas die je wilt behouden uit `sectionusage.csv`, uploadt de resterende lijst en kiest de opruimopties.
 
-Microsoft presenteert `Archive group` als een van die opties, niet als een universele verplichting. Mijn beheerregel voor deze inrichting is bewust strenger: ieder klasteam dat via SDS is ingericht, wordt gearchiveerd. De optie [`Archive group`](https://learn.microsoft.com/en-us/schooldatasync/azure-ad-group-cleanup) maakt de klas alleen-lezen, voorkomt dat nieuwe gesprekken of gegevens worden gedeeld en verplaatst de klas naar de map met gearchiveerde klassen in Teams.
+Microsoft presenteert `Archive group` als een van die opties, niet als een universele verplichting. Mijn beheerregel voor deze inrichting is bewust strenger: ieder klasteam dat via SDS is ingericht, wordt gearchiveerd. De optie [`Archive group`](https://learn.microsoft.com/nl-nl/schooldatasync/azure-ad-group-cleanup) maakt de klas alleen-lezen, voorkomt dat nieuwe gesprekken of gegevens worden gedeeld en verplaatst de klas naar de map met gearchiveerde klassen in Teams.
 
 :::warning[Het rapport bevat de klassen die worden opgeruimd]
 
@@ -29,7 +29,7 @@ Hetzelfde werkbestand kan daarna dienen als toegestane lijst voor het script. In
 
 ## Archiveren verwijdert de leerlingen niet
 
-Daar zit de crux: Microsoft zegt expliciet dat de [huidige SDS-groepsopruiming geen leerlingen uit de geselecteerde klassen verwijdert](https://learn.microsoft.com/en-us/schooldatasync/azure-ad-group-cleanup). Archiveren en lidmaatschappen opruimen zijn dus twee verschillende taken. Het Graph-script uit deze blog vult de SDS-opruiming aan; het vervangt die niet.
+Daar zit de crux: Microsoft zegt expliciet dat de [huidige SDS-groepsopruiming geen leerlingen uit de geselecteerde klassen verwijdert](https://learn.microsoft.com/nl-nl/schooldatasync/azure-ad-group-cleanup). Archiveren en lidmaatschappen opruimen zijn dus twee verschillende taken. Het Graph-script uit deze blog vult de SDS-opruiming aan; het vervangt die niet.
 
 De twee zijtakken laten zien wat de SDS-opties doen. De gestippelde laatste stap is de aanvullende lidmaatschapsopruiming die nog in de ingebouwde route ontbreekt:
 
@@ -52,7 +52,7 @@ flowchart TD
     style SdsActions fill:transparent,stroke:transparent,color:transparent
 ```
 
-Waarom verwijder ik die lidmaatschappen nadat het Team is gearchiveerd? Gearchiveerd betekent alleen-lezen, niet ontoegankelijk. Microsoft vermeldt dat leden de [Teamactiviteit, bestanden, chats en kanalen nog steeds kunnen bekijken](https://learn.microsoft.com/en-us/microsoftteams/archive-or-delete-a-team). Voor klasteams bevestigt Microsoft bovendien dat [bestanden, gesprekken, cijfers en opdrachten opgeslagen en toegankelijk blijven](https://support.microsoft.com/en-us/teams/education/archiving-classes-at-the-end-of-the-school-year-in-microsoft-teams). Die blijvende toegang geeft een vermijdbare gelegenheid om materiaal uit het vorige schooljaar opnieuw te gebruiken.
+Waarom verwijder ik die lidmaatschappen nadat het Team is gearchiveerd? Gearchiveerd betekent alleen-lezen, niet ontoegankelijk. Microsoft vermeldt dat leden de [Teamactiviteit, bestanden, chats en kanalen nog steeds kunnen bekijken](https://learn.microsoft.com/nl-nl/microsoftteams/archive-or-delete-a-team). Voor klasteams bevestigt Microsoft bovendien dat [bestanden, gesprekken, cijfers en opdrachten opgeslagen en toegankelijk blijven](https://support.microsoft.com/nl-nl/teams/education/archiving-classes-at-the-end-of-the-school-year-in-microsoft-teams). Die blijvende toegang geeft een vermijdbare gelegenheid om materiaal uit het vorige schooljaar opnieuw te gebruiken.
 
 Een leerling kan bijvoorbeeld bestanden en quizzen uit leerjaar 3 downloaden en die later delen met iemand die het volgende schooljaar in leerjaar 3 begint. Het lidmaatschap later verwijderen maakt eerdere downloads niet ongedaan en biedt geen garantie dat er niets wordt gedeeld. Het haalt wel de makkelijke toegang tot het gearchiveerde klasteam weg en maakt dit soort hergebruik minder laagdrempelig.
 
@@ -68,7 +68,7 @@ Het voorbeeldscript vindt kandidaatgroepen door `mailNickname` te vergelijken me
 
 Toen publiceerde Tony Redmond op 21 juli 2026 zijn [inleiding tot Microsoft Graph JSON-batching](https://office365itpros.com/2026/07/21/json-batching-primer/), samen met een [PowerShell-voorbeeld dat gebruikersaccounts in batches bijwerkt](https://github.com/12Knocksinna/Office365itpros/blob/master/Update-UserAccountsBatch.PS1). Het voorbeeld werkt gebruikers bij in plaats van klaslidmaatschappen, maar het slimme idee is precies hetzelfde.
 
-Microsoft Graph accepteert [maximaal 20 aanvragen in één JSON-batch](https://learn.microsoft.com/en-us/graph/json-batching). In plaats van twintig afzonderlijke reizen naar Graph kan ik twintig onafhankelijke verwijderingen van lidmaatschappen in één payload zetten en naar `https://graph.microsoft.com/v1.0/$batch` sturen.
+Microsoft Graph accepteert [maximaal 20 aanvragen in één JSON-batch](https://learn.microsoft.com/nl-nl/graph/json-batching). In plaats van twintig afzonderlijke reizen naar Graph kan ik twintig onafhankelijke verwijderingen van lidmaatschappen in één payload zetten en naar `https://graph.microsoft.com/v1.0/$batch` sturen.
 
 Dat scheelt tijd. Bij ieder los verzoek wacht PowerShell op de reis naar Graph en terug. Met een batch maak je die reis één keer voor maximaal twintig verwijderingen. Graph handelt iedere verwijdering nog steeds apart af, dus een batch is niet automatisch twintig keer zo snel. Bij honderden klasteams maken die vermeden netwerkritten wel degelijk verschil.
 
@@ -152,7 +152,7 @@ Een batch is niet alles-of-niets. Slagen zeventien verwijderingen en mislukken e
 
 :::danger[Behoud /$ref in de verwijderings-URL]
 
-Gebruik `DELETE /groups/{group-id}/members/{member-id}/$ref` om de lidmaatschapsrelatie te verwijderen. [Microsoft waarschuwt](https://learn.microsoft.com/en-us/graph/api/group-delete-members?view=graph-rest-1.0) dat het weglaten van `/$ref` het lidobject zelf uit Microsoft Entra ID kan verwijderen wanneer de aanroepende app ook toestemming heeft om dat objecttype te beheren.
+Gebruik `DELETE /groups/{group-id}/members/{member-id}/$ref` om de lidmaatschapsrelatie te verwijderen. [Microsoft waarschuwt](https://learn.microsoft.com/nl-nl/graph/api/group-delete-members?view=graph-rest-1.0) dat het weglaten van `/$ref` het lidobject zelf uit Microsoft Entra ID kan verwijderen wanneer de aanroepende app ook toestemming heeft om dat objecttype te beheren.
 
 :::
 
@@ -164,7 +164,7 @@ De voorbeeldcode meldt `429` en `5xx`, maar probeert ze niet opnieuw. Een volled
 
 Batching gaat pas aan wanneer de selectie klopt. Ik gebruik het gecontroleerde `sectionusage.csv` als afbakening. In het rapport uit mijn tenant wijst de kolom `GraphId` de exacte klasteams aan; iedere GUID wordt gevalideerd en dubbele waarden worden geweigerd.
 
-Vóór de eerste verwijdering toont het script de tenant en een voorbeeld van de wijzigingen. Kunnen de eigenaars of leden niet worden opgehaald, dan slaat het dat Team over; eigenaars komen nooit in een verwijderingsbatch terecht. Ik begin met één of twee Teams en sla ieder resultaat op. De verbinding gebruikt de minimaal benodigde [machtiging](https://learn.microsoft.com/en-us/graph/api/group-delete-members?view=graph-rest-1.0) `GroupMember.ReadWrite.All`, een passende gedelegeerde Entra-rol en alleen de aanvullende zoekmachtigingen die nodig zijn.
+Vóór de eerste verwijdering toont het script de tenant en een voorbeeld van de wijzigingen. Kunnen de eigenaars of leden niet worden opgehaald, dan slaat het dat Team over; eigenaars komen nooit in een verwijderingsbatch terecht. Ik begin met één of twee Teams en sla ieder resultaat op. De verbinding gebruikt de minimaal benodigde [machtiging](https://learn.microsoft.com/nl-nl/graph/api/group-delete-members?view=graph-rest-1.0) `GroupMember.ReadWrite.All`, een passende gedelegeerde Entra-rol en alleen de aanvullende zoekmachtigingen die nodig zijn.
 
 ## Klaar voor de zomer
 
@@ -179,13 +179,13 @@ De oude klaslokalen dicht, een helder resultatenbestand en geen middag vol losse
 
 ## Officiële Microsoft-documentatie en voorbeeldscripts
 
-- [Overgang naar een nieuw schooljaar met Microsoft School Data Sync](https://learn.microsoft.com/en-us/microsoft-365/education/guide/1-reference/school-data-sync)
-- [Groepen voor klassen en secties opruimen in School Data Sync](https://learn.microsoft.com/en-us/schooldatasync/azure-ad-group-cleanup)
-- [Een Team archiveren of verwijderen in Microsoft Teams](https://learn.microsoft.com/en-us/microsoftteams/archive-or-delete-a-team)
-- [Klassen aan het einde van het schooljaar archiveren in Microsoft Teams voor Onderwijs](https://support.microsoft.com/en-us/teams/education/archiving-classes-at-the-end-of-the-school-year-in-microsoft-teams)
-- [Meerdere HTTP-aanvragen combineren met JSON-batching](https://learn.microsoft.com/en-us/graph/json-batching)
-- [Richtlijnen voor throttling in Microsoft Graph](https://learn.microsoft.com/en-us/graph/throttling)
-- [Een lid uit een groep verwijderen](https://learn.microsoft.com/en-us/graph/api/group-delete-members?view=graph-rest-1.0)
+- [Overgang naar een nieuw schooljaar met Microsoft School Data Sync](https://learn.microsoft.com/nl-nl/microsoft-365/education/guide/1-reference/school-data-sync)
+- [Groepen voor klassen en secties opruimen in School Data Sync](https://learn.microsoft.com/nl-nl/schooldatasync/azure-ad-group-cleanup)
+- [Een Team archiveren of verwijderen in Microsoft Teams](https://learn.microsoft.com/nl-nl/microsoftteams/archive-or-delete-a-team)
+- [Klassen aan het einde van het schooljaar archiveren in Microsoft Teams voor Onderwijs](https://support.microsoft.com/nl-nl/teams/education/archiving-classes-at-the-end-of-the-school-year-in-microsoft-teams)
+- [Meerdere HTTP-aanvragen combineren met JSON-batching](https://learn.microsoft.com/nl-nl/graph/json-batching)
+- [Richtlijnen voor throttling in Microsoft Graph](https://learn.microsoft.com/nl-nl/graph/throttling)
+- [Een lid uit een groep verwijderen](https://learn.microsoft.com/nl-nl/graph/api/group-delete-members?view=graph-rest-1.0)
 - [Microsoft OfficeDev O365-EDU-Tools SDS-voorbeeldscripts](https://github.com/OfficeDev/O365-EDU-Tools/tree/master/SDS%20Scripts)
 - [Lidmaatschappen uit verlopen SDS-secties verwijderen](https://github.com/OfficeDev/O365-EDU-Tools/blob/master/SDS%20Scripts/Remove-Expired_Section_Memberships.ps1)
 

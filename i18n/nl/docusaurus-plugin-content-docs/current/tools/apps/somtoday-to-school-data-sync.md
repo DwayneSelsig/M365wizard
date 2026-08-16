@@ -65,5 +65,5 @@ Controleer Windows Event Viewer voor de status en de SDS-validatieresultaten na 
 
 - [Somtoday naar Microsoft School Data Sync op GitHub](https://github.com/DwayneSelsig/SomtodayOpenAPI2MicrosoftSchoolDataSync)
 - [Huidige releases](https://github.com/DwayneSelsig/SomtodayOpenAPI2MicrosoftSchoolDataSync/releases)
-- [Gegevens koppelen aan School Data Sync](https://learn.microsoft.com/en-us/schooldatasync/connect-data)
-- [SDS v2.1 CSV-bestandsindeling](https://learn.microsoft.com/en-us/schooldatasync/sds-v2.1-csv-file-format)
+- [Gegevens koppelen aan School Data Sync](https://learn.microsoft.com/nl-nl/schooldatasync/connect-data)
+- [SDS v2.1 CSV-bestandsindeling](https://learn.microsoft.com/nl-nl/schooldatasync/sds-v2.1-csv-file-format)

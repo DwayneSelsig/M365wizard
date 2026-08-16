@@ -51,10 +51,10 @@ Beoordeel externe toegang wanneer een project eindigt, informatie gevoeliger wor
 
 ## Officiële Microsoft-documentatie
 
-- [Overzicht van extern delen in SharePoint en OneDrive](https://learn.microsoft.com/en-us/sharepoint/external-sharing-overview)
-- [Deelinstellingen voor SharePoint en OneDrive beheren](https://learn.microsoft.com/en-us/sharepoint/turn-external-sharing-on-or-off)
-- [Meer informatie over gevoeligheidslabels](https://learn.microsoft.com/en-us/purview/sensitivity-labels)
-- [Meer informatie over Data Loss Prevention](https://learn.microsoft.com/en-us/purview/dlp-learn-about-dlp)
+- [Overzicht van extern delen in SharePoint en OneDrive](https://learn.microsoft.com/nl-nl/sharepoint/external-sharing-overview)
+- [Deelinstellingen voor SharePoint en OneDrive beheren](https://learn.microsoft.com/nl-nl/sharepoint/turn-external-sharing-on-or-off)
+- [Meer informatie over gevoeligheidslabels](https://learn.microsoft.com/nl-nl/purview/sensitivity-labels)
+- [Meer informatie over Data Loss Prevention](https://learn.microsoft.com/nl-nl/purview/dlp-learn-about-dlp)
 
 ## Gerelateerde gidsen
 

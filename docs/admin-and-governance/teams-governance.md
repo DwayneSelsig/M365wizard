@@ -124,7 +124,7 @@ Prefer a new Team when the collaboration:
 
 Use a shared channel for a bounded collaboration that belongs to the parent Team and follows the same general lifecycle.
 
-Microsoft Teams creates a separate connected SharePoint site for each private or shared channel. This makes file, access, retention, and lifecycle management more complex. Review the Microsoft documentation for [shared channels](https://learn.microsoft.com/microsoftteams/shared-channels), [private channels](https://learn.microsoft.com/microsoftteams/private-channels), and [Teams-connected SharePoint sites](https://learn.microsoft.com/sharepoint/teams-connected-sites).
+Microsoft Teams creates a separate connected SharePoint site for each private or shared channel. This makes file, access, retention, and lifecycle management more complex. Review the Microsoft documentation for [shared channels](https://learn.microsoft.com/en-us/microsoftteams/shared-channels), [private channels](https://learn.microsoft.com/en-us/microsoftteams/private-channels), and [Teams-connected SharePoint sites](https://learn.microsoft.com/en-us/sharepoint/teams-connected-sites).
 
 ## Limit Team Creation
 
@@ -136,7 +136,7 @@ Key users provide a recognizable contact point for users who need a Team. They c
 
 Consider the consequences: the restriction is not limited to Microsoft Teams. It also affects other services that use Microsoft 365 groups, including Outlook, SharePoint, Planner, and Viva Engage. Check which processes will change before enabling the restriction.
 
-Microsoft Entra ID P1, P2, or Basic EDU licensing requirements apply to configuring the restriction and to the users who are allowed to create groups. See [Manage who can create Microsoft 365 Groups](https://learn.microsoft.com/previous-versions/microsoft-365/solutions/manage-creation-of-groups).
+Microsoft Entra ID P1, P2, or Basic EDU licensing requirements apply to configuring the restriction and to the users who are allowed to create groups. See [Manage who can create Microsoft 365 Groups](https://learn.microsoft.com/en-us/previous-versions/microsoft-365/solutions/manage-creation-of-groups).
 
 :::warning[Do Not Turn The Request Route Into A Blocker]
 
@@ -194,11 +194,11 @@ Create a new Team when the work is an independent collaboration. Use a standard 
 
 At a school or multi-school organization, do not put class Teams and organizational Teams through the same lifecycle process.
 
-- **Class Teams:** use the student information system and [School Data Sync](https://learn.microsoft.com/schooldatasync/) to provision and maintain classes when available. Align creation, membership, archiving, and cleanup with the academic year.
+- **Class Teams:** use the student information system and [School Data Sync](https://learn.microsoft.com/en-us/schooldatasync/) to provision and maintain classes when available. Align creation, membership, archiving, and cleanup with the academic year.
 - **Staff, subject, department, management, and project Teams:** use the decision flow in this guide. These Teams usually follow an organizational or project lifecycle instead of a class roster.
 - **Cross-school Teams:** create a separate Team when the collaboration has a school-independent audience, ownership, or lifecycle. Do not place it under one participating school's Team only because a school leader is a member of both.
 
-Use an explicit [academic-year transition](https://learn.microsoft.com/microsoft-365/education/tutorial-academic-year-transition/) for class Teams. Central IT or the education data owner manages tenant policy and School Data Sync. Local key users and Team owners support requests, access, and lifecycle decisions within each school.
+Use an explicit [academic-year transition](https://learn.microsoft.com/en-us/microsoft-365/education/tutorial-academic-year-transition/) for class Teams. Central IT or the education data owner manages tenant policy and School Data Sync. Local key users and Team owners support requests, access, and lifecycle decisions within each school.
 
 ### Delegate Through Key Users Where Needed
 
@@ -225,7 +225,7 @@ A name must help users recognize a Team, but must not depend too heavily on info
 
 Microsoft Entra ID supports the attributes `[Department]`, `[Company]`, `[Office]`, `[StateOrProvince]`, `[CountryOrRegion]`, and `[Title]` in a naming policy for Microsoft 365 groups and Teams.
 
-An enforced Microsoft Entra naming policy is a licensed control. When technical enforcement is not justified or licensed, use the same naming principles as a documented agreement and apply them during creation. See [Enforce a naming policy on Microsoft 365 groups](https://learn.microsoft.com/entra/identity/users/groups-naming-policy).
+An enforced Microsoft Entra naming policy is a licensed control. When technical enforcement is not justified or licensed, use the same naming principles as a documented agreement and apply them during creation. See [Enforce a naming policy on Microsoft 365 groups](https://learn.microsoft.com/en-us/entra/identity/users/groups-naming-policy).
 
 Technical support for an attribute does not make it suitable for durable naming.
 
@@ -269,7 +269,7 @@ Set a local maximum for the complete Team name, including enforced prefixes and 
 
 The Team name contributes to the connected SharePoint site and synchronized-library path. OneDrive and SharePoint allow a decoded cloud file path of up to 400 characters, but Windows File Explorer and Office desktop apps commonly encounter a 260-character path limit. The local OneDrive root, organization name, site or library name, folders, and file name all consume space in the path.
 
-Long Team names therefore leave less space for clear folder and file names. Keep folder structures shallow and test the full path with the OneDrive sync app and the Office desktop applications that the organization supports. See [file path length limits](https://support.microsoft.com/onedrive/what-are-file-path-length-limits) and the [SharePoint service limits](https://learn.microsoft.com/office365/servicedescriptions/sharepoint-online-service-description/sharepoint-online-limits).
+Long Team names therefore leave less space for clear folder and file names. Keep folder structures shallow and test the full path with the OneDrive sync app and the Office desktop applications that the organization supports. See [file path length limits](https://support.microsoft.com/en-us/onedrive/what-are-file-path-length-limits) and the [SharePoint service limits](https://learn.microsoft.com/en-us/office365/servicedescriptions/sharepoint-online-service-description/sharepoint-online-limits).
 
 Do not solve the problem with opaque abbreviations. A short name must still be recognizable in Teams, Outlook, SharePoint, and File Explorer.
 
@@ -277,7 +277,7 @@ Do not solve the problem with opaque abbreviations. A short name must still be r
 
 A Team can be renamed when its purpose changes. Check the description, owners, classification, connected information, and references during the change.
 
-Changing the Team display name is not the same as changing the connected SharePoint site address, group email address, or every existing link and synchronization relationship. Treat an address change as a separate administrator action and assess its impact. See [Change a SharePoint site address](https://learn.microsoft.com/sharepoint/change-site-address).
+Changing the Team display name is not the same as changing the connected SharePoint site address, group email address, or every existing link and synchronization relationship. Treat an address change as a separate administrator action and assess its impact. See [Change a SharePoint site address](https://learn.microsoft.com/en-us/sharepoint/change-site-address).
 
 ### Standardize Governance, Not The Channel Layout
 
@@ -305,7 +305,7 @@ Team owners are responsible for:
 - appointing replacement owners;
 - renewing, archiving, or ending the Team.
 
-Where tenant scale, risk, and licensing justify it, configure the [ownerless Microsoft 365 groups and Teams policy](https://learn.microsoft.com/microsoft-365/admin/create-groups/ownerless-groups-teams?view=o365-worldwide). This policy can ask active group members to become an owner when a Team no longer has one. Otherwise, use native administrator reports and offboarding checks to identify Teams that need a replacement owner.
+Where tenant scale, risk, and licensing justify it, configure the [ownerless Microsoft 365 groups and Teams policy](https://learn.microsoft.com/en-us/microsoft-365/admin/create-groups/ownerless-groups-teams?view=o365-worldwide). This policy can ask active group members to become an owner when a Team no longer has one. Otherwise, use native administrator reports and offboarding checks to identify Teams that need a replacement owner.
 
 The ownerless-groups policy is a safety net. If nobody accepts the invitation, the policy does not assign an owner automatically. An administrator must still review the Team.
 
@@ -323,7 +323,7 @@ Ask owners to periodically confirm:
 - whether channel owners, apps, tabs, connectors, and automations still have an accountable owner;
 - whether exceptions are still justified.
 
-Do not review only the Team membership. Direct SharePoint permissions can remain after a person is removed from a Team or shared channel. Owner confirmation is the baseline. Where risk, scale, and licensing justify automation, Microsoft Entra ID access reviews can support the membership review. See [access reviews](https://learn.microsoft.com/entra/id-governance/access-reviews-overview), [Plan for governance in Teams](https://learn.microsoft.com/microsoftteams/plan-teams-governance), and use [External Sharing](./external-sharing.md) for more detailed guidance about guests and other external access.
+Do not review only the Team membership. Direct SharePoint permissions can remain after a person is removed from a Team or shared channel. Owner confirmation is the baseline. Where risk, scale, and licensing justify automation, Microsoft Entra ID access reviews can support the membership review. See [access reviews](https://learn.microsoft.com/en-us/entra/id-governance/access-reviews-overview), [Plan for governance in Teams](https://learn.microsoft.com/en-us/microsoftteams/plan-teams-governance), and use [External Sharing](./external-sharing.md) for more detailed guidance about guests and other external access.
 
 Use [Permissions And Ownership](./permissions-and-ownership.md) to separate workspace ownership from technical access. When classification, protection, retention, or records requirements apply, use [Which Microsoft Purview Solution Should You Use?](../decisions/which-purview-solution-should-you-use.md).
 
@@ -341,7 +341,7 @@ During the review, check:
 - whether information or connected work must be transferred;
 - whether the Team must be kept, archived, or deleted.
 
-A [Microsoft 365 group expiration policy](https://learn.microsoft.com/entra/identity/users/groups-lifecycle) can expire inactive groups. Activity in supported Microsoft 365 services can automatically renew a group. If this does not happen, owners receive reminders.
+A [Microsoft 365 group expiration policy](https://learn.microsoft.com/en-us/entra/identity/users/groups-lifecycle) can expire inactive groups. Activity in supported Microsoft 365 services can automatically renew a group. If this does not happen, owners receive reminders.
 
 Microsoft Entra ID supports one Microsoft 365 group expiration policy per organization. The policy can apply to all groups or selected groups. Select its scope carefully when departments, projects, class Teams, and long-term collaborations have different lifecycles. Licensing requirements apply to members of groups covered by the policy. A manual review supported by native reports can be more proportionate for a smaller tenant.
 
@@ -371,7 +371,7 @@ Before deletion, decide:
 - which information must be retained or declared as a record;
 - who approves the final deletion.
 
-An expiration policy does not replace retention policy, Records Management, or a legal hold. See [lifecycle management for Microsoft Teams](https://learn.microsoft.com/microsoftteams/plan-teams-lifecycle) and [archive or delete a Team](https://learn.microsoft.com/microsoftteams/archive-or-delete-a-team).
+An expiration policy does not replace retention policy, Records Management, or a legal hold. See [lifecycle management for Microsoft Teams](https://learn.microsoft.com/en-us/microsoftteams/plan-teams-lifecycle) and [archive or delete a Team](https://learn.microsoft.com/en-us/microsoftteams/archive-or-delete-a-team).
 
 ## Clean Up Existing Sprawl
 
@@ -416,21 +416,21 @@ Define who can approve exceptions. Record the reason, owner, and review date for
 
 ## Official Microsoft Documentation
 
-- [Manage who can create Microsoft 365 Groups](https://learn.microsoft.com/previous-versions/microsoft-365/solutions/manage-creation-of-groups?view=o365-worldwide)
-- [Enforce a naming policy on Microsoft 365 groups](https://learn.microsoft.com/entra/identity/users/groups-naming-policy)
-- [File path length limits for OneDrive and SharePoint](https://support.microsoft.com/onedrive/what-are-file-path-length-limits)
-- [SharePoint service limits](https://learn.microsoft.com/office365/servicedescriptions/sharepoint-online-service-description/sharepoint-online-limits)
-- [Manage ownerless Microsoft 365 groups and Teams](https://learn.microsoft.com/microsoft-365/admin/create-groups/ownerless-groups-teams?view=o365-worldwide)
-- [Plan and manage access reviews](https://learn.microsoft.com/entra/id-governance/access-reviews-overview)
-- [Configure a Microsoft 365 group expiration policy](https://learn.microsoft.com/entra/identity/users/groups-lifecycle)
-- [School Data Sync](https://learn.microsoft.com/schooldatasync/)
-- [Plan the academic-year transition](https://learn.microsoft.com/microsoft-365/education/tutorial-academic-year-transition/)
-- [Plan for governance in Teams](https://learn.microsoft.com/microsoftteams/plan-teams-governance)
-- [Plan lifecycle management for Microsoft Teams](https://learn.microsoft.com/microsoftteams/plan-teams-lifecycle)
-- [Archive or delete a Team](https://learn.microsoft.com/microsoftteams/archive-or-delete-a-team)
-- [Teams and SharePoint integration](https://learn.microsoft.com/sharepoint/teams-connected-sites)
-- [Private channels in Microsoft Teams](https://learn.microsoft.com/microsoftteams/private-channels)
-- [Shared channels in Microsoft Teams](https://learn.microsoft.com/microsoftteams/shared-channels)
+- [Manage who can create Microsoft 365 Groups](https://learn.microsoft.com/en-us/previous-versions/microsoft-365/solutions/manage-creation-of-groups?view=o365-worldwide)
+- [Enforce a naming policy on Microsoft 365 groups](https://learn.microsoft.com/en-us/entra/identity/users/groups-naming-policy)
+- [File path length limits for OneDrive and SharePoint](https://support.microsoft.com/en-us/onedrive/what-are-file-path-length-limits)
+- [SharePoint service limits](https://learn.microsoft.com/en-us/office365/servicedescriptions/sharepoint-online-service-description/sharepoint-online-limits)
+- [Manage ownerless Microsoft 365 groups and Teams](https://learn.microsoft.com/en-us/microsoft-365/admin/create-groups/ownerless-groups-teams?view=o365-worldwide)
+- [Plan and manage access reviews](https://learn.microsoft.com/en-us/entra/id-governance/access-reviews-overview)
+- [Configure a Microsoft 365 group expiration policy](https://learn.microsoft.com/en-us/entra/identity/users/groups-lifecycle)
+- [School Data Sync](https://learn.microsoft.com/en-us/schooldatasync/)
+- [Plan the academic-year transition](https://learn.microsoft.com/en-us/microsoft-365/education/tutorial-academic-year-transition/)
+- [Plan for governance in Teams](https://learn.microsoft.com/en-us/microsoftteams/plan-teams-governance)
+- [Plan lifecycle management for Microsoft Teams](https://learn.microsoft.com/en-us/microsoftteams/plan-teams-lifecycle)
+- [Archive or delete a Team](https://learn.microsoft.com/en-us/microsoftteams/archive-or-delete-a-team)
+- [Teams and SharePoint integration](https://learn.microsoft.com/en-us/sharepoint/teams-connected-sites)
+- [Private channels in Microsoft Teams](https://learn.microsoft.com/en-us/microsoftteams/private-channels)
+- [Shared channels in Microsoft Teams](https://learn.microsoft.com/en-us/microsoftteams/shared-channels)
 
 ## Related Guides
 
