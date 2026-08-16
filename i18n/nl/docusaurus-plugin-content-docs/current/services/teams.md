@@ -25,6 +25,7 @@ Maak niet voor elke aankondiging, community of gepubliceerde pagina een Team. Te
 
 ## Gerelateerde gidsen
 
+- [Microsoft Teams-governance: voorkom wildgroei](../admin-and-governance/teams-governance.md)
 - [Welk samenwerkingshulpmiddel moet ik gebruiken?](../decisions/which-collaboration-tool-should-i-use.md)
 - [Teams of Viva Engage?](../decisions/teams-or-viva-engage.md)
 - [My Calendars](../tools/apps/my-calendars.md)
