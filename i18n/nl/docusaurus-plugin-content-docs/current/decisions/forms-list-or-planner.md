@@ -28,3 +28,8 @@ Gebruik Lists voor zaken die status, velden, filters, historie en een langere le
 ## Kies Planner voor werk
 
 Gebruik Planner wanneer iemand eigenaar, einddatum en voortgang nodig heeft. Verbind het plan met het Team waar de gesprekken en bestanden staan.
+
+## Gerelateerde handleidingen
+
+- [Informatie verzamelen](../scenarios/collect-information.md)
+- [Taken en werk beheren](../scenarios/manage-tasks-and-work.md)

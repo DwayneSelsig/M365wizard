@@ -31,3 +31,9 @@ Een organisatiebibliotheek is geen algemene opslagplaats. Houd concepten en werk
 ## Bepaal de levenscyclus
 
 Wijs een inhoudseigenaar toe, maak duidelijk welke versie is goedgekeurd en beoordeel assets volgens een vast ritme. Verwijder of archiveer materialen die niet langer geldig zijn.
+
+## Gerelateerde handleidingen
+
+- [Bibliotheek met organisatie-assets](../admin-and-governance/organization-assets-library.md)
+- [Office-inhoud in huisstijl maken](../scenarios/create-branded-office-content.md)
+- [Sjablonen voor de organisatie](../admin-and-governance/templates-for-the-organization.md)

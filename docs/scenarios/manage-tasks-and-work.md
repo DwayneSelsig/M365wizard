@@ -28,3 +28,9 @@ Use a basic Planner plan for lightweight team work. Keep the plan connected to t
 ## Use A Premium Planner Plan For More Complex Projects
 
 A basic Planner plan is for straightforward team work. If you need dependencies, baselines, formal resource planning, or portfolio management, use a premium plan in Planner. This requires an additional Planner license. Choose another specialized tool only when Planner does not fit your way of working.
+
+## Related Guides
+
+- [Planner](../services/planner.md)
+- [Teams](../services/teams.md)
+- [Forms, Lists, Or Planner?](../decisions/forms-list-or-planner.md)

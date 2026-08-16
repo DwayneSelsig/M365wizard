@@ -28,3 +28,9 @@ Use Teams for working content and SharePoint for published content. Keep ownersh
 ## Avoid Copy Chaos
 
 If you publish a copy of a working document, make the relationship clear. People should know where to collaborate and where to read the approved version.
+
+## Related Guides
+
+- [SharePoint](../services/sharepoint/index.mdx)
+- [Sway, PowerPoint, Or SharePoint?](../decisions/sway-powerpoint-or-sharepoint.md)
+- [Collaborate On Documents](./collaborate-on-documents.md)

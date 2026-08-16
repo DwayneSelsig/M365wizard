@@ -51,3 +51,10 @@ Gebruik het wanneer ontdekken en deelnemen belangrijker zijn dan taakuitvoering.
 E-mail heeft nog steeds een plaats. Gebruik Outlook wanneer een bericht kortdurend is, aan specifieke personen is gericht en geen gedeelde werkruimte of patroon voor langdurige samenwerking nodig heeft.
 
 Wordt de e-mailketen een werkstroom, verplaats die dan naar Teams of SharePoint.
+
+## Gerelateerde handleidingen
+
+- [Teams](../services/teams.md)
+- [SharePoint](../services/sharepoint/index.mdx)
+- [Viva Engage](../services/viva-engage.md)
+- [Teams of Viva Engage?](./teams-or-viva-engage.md)

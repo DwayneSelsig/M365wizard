@@ -51,3 +51,8 @@ Good fits include team tasks, campaign checklists, lightweight project boards, o
 ## A Practical Pattern
 
 Use Forms for intake, Lists for the record of what was submitted, and Planner for the work created from that submission. Do not force one tool to do all three jobs unless the process is very small.
+
+## Related Guides
+
+- [Collect Information](../scenarios/collect-information.md)
+- [Manage Tasks And Work](../scenarios/manage-tasks-and-work.md)

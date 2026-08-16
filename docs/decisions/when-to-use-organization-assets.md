@@ -34,3 +34,9 @@ An organization assets library is not a general dumping ground. It should contai
 Before publishing assets, decide who owns them, who can update them, how reviews happen, and how old templates are retired.
 
 The technical setup is only half the pattern. The value comes from making the approved choice easier than the unofficial workaround.
+
+## Related Guides
+
+- [Organization Assets Library](../admin-and-governance/organization-assets-library.md)
+- [Create Branded Office Content](../scenarios/create-branded-office-content.md)
+- [Templates For The Organization](../admin-and-governance/templates-for-the-organization.md)

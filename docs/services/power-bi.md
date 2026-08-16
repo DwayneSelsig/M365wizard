@@ -22,3 +22,7 @@ Use Power BI when people need repeatable reporting, shared dashboards, governed 
 ## Be Careful With
 
 Do not treat every spreadsheet as a Power BI project. Start with the decision people need to make and the data quality available to support it.
+
+## Related Guides
+
+- [Excel](./excel.md)

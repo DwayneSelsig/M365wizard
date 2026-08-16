@@ -26,3 +26,9 @@ Zonder betrouwbare bron voor sjablonen hergebruiken mensen oude bestanden. Dat v
 Scheid afgeronde sjablonen van werkconcepten. Geef assets duidelijke namen. Wijs eigenaarschap toe. Beoordeel sjablonen volgens een voorspelbaar schema.
 
 De bibliotheek moet samengesteld aanvoelen, niet volgepropt.
+
+## Gerelateerde handleidingen
+
+- [Wanneer gebruik je organisatie-assets?](../decisions/when-to-use-organization-assets.md)
+- [Bibliotheek met organisatie-assets](../admin-and-governance/organization-assets-library.md)
+- [Sjablonen voor de organisatie](../admin-and-governance/templates-for-the-organization.md)

@@ -28,3 +28,9 @@ Gebruik een basisplan in Planner voor lichtgewicht teamwerk. Houd het plan verbo
 ## Kies een premiumplan in Planner voor complexere projecten
 
 Een basisplan in Planner is bedoeld voor overzichtelijk teamwerk. Heb je afhankelijkheden, baselines, formele resourceplanning of portfoliobeheer nodig, kies dan een premiumplan in Planner. Hiervoor is een aanvullende Planner-licentie nodig. Kies alleen een ander gespecialiseerd hulpmiddel wanneer Planner niet aansluit op je werkwijze.
+
+## Gerelateerde handleidingen
+
+- [Planner](../services/planner.md)
+- [Teams](../services/teams.md)
+- [Forms, Lists of Planner?](../decisions/forms-list-or-planner.md)

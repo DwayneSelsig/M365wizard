@@ -38,3 +38,8 @@ Use it when ownership, permissions, search, navigation, and lifecycle matter.
 ## A Useful Rule
 
 If the content will be presented, start in PowerPoint. If it will be read as a standalone story, consider Sway. If it must become official organization content, publish it in SharePoint.
+
+## Related Guides
+
+- [Create Branded Office Content](../scenarios/create-branded-office-content.md)
+- [Publish Information](../scenarios/publish-information.md)

@@ -51,3 +51,10 @@ Use it when discovery and participation matter more than task execution.
 Email still has a place. Use Outlook when the message is short-lived, directed to specific people, and does not need a shared workspace or long-term collaboration pattern.
 
 If the thread becomes a workstream, move it to Teams or SharePoint.
+
+## Related Guides
+
+- [Teams](../services/teams.md)
+- [SharePoint](../services/sharepoint/index.mdx)
+- [Viva Engage](../services/viva-engage.md)
+- [Teams Or Viva Engage?](./teams-or-viva-engage.md)

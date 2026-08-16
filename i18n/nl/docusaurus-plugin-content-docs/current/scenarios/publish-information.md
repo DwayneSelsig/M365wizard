@@ -28,3 +28,9 @@ Gebruik Teams voor werkinhoud en SharePoint voor gepubliceerde inhoud. Houd eige
 ## Voorkom kopieënchaos
 
 Maak de relatie duidelijk wanneer je een kopie van een werkdocument publiceert. Mensen moeten weten waar ze samenwerken en waar ze de goedgekeurde versie lezen.
+
+## Gerelateerde handleidingen
+
+- [SharePoint](../services/sharepoint/index.mdx)
+- [Sway, PowerPoint of SharePoint?](../decisions/sway-powerpoint-or-sharepoint.md)
+- [Samenwerken aan documenten](./collaborate-on-documents.md)

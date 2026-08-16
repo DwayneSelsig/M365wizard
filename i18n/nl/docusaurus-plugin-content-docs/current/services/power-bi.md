@@ -22,3 +22,7 @@ Gebruik Power BI wanneer mensen herhaalbare rapportages, gedeelde dashboards, be
 ## Let op
 
 Maak niet van elke spreadsheet een Power BI-project. Begin bij de beslissing die mensen moeten nemen en de datakwaliteit die daarvoor beschikbaar is.
+
+## Gerelateerde handleidingen
+
+- [Excel](./excel.md)

@@ -28,3 +28,8 @@ Viva Engage is sterk voor leiderschapscommunicatie, vakcommunities, open vragen 
 ## Let op eigenaarschap
 
 Beide ruimten hebben eigenaren en duidelijke verwachtingen nodig. Bepaal wie de community of het Team actief houdt en welke inhoud daar thuishoort.
+
+## Gerelateerde handleidingen
+
+- [Welk samenwerkingshulpmiddel moet ik gebruiken?](./which-collaboration-tool-should-i-use.md)
+- [Bouw aan community en betrokkenheid](../scenarios/build-community-and-engagement.md)

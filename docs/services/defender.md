@@ -22,3 +22,8 @@ Use Defender as part of a broader security operating model: detection, preventio
 ## Be Careful With
 
 Security tools need ownership and process. Alerts, policies, and reports only help when someone is responsible for reviewing and acting on them.
+
+## Related Guides
+
+- [Entra ID](./entra-id.md)
+- [Conditional Access](../admin-and-governance/conditional-access.md)

@@ -29,3 +29,10 @@ Dit patroon houdt eigenaarschap in lijn met het werk. Persoonlijke concepten bli
 - Het bestand wordt een bron van waarheid.
 
 Verplaats het bestand uit persoonlijke opslag wanneer deze signalen verschijnen.
+
+## Gerelateerde handleidingen
+
+- [OneDrive](../services/onedrive.md)
+- [Teams](../services/teams.md)
+- [SharePoint](../services/sharepoint/index.mdx)
+- [Waar moet dit bestand staan?](../decisions/where-should-this-file-live.md)

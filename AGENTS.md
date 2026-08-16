@@ -85,6 +85,12 @@ pages must still be translated manually.
 - Link to an existing decision, service, or governance guide instead of
   duplicating its explanation. End substantial guides with useful next steps
   or `Related Guides` when appropriate.
+- For a new or substantially revised guide, add relevant internal links that
+  help the reader continue to the related decision, service, scenario, or
+  governance guidance. Do not add a link only because two pages share a
+  product name.
+- Keep internal link targets and the recommendation they support semantically
+  aligned between English and Dutch. Translate visible link text naturally.
 - Preserve useful prose when adding visuals. Diagrams and videos supplement 
   the text; they do not replace it.
 
@@ -266,6 +272,9 @@ Place that section after `## Quick Answer`.
 - Run `npm test` when changing the YouTube component, its URL parser, or related
   behavior.
 - Run `git diff --check` before finishing.
+- For a substantial documentation series or navigation change, run
+  `npm run audit:document-links`. Review the English and Dutch reports
+  separately; sidebar navigation does not count as an article link.
 - Report the changed English/Dutch locale pairs, official sources added,
   validation results, and any preexisting failures with their exact file and
   error. Do not silently expand the task to fix unrelated issues.
@@ -281,4 +290,12 @@ Rules:
 - Dirty graphify-out/ files are expected after hooks or incremental updates; dirty graph files are not a reason to skip graphify. Only skip graphify if the task is about stale or incorrect graph output, or the user explicitly says not to use it.
 - If graphify-out/wiki/index.md exists, use it for broad navigation instead of raw source browsing.
 - Read graphify-out/GRAPH_REPORT.md only for broad architecture review or when query/path/explain do not surface enough context.
-- After modifying code, run `graphify update .` to keep the graph current (AST-only, no API cost).
+- Use graphify to identify thematic relationships; use the Markdown link audit
+  to verify actual reader navigation. For locale-specific reviews, generate
+  separate English and Dutch graph outputs with
+  `npm run export:locale-graphify` instead of interpreting a mixed locale graph
+  as a link map. The filtered locale views do not replace a full semantic
+  extraction when an LLM backend is available.
+- After modifying documentation or code, run `npm run build` first and then
+  `git diff --check`. Fix failures and repeat both checks before running
+  `graphify update .` to keep the graph current (AST-only, no API cost).

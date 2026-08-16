@@ -24,3 +24,9 @@ Gebruik Forms voor evenementregistraties, feedback en korte verzoeken. Gebruik L
 ## Let op de overdracht
 
 De belangrijkste ontwerpkeuze is de overdracht na het indienen. Als niemand de volgende stap bezit, mislukt het proces ook wanneer het formulier er perfect uitziet.
+
+## Gerelateerde handleidingen
+
+- [Forms, Lists of Planner?](../decisions/forms-list-or-planner.md)
+- [Forms](../services/forms.md)
+- [Planner](../services/planner.md)

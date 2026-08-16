@@ -28,3 +28,8 @@ PowerPoint past bij vergaderingen, trainingen en presentaties waarbij een spreke
 ## Kies SharePoint voor publicatie
 
 Gebruik SharePoint voor intranetpagina's, beleid, kennisartikelen en andere inhoud met eigenaarschap, navigatie en een langere levenscyclus.
+
+## Gerelateerde handleidingen
+
+- [Office-inhoud in huisstijl maken](../scenarios/create-branded-office-content.md)
+- [Informatie publiceren](../scenarios/publish-information.md)

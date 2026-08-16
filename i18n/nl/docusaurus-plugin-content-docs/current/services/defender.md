@@ -22,3 +22,8 @@ Gebruik Defender als onderdeel van een breder beveiligingsmodel: detectie, preve
 ## Let op
 
 Beveiligingshulpmiddelen hebben eigenaarschap en processen nodig. Meldingen, beleidsregels en rapporten helpen alleen wanneer iemand verantwoordelijk is om ze te beoordelen en erop te handelen.
+
+## Gerelateerde handleidingen
+
+- [Entra ID](./entra-id.md)
+- [Voorwaardelijke toegang](../admin-and-governance/conditional-access.md)

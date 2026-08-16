@@ -24,3 +24,9 @@ Use Forms for event registrations, feedback, and quick requests. Use Lists for a
 ## Watch The Handoff
 
 The most important design choice is the handoff after submission. If nobody owns the next step, the process will fail even if the form looks perfect.
+
+## Related Guides
+
+- [Forms, Lists, Or Planner?](../decisions/forms-list-or-planner.md)
+- [Forms](../services/forms.md)
+- [Planner](../services/planner.md)

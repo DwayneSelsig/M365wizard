@@ -40,3 +40,8 @@ Viva Engage is a community platform first and a work coordination tool second.
 Do not create a Team for every community. If the goal is awareness, belonging, questions, and broad participation, Viva Engage usually creates a healthier pattern.
 
 Do not use Viva Engage for work that needs owners, private files, deadlines, and day-to-day execution.
+
+## Related Guides
+
+- [Which Collaboration Tool Should I Use?](./which-collaboration-tool-should-i-use.md)
+- [Build Community And Engagement](../scenarios/build-community-and-engagement.md)

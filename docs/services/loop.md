@@ -22,3 +22,9 @@ Use Loop for collaborative notes, evolving ideas, shared agendas, small working 
 ## Be Careful With
 
 Loop is not always the right final home for official information. Move stable or published content into SharePoint or another governed location when the work matures.
+
+## Related Guides
+
+- [Collaborate On Documents](../scenarios/collaborate-on-documents.md)
+- [Publish Information](../scenarios/publish-information.md)
+- [SharePoint](./sharepoint/index.mdx)

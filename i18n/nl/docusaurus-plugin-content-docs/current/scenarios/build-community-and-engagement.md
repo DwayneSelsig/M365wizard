@@ -27,3 +27,8 @@ Gebruik Viva Engage voor brede communities, communicatie door leidinggevenden, v
 ## Houd de community gezond
 
 Communities hebben hosts nodig. Bepaal wie mensen welkom heet, vragen beantwoordt, nuttige berichten uitlicht en de ruimte levend houdt.
+
+## Gerelateerde handleidingen
+
+- [Viva Engage](../services/viva-engage.md)
+- [Teams of Viva Engage?](../decisions/teams-or-viva-engage.md)

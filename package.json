@@ -12,6 +12,8 @@
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
+    "audit:document-links": "node scripts/audit-document-links.mjs",
+    "export:locale-graphify": "node scripts/export-locale-graphify-views.mjs",
     "test": "node --test tests/*.test.mjs",
     "typecheck": "tsc"
   },

@@ -27,3 +27,8 @@ Use Viva Engage for broad communities, leadership communication, questions, know
 ## Keep It Healthy
 
 Communities need hosts. Define who welcomes people, answers questions, highlights useful posts, and keeps the space alive.
+
+## Related Guides
+
+- [Viva Engage](../services/viva-engage.md)
+- [Teams Or Viva Engage?](../decisions/teams-or-viva-engage.md)

@@ -22,3 +22,9 @@ Gebruik Loop voor gezamenlijke notities, ideeën in ontwikkeling, gedeelde agend
 ## Let op
 
 Loop is niet altijd de juiste eindlocatie voor officiële informatie. Verplaats stabiele of gepubliceerde inhoud naar SharePoint of een andere beheerde locatie zodra het werk rijper wordt.
+
+## Gerelateerde handleidingen
+
+- [Samenwerken aan documenten](../scenarios/collaborate-on-documents.md)
+- [Informatie publiceren](../scenarios/publish-information.md)
+- [SharePoint](./sharepoint/index.mdx)
