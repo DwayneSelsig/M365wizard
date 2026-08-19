@@ -1,6 +1,6 @@
 ---
 title: Voorwaardelijke toegang
-sidebar_position: 5
+sidebar_position: 6
 roles: [IT, KeyUser]
 level: intermediate
 license: ""

@@ -109,6 +109,8 @@ flowchart TD
 
 Putting a link or web part on a homepage does not give someone access to the underlying file or record. The source still checks its own permissions.
 
+After choosing the structural boundary, use [Govern Sharing In SharePoint](../../admin-and-governance/govern-sharing-in-sharepoint.md) to decide who may share the site, files, and folders and which review process applies.
+
 ## Next Step
 
 See [how a SharePoint page is built](./sharepoint-pages-and-web-parts.md), then follow [what happens when someone opens a homepage](./sharepoint-homepage-experience.md).
@@ -119,3 +121,4 @@ See [how a SharePoint page is built](./sharepoint-pages-and-web-parts.md), then 
 - [Where Should This File Live?](../../decisions/where-should-this-file-live.md)
 - [Site, Library, Or Folder: Where Should You Organize Documents?](../../decisions/site-library-or-folder.md)
 - [Permissions And Ownership](../../admin-and-governance/permissions-and-ownership.md)
+- [Govern Sharing In SharePoint](../../admin-and-governance/govern-sharing-in-sharepoint.md)

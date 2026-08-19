@@ -13,6 +13,8 @@ prereqs: []
 
 Extern delen maakt samenwerken met klanten, partners en andere organisaties mogelijk, maar verandert ook wie toegang tot organisatie-inhoud kan houden. Stem de deelroute af op de gevoeligheid, duur en het eigenaarschap van het werk.
 
+Gebruik [Delen in SharePoint beheren](./govern-sharing-in-sharepoint.md) om te bepalen wie sites, bestanden en mappen mag delen. Deze gids blijft gericht op de levenscyclus van toegang voor mensen buiten de organisatie.
+
 ## Waarom dit belangrijk is
 
 Mensen delen vaak extern omdat dit de snelste route is. Governance moet de veilige route duidelijk maken en niet alleen samenwerking blokkeren. Zonder een vastgelegd werkpatroon kunnen links en gasttoegang blijven bestaan nadat het werk waarvoor ze nodig waren is geëindigd.
@@ -59,6 +61,7 @@ Beoordeel externe toegang wanneer een project eindigt, informatie gevoeliger wor
 ## Gerelateerde gidsen
 
 - [Machtigingen en eigenaarschap](./permissions-and-ownership.md)
+- [Delen in SharePoint beheren](./govern-sharing-in-sharepoint.md)
 - [Welke Microsoft Purview-oplossing moet je gebruiken?](../decisions/which-purview-solution-should-you-use.md)
 - [Microsoft Purview](../services/purview.md)
 - [Waar moet dit bestand staan?](../decisions/where-should-this-file-live.md)

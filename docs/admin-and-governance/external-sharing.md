@@ -13,6 +13,8 @@ prereqs: []
 
 External sharing enables collaboration with customers, partners, and other organizations, but it also changes who can retain access to organization content. Match the sharing route to the sensitivity, duration, and ownership of the work.
 
+Use [Govern Sharing In SharePoint](./govern-sharing-in-sharepoint.md) to decide who may share sites, files, and folders. This guide remains focused on the lifecycle of access for people outside the organization.
+
 ## Why It Matters
 
 People often share externally because it is the fastest route. Governance should make the safe route clear, not simply block collaboration. Without a defined working pattern, links and guest access can remain after the work that justified them has ended.
@@ -59,6 +61,7 @@ Review external access when a project ends, the information becomes more sensiti
 ## Related Guides
 
 - [Permissions And Ownership](./permissions-and-ownership.md)
+- [Govern Sharing In SharePoint](./govern-sharing-in-sharepoint.md)
 - [Which Microsoft Purview Solution Should You Use?](../decisions/which-purview-solution-should-you-use.md)
 - [Microsoft Purview](../services/purview.md)
 - [Where Should This File Live?](../decisions/where-should-this-file-live.md)

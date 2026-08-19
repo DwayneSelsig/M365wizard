@@ -1,6 +1,6 @@
 ---
 title: "Microsoft Teams-governance: voorkom wildgroei"
-sidebar_position: 7
+sidebar_position: 8
 roles: [KeyUser, IT]
 level: intermediate
 license: ""

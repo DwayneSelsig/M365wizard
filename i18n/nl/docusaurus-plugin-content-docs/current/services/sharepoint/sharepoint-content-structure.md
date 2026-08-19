@@ -109,6 +109,8 @@ flowchart TD
 
 Een koppeling of webpart op een homepage geven iemand geen toegang tot het achterliggende bestand of record. De bron controleert nog steeds zijn eigen machtigingen.
 
+Gebruik na de keuze van de structurele grens [Delen in SharePoint beheren](../../admin-and-governance/govern-sharing-in-sharepoint.md) om te bepalen wie de site, bestanden en mappen mag delen en welk beoordelingsproces van toepassing is.
+
 ## Volgende stap
 
 Bekijk [hoe een SharePoint-pagina is opgebouwd](./sharepoint-pages-and-web-parts.md) en volg daarna [wat er gebeurt wanneer iemand een homepage opent](./sharepoint-homepage-experience.md).
@@ -119,3 +121,4 @@ Bekijk [hoe een SharePoint-pagina is opgebouwd](./sharepoint-pages-and-web-parts
 - [Waar moet dit bestand staan?](../../decisions/where-should-this-file-live.md)
 - [Site, bibliotheek of map: waar organiseer je documenten?](../../decisions/site-library-or-folder.md)
 - [Machtigingen en eigenaarschap](../../admin-and-governance/permissions-and-ownership.md)
+- [Delen in SharePoint beheren](../../admin-and-governance/govern-sharing-in-sharepoint.md)

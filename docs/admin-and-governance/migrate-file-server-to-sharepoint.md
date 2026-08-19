@@ -1,6 +1,6 @@
 ---
 title: "From File Server To SharePoint: Copy Or Reorganize?"
-sidebar_position: 6
+sidebar_position: 7
 roles: [KeyUser, IT]
 level: intermediate
 license: ""
@@ -91,6 +91,37 @@ Treat existing permissions as evidence, not as the target design. Years of excep
 
 [Microsoft Migration Manager can scan and assess file shares](https://learn.microsoft.com/en-us/sharepointmigration/mm-fileshare-scan-assess) and produce summary reports and detailed logs before migration. Use those results to find technical blockers, but do not expect a scan to decide ownership, value, or retention for you.
 
+### Map Work Process Dependencies
+
+A file inventory does not show how a business process uses a file. Applications outside the Microsoft Office family often expect a local or mapped path, a specific folder name, exclusive file locking, or a service account. A sync client can provide a local path in some cases, but it does not make every file-based application cloud compatible.
+
+Trace each critical process from task to application, file, identity, and path. Test the complete task rather than only checking whether the migrated file opens.
+
+```mermaid
+flowchart TD
+    Process[Identify the business task and process owner] --> Use{How does the application use the file?}
+    Use -->|Browser or supported Microsoft 365 app| Cloud[Test in the target location]
+    Use -->|Local or mapped path| Local{Can a supported synchronized path be used?}
+    Use -->|Service, integration, database, or multi-user data file| Redesign[Redesign, replace, or retain temporarily]
+    Local -->|Yes| Sync[Test Files On-Demand, locking, paths, offline use, and scale]
+    Local -->|No| Redesign
+    Cloud --> Task[Test the complete business task]
+    Sync --> Task
+    Redesign --> Plan[Assign an owner and transition plan]
+    Plan --> Task
+    Task -->|Pass| Approve[Approve the dependency for a migration wave]
+    Task -->|Fail| Block[Do not cut over this dependency]
+```
+
+Complete this checklist before scheduling the affected migration wave:
+
+- [ ] Name the process owner, users, criticality, and acceptable outage.
+- [ ] Record every application, automation, macro, integration, service account, and scheduled task that reads or writes the files.
+- [ ] Record mapped drives, fixed paths, shortcuts, input folders, output folders, and embedded links.
+- [ ] Test concurrent use, file locking, offline use, Files On-Demand, and the target path with the real application.
+- [ ] Choose and approve one outcome: use the browser, use a supported synchronized path, change the application, replace the process, or keep the dependency on managed storage temporarily.
+- [ ] Define monitoring, support, rollback, and a date for removing any temporary exception.
+
 ## 3. Choose The Destination
 
 Choose a destination for each coherent work area, not for the entire drive at once.
@@ -105,6 +136,8 @@ Choose a destination for each coherent work area, not for the entire drive at on
 | Obsolete, duplicate, or ownerless content with approved disposal | Do not migrate it |
 
 OneDrive, Teams, and SharePoint are not interchangeable folders. The destination determines ownership, lifecycle, access, and how people find and use the content. See [Where Should This File Live?](../decisions/where-should-this-file-live.md) for the underlying choice.
+
+Use a governed communication site or nongroup-connected SharePoint site when the organization must centrally manage publication, membership, or access. Use a group-connected team site when a defined group should collaborate and its owners can be accountable for membership. SharePoint does not keep ownership central by itself; the site type, groups, owners, and sharing settings create that operating model. Follow [Govern Sharing In SharePoint](./govern-sharing-in-sharepoint.md) before selecting the final destination.
 
 :::warning[Archive Is A Lifecycle Decision]
 
@@ -129,9 +162,47 @@ Within a site:
 - define at least two suitable owners for important workspaces;
 - agree on naming, navigation, versioning, sharing, retention, and review before migration.
 
+:::warning[Do Not Transfer Access Governance By Accident]
+
+File-server access is often based on groups maintained by IT or identity management. A group-connected SharePoint team site or Team can let workspace owners manage membership. If that membership does not follow an authoritative joiner, mover, and leaver process, a role change can leave someone without required access or with access that should have ended.
+
+For every destination, record whether membership is centrally managed, owner-managed, or hybrid. Name the business owner, at least two workspace owners, the identity source, the approver, the exception route, and the review date. Use [Permissions And Ownership](./permissions-and-ownership.md) for the responsibility model.
+
+Team membership is not the only access path. Direct file or folder sharing can create unique SharePoint permissions, and private or shared Teams channels use separate SharePoint sites. Review members, guests, sharing links, direct access, and channel sites as separate evidence. Use [Govern Sharing In SharePoint](./govern-sharing-in-sharepoint.md) and [Teams and SharePoint integration](https://learn.microsoft.com/en-us/sharepoint/teams-connected-sites) for the applicable controls.
+
+Microsoft 365 Copilot respects existing permissions, but it can make accessible information easier to find and reuse. Before a broad rollout, remediate oversharing, ownerless content, and obsolete access. Use Purview to discover, classify, and protect sensitive information, but do not treat labels as a replacement for access remediation. A site or group label does not automatically label the files inside it. See Microsoft's [secure and governed data foundation for Copilot](https://learn.microsoft.com/en-us/microsoft-365/copilot/secure-govern-copilot-foundational-deployment-guidance) and [sensitivity labels for groups and sites](https://learn.microsoft.com/en-us/purview/sensitivity-labels-teams-groups-sites).
+
+:::
+
 The objective is not to remove every folder. It is to make the structure explainable to a new employee without relying on knowledge of the old drive.
 
-## 5. Clean Up And Remediate
+## 5. Control Synchronization And Local Data Risk
+
+Oversharing is usually a loss of confidentiality rather than loss of the file itself. Synchronization introduces a different risk: OneDrive synchronizes additions, changes, and deletions between the device and the cloud. An accidental deletion, destructive application, or compromised device can therefore affect the shared cloud copy and other synchronized devices. Treat synchronization as an access method, not as a backup.
+
+| Risk | What can happen | Required design response |
+| --- | --- | --- |
+| Oversharing | Broad membership, direct permissions, or links expose information to unintended people | Remediate access and follow [Govern Sharing In SharePoint](./govern-sharing-in-sharepoint.md) |
+| Local exposure | Locally available or always-available files can be read through an unlocked or compromised user session | Require managed device controls, disk encryption, screen locking, incident response, and appropriate download restrictions |
+| Propagated deletion or damage | A synchronized deletion or modification can reach SharePoint and other devices | Configure versioning and recovery, retain appropriate recycle-bin or restore options, and test the recovery procedure |
+| Excessive synchronization | Large libraries, too many synchronized items, or widespread offline copies can affect storage, network use, and sync reliability | Synchronize only what the work pattern requires, use Files On-Demand, and test against the current OneDrive and SharePoint limits |
+| Incompatible process | An application expects a mapped drive, fixed path, locking behavior, or local data file | Resolve the dependency before cut-over or keep an explicitly managed temporary exception |
+
+Files On-Demand can keep file contents online until needed, but a user can make files always available and some applications can automatically download online-only files. It is therefore a storage and synchronization control, not a security boundary.
+
+SharePoint permissions also do not by themselves protect every downloaded copy. Start with managed and compliant devices, device encryption, strong sign-in and locking, and controls for unmanaged devices. Add Purview sensitivity labels with encryption, protection that extends SharePoint permissions to downloaded files, and Endpoint DLP when the information risk and licensing justify them. A label used only for classification does not prevent someone who can use the authorized, unlocked session from reading the file.
+
+Before enabling synchronization for a site or library:
+
+- [ ] Approve which roles need synchronization and which libraries they need.
+- [ ] Keep Files On-Demand as the normal pattern and document justified offline exceptions.
+- [ ] Check item counts, path lengths, available storage, bandwidth, and the current synchronization limits.
+- [ ] Confirm the device-management, encryption, lock, remote-action, and unmanaged-device requirements.
+- [ ] Decide whether sensitive files need encryption, extended protection on download, Endpoint DLP, or a no-download pattern.
+- [ ] Test deletion, version restore, recycle-bin recovery, and the incident escalation route.
+- [ ] Include removal of synchronized data and access in the leaver, lost-device, and device-replacement processes.
+
+## 6. Clean Up And Remediate
 
 Have the business owner approve whether content should be migrated, archived, or deleted. Investigate content that:
 
@@ -144,24 +215,26 @@ Have the business owner approve whether content should be migrated, archived, or
 
 Do not use last modified date as the only deletion rule. Some records are rarely opened but must still be retained. Conversely, a recently modified duplicate is not necessarily valuable.
 
-## 6. Pilot With A Representative Group
+## 7. Pilot With A Representative Group
 
 Choose a pilot that contains realistic complexity: folders, Office files, special permissions, links, larger files, and users with different working patterns. A technically easy folder proves very little.
 
 Validate at least:
 
-- file counts and migration reports;
-- names, paths, and whether documents open correctly;
-- access for owners, members, visitors, and exceptional cases;
-- Word, PowerPoint, and Excel behavior, including external links and macros;
-- OneDrive sync only where synchronization is part of the intended pattern;
-- search, metadata, views, and navigation;
-- sharing and approval processes;
-- user instructions, support readiness, and owner acceptance.
+- [ ] File counts, migration reports, failures, and exclusions have been reviewed.
+- [ ] Names, paths, and representative documents work in the intended target experience.
+- [ ] Owners, members, visitors, and approved exceptions have the expected access.
+- [ ] Former members, role changers, expired guests, direct permissions, and old sharing links are denied as expected in the applicable negative access tests.
+- [ ] Word, PowerPoint, and Excel behavior, including external links and macros, has been tested.
+- [ ] Critical non-Office applications and complete business tasks pass their dependency tests.
+- [ ] OneDrive synchronization is enabled only where it is part of the intended pattern; Files On-Demand, offline use, item volume, deletion, and recovery have been tested.
+- [ ] Managed- and unmanaged-device behavior and applicable Purview protection have been tested with representative sensitive files.
+- [ ] Search, metadata, views, navigation, sharing, and approval processes work as designed.
+- [ ] User instructions, support readiness, rollback criteria, and owner acceptance are complete.
 
 [Microsoft's file share migration guidance](https://learn.microsoft.com/en-us/sharepointmigration/fileshare-to-odsp-migration-guide) recommends an incremental pilot followed by a cut-over. Use the pilot findings to update the destination design, remediation rules, communications, and wave plan before scaling up.
 
-## 7. Migrate In Waves And Cut Over
+## 8. Migrate In Waves And Cut Over
 
 Migrate by work area so that each wave has an accountable owner and a known audience. A typical wave has these checkpoints:
 
@@ -179,13 +252,14 @@ Publish the cut-over time, write-freeze rules, new location, support route, and 
 
 A wave is complete when:
 
-- the business owner has accepted the content, structure, and access;
-- migration reports have been reviewed and exceptions have owners;
-- users know where to find and save documents and how to share them;
-- critical links and processes have been tested or deliberately replaced;
-- retention, review, and workspace ownership are documented;
-- the old location is read-only or retired according to the plan;
-- a post-migration review date is scheduled.
+- [ ] The business owner has accepted the content, structure, access, and working pattern.
+- [ ] Migration reports have been reviewed and exceptions have owners and end dates.
+- [ ] Users know where to find and save documents, when to synchronize, and how to share them.
+- [ ] Critical links, applications, and processes have been tested or deliberately replaced.
+- [ ] Retention, recovery, device protection, review, and workspace ownership are documented.
+- [ ] The membership source, sharing model, access-review owner, and exception route are documented.
+- [ ] The old location is read-only or retired according to the plan.
+- [ ] A post-migration review date is scheduled.
 
 Measure success by findability, correct access, owner acceptance, process continuity, and reduced use of the file server—not only by the number of copied files.
 
@@ -194,6 +268,7 @@ Measure success by findability, correct access, owner acceptance, process contin
 - Copying everything one-to-one.
 - Creating a site for every top-level folder.
 - Reviewing permissions only after migration.
+- Assuming that SharePoint keeps access centrally managed without configuring ownership, membership, and sharing.
 - Leaving old and new storage writable for too long.
 - Missing Excel links, macros, shortcuts, and application dependencies.
 - Treating adoption as an afterthought, so users lack a clear new working pattern and fall back to the file server or local copies.
@@ -210,6 +285,15 @@ Measure success by findability, correct access, owner acceptance, process contin
 - [Information architecture in modern SharePoint](https://learn.microsoft.com/en-us/sharepoint/information-architecture-modern-experience)
 - [Retention for SharePoint and OneDrive](https://learn.microsoft.com/en-us/purview/retention-policies-sharepoint)
 - [SharePoint service limits](https://learn.microsoft.com/en-us/office365/servicedescriptions/sharepoint-online-service-description/sharepoint-online-limits)
+- [Teams and SharePoint integration](https://learn.microsoft.com/en-us/sharepoint/teams-connected-sites)
+- [Secure and govern Microsoft 365 Copilot](https://learn.microsoft.com/en-us/microsoft-365/copilot/secure-govern-copilot-foundational-deployment-guidance)
+- [Use sensitivity labels for groups and sites](https://learn.microsoft.com/en-us/purview/sensitivity-labels-teams-groups-sites)
+- [Sync files between a computer and OneDrive](https://support.microsoft.com/en-us/onedrive/sync-your-computer-s-files-and-folders-with-onedrive)
+- [Restrictions and limitations in OneDrive and SharePoint](https://support.microsoft.com/en-us/onedrive/restrictions-and-limitations-in-onedrive-and-sharepoint)
+- [Control SharePoint and OneDrive access from unmanaged devices](https://learn.microsoft.com/en-us/sharepoint/control-access-from-unmanaged-devices)
+- [Extend SharePoint permissions to downloaded documents](https://learn.microsoft.com/en-us/purview/sensitivity-labels-sharepoint-extend-permissions)
+- [Learn about Endpoint Data Loss Prevention](https://learn.microsoft.com/en-us/purview/endpoint-dlp-learn-about)
+- [Safeguarding data in SharePoint and OneDrive](https://learn.microsoft.com/en-us/sharepoint/safeguarding-your-data)
 
 ## Related Guides
 
@@ -219,4 +303,5 @@ Measure success by findability, correct access, owner acceptance, process contin
 - [Microsoft Purview](../services/purview.md)
 - [SharePoint Content: Sites, Libraries, Lists, And Permissions](../services/sharepoint/sharepoint-content-structure.md)
 - [Permissions And Ownership](./permissions-and-ownership.md)
+- [Govern Sharing In SharePoint](./govern-sharing-in-sharepoint.md)
 - [Collaborate On Documents](../scenarios/collaborate-on-documents.md)
