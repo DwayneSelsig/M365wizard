@@ -189,6 +189,13 @@ function MakerSection({hatKey}: {hatKey: number | null}) {
                 rel="noopener noreferrer">
                 LinkedIn
               </a>
+              <a
+                className="button button--secondary"
+                href="https://learn.microsoft.com/users/dwayneselsig/transcript/vm9wwaelxwjp3l9?tab=credentials-tab"
+                target="_blank"
+                rel="noopener noreferrer">
+                <Translate id="homepage.myCertifications">My certifications</Translate>
+              </a>
             </div>
           </div>
           <div className={styles.portraitPanel}>

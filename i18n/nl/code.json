@@ -11,6 +11,9 @@
   "homepage.compareOptions": {
     "message": "Vergelijk je opties"
   },
+  "homepage.myCertifications": {
+    "message": "Mijn certificeringen"
+  },
   "homepage.bylinePrefix": {
     "message": "Gemaakt door"
   },
