@@ -9,6 +9,9 @@ accent: default
 prereqs: []
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Begin hier
 
 M365Wizard helpt mensen het juiste Microsoft 365-hulpmiddel te kiezen voor het werk dat voor hen ligt.
@@ -30,27 +33,47 @@ Combineer een M365Wizard-gids met AI door vijf elementen mee te geven: **Context
 #### Voorbeeld van een AI-prompt
 
 ```text
-Context: Ik ben projectmanager en introduceer Microsoft Teams-governance in
-een organisatie waar Teams organisch zijn gegroeid.
+Context: Ik ben projectmanager en introduceer Microsoft Teams-governance in een organisatie waar Teams organisch zijn gegroeid.
 
-Doel: Maak een projectplan dat governance introduceert zonder samenwerking
-onnodig te beperken.
+Doel: Maak een projectplan dat governance introduceert zonder samenwerking onnodig te beperken.
 
 Bron: Gebruik deze gids als primair besliskader:
 https://www.m365wizard.com/nl/docs/admin-and-governance/teams-governance
 
-Verwachtingen: Gebruik PRINCE2-principes. Neem verantwoordelijkheden,
-beslismomenten, risico's, acceptatiecriteria en een SWOT-analyse op.
+Verwachtingen: Gebruik PRINCE2-principes. Neem verantwoordelijkheden, beslismomenten, risico's, acceptatiecriteria en een SWOT-analyse op.
 
-Wat mis ik? Benoem ontbrekende beslissingen, onduidelijk eigenaarschap, risico's
-en vragen die voor de start van het project moeten worden beantwoord.
+Wat mis ik? Benoem ontbrekende beslissingen, onduidelijk eigenaarschap, risico's en vragen die voor de start van het project moeten worden beantwoord.
 ```
 
-:::tip[Wat mis ik?]
+:::tip[Verbeter het resultaat]
 
-Vraag AI om te vinden wat ontbreekt, niet alleen om de gids samen te vatten.
+<Tabs>
+  <TabItem value="missing" label="Wat mis ik?" default>
+
+```text
+Wat mis ik? Benoem ontbrekende beslissingen, onduidelijk eigenaarschap, risico's en onbeantwoorde vragen. Vat de gids niet alleen samen.
+```
+
+  </TabItem>
+  <TabItem value="questions" label="Meerkeuzevragen">
+
+```text
+Stel mij maximaal vijf gerichte vragen, bij voorkeur met meerkeuzeantwoorden. Geef bij elke vraag een aanbevolen antwoord.
+```
+
+  </TabItem>
+  <TabItem value="concepts" label="Verken concepten">
+
+```text
+Geef mij eerst kort drie verschillende richtingen. Laat mij er één kiezen en werk die daarna uit tot een volledig concept.
+```
+
+  </TabItem>
+</Tabs>
 
 :::
+
+Lees voor meer uitleg [Aan de slag met het schrijven van prompts in Microsoft Copilot](https://support.microsoft.com/nl-nl/microsoft-365-copilot/get-started-writing-prompts-in-microsoft-365-copilot) en [Schrijf effectieve prompts voor optimale resultaten](https://learn.microsoft.com/nl-nl/training/modules/write-effective-prompts-do-more-prompting/).
 
 ## Het kernidee
 

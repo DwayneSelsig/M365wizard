@@ -9,6 +9,9 @@ accent: default
 prereqs: []
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Start Here
 
 M365Wizard helps people choose the right Microsoft 365 tool for the work in front of them.
@@ -30,27 +33,47 @@ Combine a M365Wizard guide with AI by providing five elements: **Context**, **Go
 #### AI Prompt Example
 
 ```text
-Context: I am a project manager introducing Microsoft Teams governance in an
-organization where Teams have grown organically.
+Context: I am a project manager introducing Microsoft Teams governance in an organization where Teams have grown organically.
 
-Goal: Create a project plan that introduces governance without unnecessarily
-restricting collaboration.
+Goal: Create a project plan that introduces governance without unnecessarily restricting collaboration.
 
 Source: Use this guide as the primary decision framework:
 https://www.m365wizard.com/docs/admin-and-governance/teams-governance
 
-Expectations: Use PRINCE2 principles. Include responsibilities, decision
-points, risks, acceptance criteria, and a SWOT analysis.
+Expectations: Use PRINCE2 principles. Include responsibilities, decision points, risks, acceptance criteria, and a SWOT analysis.
 
-What am I missing? Identify missing decisions, unclear ownership, risks, and
-questions that must be answered before the project starts.
+What am I missing? Identify missing decisions, unclear ownership, risks, and questions that must be answered before the project starts.
 ```
 
-:::tip[What Am I Missing?]
+:::tip[Improve The Result]
 
-Ask AI to find what is missing, not only to summarize the guide.
+<Tabs>
+  <TabItem value="missing" label="What Am I Missing?" default>
+
+```text
+What am I missing? Identify missing decisions, unclear ownership, risks, and unanswered questions. Do not only summarize the guide.
+```
+
+  </TabItem>
+  <TabItem value="questions" label="Multiple Choice">
+
+```text
+Ask me no more than five focused questions, preferably with multiple-choice answers. Include a recommended answer for each question.
+```
+
+  </TabItem>
+  <TabItem value="concepts" label="Explore Concepts">
+
+```text
+First give me three different directions in brief. Let me choose one, then develop it into a complete concept.
+```
+
+  </TabItem>
+</Tabs>
 
 :::
+
+For more guidance, see [Get started writing prompts in Microsoft Copilot](https://support.microsoft.com/en-us/microsoft-365-copilot/get-started-writing-prompts-in-microsoft-365-copilot) and [Write effective prompts to achieve optimal results](https://learn.microsoft.com/en-us/training/modules/write-effective-prompts-do-more-prompting/).
 
 ## The Core Idea
 
