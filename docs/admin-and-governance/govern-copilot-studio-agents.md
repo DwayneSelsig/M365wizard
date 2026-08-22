@@ -39,7 +39,7 @@ The connector view changes when the agent is published:
 - These scopes describe connector access. They are not direct resource permissions such as `Mail.Read` or `Files.Read.All`.
 - The Power Platform connector runtime revalidates calls against applicable Advanced Connector Policies and data loss prevention policies.
 - Custom connectors, MCP servers, and REST API tools do not add these API permissions to the Agent ID. Review them in Copilot Studio and Power Platform as well as in Microsoft Entra ID.
-- As of August 22, 2026, Microsoft Entra Conditional Access enforcement on the agent identity applies end to end only when the agent runs in Microsoft Teams. Other channels still use the existing Power Platform connector authentication flow.
+- Currently, Microsoft Entra Conditional Access enforcement on the agent identity applies end to end only when the agent runs in Microsoft Teams. Other channels still use the existing Power Platform connector authentication flow.
 
 :::warning[An Agent ID Does Not Make An Agent Safe]
 

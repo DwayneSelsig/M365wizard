@@ -35,11 +35,11 @@ Wanneer de eerste toepasselijke agentidentiteit wordt gemaakt, voegt Copilot Stu
 
 Het overzicht van connectors verandert wanneer de agent wordt gepubliceerd:
 
-- Copilot Studio voegt API-machtigingsbereiken toe of werkt ze bij voor ondersteunde Power Platform-connectors die voor de agent zijn geconfigureerd.
-- Deze bereiken beschrijven toegang tot connectors. Het zijn geen rechtstreekse resourcemachtigingen zoals `Mail.Read` of `Files.Read.All`.
+- Copilot Studio voegt API-machtigingsbereiken (`permission scopes`) toe of werkt ze bij voor ondersteunde Power Platform-connectors die voor de agent zijn geconfigureerd.
+- Deze connectorscopes beschrijven toegang tot connectors. Het zijn geen rechtstreekse resourcemachtigingen zoals `Mail.Read` of `Files.Read.All`.
 - De runtime van de Power Platform-connector controleert aanroepen opnieuw tegen toepasselijk Advanced Connector Policies- en Data Loss Prevention-beleid.
 - Aangepaste connectors, MCP-servers en REST API-tools voegen deze API-machtigingen niet aan de Agent ID toe. Beoordeel ze daarom in Copilot Studio en Power Platform en niet alleen in Microsoft Entra ID.
-- Op 22 augustus 2026 werkt afdwinging van Microsoft Entra Conditional Access op de agentidentiteit alleen end-to-end wanneer de agent in Microsoft Teams wordt uitgevoerd. Andere kanalen gebruiken nog de bestaande verificatiestroom van Power Platform-connectors.
+- Op dit moment werkt afdwinging van Microsoft Entra Conditional Access op de agentidentiteit alleen end-to-end wanneer de agent in Microsoft Teams wordt uitgevoerd. Andere kanalen gebruiken nog de bestaande verificatiestroom van Power Platform-connectors.
 
 :::warning[Een Agent ID maakt een agent niet vanzelf veilig]
 
@@ -90,7 +90,7 @@ Bevestig vóór publicatie naar productie:
 - gebruikersverificatie en de doelgroep van ieder publicatiekanaal;
 - kennisbronnen, hun eigenaren, gevoeligheid en toegestane doelgroep;
 - acties, connectors, flows, skills, HTTP-eindpunten, triggers en het model voor referenties;
-- Agent ID-metadata en de zichtbare machtigingsbereiken voor connectors;
+- Agent ID-metadata en de zichtbare connectorscopes;
 - toegang tot transcripten, auditeisen, bewaking, ondersteuning en incidentescalatie;
 - implementatieafhankelijkheden, terugvalroute en de volgende beoordelingsdatum.
 

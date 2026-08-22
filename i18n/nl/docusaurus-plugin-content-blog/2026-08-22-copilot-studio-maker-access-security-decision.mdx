@@ -37,7 +37,7 @@ Het diagram is bewust geen rechte machtigingsketen. De Agent ID verbetert de zic
 
 Copilot Studio maakt en beheert de Agent ID voor nieuwe agents automatisch. Een maker ontvangt geen herbruikbaar clientgeheim of onbeperkt inzetbare service-principal.
 
-Wanneer de agent wordt gepubliceerd, voegt Copilot Studio API-machtigingsbereiken toe voor ondersteunde Power Platform-connectors die voor de agent zijn geconfigureerd. Dit zijn connectorbereiken en geen rechtstreekse resourcemachtigingen zoals `Mail.Read` of `Files.Read.All`. Beheerders krijgen zicht op verificatieactiviteiten en geconfigureerde connectortoegang. De runtime van Power Platform-connectors controleert ondertussen nog steeds het toepasselijke connector- en gegevensbeleid.
+Wanneer de agent wordt gepubliceerd, voegt Copilot Studio API-machtigingsbereiken (`permission scopes`) toe voor ondersteunde Power Platform-connectors die voor de agent zijn geconfigureerd. Dit zijn connectorscopes en geen rechtstreekse resourcemachtigingen zoals `Mail.Read` of `Files.Read.All`. Beheerders krijgen zicht op verificatieactiviteiten en geconfigureerde connectortoegang. De runtime van Power Platform-connectors controleert ondertussen nog steeds het toepasselijke connector- en gegevensbeleid.
 
 Dit is nuttig, maar het is geen volledige inventaris van alles wat de agent kan bereiken. Aangepaste connectors, MCP-servers en REST API-tools voegen niet dezelfde API-machtigingen aan de Agent ID toe. Zichtbaarheid in Entra hoort de beoordeling in Copilot Studio en Power Platform daarom te ondersteunen en niet te vervangen.
 
@@ -63,7 +63,7 @@ Als deze beslissingen niet zijn genomen, laat brede makerstoegang de governance 
 
 Het woord *agent* verwijst niet in alle Microsoft-producten naar hetzelfde identiteitsmodel.
 
-Op 22 augustus 2026 hebben agents die met Microsoft 365 Copilot Agent Builder zijn gemaakt geen app-registratie-id of Microsoft Entra Agent ID nodig. Volledige Copilot Studio-agents hebben die wel. Daarmee verdwijnt governance niet uit Agent Builder. Het zwaartepunt ligt daar op toegang tot kennis, delen, vindbaarheid en eigenaarschap.
+Op dit moment hebben agents die met Microsoft 365 Copilot Agent Builder zijn gemaakt geen app-registratie-id of Microsoft Entra Agent ID nodig. Volledige Copilot Studio-agents hebben die wel. Daarmee verdwijnt governance niet uit Agent Builder. Het zwaartepunt ligt daar op toegang tot kennis, delen, vindbaarheid en eigenaarschap.
 
 Copilot Studio voegt omgevingen, connectors, acties, triggers, publicatiekanalen, agentidentiteiten en een aparte operationele levenscyclus toe. Het beleid hoort daarom bij de ingeschakelde mogelijkheden te passen en niet iedere agent als hetzelfde object te behandelen.
 

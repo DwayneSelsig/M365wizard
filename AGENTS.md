@@ -52,6 +52,11 @@ pattern for blog headings. Write translations in natural Netherlands Dutch
 (`nl-NL`) with sentence case headings. Translate meaning and intent rather than
 wording mechanically.
 
+Retain established English technical jargon in Dutch when it helps readers
+recognize the concept. On first use, pair it with a natural Dutch explanation
+where helpful, such as `permission scopes` and machtigingsbereiken, and then use
+the familiar term consistently.
+
 For external links on a `microsoft.com` domain, use an explicit locale segment:
 `en-us` in English content and `nl-nl` in Dutch content. Replace a different or
 missing locale segment when the Microsoft URL supports localized content. Do
@@ -166,8 +171,11 @@ Place a descriptive link close to a critical claim. When several official
 references help the reader implement or verify the guidance, add a concise
 `## Official Microsoft Documentation` section before `## Related Guides`.
 Tool pages retain `## Source And Documentation` because they may also cite the
-project repository and releases. Use concrete dates when timing matters instead
-of unsupported terms such as "currently" or "coming soon."
+project repository and releases. Use concrete dates when timing matters, such as
+for a rollout, deadline, or historical change. Use a sourced term such as
+"currently" or the Dutch "op dit moment" for a present state when the exact
+observation date does not help the reader. Do not use unsupported timing claims
+such as "coming soon."
 
 A video, marketing page, community post, or third-party article may add context
 but must not be the only support for a Microsoft product claim. Do not add a
