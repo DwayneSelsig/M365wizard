@@ -13,6 +13,16 @@ copilot:
   permalink: /copilot
   description: Guidance for using Microsoft 365 Copilot.
 
+copilot-studio:
+  label: Copilot Studio
+  permalink: /copilot-studio
+  description: Guidance for governing and using Microsoft Copilot Studio.
+
+security:
+  label: Security
+  permalink: /security
+  description: Practical security and access guidance for Microsoft 365.
+
 microsoft-teams:
   label: Microsoft Teams
   permalink: /microsoft-teams

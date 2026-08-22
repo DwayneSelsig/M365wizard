@@ -1,0 +1,88 @@
+---
+slug: copilot-studio-maker-access-security-decision
+title: "Copilot Studio maker access is also a security decision"
+authors: [dwayne]
+tags: [microsoft-365, copilot-studio, security]
+---
+
+Giving someone access to Microsoft Copilot Studio can look like a licensing or adoption decision. A license is assigned, the maker receives access to an environment, and experimentation starts.
+
+But something else now happens as well.
+
+Since July 2026, every new Copilot Studio agent automatically receives a **Microsoft Entra Agent ID**. Microsoft describes this identity as a **service principal with the Agent subtype**. Copilot Studio creates and manages the identity and its credentials.
+
+That makes maker access more than a question of who may build a chatbot. The organization is allowing people to create agents that become visible identity and lifecycle objects in its access architecture.
+
+<!-- truncate -->
+
+## Access now extends beyond the conversation
+
+[Microsoft Security recommends](https://www.microsoft.com/en-us/security/blog/2026/01/20/four-priorities-for-ai-powered-identity-and-network-access-security-in-2026/) inventorying agents, assigning clear ownership, governing what they can access, and applying consistent security standards to human and agent identities.
+
+That advice becomes concrete in Copilot Studio. An agent can use knowledge sources, connectors, actions, HTTP requests, triggers, and external services. The conversation is one security boundary. The identities, information, and actions behind it create additional boundaries.
+
+```mermaid
+flowchart LR
+    Maker["Maker access"] --> Environment["Power Platform environment"]
+    Environment --> Agent["Copilot Studio agent"]
+    Agent --> Identity["Microsoft Entra Agent ID"]
+    Agent --> Capabilities["Knowledge, connectors, and actions"]
+    Identity -. "Connector visibility" .-> Capabilities
+    Agent --> Audience["Published audience"]
+```
+
+The diagram is deliberately not a straight permission chain. The Agent ID improves identity and connector visibility, while Copilot Studio, Power Platform policies, connections, and user permissions still determine what happens at runtime.
+
+## An agent identity adds visibility, not safety
+
+For new agents, Copilot Studio creates and manages the Agent ID automatically. A maker does not receive a reusable client secret or an unrestricted service principal.
+
+When the agent is published, Copilot Studio adds API permission scopes that represent supported Power Platform connectors configured for the agent. These are connector scopes, not direct resource permissions such as `Mail.Read` or `Files.Read.All`. Administrators gain visibility into authentication activity and configured connector access, while the Power Platform connector runtime still checks applicable connector and data policies.
+
+This is useful, but it is not a complete inventory of everything the agent can reach. Custom connectors, MCP servers, and REST API tools do not add the same API permissions to the Agent ID. Entra visibility should therefore support the Copilot Studio and Power Platform review, not replace it.
+
+## The license is not the security boundary
+
+Having Copilot Studio licenses does not automatically make an environment unsafe. The mistake is treating license assignment as the complete decision.
+
+A maker can create an agent. That agent gets an identity. The maker can then connect it to information and capabilities within the policies and permissions that the organization allows.
+
+Those are separate decisions:
+
+- who may build agents;
+- where they may build them;
+- which knowledge sources, connectors, actions, HTTP endpoints, and triggers are allowed;
+- who may publish an agent and to which audience;
+- who owns and supports it after publication;
+- how changes are reviewed;
+- when the agent and its dependencies are retired.
+
+If those decisions have not been made, broad maker access lets governance emerge one agent at a time.
+
+## Agent Builder is different
+
+The word *agent* does not refer to one identity model across Microsoft products.
+
+As of August 22, 2026, Microsoft 365 Copilot Agent Builder agents do not require an app registration ID or Microsoft Entra Agent ID. Full Copilot Studio agents do. That does not remove governance from Agent Builder; it shifts the emphasis toward knowledge access, sharing, discoverability, and ownership.
+
+Copilot Studio adds environments, connectors, actions, triggers, publication channels, agent identities, and a separate operational lifecycle. The policy should reflect the capability being enabled instead of treating every agent as the same object.
+
+## Set boundaries before broad rollout
+
+My preferred starting point is a controlled maker group rather than unrestricted organization-wide authoring. Give makers a suitable development environment, apply data policies before they publish, and require a review before an agent reaches a production audience.
+
+That review should answer who owns the agent, what it can use, who can use it, how its access is monitored, and what happens when the owner or purpose changes. This does not prevent experimentation. It keeps experimentation inside boundaries that somebody has deliberately chosen and can maintain.
+
+The practical implementation is in [Govern Copilot Studio Agents Before Enabling Makers](../docs/admin-and-governance/govern-copilot-studio-agents).
+
+The important question is no longer only whether a user may use AI. It is also:
+
+**What identities, access paths, and actions are we allowing that user to create?**
+
+## Official Microsoft documentation
+
+- [App registration, agent identities, and authentication for Microsoft Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/requirements-certificates-configuration-values)
+- [Automatically create Microsoft Entra Agent IDs for Copilot Studio agents](https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-use-entra-agent-identities)
+- [Security and governance in Microsoft Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance)
+- [Secure your Copilot Studio projects](https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/sec-gov-phase3)
+- [Configure data policies for agents](https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention)
