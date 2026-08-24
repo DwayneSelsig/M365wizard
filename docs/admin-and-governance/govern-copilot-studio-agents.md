@@ -131,6 +131,8 @@ Deleting the agent removes its associated identity, but it does not automaticall
 - [Secure your Copilot Studio projects](https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/sec-gov-phase3)
 - [Configure data policies for agents](https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention)
 - [Share agents with other users](https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-share-bots)
+- [Microsoft Entra Agent ID documentation](https://learn.microsoft.com/en-us/entra/agent-id/)
+- [Agent 365 identity and access controls in Microsoft Entra (Microsoft Mechanics video; broader Agent 365 context)](https://www.youtube.com/watch?v=Wz16P678QiY)
 
 ## Related Guides
 

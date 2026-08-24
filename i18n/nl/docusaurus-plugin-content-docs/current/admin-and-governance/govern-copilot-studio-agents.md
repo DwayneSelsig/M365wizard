@@ -131,6 +131,8 @@ Door de agent te verwijderen wordt de bijbehorende identiteit verwijderd. Hierme
 - [Copilot Studio-projecten beveiligen](https://learn.microsoft.com/nl-nl/microsoft-copilot-studio/guidance/sec-gov-phase3)
 - [Data policies voor agents configureren](https://learn.microsoft.com/nl-nl/microsoft-copilot-studio/admin-data-loss-prevention)
 - [Agents met andere gebruikers delen](https://learn.microsoft.com/nl-nl/microsoft-copilot-studio/admin-share-bots)
+- [Documentatie voor Microsoft Entra Agent ID](https://learn.microsoft.com/nl-nl/entra/agent-id/)
+- [Identiteits- en toegangsbeheer voor Agent 365 in Microsoft Entra (Microsoft Mechanics-video; bredere Agent 365-context)](https://www.youtube.com/watch?v=Wz16P678QiY)
 
 ## Gerelateerde gidsen
 
