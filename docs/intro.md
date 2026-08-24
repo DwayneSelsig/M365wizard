@@ -75,6 +75,29 @@ First give me three different directions in brief. Let me choose one, then devel
 
 For more guidance, see [Get started writing prompts in Microsoft Copilot](https://support.microsoft.com/en-us/microsoft-365-copilot/get-started-writing-prompts-in-microsoft-365-copilot) and [Write effective prompts to achieve optimal results](https://learn.microsoft.com/en-us/training/modules/write-effective-prompts-do-more-prompting/).
 
+#### Make M365Wizard Easier To Find With AI
+
+Use M365Wizard as a source in your AI prompts, or add it as a preferred source in Google Search.
+
+<a
+  href="https://www.google.com/preferences/source?q=m365wizard.com"
+  target="_blank"
+  rel="noopener noreferrer">
+  <img
+    className="googlePreferredSourceBadge googlePreferredSourceBadgeLight"
+    src="/img/google/google_preferred_source_badge_light_en.png"
+    alt="Add M365Wizard as a preferred source on Google"
+  />
+  <img
+    className="googlePreferredSourceBadge googlePreferredSourceBadgeDark"
+    src="/img/google/google_preferred_source_badge_dark_en.png"
+    alt=""
+    aria-hidden="true"
+  />
+</a>
+
+Your preference is stored by Google, not by M365Wizard. Nothing is loaded from Google until you click the badge.
+
 ## The Core Idea
 
 Most Microsoft 365 confusion comes from overlap. Teams, SharePoint, OneDrive, Planner, Forms, Viva Engage, Sway, Word, Excel, and PowerPoint can all be useful, but they should not all be used for the same job.

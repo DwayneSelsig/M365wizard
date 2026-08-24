@@ -75,6 +75,29 @@ Geef mij eerst kort drie verschillende richtingen. Laat mij er één kiezen en w
 
 Lees voor meer uitleg [Aan de slag met het schrijven van prompts in Microsoft Copilot](https://support.microsoft.com/nl-nl/microsoft-365-copilot/get-started-writing-prompts-in-microsoft-365-copilot) en [Schrijf effectieve prompts voor optimale resultaten](https://learn.microsoft.com/nl-nl/training/modules/write-effective-prompts-do-more-prompting/).
 
+#### Maak M365Wizard makkelijker vindbaar met AI
+
+Gebruik M365Wizard als bron in je AI-prompts of voeg het toe als voorkeursbron in Google Zoeken.
+
+<a
+  href="https://www.google.com/preferences/source?q=m365wizard.com"
+  target="_blank"
+  rel="noopener noreferrer">
+  <img
+    className="googlePreferredSourceBadge googlePreferredSourceBadgeLight"
+    src="/img/google/google_preferred_source_badge_light_en.png"
+    alt="Voeg M365Wizard toe als voorkeursbron op Google"
+  />
+  <img
+    className="googlePreferredSourceBadge googlePreferredSourceBadgeDark"
+    src="/img/google/google_preferred_source_badge_dark_en.png"
+    alt=""
+    aria-hidden="true"
+  />
+</a>
+
+Je voorkeur wordt door Google opgeslagen, niet door M365Wizard. Er wordt niets van Google geladen voordat je op de badge klikt.
+
 ## Het kernidee
 
 Veel verwarring over Microsoft 365 komt door overlap. Teams, SharePoint, OneDrive, Planner, Forms, Viva Engage, Sway, Word, Excel en PowerPoint kunnen allemaal nuttig zijn, maar niet voor hetzelfde werk.

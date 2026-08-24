@@ -36,3 +36,20 @@
   --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.07);
 }
 
+.googlePreferredSourceBadge {
+  max-width: 100%;
+  height: auto;
+}
+
+.googlePreferredSourceBadgeDark {
+  display: none;
+}
+
+[data-theme='dark'] .googlePreferredSourceBadgeLight {
+  display: none;
+}
+
+[data-theme='dark'] .googlePreferredSourceBadgeDark {
+  display: block;
+}
+
