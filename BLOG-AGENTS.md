@@ -210,6 +210,21 @@ Do not reveal private chain-of-thought or internal agent deliberations.
 
 Express the useful reasoning as clear editorial prose.
 
+### Author perspective and architecture reasoning
+
+Use `I`, `me`, and `my` for personal observations, reasoning, experience,
+professional judgment, and recommendations. Prefer present tense for current
+arguments, recommendations, and ongoing activities. Use past tense for
+genuinely historical events, completed incidents, previous product behavior, or
+past experiences. The full name `Dwayne Selsig` may be used in an author
+introduction or attribution, but subsequent personal statements must not become
+a third-person biography.
+
+Blog reasoning must also follow the architecture reasoning principles in the
+root `AGENTS.md`. Apply them selectively without duplicating framework language
+or turning an article into a formal architecture document. Do not use em dashes
+in published blog copy.
+
 ## Personal Voice Components
 
 The personal voice combines four complementary qualities.

@@ -99,6 +99,81 @@ pages must still be translated manually.
 - Preserve useful prose when adding visuals. Diagrams and videos supplement 
   the text; they do not replace it.
 
+## Author Voice And Tense
+
+Use a personal professional voice without forcing first-person language into
+every paragraph:
+
+- Use `I`, `me`, and `my` for the author's current purpose, observations,
+  reasoning, professional judgment, experience, and recommendations.
+- Use present tense for current views, recommendations, and ongoing activities.
+  Use past tense for genuinely historical events, completed incidents, previous
+  product behavior, or past experiences.
+- The full name `Dwayne Selsig` may identify or introduce the author. After an
+  introduction, do not continue in third person with `Dwayne`, `he`, `him`, or
+  `his` when the author is speaking about himself.
+- Keep objective Microsoft product facts objective. Do not add unnecessary
+  phrases such as `I see that` to factual statements.
+- Instructional text may address the reader directly. The goal is a personal
+  voice, not frequent first-person pronouns.
+- Do not use em dashes. Use a period, comma, colon, semicolon, or parentheses as
+  appropriate.
+
+## Architecture Reasoning
+
+Use practical principles from [FORA](https://fora.wikixl.nl/index.php/Alle_FORA_views)
+and [TOGAF](https://www.opengroup.org/togaf) to improve the reasoning behind
+content. These frameworks guide the analysis; they do not need to be visible in
+the published text.
+
+- **Start with the need, not the product.** Identify the user or business need,
+  process or working pattern, actors and stakeholders, relevant information,
+  ownership, requirements, and constraints. Do not start with a Microsoft
+  product when the underlying issue is organizational, informational,
+  procedural, or architectural.
+- **Reason across relevant layers.** Where useful, distinguish between
+  business/process, information/data, application/service, and
+  technology/platform. Explain dependencies between layers when they affect the
+  recommendation, but do not include every layer mechanically.
+- **Put capability before product.** Where it improves the decision, reason in
+  this order: `need → required capability → process/information implications →
+  suitable service/product → operational consequences`. Treat a Microsoft
+  product as an implementation choice, not as the definition of the problem.
+- **Reuse before creating.** Prefer existing services, standards, information
+  sources, integrations, architectural building blocks, and proven working
+  patterns. Introduce a parallel solution, duplicated data, exception, or new
+  integration only when requirements justify it.
+- **Address ownership and lifecycle.** Where relevant, consider business and
+  information ownership, application or service ownership, technical
+  administration, access, support, review, lifecycle, retirement, dependencies,
+  and change impact. Treat missing ownership or lifecycle as part of the
+  architectural problem.
+- **Connect current state, target state, and transition.** For migrations,
+  strategic changes, governance choices, and substantial changes, explain the
+  current situation, its limitation, the desired outcome, and the transition
+  needed. Account for existing constraints and dependencies.
+- **Let requirements drive the decision.** Use only the requirements that
+  materially affect the recommendation, such as usability, security, privacy
+  and compliance, interoperability, maintainability, supportability,
+  availability, cost, licensing, lifecycle, scalability, portability, and
+  organizational capability.
+- **Prefer supported standards and loose coupling.** Favor documented and
+  supported standards, interfaces, reusable patterns, and loose coupling where
+  practical. Microsoft-specific solutions remain valid choices; identify
+  dependencies or lock-in only when they materially affect the recommendation.
+- **Keep architecture useful.** Do not turn ordinary M365Wizard content into a
+  formal architecture document. Do not add FORA, TOGAF, ArchiMate, matrices,
+  viewpoints, or architecture jargon only to make content appear more
+  architectural. Use architecture reasoning to improve the problem definition,
+  choices, ownership, maintainability, lifecycle, and consequences. Readers
+  should not need prior knowledge of the frameworks.
+- **Apply the frameworks selectively.** For education-related scenarios, prefer
+  FORA for relationships between educational or organizational processes,
+  information, application functions, and systems. Use TOGAF for broader
+  requirements, governance, lifecycle, dependencies, and transition reasoning.
+  Use only relevant concepts or views, and mention a framework explicitly only
+  when it is relevant to the subject itself.
+
 ## Document Structure
 
 Inspect related pages before creating or changing a guide. Preserve the

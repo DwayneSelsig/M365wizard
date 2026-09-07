@@ -15,25 +15,25 @@
     "message": "Mijn certificeringen"
   },
   "homepage.bylinePrefix": {
-    "message": "Gemaakt door"
+    "message": "Door"
   },
   "homepage.bylineSuffix": {
-    "message": "voor mensen die praktische Microsoft 365-keuzes nodig hebben, geen nieuwe lijst met functies."
+    "message": ". Praktisch Microsoft 365-advies, geen nieuwe lijst met functies."
   },
   "homepage.about.label": {
     "message": "Over de auteur"
   },
   "homepage.about.title": {
-    "message": "Over Dwayne Selsig"
+    "message": "Over mij"
   },
   "homepage.about.introduction": {
-    "message": "Dwayne Selsig is een ervaren Microsoft 365-architect uit Bergen op Zoom, Nederland."
+    "message": "Ik ben Dwayne Selsig, Microsoft 365-architect uit Nederland."
   },
   "homepage.about.purpose": {
-    "message": "Hij maakte M365Wizard om overlappende Microsoft 365-keuzes om te zetten in praktische richtlijnen voor eindgebruikers, key users en IT-teams."
+    "message": "Met M365Wizard vertaal ik overlappende Microsoft 365-keuzes naar praktisch advies voor eindgebruikers, key-users en IT-teams."
   },
   "homepage.about.profileLinksLabel": {
-    "message": "Profielen van Dwayne Selsig"
+    "message": "Mijn profielen"
   },
   "homepage.tools.label": {
     "message": "Maatwerk"
@@ -54,7 +54,7 @@
     "message": "Over M365Wizard"
   },
   "homepage.editorial.title": {
-    "message": "Ontworpen door Dwayne, geschreven met AI-ondersteuning"
+    "message": "Ik bepaal de richting en gebruik AI bij het schrijven"
   },
   "homepage.editorial.authorship": {
     "message": "Het oplossingsdenken, de architectonische richting en het eindoordeel achter M365Wizard zijn van mij. Ik gebruik AI-hulpmiddelen om teksten op te stellen, te structureren en te verfijnen, zodat de richtlijnen beter leesbaar zijn."
@@ -66,7 +66,7 @@
     "message": "Je neemt altijd zelf de uiteindelijke beslissing over je Microsoft 365-omgeving, inclusief de vraag of een standaardconfiguratie volstaat of maatwerk in je tenant past."
   },
   "homepage.editorial.link": {
-    "message": "Bekijk de GitHub-projecten van Dwayne"
+    "message": "Bekijk mijn GitHub-projecten"
   },
   "homepage.simple.title": {
     "message": "Bewust eenvoudig gebouwd"

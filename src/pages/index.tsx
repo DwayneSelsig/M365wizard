@@ -102,10 +102,10 @@ function HomepageHeader() {
               </Link>
             </div>
             <p className={styles.byline}>
-              <Translate id="homepage.bylinePrefix">Created by</Translate>{' '}
-              <a href="#about-dwayne">Dwayne Selsig</a>{' '}
+              <Translate id="homepage.bylinePrefix">By</Translate>{' '}
+              <a href="#about-dwayne">Dwayne Selsig</a>
               <Translate id="homepage.bylineSuffix">
-                for people who need practical Microsoft 365 choices, not another feature list.
+                . Practical Microsoft 365 guidance, not another feature list.
               </Translate>
             </p>
           </div>
@@ -150,23 +150,23 @@ function MakerSection({hatKey}: {hatKey: number | null}) {
               <Translate id="homepage.about.label">About the author</Translate>
             </p>
             <Heading as="h2" id="about-dwayne">
-              <Translate id="homepage.about.title">About Dwayne Selsig</Translate>
+              <Translate id="homepage.about.title">About Me</Translate>
             </Heading>
             <p>
               <Translate id="homepage.about.introduction">
-                Dwayne Selsig is an experienced Microsoft 365 architect from Bergen op Zoom, The Netherlands.
+                I am Dwayne Selsig, a Microsoft 365 architect from the Netherlands.
               </Translate>
             </p>
             <p>
               <Translate id="homepage.about.purpose">
-                He created M365Wizard to turn overlapping Microsoft 365 choices into practical guidance for end users, key users, and IT teams.
+                With M365Wizard, I turn overlapping Microsoft 365 choices into practical guidance for end users, key users, and IT teams.
               </Translate>
             </p>
             <div
               className={styles.profileLinks}
               aria-label={translate({
                 id: 'homepage.about.profileLinksLabel',
-                message: 'Dwayne Selsig profiles',
+                message: 'My profiles',
               })}>
               <a
                 className="button button--primary"
@@ -297,7 +297,7 @@ function AboutM365Wizard() {
           </div>
           <div className={styles.siteTopic}>
             <Heading as="h3" id="editorial-note">
-              <Translate id="homepage.editorial.title">Architected by Dwayne, Written with AI Support</Translate>
+              <Translate id="homepage.editorial.title">I Set the Direction and Use AI to Support the Writing</Translate>
             </Heading>
             <p>
               <Translate id="homepage.editorial.authorship">
@@ -319,7 +319,7 @@ function AboutM365Wizard() {
               href="https://github.com/DwayneSelsig/"
               target="_blank"
               rel="noopener noreferrer">
-              <Translate id="homepage.editorial.link">Explore Dwayne&apos;s GitHub projects</Translate>
+              <Translate id="homepage.editorial.link">Explore my GitHub projects</Translate>
             </a>
           </div>
         </div>
