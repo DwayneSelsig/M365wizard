@@ -4,8 +4,18 @@ updates:
     directory: /
     schedule:
       interval: weekly
+      day: saturday
+    groups:
+      react:
+        patterns:
+          - "react"
+          - "react-dom"
+      docusaurus:
+        patterns:
+          - "@docusaurus/*"
 
   - package-ecosystem: github-actions
     directory: /
     schedule:
       interval: weekly
+      day: saturday
