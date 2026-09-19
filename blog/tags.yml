@@ -42,3 +42,18 @@ powershell:
   label: PowerShell
   permalink: /powershell
   description: PowerShell automation guidance for Microsoft 365.
+
+sharepoint:
+  label: SharePoint
+  permalink: /sharepoint
+  description: Practical guidance for SharePoint design and governance.
+
+onedrive:
+  label: OneDrive
+  permalink: /onedrive
+  description: Practical guidance for OneDrive use and governance.
+
+power-automate:
+  label: Power Automate
+  permalink: /power-automate
+  description: Guidance for reliable Power Automate solutions.

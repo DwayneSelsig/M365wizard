@@ -42,3 +42,18 @@ powershell:
   label: PowerShell
   permalink: /powershell
   description: Richtlijnen voor PowerShell-automatisering in Microsoft 365.
+
+sharepoint:
+  label: SharePoint
+  permalink: /sharepoint
+  description: Praktische richtlijnen voor SharePoint-ontwerp en governance.
+
+onedrive:
+  label: OneDrive
+  permalink: /onedrive
+  description: Praktische richtlijnen voor het gebruik en de governance van OneDrive.
+
+power-automate:
+  label: Power Automate
+  permalink: /power-automate
+  description: Richtlijnen voor betrouwbare Power Automate-oplossingen.
