@@ -7,19 +7,17 @@ tags: [microsoft-365, copilot-studio, security]
 
 Giving someone access to Microsoft Copilot Studio can look like a licensing or adoption decision. A license is assigned, the maker receives access to an environment, and experimentation starts.
 
-But something else now happens as well.
+Currently, every new Copilot Studio agent automatically receives a **Microsoft Entra Agent ID**. Microsoft describes this identity as a **service principal with the Agent subtype**. Copilot Studio creates and manages the identity and its credentials.
 
-Since July 2026, every new Copilot Studio agent automatically receives a **Microsoft Entra Agent ID**. Microsoft describes this identity as a **service principal with the Agent subtype**. Copilot Studio creates and manages the identity and its credentials.
-
-That makes maker access more than a question of who may build a chatbot. The organization is allowing people to create agents that become visible identity and lifecycle objects in its access architecture.
+Maker access therefore allows people to create directory identities and access paths that the organization must inventory, govern, and eventually retire.
 
 <!-- truncate -->
 
-## Access now extends beyond the conversation
+## Maker access creates new identities and access paths
 
 [Microsoft Security recommends](https://www.microsoft.com/en-us/security/blog/2026/01/20/four-priorities-for-ai-powered-identity-and-network-access-security-in-2026/) inventorying agents, assigning clear ownership, governing what they can access, and applying consistent security standards to human and agent identities.
 
-That advice becomes concrete in Copilot Studio. An agent can use knowledge sources, connectors, actions, HTTP requests, triggers, and external services. The conversation is one security boundary. The identities, information, and actions behind it create additional boundaries.
+That advice becomes concrete in Copilot Studio. An agent can use knowledge sources, connectors, actions, HTTP requests, triggers, and external services. Publishing determines who can use the agent. The identities, information, and actions behind it require additional access decisions.
 
 ```mermaid
 flowchart LR
@@ -33,7 +31,7 @@ flowchart LR
 
 The diagram is deliberately not a straight permission chain. The Agent ID improves identity and connector visibility, while Copilot Studio, Power Platform policies, connections, and user permissions still determine what happens at runtime.
 
-## An agent identity adds visibility, not safety
+## What the Agent ID makes visible
 
 For new agents, Copilot Studio creates and manages the Agent ID automatically. A maker does not receive a reusable client secret or an unrestricted service principal.
 
@@ -41,11 +39,11 @@ When the agent is published, Copilot Studio adds API permission scopes that repr
 
 This is useful, but it is not a complete inventory of everything the agent can reach. Custom connectors, MCP servers, and REST API tools do not add the same API permissions to the Agent ID. Entra visibility should therefore support the Copilot Studio and Power Platform review, not replace it.
 
-## The license is not the security boundary
+## Separate licensing from security decisions
 
 Having Copilot Studio licenses does not automatically make an environment unsafe. The mistake is treating license assignment as the complete decision.
 
-A maker can create an agent. That agent gets an identity. The maker can then connect it to information and capabilities within the policies and permissions that the organization allows.
+A maker can create an agent with its own identity and connect it to information and capabilities within the policies and permissions that the organization allows.
 
 Those are separate decisions:
 
@@ -59,7 +57,7 @@ Those are separate decisions:
 
 If those decisions have not been made, broad maker access lets governance emerge one agent at a time.
 
-## Agent Builder is different
+## Agent Builder uses a different identity model
 
 The word *agent* does not refer to one identity model across Microsoft products.
 
@@ -75,9 +73,11 @@ That review should answer who owns the agent, what it can use, who can use it, h
 
 The practical implementation is in [Govern Copilot Studio Agents Before Enabling Makers](../docs/admin-and-governance/govern-copilot-studio-agents).
 
-The important question is no longer only whether a user may use AI. It is also:
+:::tip[Decide Before Granting Maker Access]
 
-**What identities, access paths, and actions are we allowing that user to create?**
+Before you grant maker access, decide which identities, access paths, and actions that maker may create.
+
+:::
 
 ## Official Microsoft documentation
 

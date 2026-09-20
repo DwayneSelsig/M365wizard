@@ -7,19 +7,17 @@ tags: [microsoft-365, copilot-studio, security]
 
 Iemand toegang geven tot Microsoft Copilot Studio kan op een licentie- of adoptiebeslissing lijken. Er wordt een licentie toegewezen, de maker krijgt toegang tot een omgeving en het experimenteren begint.
 
-Maar er gebeurt nu nog iets.
+Op dit moment krijgt iedere nieuwe Copilot Studio-agent automatisch een **Microsoft Entra Agent ID**. Microsoft beschrijft deze identiteit als een **service-principal met het subtype Agent**. Copilot Studio maakt en beheert de identiteit en de bijbehorende referenties.
 
-Sinds juli 2026 krijgt iedere nieuwe Copilot Studio-agent automatisch een **Microsoft Entra Agent ID**. Microsoft beschrijft deze identiteit als een **service-principal met het subtype Agent**. Copilot Studio maakt en beheert de identiteit en de bijbehorende referenties.
-
-Daarmee gaat makerstoegang over meer dan de vraag wie een chatbot mag bouwen. De organisatie staat mensen toe agents te maken die zichtbare identiteits- en lifecycleobjecten in de toegangsarchitectuur worden.
+Makerstoegang stelt mensen daarmee in staat directory-identiteiten en toegangsroutes te maken die de organisatie moet inventariseren, beheren en uiteindelijk beëindigen.
 
 <!-- truncate -->
 
-## Toegang gaat verder dan het gesprek
+## Makerstoegang creëert nieuwe identiteiten en toegangsroutes
 
 [Microsoft Security adviseert](https://www.microsoft.com/en-us/security/blog/2026/01/20/four-priorities-for-ai-powered-identity-and-network-access-security-in-2026/) om agents te inventariseren, duidelijk eigenaarschap toe te wijzen, hun toegang te beheren en consistente beveiligingsnormen op menselijke identiteiten en agentidentiteiten toe te passen.
 
-Dat advies wordt concreet in Copilot Studio. Een agent kan kennisbronnen, connectors, acties, HTTP-aanvragen, triggers en externe diensten gebruiken. Het gesprek is één beveiligingsgrens. De identiteiten, informatie en acties erachter maken aanvullende grenzen.
+Dat advies wordt concreet in Copilot Studio. Een agent kan kennisbronnen, connectors, acties, HTTP-aanvragen, triggers en externe diensten gebruiken. Publicatie bepaalt wie de agent mag gebruiken. Voor de identiteiten, informatie en acties erachter zijn aanvullende toegangsbeslissingen nodig.
 
 ```mermaid
 flowchart LR
@@ -33,7 +31,7 @@ flowchart LR
 
 Het diagram is bewust geen rechte machtigingsketen. De Agent ID verbetert de zichtbaarheid van identiteit en connectors, terwijl Copilot Studio, Power Platform-beleid, verbindingen en gebruikersmachtigingen nog steeds bepalen wat er tijdens de uitvoering gebeurt.
 
-## Een agentidentiteit geeft zichtbaarheid, geen veiligheid
+## Wat de Agent ID zichtbaar maakt
 
 Copilot Studio maakt en beheert de Agent ID voor nieuwe agents automatisch. Een maker ontvangt geen herbruikbaar clientgeheim of onbeperkt inzetbare service-principal.
 
@@ -41,11 +39,11 @@ Wanneer de agent wordt gepubliceerd, voegt Copilot Studio API-machtigingsbereike
 
 Dit is nuttig, maar het is geen volledige inventaris van alles wat de agent kan bereiken. Aangepaste connectors, MCP-servers en REST API-tools voegen niet dezelfde API-machtigingen aan de Agent ID toe. Zichtbaarheid in Entra hoort de beoordeling in Copilot Studio en Power Platform daarom te ondersteunen en niet te vervangen.
 
-## De licentie is niet de beveiligingsgrens
+## Behandel licenties en beveiligingsbeslissingen afzonderlijk
 
 Copilot Studio-licenties maken een omgeving niet automatisch onveilig. De fout is om licentietoewijzing als het volledige besluit te behandelen.
 
-Een maker kan een agent maken. Die agent krijgt een identiteit. De maker kan deze daarna verbinden met informatie en mogelijkheden binnen het beleid en de machtigingen die de organisatie toestaat.
+Een maker kan een agent met een eigen identiteit maken en deze verbinden met informatie en mogelijkheden binnen het beleid en de machtigingen die de organisatie toestaat.
 
 Dat zijn aparte beslissingen:
 
@@ -59,7 +57,7 @@ Dat zijn aparte beslissingen:
 
 Als deze beslissingen niet zijn genomen, laat brede makerstoegang de governance agent voor agent ontstaan.
 
-## Agent Builder is anders
+## Agent Builder gebruikt een ander identiteitsmodel
 
 Het woord *agent* verwijst niet in alle Microsoft-producten naar hetzelfde identiteitsmodel.
 
@@ -75,9 +73,11 @@ Die beoordeling hoort vast te stellen wie de agent beheert, wat deze mag gebruik
 
 De praktische uitwerking staat in [Beheer Copilot Studio-agents voordat je makers toegang geeft](../docs/admin-and-governance/govern-copilot-studio-agents).
 
-De belangrijke vraag is niet meer alleen of een gebruiker AI mag gebruiken. De vraag is ook:
+:::tip[Beslis voordat je makerstoegang verleent]
 
-**Welke identiteiten, toegangsroutes en acties staan we deze gebruiker toe te maken?**
+Bepaal voordat je makerstoegang verleent welke identiteiten, toegangsroutes en acties een maker binnen de gekozen omgeving mag maken.
+
+:::
 
 ## Officiële Microsoft-documentatie
 
