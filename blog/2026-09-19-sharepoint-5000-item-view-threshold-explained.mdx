@@ -5,13 +5,13 @@ authors: [dwayne]
 tags: [microsoft-365, sharepoint, onedrive, power-automate]
 ---
 
-A SharePoint library reaches 5,000 files. A view stops working or a flow misses records. The obvious conclusion is that the library is full.
+A SharePoint library reaches 5,000 files, and then a view stops working or a flow misses records. The library still has room for far more content.
 
-It is not. Microsoft's [List View Threshold guidance](https://support.microsoft.com/en-us/sharepoint/lists/data-and-lists/list-view-threshold-for-large-lists-and-libraries) says that a SharePoint list or library can contain up to **30 million items or files**. The familiar 5,000 figure is the **List View Threshold**. It limits how much work certain database operations, such as a query, can do at once. Microsoft also notes that the exact threshold can vary.
+Microsoft's [List View Threshold guidance](https://support.microsoft.com/en-us/sharepoint/lists/data-and-lists/list-view-threshold-for-large-lists-and-libraries) says that a SharePoint list or library can contain up to **30 million items or files**. The familiar 5,000 figure is the **List View Threshold**. It limits how much work certain database operations, such as a query, can do at once. Microsoft also notes that the exact threshold can vary.
 
-This is a deeper SharePoint subject. Most users and many libraries will never run into it. But when a view, flow, migration, or permission change does hit a limit, the visible error rarely tells the complete story. You first need to understand which technical path is failing and why.
+Most users and many libraries will never run into the List View Threshold. But when a view, flow, migration, or permission change does hit a limit, the visible error rarely tells the complete story. You first need to understand which technical path is failing and why.
 
-So do not split a library simply because it passes 5,000 files. First ask how people and systems find, show, synchronize, secure, and process those files. A good diagnosis comes before the fix.
+Do not split a library simply because it passes 5,000 files. First ask how people and systems find, show, synchronize, secure, and process those files.
 
 <!-- truncate -->
 
@@ -21,7 +21,11 @@ The List View Threshold protects SharePoint from heavy operations that could slo
 
 That is why **indexed columns** and filtered views matter. An index helps SharePoint find a smaller set without checking the complete library. Sorting, grouping, and columns such as Person, Lookup, or Managed Metadata can make a query heavier. Folders can help, but they are not a free pass. A query inside one folder can still cross the threshold. Microsoft explains these choices in its guidance for [working with the List View Threshold](https://support.microsoft.com/en-us/sharepoint/data-and-lists/working-with-the-list-view-threshold-limit-for-all-versions-of-sharepoint).
 
-The practical rule is simple: keep common views and queries small, not necessarily the library.
+:::tip[Recommendation]
+
+Keep common views and queries small. The library itself does not necessarily have to be.
+
+:::
 
 Permissions use another set of limits. SharePoint supports up to **50,000 unique permission scopes** in a list or library, while Microsoft recommends a general limit of 5,000. For migrations, Microsoft's [permission guidance](https://learn.microsoft.com/en-us/sharepoint/dev/apis/migration-perm-guidance) recommends fewer than 5,000 unique scopes per library. A permission scope is created when content stops inheriting access from its parent. It is another exception that someone must understand and review. This limit is separate from the List View Threshold.
 
@@ -59,7 +63,7 @@ Search follows another route. Microsoft's guidance explains that [SharePoint Sea
 
 Power Automate often exposes a weak query before users notice a problem in the browser.
 
-The SharePoint **Get items** and **Get files** actions return 100 items by default. You can raise **Top Count** to 5,000. There is also a less obvious trap. On a list with more than 5,000 items, **Get items** can return no matches when the matching records are outside the first 5,000 items. Microsoft tells you to enable **pagination** for this situation.
+The SharePoint **Get items** and **Get files** actions return 100 items by default. You can raise **Top Count** to 5,000. On a list with more than 5,000 items, **Get items** can return no matches when the matching records are outside the first 5,000 items. Microsoft tells you to enable **pagination** for this situation.
 
 Pagination lets the flow continue with extra requests. It does not make "get everything" a good design. Filter at the source, use suitable indexed columns, retrieve only what the process needs, and test with realistic volumes. The [Get items and Get files guidance](https://learn.microsoft.com/en-us/sharepoint/dev/business-apps/power-automate/guidance/working-with-get-items-and-get-files) documents the connector behavior.
 
@@ -69,7 +73,7 @@ A successful test with 200 items proves little about a library that will contain
 
 A file-server migration brings these limits together. Copy the old structure without redesign and you may also copy deep folders, NTFS permission exceptions, unclear ownership, and the expectation that everyone will synchronize everything back into File Explorer.
 
-Microsoft's [file-share migration guide](https://learn.microsoft.com/en-us/sharepointmigration/fileshare-to-odsp-migration-guide) starts with planning, assessment, remediation, and target preparation. Migration and user onboarding follow. In other words, the copy is not the first design step.
+Microsoft's [file-share migration guide](https://learn.microsoft.com/en-us/sharepointmigration/fileshare-to-odsp-migration-guide) starts with planning, assessment, remediation, and target preparation. Migration and user onboarding follow. The copy is not the first design step.
 
 Use existing NTFS permissions as evidence, not as the automatic target model. Prefer clear SharePoint groups and inherited permissions. Give every exception an owner and a review date. Microsoft permits 50,000 unique scopes, but its [migration permission guidance](https://learn.microsoft.com/en-us/sharepoint/dev/apis/migration-perm-guidance) recommends staying below 5,000 per library. A supported maximum is not a sensible target.
 
@@ -93,8 +97,6 @@ Before content grows or moves, make these decisions explicit:
 Use [Site, Library, Or Folder](../docs/decisions/site-library-or-folder) to choose a structure and [Permissions And Ownership](../docs/admin-and-governance/permissions-and-ownership) to assign responsibility.
 
 Do not let one famous number decide the structure. Check whether each view, search, synchronization choice, flow, and permission model still supports the work.
-
-**Design for the access pattern, not just the item count.**
 
 ## Official Microsoft Documentation
 

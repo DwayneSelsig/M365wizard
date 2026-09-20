@@ -5,13 +5,13 @@ authors: [dwayne]
 tags: [microsoft-365, sharepoint, onedrive, power-automate]
 ---
 
-Een SharePoint-bibliotheek bereikt 5.000 bestanden. Een weergave werkt niet meer of een flow mist records. De voor de hand liggende conclusie is dat de bibliotheek vol is.
+Een SharePoint-bibliotheek bereikt 5.000 bestanden, waarna een weergave niet meer werkt of een flow records mist. De bibliotheek heeft nog ruimte voor veel meer inhoud.
 
-Dat is niet zo. Volgens Microsofts [richtlijnen voor de List View Threshold](https://support.microsoft.com/nl-nl/sharepoint/lists/data-and-lists/list-view-threshold-for-large-lists-and-libraries) kan een SharePoint-lijst of -bibliotheek maximaal **30 miljoen items of bestanden** bevatten. Het bekende getal van 5.000 is de **List View Threshold**. Deze drempel begrenst hoeveel werk bepaalde databasebewerkingen, zoals een query, tegelijk kunnen uitvoeren. Microsoft merkt bovendien op dat de exacte drempel kan verschillen.
+Volgens Microsofts [richtlijnen voor de List View Threshold](https://support.microsoft.com/nl-nl/sharepoint/lists/data-and-lists/list-view-threshold-for-large-lists-and-libraries) kan een SharePoint-lijst of -bibliotheek maximaal **30 miljoen items of bestanden** bevatten. Het bekende getal van 5.000 is de **List View Threshold**. Deze drempel begrenst hoeveel werk bepaalde databasebewerkingen, zoals een query, tegelijk kunnen uitvoeren. Microsoft merkt bovendien op dat de exacte drempel kan verschillen.
 
-Dit is een wat diepgaander SharePoint-onderwerp. De meeste gebruikers en veel bibliotheken krijgen er nooit mee te maken. Maar zodra een weergave, flow, migratie of wijziging van machtigingen tegen een grens aanloopt, vertelt de zichtbare foutmelding zelden het hele verhaal. Je moet eerst begrijpen welke technische route vastloopt en waarom.
+De meeste gebruikers en veel bibliotheken krijgen nooit met de List View Threshold te maken. Maar zodra een weergave, flow, migratie of wijziging van machtigingen tegen een grens aanloopt, vertelt de zichtbare foutmelding zelden het hele verhaal. Je moet eerst begrijpen welke technische route vastloopt en waarom.
 
-Splits een bibliotheek dus niet alleen omdat deze meer dan 5.000 bestanden bevat. Vraag eerst hoe mensen en systemen de bestanden vinden, tonen, synchroniseren, beveiligen en verwerken. Een goede diagnose komt vóór de oplossing.
+Splits een bibliotheek niet alleen omdat deze meer dan 5.000 bestanden bevat. Vraag eerst hoe mensen en systemen de bestanden vinden, tonen, synchroniseren, beveiligen en verwerken.
 
 <!-- truncate -->
 
@@ -21,7 +21,11 @@ De List View Threshold beschermt SharePoint tegen zware bewerkingen die de diens
 
 Daarom zijn **geïndexeerde kolommen** en gefilterde weergaven belangrijk. Met een index kan SharePoint een kleinere verzameling vinden zonder de volledige bibliotheek te controleren. Sorteren, groeperen en kolommen zoals Persoon, Opzoeken of Beheerde metagegevens kunnen een query zwaarder maken. Mappen kunnen helpen, maar geven geen vrijstelling. Ook een query binnen één map kan de drempel overschrijden. Microsoft legt deze keuzes uit in de richtlijnen voor [werken met de List View Threshold](https://support.microsoft.com/nl-nl/sharepoint/data-and-lists/working-with-the-list-view-threshold-limit-for-all-versions-of-sharepoint).
 
-De praktische regel is eenvoudig: houd veelgebruikte weergaven en queries klein, maar niet per se de bibliotheek.
+:::tip[Advies]
+
+Houd veelgebruikte weergaven en queries klein. De bibliotheek zelf hoeft dat niet per se te zijn.
+
+:::
 
 Voor machtigingen gelden andere limieten. SharePoint ondersteunt maximaal **50.000 unieke machtigingsbereiken (`permission scopes`)** in een lijst of bibliotheek, terwijl Microsoft een algemene limiet van 5.000 aanbeveelt. Voor migraties adviseert Microsoft in de [richtlijnen voor machtigingen](https://learn.microsoft.com/nl-nl/sharepoint/dev/apis/migration-perm-guidance) minder dan 5.000 unieke scopes per bibliotheek. Een permission scope ontstaat wanneer inhoud de toegang niet meer van het bovenliggende niveau overneemt. Het is een extra uitzondering die iemand moet begrijpen en beoordelen. Deze limiet staat los van de List View Threshold.
 
@@ -59,7 +63,7 @@ Search volgt weer een andere route. Microsoft legt uit dat [SharePoint Search ee
 
 Power Automate legt een zwakke query vaak bloot voordat gebruikers in de browser een probleem zien.
 
-De SharePoint-acties **Get items** en **Get files** geven standaard 100 items terug. Je kunt **Top Count** verhogen tot 5.000. Er is ook een minder duidelijke valkuil. In een lijst met meer dan 5.000 items kan **Get items** geen overeenkomsten teruggeven als de passende records buiten de eerste 5.000 items staan. Microsoft adviseert voor deze situatie **pagination** (paginering) in te schakelen.
+De SharePoint-acties **Get items** en **Get files** geven standaard 100 items terug. Je kunt **Top Count** verhogen tot 5.000. In een lijst met meer dan 5.000 items kan **Get items** geen overeenkomsten teruggeven als de passende records buiten de eerste 5.000 items staan. Microsoft adviseert voor deze situatie **pagination** (paginering) in te schakelen.
 
 Met pagination kan de flow doorgaan met extra aanvragen. Het maakt "alles ophalen" nog geen goed ontwerp. Filter bij de bron, gebruik geschikte geïndexeerde kolommen, haal alleen op wat het proces nodig heeft en test met realistische aantallen. De [richtlijnen voor Get items en Get files](https://learn.microsoft.com/nl-nl/sharepoint/dev/business-apps/power-automate/guidance/working-with-get-items-and-get-files) beschrijven het gedrag van de connector.
 
@@ -69,7 +73,7 @@ Een geslaagde test met 200 items zegt weinig over een bibliotheek die naar 20.00
 
 Bij een migratie van een fileserver komen deze grenzen samen. Kopieer de oude structuur zonder nieuw ontwerp en je kopieert mogelijk ook diepe mappen, uitzonderingen in NTFS-machtigingen, onduidelijk eigenaarschap en de verwachting dat iedereen alles terug naar Verkenner synchroniseert.
 
-Microsofts [migratiegids voor fileshares](https://learn.microsoft.com/nl-nl/sharepointmigration/fileshare-to-odsp-migration-guide) begint met planning, beoordeling, herstel en voorbereiding van de doelomgeving. De migratie en onboarding van gebruikers volgen daarna. De technische kopie is dus niet de eerste ontwerpstap.
+Microsofts [migratiegids voor fileshares](https://learn.microsoft.com/nl-nl/sharepointmigration/fileshare-to-odsp-migration-guide) begint met planning, beoordeling, herstel en voorbereiding van de doelomgeving. De migratie en onboarding van gebruikers volgen daarna. De technische kopie is niet de eerste ontwerpstap.
 
 Gebruik bestaande NTFS-machtigingen als bewijs en niet automatisch als doelmodel. Geef de voorkeur aan duidelijke SharePoint-groepen en overgeërfde machtigingen. Geef iedere uitzondering een eigenaar en beoordelingsdatum. Microsoft staat 50.000 unieke scopes toe, maar adviseert in de [richtlijnen voor migratiemachtigingen](https://learn.microsoft.com/nl-nl/sharepoint/dev/apis/migration-perm-guidance) om onder 5.000 per bibliotheek te blijven. Een ondersteund maximum is geen verstandig ontwerpdoel.
 
@@ -93,8 +97,6 @@ Maak deze beslissingen expliciet voordat inhoud groeit of wordt verplaatst:
 Gebruik [Site, bibliotheek of map](../docs/decisions/site-library-or-folder) om een structuur te kiezen en [Machtigingen en eigenaarschap](../docs/admin-and-governance/permissions-and-ownership) om verantwoordelijkheden toe te wijzen.
 
 Laat één bekend getal niet de structuur bepalen. Controleer of iedere weergave, zoekopdracht, synchronisatiekeuze, flow en ieder machtigingsmodel het werk nog ondersteunt.
-
-**Ontwerp voor het toegangspatroon en niet alleen voor het aantal items.**
 
 ## Officiële Microsoft-documentatie
 
