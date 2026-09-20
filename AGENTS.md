@@ -99,6 +99,51 @@ pages must still be translated manually.
 - Preserve useful prose when adding visuals. Diagrams and videos supplement 
   the text; they do not replace it.
 
+## Final Editorial Review With `no-ai-slop`
+
+For substantial new or rewritten prose, use the project-local `no-ai-slop`
+skill as a final editorial review after the content is factually complete and
+structurally correct. Treat the skill as an editing pass, not as the source of
+truth for technical content.
+
+Factual accuracy, Microsoft documentation, repository-specific writing rules,
+architecture reasoning, localization, and explicit user requirements take
+precedence over stylistic suggestions from the skill. Review each suggestion
+instead of accepting it mechanically. Preserve deliberate repetition when it
+improves comprehension, emphasis, safety, or instructional clarity. Keep
+terminology consistent when technical accuracy requires it. Do not remove an
+important recommendation merely because the surrounding explanation covers the
+same subject.
+
+When `no-ai-slop` identifies duplicated or overly verbose text:
+
+1. Remove or simplify true duplication.
+2. Check whether the removed text also carried a distinct recommendation,
+   practical consequence, warning, exception, operational requirement, or
+   ownership point.
+3. If that point deserves emphasis but no longer fits naturally in the prose,
+   consider expressing it as a concise Docusaurus admonition.
+4. Choose `note`, `tip`, `info`, `warning`, or `danger` according to the
+   repository's admonition rules.
+5. Do not create an admonition merely to preserve every deleted sentence.
+
+Use this editing order for substantial documentation or blog changes:
+
+1. Determine the reader, problem, and recommendation.
+2. Verify technical claims and sources.
+3. Write or restructure the content.
+4. Check repository-specific writing, localization, Mermaid, and admonition
+   rules.
+5. Run the `no-ai-slop` skill as an editorial pass.
+6. Review every suggested deletion or simplification for lost meaning.
+7. Restore or convert important recommendations, cautions, exceptions, or
+   consequences when necessary.
+8. Perform the normal validation steps.
+
+Do not run `no-ai-slop` on code, command output, configuration syntax, URLs, or
+Mermaid syntax. Apply the repository's Mermaid writing rules manually. The
+prose around a Mermaid diagram may still receive the editorial review.
+
 ## Author Voice And Tense
 
 Use a personal professional voice without forcing first-person language into
@@ -319,10 +364,67 @@ the opening and closing directives so the syntax remains stable when formatted.
 Do not use admonitions for ordinary explanatory paragraphs or to replace a
 substantial comparison or guidance section.
 
-## Mermaid Decision Flows
+During an editorial rewrite, do not preserve a sentence only because it
+contains useful advice when the same factual explanation already exists
+elsewhere. If removing or simplifying duplicate prose would make an important
+recommendation, practical consequence, exception, caution, ownership point, or
+operational requirement less visible, consider moving that point into a concise
+admonition. The admonition must add editorial value rather than repeat the
+paragraph immediately before or after it. Prefer one clear message per
+admonition, keep the body concise, and put detailed reasoning in the surrounding
+prose.
+
+Choose the admonition type according to its meaning:
+
+- Use `note` for useful context, nuance, exceptions, or something the reader
+  should remember.
+- Use `tip` for a recommended practice, practical advice, or a better way of
+  working.
+- Use `info` for an important clarification, distinction, definition, or
+  operational fact.
+- Use `warning` for a meaningful risk, limitation, likely mistake, or situation
+  that requires care.
+- Use `danger` only for severe consequences such as data loss, security
+  exposure, compliance impact, destructive actions, or another high-impact
+  risk.
+
+Use a short localized title that tells the reader why the admonition matters.
+`Recommendation` and `Advies` are acceptable for a straightforward
+recommendation, but prefer a more concrete title when it makes the point clear
+immediately. Do not use a vague or dramatic title only to attract attention.
+Keep the admonition's meaning aligned between English and Dutch, but localize
+the title naturally instead of translating it word for word. Do not overuse
+admonitions. Normal explanation belongs in normal prose.
+
+## Mermaid Diagrams And Decision Flows
 
 Mermaid support is already provided by `@docusaurus/theme-mermaid`. Do not
 reinstall or reconfigure it unless it is missing.
+
+A Mermaid diagram is a visual summary, not a replacement for prose. Apply these
+readability rules to every Mermaid diagram:
+
+- Keep node labels substantially shorter than the explanation in the
+  surrounding article.
+- Put one concept, decision, relationship, or result in each node.
+- Prefer short noun phrases or short sentences over paragraph-like text.
+- If a node needs several explanatory sentences, move that detail to normal
+  prose, a table, or an admonition.
+- Use explicit `<br/>` line breaks when they make a node easier to scan and
+  prevent excessively wide nodes. Break lines at natural phrase boundaries.
+- Do not split product names or technical terms only to force a narrow box.
+- Avoid relying on Mermaid automatic wrapping for long prose. Aim for a small
+  number of visually short lines per node.
+- Result or detail nodes may contain a few compact statements, but remove filler
+  words and repeated context.
+- Do not repeat information in child nodes when the parent node already
+  establishes that context.
+- Check both English and Dutch diagrams visually. Dutch text may require
+  different line breaks from English.
+- Preserve the same meaning and graph structure between locales, but line
+  wrapping does not have to be identical.
+- If a diagram is difficult to read without zooming, simplify the labels or
+  move detail into the surrounding prose instead of making nodes larger.
 
 For a decision guide, add a compact Mermaid `flowchart` beneath
 `## Decision Flow` only when branching makes the choice easier to understand.
