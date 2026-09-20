@@ -35,17 +35,17 @@ There is no single limit for every way of using a library. A browser view, Searc
 
 ```mermaid
 flowchart TD
-    Library["Large SharePoint library"]
+    Library["Large<br/>SharePoint library"]
 
     Library --> View["Browse or view"]
     Library --> Search["Search"]
     Library --> Sync["OneDrive Sync"]
     Library --> Automation["Power Automate"]
 
-    View --> ViewRule["Direct library operation<br/>List View Threshold applies<br/>Indexes and filters matter"]
+    View --> ViewRule["Direct library<br/>operation<br/>List View Threshold<br/>applies<br/>Indexes and filters<br/>matter"]
     Search --> SearchRule["Separate search index<br/>Not governed by the LVT<br/>Index freshness matters"]
-    Sync --> SyncRule["Sync client<br/>5,000 is not a sync ceiling<br/>Client scale matters"]
-    Automation --> AutoRule["Connector requests<br/>Filter and paginate<br/>Do not assume one request returns all"]
+    Sync --> SyncRule["Sync client<br/>5,000 is not a<br/>sync ceiling<br/>Client scale matters"]
+    Automation --> AutoRule["Connector requests<br/>Filter and paginate<br/>Do not assume one request<br/>returns all"]
 ```
 
 | Access pattern | What matters | Practical consequence |
