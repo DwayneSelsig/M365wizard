@@ -1,0 +1,56 @@
+---
+slug: sharepoint-resource-center-dynamic-filtering
+title: "Turn a SharePoint Library Into a Resource Center With Dynamic Filtering"
+authors: [dwayne]
+tags: [microsoft-365, sharepoint]
+---
+
+import YouTubeVideo from '@site/src/components/YouTubeVideo';
+
+A document can be stored correctly and still be difficult to discover. Search and Copilot help when someone can describe what they need. They are less helpful when a colleague only knows the subject and wants to see what is available.
+
+Dan Carroll of [Academy 365](https://www.academy365.io/) demonstrates a practical answer in his video, [*Why I don't build document libraries any more...*](https://www.youtube.com/watch?v=SbBSX2DsJQc). He turns a SharePoint document library into a visual resource center and uses dynamic filtering to guide visitors from a topic to the relevant resources.
+
+<!-- truncate -->
+
+:::note[Credit]
+
+The complete design, method, JSON, examples, and demonstration belong to Dan Carroll and Academy 365. This post explains why I find the pattern useful and points you to their original work.
+
+:::
+
+<YouTubeVideo
+  id="SbBSX2DsJQc"
+  title="Dan Carroll demonstrates a SharePoint resource center with dynamic filtering"
+  videoLanguage="en"
+/>
+
+## Why this pattern works
+
+The pattern separates storage from presentation. The documents and links remain in a library. Metadata describes their page area, topic, navigation label, and resource type. A separate list provides the topic navigation, while a SharePoint page brings the two sources together.
+
+When a visitor selects a topic, SharePoint filters the library web part to the matching resources. Microsoft documents this connection in [Connect web parts in SharePoint](https://support.microsoft.com/en-us/sharepoint/sites-pages/connect-web-parts-in-sharepoint). The visitor can explore a subject without knowing a file name, search term, or folder path.
+
+Dan also uses a gallery view and JSON formatting to present each resource as a recognizable card. Microsoft confirms that [view formatting changes how list and library items are displayed](https://learn.microsoft.com/en-us/sharepoint/dev/declarative-customization/view-formatting), not the underlying data. The presentation can therefore improve without creating a second content store.
+
+## What the video builds
+
+The video takes you through the complete pattern:
+
+- a resource library with the metadata needed for navigation and presentation;
+- a gallery view with cards for documents and links;
+- a separate topic list that acts as the filter;
+- a SharePoint page that connects the list and library through dynamic filtering.
+
+Dan has published the supporting JSON in [*Build a SharePoint Resource Center with Dynamic Filtering*](https://www.academy365.io/blog/d7594eef-dd50-4ddc-ad3f-e156c99015cf). The page contains the gallery view formatting for the resource cards and the grouped-heading formatting for the filter list. It also links to his Fluent UI icon reference. I prefer linking to that original page instead of copying the code here, so the implementation, updates, and attribution remain with Academy 365.
+
+The example is a resource center for meeting rooms, but the same design could support HR guidance, IT self-service, office information, policies, or learning resources. Watch the video for the exact build, the reasoning behind the hierarchy, and Dan's JSON.
+
+## Where this resource center fits
+
+This pattern makes information published through SharePoint easier to access and find. This follows the guidance in [Where Should This File Live?](../docs/decisions/where-should-this-file-live): use SharePoint for official information or information intended for a broader internal audience. A normal library remains the better choice for a working area where contributors mainly add, edit, and manage files.
+
+Keep the metadata small and purposeful. Every extra label becomes something an owner must apply consistently. Agree who maintains the navigation, reviews broken links, retires old resources, and checks whether new content still fits the structure.
+
+The page is a presentation layer. It does not replace the permissions, ownership, and lifecycle of the source library. Read [How a SharePoint Page Is Built](../docs/services/sharepoint/sharepoint-pages-and-web-parts) for that distinction, and use [Site, Library, Or Folder](../docs/decisions/site-library-or-folder) when the underlying information structure is still unclear.
+

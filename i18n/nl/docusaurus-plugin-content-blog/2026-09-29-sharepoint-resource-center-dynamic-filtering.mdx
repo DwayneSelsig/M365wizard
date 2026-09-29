@@ -1,0 +1,56 @@
+---
+slug: sharepoint-resource-center-dynamic-filtering
+title: "Maak van een SharePoint-bibliotheek een informatie- en kenniscentrum met dynamisch filteren"
+authors: [dwayne]
+tags: [microsoft-365, sharepoint]
+---
+
+import YouTubeVideo from '@site/src/components/YouTubeVideo';
+
+Een document kan op de juiste plek staan en toch lastig te ontdekken zijn. Search en Copilot helpen wanneer iemand kan beschrijven wat diegene nodig heeft. Ze helpen minder goed wanneer een collega alleen het onderwerp kent en wil zien wat er beschikbaar is.
+
+Dan Carroll van [Academy 365](https://www.academy365.io/) laat in zijn video [*Why I don't build document libraries any more...*](https://www.youtube.com/watch?v=SbBSX2DsJQc) een praktische oplossing zien. Hij verandert een SharePoint-documentbibliotheek in een visueel informatie- en kenniscentrum en gebruikt dynamisch filteren om bezoekers van een onderwerp naar de relevante bronnen te leiden.
+
+<!-- truncate -->
+
+:::note[Credits]
+
+Het volledige ontwerp, de methode, JSON, voorbeelden en demonstratie zijn van Dan Carroll en Academy 365. In dit bericht leg ik uit waarom ik deze opzet nuttig vind en verwijs ik naar hun oorspronkelijke werk.
+
+:::
+
+<YouTubeVideo
+  id="SbBSX2DsJQc"
+  title="Dan Carroll demonstreert een SharePoint-informatie- en kenniscentrum met dynamisch filteren"
+  videoLanguage="en"
+/>
+
+## Waarom deze opzet werkt
+
+De opzet scheidt opslag van presentatie. De documenten en koppelingen blijven in een bibliotheek. Metagegevens beschrijven het paginaonderdeel, onderwerp, navigatielabel en brontype. Een aparte lijst bevat de onderwerpnavigatie en een SharePoint-pagina brengt beide bronnen bij elkaar.
+
+Wanneer een bezoeker een onderwerp kiest, filtert SharePoint de bibliotheekwebpart op de bijpassende bronnen. Microsoft beschrijft deze koppeling in [Webparts verbinden in SharePoint](https://support.microsoft.com/nl-nl/sharepoint/sites-pages/connect-web-parts-in-sharepoint). De bezoeker kan een onderwerp verkennen zonder een bestandsnaam, zoekterm of mappad te kennen.
+
+Dan gebruikt ook een galerijweergave en JSON-opmaak om iedere bron als een herkenbare kaart te tonen. Microsoft bevestigt dat [weergaveopmaak verandert hoe items uit lijsten en bibliotheken worden getoond](https://learn.microsoft.com/nl-nl/sharepoint/dev/declarative-customization/view-formatting), niet de onderliggende gegevens. De presentatie kan dus verbeteren zonder een tweede inhoudsbron te maken.
+
+## Wat de video bouwt
+
+De video behandelt de volledige opzet:
+
+- een resourcebibliotheek met de metagegevens voor navigatie en presentatie;
+- een galerijweergave met kaarten voor documenten en koppelingen;
+- een aparte onderwerpenlijst die als filter werkt;
+- een SharePoint-pagina die de lijst en bibliotheek via dynamisch filteren met elkaar verbindt.
+
+Dan heeft de bijbehorende JSON gepubliceerd in [*Build a SharePoint Resource Center with Dynamic Filtering*](https://www.academy365.io/blog/d7594eef-dd50-4ddc-ad3f-e156c99015cf). Op die pagina staan de galerijopmaak voor de resourcekaarten en de opmaak van de gegroepeerde koppen in de filterlijst. Dan verwijst er ook naar zijn overzicht met Fluent UI-iconen. Ik verwijs liever naar die oorspronkelijke pagina dan de code hier te kopiëren, zodat de uitvoering, updates en bronvermelding bij Academy 365 blijven.
+
+Het voorbeeld is een informatie- en kenniscentrum voor vergaderruimtes, maar hetzelfde ontwerp kan werken voor HR-richtlijnen, IT-zelfservice, kantoorinformatie, beleid of leermiddelen. Bekijk de video voor de exacte bouwstappen, de redenering achter de hiërarchie en Dans JSON.
+
+## Wanneer een informatie- en kenniscentrum past
+
+Deze opzet maakt informatie die via SharePoint is gepubliceerd toegankelijker en makkelijker vindbaar. Dit sluit aan op [Waar moet dit bestand staan?](../docs/decisions/where-should-this-file-live): gebruik SharePoint voor officiële informatie of informatie voor een bredere interne doelgroep. Een gewone bibliotheek blijft geschikter voor een werkomgeving waarin medewerkers vooral bestanden toevoegen, bewerken en beheren.
+
+Houd de metagegevens beperkt en doelgericht. Ieder extra label moet een eigenaar consequent toepassen. Spreek af wie de navigatie onderhoudt, kapotte koppelingen controleert, verouderde bronnen verwijdert en beoordeelt of nieuwe inhoud nog in de structuur past.
+
+De pagina is een presentatielaag. Zij vervangt de machtigingen, het eigenaarschap en de levenscyclus van de bronbibliotheek niet. Lees [Hoe een SharePoint-pagina is opgebouwd](../docs/services/sharepoint/sharepoint-pages-and-web-parts) voor dat onderscheid en gebruik [Site, bibliotheek of map](../docs/decisions/site-library-or-folder) wanneer de onderliggende informatiestructuur nog niet duidelijk is.
+
