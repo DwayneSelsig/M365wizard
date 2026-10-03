@@ -39,7 +39,7 @@ Restricting group creation is an M365Wizard recommendation for organizations tha
 
 Give every Team a clear purpose, recognizable name, suitable owners, access decision, and review date. Create Teams for recognizable collaborations, such as departments and projects. Use standard channels for topics and workstreams within a Team.
 
-Create a separate Team when the audience, ownership, or lifecycle is materially different. Use private channels sparingly. Prefer a new Team over a shared channel when the collaboration needs an independent lifecycle.
+Prefer a new Team over a shared channel when a collaboration across groups needs its own purpose, owners, membership, and lifecycle. Use a shared channel when the topic clearly belongs to an existing Team, including when another organization should participate through a Team it already manages. Use private channels sparingly.
 
 Use a durable naming convention at organization or company level. Keep the complete Team name short enough for files that users synchronize with OneDrive. Do not include changeable attributes such as department or job title in the technically enforced name.
 
@@ -76,9 +76,10 @@ A department is usually a durable collaboration. A project normally has a clear 
 | A topic belongs to an existing department | Use a standard channel |
 | A workstream belongs to an existing project | Use a standard channel |
 | A subset of members handles restricted information that belongs to the Team | Consider a private channel |
-| The audience or ownership is structurally different | Create a separate Team |
-| The collaboration has its own lifecycle | Create a separate Team |
-| The collaboration must be reviewed or ended independently | Create a separate Team |
+| A topic belongs to the parent Team but needs participants from another Team or organization | Consider a shared channel |
+| People across groups need a distinct, durable collaboration | Prefer a new Team |
+| A topic needs its own end date or access review within the Team | Review and, when appropriate, archive or delete its channel |
+| The collaboration needs its own purpose, owners, and lifecycle beyond the parent Team | Create a separate Team |
 
 For example, do not create separate Teams for *Budget*, *Planning*, and *Communication* within the same project. Create a separate Team for each project and use channels within that Team for the project's workstreams.
 
@@ -97,7 +98,7 @@ Let Team owners determine the channel structure based on:
 - meaningful access differences;
 - the expected lifetime of the work.
 
-Start with the channels that are demonstrably needed. Add a channel when a subject or workstream is sufficiently independent and durable.
+Start with the channels that are demonstrably needed. Add a channel when a topic deserves its own conversation, shared content, and apps.
 
 Do not create a channel for a one-time question, short activity, or subject with almost no separate collaboration. Use a post, conversation, or folder within an existing channel.
 
@@ -107,22 +108,21 @@ A private channel has different membership within its parent Team and therefore 
 
 This need can be temporary or long-term. For example, restricted operational or management information for department leaders can fit in a private channel when that information belongs to the department Team. If the information is owned and used by a management team across departments, store it in the management Team instead. The fact that a team leader belongs to both Teams does not determine where the information belongs.
 
-When the restricted collaboration needs an independently managed audience, owners, or lifecycle, create a separate Team. This makes access, accountability, and retirement easier to understand.
+When restricted work has a separate purpose or must continue beyond the parent Team, create a separate Team. This makes access, accountability, and retirement easier to understand.
 
-### Prefer A New Team When The Lifecycle Must Be Independent
+### Prefer A New Team Over A Shared Channel For A Distinct Collaboration {#prefer-a-new-team-when-the-lifecycle-must-be-independent}
 
-A shared channel has no Microsoft 365 group of its own and cannot independently use the Microsoft 365 group expiration policy. Its lifecycle remains connected to its parent Team.
+Prefer a new Team when people across groups need to work together around a distinct purpose. It gives the collaboration its own Microsoft 365 group, Team owners, membership, connected SharePoint site, and lifecycle. Owners can review access and connected information as one whole, then archive or delete the Team when that collaboration ends. This adds another Team to govern, so use it for a real collaboration rather than a minor topic. See [Teams lifecycle planning](https://learn.microsoft.com/en-us/microsoftteams/plan-teams-lifecycle) and [Teams-connected sites](https://learn.microsoft.com/en-us/sharepoint/teams-connected-sites).
 
-Prefer a new Team when the collaboration:
+A shared channel is useful when the topic belongs to the host Team but needs participants from elsewhere. With B2B direct connect configured by both organizations, the channel owner can invite an external Team owner. That owner chooses an existing Team, and the channel owner approves it. Eligible members then get access through the receiving Team's membership, which that organization manages. Guests in the receiving Team are excluded. See [share a channel with a Team](https://support.microsoft.com/en-us/teams/teams-channels/share-a-channel-with-a-team-in-microsoft-teams) and [shared-channel membership](https://learn.microsoft.com/en-us/microsoftteams/platform/concepts/build-and-test/shared-channels).
 
-- has its own start and end date;
-- needs different owners;
-- needs a separate access review;
-- includes external participants;
-- has its own information or retention requirements;
-- must be archived or deleted independently.
+The host channel owner should review which Teams and people have direct access; the receiving Team owner should review its membership. The channel remains attached to the host Team.
 
-Use a shared channel for a bounded collaboration that belongs to the parent Team and follows the same general lifecycle.
+A shared channel can have channel owners, an access review, and an end date. Owners can [archive or delete the channel](https://support.microsoft.com/en-us/teams/teams-channels/archive-or-restore-a-channel) while the Team remains active. Its separate SharePoint channel site and membership still need review.
+
+A shared channel has no Microsoft 365 group of its own, so Microsoft 365 group expiration does not govern that channel separately. If the host Team is deleted, its shared channels are deleted too. Archiving the host Team removes sharing with other Teams, although individual sharing remains. These dependencies make a new Team the better home when the collaboration must continue or be governed independently. See [shared-channel lifecycle and ownership](https://learn.microsoft.com/en-us/microsoftteams/shared-channels).
+
+An end date, different channel owners, an access review, or external participants alone do not require a new Team. Check the purpose and ownership first, then confirm that the access and retention requirements fit the chosen Team and its sites.
 
 Microsoft Teams creates a separate connected SharePoint site for each private or shared channel. This makes file, access, retention, and lifecycle management more complex. Review the Microsoft documentation for [shared channels](https://learn.microsoft.com/en-us/microsoftteams/shared-channels), [private channels](https://learn.microsoft.com/en-us/microsoftteams/private-channels), and [Teams-connected SharePoint sites](https://learn.microsoft.com/en-us/sharepoint/teams-connected-sites).
 
@@ -188,7 +188,7 @@ flowchart TD
     Independent -->|No clear outcome| Review
 ```
 
-Create a new Team when the work is an independent collaboration. Use a standard channel when the subject fits the existing purpose, audience, and lifecycle of a Team. Consider a private channel when restricted work belongs to the parent Team and follows its lifecycle. Ask a key user to review requests without a clear outcome.
+Create a new Team when the work needs its own purpose, owners, and lifecycle. Use a standard channel for a topic open to the Team, a private channel for a restricted topic within the Team, or a shared channel for a topic involving people outside the host Team. Ask a key user to review requests without a clear outcome.
 
 ### Separate Class Teams From Other School Teams
 
@@ -434,7 +434,7 @@ Define who can approve exceptions. Record the reason, owner, and review date for
 
 ## Related Guides
 
-- [Teams](../services/teams.md)
+- [Teams](../services/teams/index.mdx)
 - [Somtoday To Microsoft School Data Sync](../tools/apps/somtoday-to-school-data-sync.md)
 - [Permissions And Ownership](./permissions-and-ownership.md)
 - [External Sharing](./external-sharing.md)

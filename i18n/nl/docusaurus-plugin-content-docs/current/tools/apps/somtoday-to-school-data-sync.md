@@ -67,3 +67,9 @@ Controleer Windows Event Viewer voor de status en de SDS-validatieresultaten na 
 - [Huidige releases](https://github.com/DwayneSelsig/SomtodayOpenAPI2MicrosoftSchoolDataSync/releases)
 - [Gegevens koppelen aan School Data Sync](https://learn.microsoft.com/nl-nl/schooldatasync/connect-data)
 - [SDS v2.1 CSV-bestandsindeling](https://learn.microsoft.com/nl-nl/schooldatasync/sds-v2.1-csv-file-format)
+
+## Gerelateerde gidsen
+
+- [Microsoft Teams](../../services/teams/index.mdx)
+- [Entra ID](../../services/entra-id.md)
+- [Machtigingen en eigenaarschap](../../admin-and-governance/permissions-and-ownership.md)

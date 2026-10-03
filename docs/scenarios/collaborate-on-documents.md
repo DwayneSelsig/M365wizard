@@ -33,6 +33,6 @@ When those signs appear, move the file out of personal storage.
 ## Related Guides
 
 - [OneDrive](../services/onedrive.md)
-- [Teams](../services/teams.md)
+- [Teams](../services/teams/index.mdx)
 - [SharePoint](../services/sharepoint/index.mdx)
 - [Where Should This File Live?](../decisions/where-should-this-file-live.md)

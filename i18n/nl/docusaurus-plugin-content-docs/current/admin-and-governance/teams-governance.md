@@ -39,7 +39,7 @@ Het beperken van groepsaanmaak is een M365Wizard-aanbeveling voor organisaties w
 
 Geef ieder Team een duidelijk doel, herkenbare naam, passende eigenaren, toegangsbesluit en beoordelingsdatum. Maak Teams voor herkenbare samenwerkingsverbanden, zoals afdelingen en projecten. Gebruik standaardkanalen voor onderwerpen en werkstromen binnen een Team.
 
-Maak een afzonderlijk Team wanneer de doelgroep, het eigenaarschap of de levenscyclus wezenlijk afwijkt. Gebruik privékanalen sporadisch. Geef bij een samenwerking met een zelfstandige levenscyclus de voorkeur aan een nieuw Team boven een gedeeld kanaal.
+Kies bij een samenwerking tussen groepen liever een nieuw Team dan een gedeeld kanaal wanneer zij een eigen doel, eigenaren, lidmaatschap en levenscyclus nodig heeft. Gebruik een gedeeld kanaal wanneer het onderwerp duidelijk bij een bestaand Team hoort, ook als een andere organisatie via een Team dat zij al beheert moet deelnemen. Gebruik privékanalen sporadisch.
 
 Gebruik een duurzame naamgevingsconventie op organisatie- of bedrijfsniveau. Houd de volledige Teamnaam kort genoeg voor bestanden die gebruikers met OneDrive synchroniseren. Neem geen veranderlijke kenmerken zoals afdeling of functietitel op in de technisch afgedwongen naam.
 
@@ -76,9 +76,10 @@ Een afdeling is meestal een duurzaam samenwerkingsverband. Een project heeft doo
 | Een onderwerp hoort bij een bestaande afdeling | Gebruik een standaardkanaal |
 | Een werkstroom hoort bij een bestaand project | Gebruik een standaardkanaal |
 | Een deel van de leden beheert afgeschermde informatie die bij het Team hoort | Overweeg een privékanaal |
-| De doelgroep of het eigenaarschap wijkt structureel af | Maak een afzonderlijk Team |
-| De samenwerking heeft een eigen levenscyclus | Maak een afzonderlijk Team |
-| De samenwerking moet zelfstandig kunnen worden beoordeeld of beëindigd | Maak een afzonderlijk Team |
+| Een onderwerp hoort bij het bovenliggende Team, maar heeft deelnemers uit een ander Team of een andere organisatie nodig | Overweeg een gedeeld kanaal |
+| Mensen uit verschillende groepen hebben een zelfstandige, duurzame samenwerking nodig | Kies bij voorkeur een nieuw Team |
+| Een onderwerp binnen het Team heeft een eigen einddatum of toegangsbeoordeling nodig | Beoordeel het kanaal en archiveer of verwijder het waar passend |
+| De samenwerking heeft een eigen doel, eigenaren en levenscyclus buiten het bovenliggende Team nodig | Maak een afzonderlijk Team |
 
 Maak bijvoorbeeld binnen één project geen afzonderlijke Teams voor *Budget*, *Planning* en *Communicatie*. Maak voor ieder project een eigen Team en gebruik binnen dat Team kanalen voor de werkstromen van dat project.
 
@@ -97,7 +98,7 @@ Laat de Team-eigenaren de kanaalstructuur bepalen op basis van:
 - betekenisvolle verschillen in toegang;
 - de verwachte levensduur van het werk.
 
-Begin met de kanalen die bij de start aantoonbaar nodig zijn. Voeg een kanaal toe wanneer een onderwerp of werkstroom voldoende zelfstandig en duurzaam is.
+Begin met de kanalen die bij de start aantoonbaar nodig zijn. Voeg een kanaal toe wanneer een onderwerp een eigen gesprek, gedeelde inhoud en apps verdient.
 
 Gebruik geen apart kanaal voor een eenmalige vraag, korte activiteit of onderwerp met nauwelijks eigen samenwerking. Gebruik daarvoor een bericht, gesprek of map binnen een bestaand kanaal.
 
@@ -107,22 +108,21 @@ Een privékanaal heeft een afwijkend lidmaatschap binnen het bovenliggende Team 
 
 Deze behoefte kan tijdelijk of langdurig zijn. Afgeschermde operationele of managementinformatie voor leidinggevenden van een afdeling kan bijvoorbeeld in een privékanaal passen wanneer die informatie bij het afdelingsteam hoort. Is de informatie eigendom van een managementteam en wordt zij afdelingsoverstijgend gebruikt, beheer haar dan in het Team van dat management. Dat een teamleider lid is van beide Teams bepaalt niet waar de informatie hoort.
 
-Maak een afzonderlijk Team wanneer de afgeschermde samenwerking een zelfstandig beheerde doelgroep, eigenaren of levenscyclus nodig heeft. Dat maakt toegang, verantwoordelijkheid en beëindiging beter zichtbaar.
+Maak een afzonderlijk Team wanneer het afgeschermde werk een eigen doel heeft of langer moet bestaan dan het bovenliggende Team. Dat maakt toegang, verantwoordelijkheid en beëindiging beter zichtbaar.
 
-### Kies een nieuw Team als de levenscyclus zelfstandig moet zijn
+### Kies een nieuw Team boven een gedeeld kanaal voor een zelfstandige samenwerking {#kies-een-nieuw-team-als-de-levenscyclus-zelfstandig-moet-zijn}
 
-Een gedeeld kanaal heeft geen eigen Microsoft 365-groep en kan daarom niet zelfstandig onder het vervalbeleid voor Microsoft 365-groepen vallen. De levenscyclus blijft gekoppeld aan het bovenliggende Team.
+Kies bij voorkeur een nieuw Team wanneer mensen uit verschillende groepen samenwerken aan een zelfstandig doel. De samenwerking krijgt dan een eigen Microsoft 365-groep, Team-eigenaren, lidmaatschap, gekoppelde SharePoint-site en levenscyclus. Eigenaren kunnen toegang en gekoppelde informatie als geheel beoordelen en het Team archiveren of verwijderen wanneer de samenwerking eindigt. Dat voegt wel een Team toe dat beheerd moet worden. Gebruik deze keuze daarom voor een echte samenwerking, niet voor een klein onderwerp. Bekijk [levenscyclusplanning voor Teams](https://learn.microsoft.com/nl-nl/microsoftteams/plan-teams-lifecycle) en [aan Teams gekoppelde sites](https://learn.microsoft.com/nl-nl/sharepoint/teams-connected-sites).
 
-Kies bij voorkeur een nieuw Team wanneer de samenwerking:
+Een gedeeld kanaal is nuttig wanneer het onderwerp bij het bovenliggende Team hoort, maar deelnemers van elders nodig heeft. Nadat beide organisaties B2B direct connect hebben ingesteld, kan de kanaaleigenaar een externe Team-eigenaar uitnodigen. Die kiest een bestaand Team, waarna de kanaaleigenaar het goedkeurt. Daarvoor in aanmerking komende leden krijgen dan toegang via het lidmaatschap van het ontvangende Team, dat de ontvangende organisatie beheert. Gasten in dat Team zijn uitgesloten. Bekijk [een kanaal met een Team delen](https://support.microsoft.com/nl-nl/teams/teams-channels/share-a-channel-with-a-team-in-microsoft-teams) en [lidmaatschap van gedeelde kanalen](https://learn.microsoft.com/nl-nl/microsoftteams/platform/concepts/build-and-test/shared-channels).
 
-- een eigen begin- en einddatum heeft;
-- andere eigenaren nodig heeft;
-- een afzonderlijke toegangsbeoordeling nodig heeft;
-- externe deelnemers bevat;
-- eigen informatie- of bewaareisen heeft;
-- zelfstandig moet kunnen worden gearchiveerd of verwijderd.
+De kanaaleigenaar in de bronorganisatie beoordeelt welke Teams en personen rechtstreeks toegang hebben; de eigenaar van het ontvangende Team beoordeelt het Teamlidmaatschap. Het kanaal blijft gekoppeld aan het bovenliggende Team.
 
-Gebruik een gedeeld kanaal voor een afgebakende samenwerking die inhoudelijk bij het bovenliggende Team hoort en dezelfde algemene levenscyclus volgt.
+Een gedeeld kanaal kan kanaaleigenaren, een toegangsbeoordeling en een einddatum hebben. Eigenaren kunnen [het kanaal archiveren of verwijderen](https://support.microsoft.com/nl-nl/teams/teams-channels/archive-or-restore-a-channel) terwijl het Team actief blijft. De afzonderlijke SharePoint-kanaalsite en het lidmaatschap vragen nog steeds om controle.
+
+Een gedeeld kanaal heeft geen eigen Microsoft 365-groep. Het vervalbeleid voor Microsoft 365-groepen regelt dat kanaal dus niet afzonderlijk. Als het bovenliggende Team wordt verwijderd, verdwijnen ook de gedeelde kanalen. Door het Team te archiveren verdwijnt het delen met andere Teams, terwijl individueel delen blijft bestaan. Door deze afhankelijkheden past een nieuw Team beter wanneer de samenwerking zelfstandig moet voortbestaan of worden beheerd. Bekijk [levenscyclus en eigenaarschap van gedeelde kanalen](https://learn.microsoft.com/nl-nl/microsoftteams/shared-channels).
+
+Alleen een einddatum, andere kanaaleigenaren, een toegangsbeoordeling of externe deelnemers vereisen geen nieuw Team. Kijk eerst naar het doel en eigenaarschap. Controleer daarna of de toegangs- en bewaareisen passen bij het gekozen Team en de bijbehorende sites.
 
 Microsoft Teams maakt voor ieder privé- en gedeeld kanaal een afzonderlijke gekoppelde SharePoint-site. Dit maakt het beheer van bestanden, toegang, bewaring en levenscyclus complexer. Bekijk de Microsoft-documentatie over [gedeelde kanalen](https://learn.microsoft.com/nl-nl/microsoftteams/shared-channels), [privékanalen](https://learn.microsoft.com/nl-nl/microsoftteams/private-channels) en [aan Teams gekoppelde SharePoint-sites](https://learn.microsoft.com/nl-nl/sharepoint/teams-connected-sites).
 
@@ -188,7 +188,7 @@ flowchart TD
     Independent -->|Geen duidelijke uitkomst| Review
 ```
 
-Maak een nieuw Team wanneer het werk een zelfstandige samenwerking vormt. Gebruik een standaardkanaal wanneer het onderwerp binnen het bestaande doel, de doelgroep en de levenscyclus van een Team past. Overweeg een privékanaal wanneer het afgeschermde werk bij het bovenliggende Team hoort en dezelfde levenscyclus volgt. Laat aanvragen zonder duidelijke uitkomst door een key-user beoordelen.
+Maak een nieuw Team wanneer het werk een eigen doel, eigenaren en levenscyclus nodig heeft. Gebruik een standaardkanaal voor een onderwerp dat voor het hele Team openstaat, een privékanaal voor een afgeschermd onderwerp binnen het Team of een gedeeld kanaal voor een onderwerp met mensen buiten het bovenliggende Team. Laat aanvragen zonder duidelijke uitkomst door een key-user beoordelen.
 
 ### Scheid klas-Teams van andere Teams op school
 
@@ -434,7 +434,7 @@ Leg vast wie uitzonderingen mag goedkeuren. Noteer per uitzondering de reden, ei
 
 ## Gerelateerde gidsen
 
-- [Teams](../services/teams.md)
+- [Teams](../services/teams/index.mdx)
 - [Somtoday naar Microsoft School Data Sync](../tools/apps/somtoday-to-school-data-sync.md)
 - [Machtigingen en eigenaarschap](./permissions-and-ownership.md)
 - [Extern delen](./external-sharing.md)

@@ -15,28 +15,28 @@ Samenwerkingshulpmiddelen in Microsoft 365 overlappen bewust. De juiste keuze ha
 
 ## Kort antwoord
 
-Gebruik Teams voor actief werk met een afgebakende groep. Gebruik SharePoint voor gestructureerde inhoud en publicatie. Gebruik Viva Engage voor open communitygesprekken. Gebruik Outlook wanneer het gesprek transactioneel is en geen gedeelde werkruimte nodig heeft.
+Gebruik Teams wanneer mensen samenwerken, kort in een chat of langer in een Team. Gebruik SharePoint om informatie voor de bedoelde doelgroep te organiseren, beheren of publiceren. Gebruik Viva Engage voor open communitygesprekken. Gebruik Outlook voor een korte transactionele uitwisseling.
 
 ## Beslisstroom
 
 ```mermaid
 flowchart TD
     Start{Wat heeft de groep vooral nodig?}
-    Start -->|Actief werk met een afgebakende groep| Teams[Teams]
-    Start -->|Gestructureerde of gepubliceerde inhoud| SharePoint[SharePoint]
+    Start -->|Samenwerken| Teams[Teams]
+    Start -->|Informatie beheren of publiceren| SharePoint[SharePoint]
     Start -->|Open communitygesprek| VivaEngage[Viva Engage]
     Start -->|Een korte transactionele uitwisseling| Outlook[Outlook]
 ```
 
 ## Kies Teams voor actief werk
 
-Teams is het sterkst wanneer een groep herhaaldelijk samenwerkt. Het brengt chat, vergaderingen, bestanden, kanalen, Planner, Loop en apps samen in één werkruimte.
+In Teams staan mensen die samenwerken centraal. Begin bij een informele behoefte in een chat of vergadering. Maak een Team wanneer mensen terugkerende samenwerking, gedeelde onderwerpen, hulpmiddelen en eigenaarschap nodig hebben.
 
-Gebruik het voor projecten, afdelingen, werkgroepen en terugkerende samenwerking.
+Gebruik een Team voor projecten, afdelingen, werkgroepen en andere langdurige samenwerkingen. Bekijk [Informele en gestructureerde samenwerking in Teams](../services/teams/ad-hoc-and-structured-collaboration.md).
 
 ## Kies SharePoint voor inhoud
 
-SharePoint is het sterkst wanneer informatie structuur, machtigingen, publicatie, metagegevens of een langere levenscyclus nodig heeft.
+In SharePoint staat informatie centraal die structuur, eigenaarschap, toegang, publicatie, metagegevens of een langere levenscyclus nodig heeft. De doelgroep kan een samenwerkend Team, een afdeling of de hele organisatie zijn.
 
 Gebruik het voor intranetpagina's, kennisbanken, documentbibliotheken, beleidsstukken, sjablonen en gepubliceerde bronnen.
 
@@ -50,11 +50,11 @@ Gebruik het wanneer ontdekken en deelnemen belangrijker zijn dan taakuitvoering.
 
 E-mail heeft nog steeds een plaats. Gebruik Outlook wanneer een bericht kortdurend is, aan specifieke personen is gericht en geen gedeelde werkruimte of patroon voor langdurige samenwerking nodig heeft.
 
-Wordt de e-mailketen een werkstroom, verplaats die dan naar Teams of SharePoint.
+Wordt de uitwisseling blijvende samenwerking, ga dan verder in Teams. Geef informatie die een beheerde of gepubliceerde plek nodig heeft een passende SharePoint-site.
 
 ## Gerelateerde handleidingen
 
-- [Teams](../services/teams.md)
+- [Teams](../services/teams/index.mdx)
 - [SharePoint](../services/sharepoint/index.mdx)
 - [Viva Engage](../services/viva-engage.md)
 - [Teams of Viva Engage?](./teams-or-viva-engage.md)

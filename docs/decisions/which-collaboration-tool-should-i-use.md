@@ -15,28 +15,28 @@ Microsoft 365 collaboration tools overlap on purpose. The right choice depends o
 
 ## Quick Answer
 
-Use Teams for active work with a defined group. Use SharePoint for structured content and publishing. Use Viva Engage for open community conversation. Use Outlook when the conversation is transactional and does not need a shared workspace.
+Use Teams when people need to work together, whether briefly in chat or over time in a Team. Use SharePoint to organize, manage, or publish information for its intended audience. Use Viva Engage for open community conversation. Use Outlook for a short transactional exchange.
 
 ## Decision Flow
 
 ```mermaid
 flowchart TD
     Start{What does the group need most?}
-    Start -->|Active work with a defined group| Teams[Teams]
-    Start -->|Structured or published content| SharePoint[SharePoint]
+    Start -->|Work together| Teams[Teams]
+    Start -->|Manage or publish information| SharePoint[SharePoint]
     Start -->|Open community conversation| VivaEngage[Viva Engage]
     Start -->|A short transactional exchange| Outlook[Outlook]
 ```
 
 ## Choose Teams For Active Work
 
-Teams is strongest when a group works together repeatedly. It brings chat, meetings, files, channels, Planner, Loop, and apps into one workspace.
+Teams centers on people working together. Start in chat or a meeting for an ad hoc need. Create a Team when people need recurring collaboration, shared topics, tools, and ownership.
 
-Use it for projects, departments, working groups, and recurring collaboration.
+Use a Team for projects, departments, working groups, and other durable collaborations. See [Ad Hoc And Structured Collaboration In Teams](../services/teams/ad-hoc-and-structured-collaboration.md).
 
 ## Choose SharePoint For Content
 
-SharePoint is strongest when information needs structure, permissions, publishing, metadata, or a longer lifecycle.
+SharePoint centers on information that needs structure, ownership, access, publishing, metadata, or a longer lifecycle. Its audience may be a working Team, a department, or the whole organization.
 
 Use it for intranet pages, knowledge bases, document libraries, policies, templates, and published resources.
 
@@ -50,11 +50,11 @@ Use it when discovery and participation matter more than task execution.
 
 Email still has a place. Use Outlook when the message is short-lived, directed to specific people, and does not need a shared workspace or long-term collaboration pattern.
 
-If the thread becomes a workstream, move it to Teams or SharePoint.
+If the exchange becomes ongoing work together, continue in Teams. Give information that needs a managed or published home a suitable SharePoint site.
 
 ## Related Guides
 
-- [Teams](../services/teams.md)
+- [Teams](../services/teams/index.mdx)
 - [SharePoint](../services/sharepoint/index.mdx)
 - [Viva Engage](../services/viva-engage.md)
 - [Teams Or Viva Engage?](./teams-or-viva-engage.md)

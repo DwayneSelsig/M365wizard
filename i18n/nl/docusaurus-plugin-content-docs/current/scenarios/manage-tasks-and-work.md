@@ -32,5 +32,5 @@ Een basisplan in Planner is bedoeld voor overzichtelijk teamwerk. Heb je afhanke
 ## Gerelateerde handleidingen
 
 - [Planner](../services/planner.md)
-- [Teams](../services/teams.md)
+- [Teams](../services/teams/index.mdx)
 - [Forms, Lists of Planner?](../decisions/forms-list-or-planner.md)

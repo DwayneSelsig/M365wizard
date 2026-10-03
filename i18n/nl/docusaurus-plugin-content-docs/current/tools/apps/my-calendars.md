@@ -56,3 +56,11 @@ Wijs een IT-eigenaar toe voor implementatie, Graph-machtigingen en upgrades. Wij
 - [Huidige releases](https://github.com/DwayneSelsig/spfx-my-calendars-webpart/releases)
 - [Apps beheren met de SharePoint Apps-site](https://learn.microsoft.com/nl-nl/sharepoint/use-app-catalog)
 - [Microsoft Graph-machtigingen](https://learn.microsoft.com/nl-nl/graph/permissions-reference)
+
+## Gerelateerde gidsen
+
+- [Afspraken plannen](../../scenarios/schedule-appointments.md)
+- [SharePoint](../../services/sharepoint/index.mdx)
+- [Microsoft Teams](../../services/teams/index.mdx)
+- [Planner](../../services/planner.md)
+- [Machtigingen en eigenaarschap](../../admin-and-governance/permissions-and-ownership.md)

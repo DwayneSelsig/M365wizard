@@ -32,5 +32,5 @@ A basic Planner plan is for straightforward team work. If you need dependencies,
 ## Related Guides
 
 - [Planner](../services/planner.md)
-- [Teams](../services/teams.md)
+- [Teams](../services/teams/index.mdx)
 - [Forms, Lists, Or Planner?](../decisions/forms-list-or-planner.md)

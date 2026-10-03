@@ -89,6 +89,6 @@ When upgrading, upload the new `.sppkg` file and overwrite the existing package.
 
 - [Schedule Appointments](../../scenarios/schedule-appointments.md)
 - [SharePoint](../../services/sharepoint/index.mdx)
-- [Teams](../../services/teams.md)
+- [Teams](../../services/teams/index.mdx)
 - [Planner](../../services/planner.md)
 - [Permissions And Ownership](../../admin-and-governance/permissions-and-ownership.md)
