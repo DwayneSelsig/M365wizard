@@ -1,0 +1,113 @@
+---
+title: Copilot
+sidebar_position: 1
+sidebar_custom_props:
+  cardIcon: /img/services/copilot.svg
+sidebar_label: Overzicht
+slug: /services/copilot
+roles: [EndUser, KeyUser]
+level: beginner
+license: ""
+tags: [dienst, copilot, ai]
+accent: default
+prereqs: []
+---
+
+# Copilot
+
+**Wat wil je AI laten doen?** Begin bij het werk: hulp krijgen bij een vraag, een taak delegeren, een agent bouwen voor een terugkerende behoefte of een AI-oplossing ontwikkelen. Ik gebruik deze vier richtingen om een beginpunt te kiezen. Dezelfde taak kan bij meer dan één product passen.
+
+- **Assisteren:** Vragen stellen, schrijven, analyseren of met je Microsoft 365-context werken.
+- **Delegeren:** AI een taak met een te beoordelen resultaat geven, of werk laten doorlopen.
+- **Bouwen:** Zonder softwareproject een agent rond kennis of een proces maken.
+- **Ontwikkelen:** Met AI-hulp software schrijven of een AI-toepassing bouwen.
+
+Assisteren en Delegeren helpen vooral mensen om zelf slimmer te werken. Bouwen en Ontwikkelen helpen een organisatie om herbruikbare oplossingen te maken. De producten zijn geen verplichte volwassenheidsniveaus. Ook in een organisatie met geavanceerde agents kan een eenvoudige vraag prima in Copilot Chat blijven.
+
+## Assisteren
+
+```mermaid
+flowchart LR
+    subgraph ASSIST["Assisteren"]
+        direction LR
+        CHAT@{ img: "/img/services/copilot.svg", label: "Copilot Chat
+──────────────
+Inbegrepen bij geschikte licenties", w: 48, h: 48, constraint: "on" }
+        M365@{ img: "/img/services/copilot.svg", label: "Microsoft 365 Copilot
+──────────────
+Licentie per gebruiker", w: 48, h: 48, constraint: "on" }
+        CHAT ~~~ M365
+    end
+```
+
+Begin hier als je een antwoord, een concept of hulp bij je eigen werk wilt. Copilot Chat kan werken met informatie die je aanlevert en mogelijkheden die bij een geschikte Microsoft 365-licentie horen. Microsoft 365 Copilot voegt gelicentieerde ervaringen met werkcontext toe in ondersteunde Microsoft 365-inhoud en apps. Agents kunnen ook geselecteerde organisatiegegevens beschikbaar maken in Copilot Chat. De grens is dus niet absoluut. [Vergelijk de hulpmiddelen voor je werk](./assist.md) en [bekijk de licentiemodellen](./licensing-and-costs.md).
+
+## Delegeren
+
+```mermaid
+flowchart LR
+    subgraph DELEGATE["Delegeren"]
+        direction LR
+        COWORK@{ img: "/img/services/copilot/copilot-cowork.svg", label: "Copilot Cowork
+──────────────
+Copilot Credits", w: 48, h: 48, constraint: "on" }
+        AUTO@{ img: "/img/services/copilot/copilot-autopilot.svg", label: "Autopilot
+──────────────
+Naar verbruik; private preview", w: 48, h: 48, constraint: "on" }
+        COWORK ~~~ AUTO
+    end
+```
+
+Begin hier als het gewenste resultaat meerdere stappen vraagt. Cowork voert een taak uit die je geeft en laat je het werk beoordelen. Autopilot is bedoeld om met minder voortdurende aanwijzingen langere tijd aan een doel te werken. Meer autonomie vraagt om duidelijkere grenzen, eigenaarschap en controle. Autopilot is in private preview. Plan er daarom geen gewone uitrol omheen. [Vergelijk de opties voor delegeren](./delegate.md).
+
+## Bouwen
+
+```mermaid
+flowchart LR
+    subgraph BUILD["Bouwen"]
+        direction LR
+        BUILDER@{ img: "/img/services/copilot/agent-builder.svg", label: "Agent Builder
+──────────────
+Inbegrepen of naar verbruik", w: 48, h: 48, constraint: "on" }
+        STUDIO@{ img: "/img/services/copilot/copilot-studio.svg", label: "Copilot Studio
+──────────────
+Inbegrepen of Copilot Credits", w: 48, h: 48, constraint: "on" }
+        BUILDER ~~~ STUDIO
+    end
+```
+
+Begin met Agent Builder voor een gerichte agent die vragen beantwoordt uit geschikte kennisbronnen voor jou of een klein team. Kies Copilot Studio wanneer de agent acties, brede publicatie, koppelingen of een beheerde productielevenscyclus nodig heeft. Met beide producten kun je agents maken. De doelgroep en het beheer bepalen waar je bouwt. [Vergelijk de bouwmogelijkheden](./build.md).
+
+## Ontwikkelen
+
+```mermaid
+flowchart LR
+    subgraph DEVELOP["Ontwikkelen"]
+        direction LR
+        GITHUB@{ img: "/img/services/copilot/github-copilot.svg", label: "GitHub Copilot
+──────────────
+Ontwikkelaarslicentie", w: 48, h: 48, constraint: "on" }
+        FOUNDRY@{ img: "/img/services/copilot/microsoft-foundry.svg", label: "Microsoft Foundry
+──────────────
+Azure-verbruik", w: 48, h: 48, constraint: "on" }
+        GITHUB ~~~ FOUNDRY
+    end
+```
+
+Gebruik GitHub Copilot om code te schrijven, uit te leggen, te testen en te beoordelen. Gebruik Microsoft Foundry om AI-toepassingen, agents en modellen op Azure te bouwen en te beheren. Een ontwikkelteam kan beide gebruiken: GitHub Copilot tijdens het schrijven van de toepassing en Foundry voor de AI-uitvoering en evaluatie. [Vergelijk de ontwikkelmogelijkheden](./develop.md).
+
+## Voordat je het gebruik uitbreidt
+
+Controleer de kwaliteit en het eigenaarschap van de informatie die AI gebruikt. Beoordeel de toegang, de menselijke controles, ondersteuning en de kosten van herhaald of langdurig werk. Begin bij [Machtigingen en eigenaarschap](../../admin-and-governance/permissions-and-ownership.md) en [Microsoft Purview](../purview.md). Gebruik [governance voor Copilot Studio-agents](../../admin-and-governance/govern-copilot-studio-agents.md) wanneer een agent een organisatiedienst wordt.
+
+## Officiële Microsoft-documentatie
+
+- [Licentieopties voor Microsoft Copilot](https://learn.microsoft.com/nl-nl/copilot/microsoft-365/microsoft-365-copilot-licensing)
+- [Agent Builder en Copilot Studio vergelijken](https://learn.microsoft.com/nl-nl/microsoft-365-copilot/extensibility/copilot-studio-experience)
+- [Microsofts aankondiging van Cowork en Autopilot](https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/)
+- [Overzicht van Microsoft Foundry](https://learn.microsoft.com/nl-nl/azure/foundry/what-is-foundry)
+
+## Gerelateerde gidsen
+
+- [Licenties en kosten](./licensing-and-costs.md)
+- [Welke Microsoft Purview-oplossing moet je gebruiken?](../../decisions/which-purview-solution-should-you-use.md)

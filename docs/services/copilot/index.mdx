@@ -1,0 +1,113 @@
+---
+title: Copilot
+sidebar_position: 1
+sidebar_custom_props:
+  cardIcon: /img/services/copilot.svg
+sidebar_label: Overview
+slug: /services/copilot
+roles: [EndUser, KeyUser]
+level: beginner
+license: ""
+tags: [service, copilot, ai]
+accent: default
+prereqs: []
+---
+
+# Copilot
+
+**What do you want AI to do?** Start with the work: get help with a question, delegate a task, build an agent for a recurring need, or develop an AI solution. I use these four directions to choose a starting point. The same task may fit more than one product.
+
+- **Assist:** Ask, draft, analyze, or work with your Microsoft 365 context.
+- **Delegate:** Give AI a task with a result to review, or arrange work that continues over time.
+- **Build:** Make an agent around knowledge or a process without starting a software project.
+- **Develop:** Write software with AI assistance or build an AI-powered application.
+
+Assist and Delegate mainly help people work more effectively themselves. Build and Develop help an organization create reusable solutions. The products do not represent required maturity levels. A simple question can still belong in Copilot Chat in an organization that also develops advanced agents.
+
+## Assist
+
+```mermaid
+flowchart LR
+    subgraph ASSIST["Assist"]
+        direction LR
+        CHAT@{ img: "/img/services/copilot.svg", label: "Copilot Chat
+──────────────
+Included with eligible plans", w: 48, h: 48, constraint: "on" }
+        M365@{ img: "/img/services/copilot.svg", label: "Microsoft 365 Copilot
+──────────────
+Per-user license", w: 48, h: 48, constraint: "on" }
+        CHAT ~~~ M365
+    end
+```
+
+Start here when you want an answer, a draft, or help with your own work. Copilot Chat can use information you provide and capabilities included with an eligible Microsoft 365 subscription. Microsoft 365 Copilot adds licensed work-context experiences across supported Microsoft 365 content and apps. Agents can also make selected organizational data available in Copilot Chat, so the boundary is not absolute. [Compare the assistance options](./assist.md) and [check the licensing model](./licensing-and-costs.md).
+
+## Delegate
+
+```mermaid
+flowchart LR
+    subgraph DELEGATE["Delegate"]
+        direction LR
+        COWORK@{ img: "/img/services/copilot/copilot-cowork.svg", label: "Copilot Cowork
+──────────────
+Copilot Credits", w: 48, h: 48, constraint: "on" }
+        AUTO@{ img: "/img/services/copilot/copilot-autopilot.svg", label: "Autopilot
+──────────────
+Usage-based; private preview", w: 48, h: 48, constraint: "on" }
+        COWORK ~~~ AUTO
+    end
+```
+
+Start here when the desired result takes several steps. Cowork carries out a task you assign and lets you review its work. Autopilot is intended to keep working toward a goal across time with less continuous prompting. More autonomy calls for clearer boundaries, ownership, and review. Autopilot is in private preview, so do not plan an ordinary rollout around it. [Compare delegation options](./delegate.md).
+
+## Build
+
+```mermaid
+flowchart LR
+    subgraph BUILD["Build"]
+        direction LR
+        BUILDER@{ img: "/img/services/copilot/agent-builder.svg", label: "Agent Builder
+──────────────
+Included or usage-based", w: 48, h: 48, constraint: "on" }
+        STUDIO@{ img: "/img/services/copilot/copilot-studio.svg", label: "Copilot Studio
+──────────────
+Included or Copilot Credits", w: 48, h: 48, constraint: "on" }
+        BUILDER ~~~ STUDIO
+    end
+```
+
+Start with Agent Builder for a focused agent that answers questions from suitable knowledge sources for you or a small team. Choose Copilot Studio when the agent needs actions, wider publication, integrations, or a managed production lifecycle. Both can create agents; the audience and operating needs decide where to build. [Compare the building options](./build.md).
+
+## Develop
+
+```mermaid
+flowchart LR
+    subgraph DEVELOP["Develop"]
+        direction LR
+        GITHUB@{ img: "/img/services/copilot/github-copilot.svg", label: "GitHub Copilot
+──────────────
+Developer license", w: 48, h: 48, constraint: "on" }
+        FOUNDRY@{ img: "/img/services/copilot/microsoft-foundry.svg", label: "Microsoft Foundry
+──────────────
+Azure consumption", w: 48, h: 48, constraint: "on" }
+        GITHUB ~~~ FOUNDRY
+    end
+```
+
+Use GitHub Copilot to help write, explain, test, and review code. Use Microsoft Foundry to build and operate AI applications, agents, and models on Azure. A development team may use both: GitHub Copilot while writing the application and Foundry for its AI runtime and evaluation. [Compare the development options](./develop.md).
+
+## Before You Expand Use
+
+Check the quality and ownership of the information AI will use. Review access, expected human checks, support, and the cost of repeated or long-running work. Start with [Permissions And Ownership](../../admin-and-governance/permissions-and-ownership.md) and [Microsoft Purview](../purview.md); use [Copilot Studio agent governance](../../admin-and-governance/govern-copilot-studio-agents.md) when an agent becomes an organizational service.
+
+## Official Microsoft Documentation
+
+- [Microsoft Copilot licensing options](https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-licensing)
+- [Agent Builder and Copilot Studio comparison](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/copilot-studio-experience)
+- [Microsoft announcement of Cowork and Autopilot](https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/)
+- [Microsoft Foundry overview](https://learn.microsoft.com/en-us/azure/foundry/what-is-foundry)
+
+## Related Guides
+
+- [Licensing And Costs](./licensing-and-costs.md)
+- [Which Microsoft Purview Solution Should You Use?](../../decisions/which-purview-solution-should-you-use.md)
