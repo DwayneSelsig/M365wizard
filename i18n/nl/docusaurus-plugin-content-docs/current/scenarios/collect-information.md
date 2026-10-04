@@ -15,7 +15,7 @@ Informatie verzamelen kan eenvoudig of operationeel zijn. Kies het hulpmiddel op
 
 ## Aanbevolen patroon
 
-Gebruik Forms voor eenvoudige verzameling. Gebruik Lists wanneer elk antwoord een record wordt dat je moet volgen. Voeg Planner toe wanneer die records werk voor mensen opleveren.
+Gebruik Forms om eenvoudig informatie te verzamelen. Gebruik Lists wanneer ingediende informatie een record wordt dat je moet volgen, of wanneer het team records rechtstreeks invoert. Voeg Planner toe wanneer een record iemand werk oplevert.
 
 ## Voorbeelden
 
@@ -23,10 +23,11 @@ Gebruik Forms voor evenementregistraties, feedback en korte verzoeken. Gebruik L
 
 ## Let op de overdracht
 
-De belangrijkste ontwerpkeuze is de overdracht na het indienen. Als niemand de volgende stap bezit, mislukt het proces ook wanneer het formulier er perfect uitziet.
+Wijs iemand aan die inzendingen bekijkt en een antwoord zo nodig naar Lists overzet of een Planner-taak maakt. Als een automatisering die overdracht verzorgt, moet iemand fouten en gemiste aanvragen controleren.
 
 ## Gerelateerde handleidingen
 
 - [Forms, Lists of Planner?](../decisions/forms-list-or-planner.md)
 - [Forms](../services/forms.md)
+- [Microsoft Lists](../services/lists.md)
 - [Planner](../services/planner.md)
