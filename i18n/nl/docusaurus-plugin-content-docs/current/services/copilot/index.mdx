@@ -27,17 +27,34 @@ Assisteren en Delegeren helpen vooral mensen om zelf slimmer te werken. Bouwen e
 ## Assisteren
 
 ```mermaid
-flowchart LR
+---
+config:
+  flowchart:
+    rankSpacing: 1
+---
+flowchart TB
     subgraph ASSIST["Assisteren"]
-        direction LR
-        CHAT@{ img: "/img/services/copilot.svg", label: "Copilot Chat
-──────────────
-Inbegrepen bij geschikte licenties", w: 48, h: 48, constraint: "on" }
-        M365@{ img: "/img/services/copilot.svg", label: "Microsoft 365 Copilot
-──────────────
-Licentie per gebruiker", w: 48, h: 48, constraint: "on" }
-        CHAT ~~~ M365
+        direction TB
+        %% Invisible anchor keeps the group title above the app cards.
+        TITLE_SPACE[" "]
+        TITLE_SPACE ~~~ CHAT_CARD & M365_CARD
+        subgraph CHAT_APP[" "]
+            CHAT_CARD@{ img: "/img/services/copilot.svg", label: "Copilot Chat", w: 72, h: 72, constraint: "on" }
+        end
+        CHAT_LICENSE["Inbegrepen bij geschikte licenties"]
+        subgraph M365_APP[" "]
+            M365_CARD@{ img: "/img/services/copilot.svg", label: "Microsoft 365 Copilot", w: 72, h: 72, constraint: "on" }
+        end
+        M365_LICENSE["Licentie per gebruiker"]
+        CHAT_CARD ~~~ CHAT_LICENSE
+        M365_CARD ~~~ M365_LICENSE
     end
+    classDef appCard stroke-width:2px
+    classDef noBorder fill:transparent,stroke:transparent
+    class CHAT_APP,M365_APP appCard
+    class TITLE_SPACE,CHAT_CARD,M365_CARD noBorder
+    classDef groupFrame fill:transparent,stroke:#858578,stroke-width:1px
+    class ASSIST groupFrame
 ```
 
 Begin hier als je een antwoord, een concept of hulp bij je eigen werk wilt. Copilot Chat kan werken met informatie die je aanlevert en mogelijkheden die bij een geschikte Microsoft 365-licentie horen. Microsoft 365 Copilot voegt gelicentieerde ervaringen met werkcontext toe in ondersteunde Microsoft 365-inhoud en apps. Agents kunnen ook geselecteerde organisatiegegevens beschikbaar maken in Copilot Chat. De grens is dus niet absoluut. [Vergelijk de hulpmiddelen voor je werk](./assist.md) en [bekijk de licentiemodellen](./licensing-and-costs.md).
@@ -45,17 +62,34 @@ Begin hier als je een antwoord, een concept of hulp bij je eigen werk wilt. Copi
 ## Delegeren
 
 ```mermaid
-flowchart LR
+---
+config:
+  flowchart:
+    rankSpacing: 1
+---
+flowchart TB
     subgraph DELEGATE["Delegeren"]
-        direction LR
-        COWORK@{ img: "/img/services/copilot/copilot-cowork.svg", label: "Copilot Cowork
-──────────────
-Copilot Credits", w: 48, h: 48, constraint: "on" }
-        AUTO@{ img: "/img/services/copilot/copilot-autopilot.svg", label: "Autopilot
-──────────────
-Naar verbruik; private preview", w: 48, h: 48, constraint: "on" }
-        COWORK ~~~ AUTO
+        direction TB
+        %% Invisible anchor keeps the group title above the app cards.
+        TITLE_SPACE[" "]
+        TITLE_SPACE ~~~ COWORK_CARD & AUTO_CARD
+        subgraph COWORK_APP[" "]
+            COWORK_CARD@{ img: "/img/services/copilot/copilot-cowork.svg", label: "Copilot Cowork", w: 72, h: 72, constraint: "on" }
+        end
+        COWORK_LICENSE["Copilot Credits"]
+        subgraph AUTO_APP[" "]
+            AUTO_CARD@{ img: "/img/services/copilot/copilot-autopilot.svg", label: "Autopilot", w: 72, h: 72, constraint: "on" }
+        end
+        AUTO_LICENSE["Naar verbruik"]
+        COWORK_CARD ~~~ COWORK_LICENSE
+        AUTO_CARD ~~~ AUTO_LICENSE
     end
+    classDef appCard stroke-width:2px
+    classDef noBorder fill:transparent,stroke:transparent
+    class COWORK_APP,AUTO_APP appCard
+    class TITLE_SPACE,COWORK_CARD,AUTO_CARD noBorder
+    classDef groupFrame fill:transparent,stroke:#858578,stroke-width:1px
+    class DELEGATE groupFrame
 ```
 
 Begin hier als het gewenste resultaat meerdere stappen vraagt. Cowork voert een taak uit die je geeft en laat je het werk beoordelen. Autopilot is bedoeld om met minder voortdurende aanwijzingen langere tijd aan een doel te werken. Meer autonomie vraagt om duidelijkere grenzen, eigenaarschap en controle. Autopilot is in private preview. Plan er daarom geen gewone uitrol omheen. [Vergelijk de opties voor delegeren](./delegate.md).
@@ -63,17 +97,34 @@ Begin hier als het gewenste resultaat meerdere stappen vraagt. Cowork voert een 
 ## Bouwen
 
 ```mermaid
-flowchart LR
+---
+config:
+  flowchart:
+    rankSpacing: 1
+---
+flowchart TB
     subgraph BUILD["Bouwen"]
-        direction LR
-        BUILDER@{ img: "/img/services/copilot/agent-builder.svg", label: "Agent Builder
-──────────────
-Inbegrepen of naar verbruik", w: 48, h: 48, constraint: "on" }
-        STUDIO@{ img: "/img/services/copilot/copilot-studio.svg", label: "Copilot Studio
-──────────────
-Inbegrepen of Copilot Credits", w: 48, h: 48, constraint: "on" }
-        BUILDER ~~~ STUDIO
+        direction TB
+        %% Invisible anchor keeps the group title above the app cards.
+        TITLE_SPACE[" "]
+        TITLE_SPACE ~~~ BUILDER_CARD & STUDIO_CARD
+        subgraph BUILDER_APP[" "]
+            BUILDER_CARD@{ img: "/img/services/copilot/agent-builder.svg", label: "Agent Builder", w: 72, h: 72, constraint: "on" }
+        end
+        BUILDER_LICENSE["Inbegrepen of naar verbruik"]
+        subgraph STUDIO_APP[" "]
+            STUDIO_CARD@{ img: "/img/services/copilot/copilot-studio.svg", label: "Copilot Studio", w: 72, h: 72, constraint: "on" }
+        end
+        STUDIO_LICENSE["Inbegrepen of Copilot Credits"]
+        BUILDER_CARD ~~~ BUILDER_LICENSE
+        STUDIO_CARD ~~~ STUDIO_LICENSE
     end
+    classDef appCard stroke-width:2px
+    classDef noBorder fill:transparent,stroke:transparent
+    class BUILDER_APP,STUDIO_APP appCard
+    class TITLE_SPACE,BUILDER_CARD,STUDIO_CARD noBorder
+    classDef groupFrame fill:transparent,stroke:#858578,stroke-width:1px
+    class BUILD groupFrame
 ```
 
 Begin met Agent Builder voor een gerichte agent die vragen beantwoordt uit geschikte kennisbronnen voor jou of een klein team. Kies Copilot Studio wanneer de agent acties, brede publicatie, koppelingen of een beheerde productielevenscyclus nodig heeft. Met beide producten kun je agents maken. De doelgroep en het beheer bepalen waar je bouwt. [Vergelijk de bouwmogelijkheden](./build.md).
@@ -81,17 +132,34 @@ Begin met Agent Builder voor een gerichte agent die vragen beantwoordt uit gesch
 ## Ontwikkelen
 
 ```mermaid
-flowchart LR
+---
+config:
+  flowchart:
+    rankSpacing: 1
+---
+flowchart TB
     subgraph DEVELOP["Ontwikkelen"]
-        direction LR
-        GITHUB@{ img: "/img/services/copilot/github-copilot.svg", label: "GitHub Copilot
-──────────────
-Ontwikkelaarslicentie", w: 48, h: 48, constraint: "on" }
-        FOUNDRY@{ img: "/img/services/copilot/microsoft-foundry.svg", label: "Microsoft Foundry
-──────────────
-Azure-verbruik", w: 48, h: 48, constraint: "on" }
-        GITHUB ~~~ FOUNDRY
+        direction TB
+        %% Invisible anchor keeps the group title above the app cards.
+        TITLE_SPACE[" "]
+        TITLE_SPACE ~~~ GITHUB_CARD & FOUNDRY_CARD
+        subgraph GITHUB_APP[" "]
+            GITHUB_CARD@{ img: "/img/services/copilot/github-copilot.svg", label: "GitHub Copilot", w: 72, h: 72, constraint: "on" }
+        end
+        GITHUB_LICENSE["Ontwikkelaarslicentie"]
+        subgraph FOUNDRY_APP[" "]
+            FOUNDRY_CARD@{ img: "/img/services/copilot/microsoft-foundry.svg", label: "Microsoft Foundry", w: 72, h: 72, constraint: "on" }
+        end
+        FOUNDRY_LICENSE["Azure-verbruik"]
+        GITHUB_CARD ~~~ GITHUB_LICENSE
+        FOUNDRY_CARD ~~~ FOUNDRY_LICENSE
     end
+    classDef appCard stroke-width:2px
+    classDef noBorder fill:transparent,stroke:transparent
+    class GITHUB_APP,FOUNDRY_APP appCard
+    class TITLE_SPACE,GITHUB_CARD,FOUNDRY_CARD noBorder
+    classDef groupFrame fill:transparent,stroke:#858578,stroke-width:1px
+    class DEVELOP groupFrame
 ```
 
 Gebruik GitHub Copilot om code te schrijven, uit te leggen, te testen en te beoordelen. Gebruik Microsoft Foundry om AI-toepassingen, agents en modellen op Azure te bouwen en te beheren. Een ontwikkelteam kan beide gebruiken: GitHub Copilot tijdens het schrijven van de toepassing en Foundry voor de AI-uitvoering en evaluatie. [Vergelijk de ontwikkelmogelijkheden](./develop.md).

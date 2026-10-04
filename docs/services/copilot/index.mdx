@@ -27,17 +27,34 @@ Assist and Delegate mainly help people work more effectively themselves. Build a
 ## Assist
 
 ```mermaid
-flowchart LR
+---
+config:
+  flowchart:
+    rankSpacing: 1
+---
+flowchart TB
     subgraph ASSIST["Assist"]
-        direction LR
-        CHAT@{ img: "/img/services/copilot.svg", label: "Copilot Chat
-──────────────
-Included with eligible plans", w: 48, h: 48, constraint: "on" }
-        M365@{ img: "/img/services/copilot.svg", label: "Microsoft 365 Copilot
-──────────────
-Per-user license", w: 48, h: 48, constraint: "on" }
-        CHAT ~~~ M365
+        direction TB
+        %% Invisible anchor keeps the group title above the app cards.
+        TITLE_SPACE[" "]
+        TITLE_SPACE ~~~ CHAT_CARD & M365_CARD
+        subgraph CHAT_APP[" "]
+            CHAT_CARD@{ img: "/img/services/copilot.svg", label: "Copilot Chat", w: 72, h: 72, constraint: "on" }
+        end
+        CHAT_LICENSE["Included with eligible plans"]
+        subgraph M365_APP[" "]
+            M365_CARD@{ img: "/img/services/copilot.svg", label: "Microsoft 365 Copilot", w: 72, h: 72, constraint: "on" }
+        end
+        M365_LICENSE["Per-user license"]
+        CHAT_CARD ~~~ CHAT_LICENSE
+        M365_CARD ~~~ M365_LICENSE
     end
+    classDef appCard stroke-width:2px
+    classDef noBorder fill:transparent,stroke:transparent
+    class CHAT_APP,M365_APP appCard
+    class TITLE_SPACE,CHAT_CARD,M365_CARD noBorder
+    classDef groupFrame fill:transparent,stroke:#858578,stroke-width:1px
+    class ASSIST groupFrame
 ```
 
 Start here when you want an answer, a draft, or help with your own work. Copilot Chat can use information you provide and capabilities included with an eligible Microsoft 365 subscription. Microsoft 365 Copilot adds licensed work-context experiences across supported Microsoft 365 content and apps. Agents can also make selected organizational data available in Copilot Chat, so the boundary is not absolute. [Compare the assistance options](./assist.md) and [check the licensing model](./licensing-and-costs.md).
@@ -45,17 +62,34 @@ Start here when you want an answer, a draft, or help with your own work. Copilot
 ## Delegate
 
 ```mermaid
-flowchart LR
+---
+config:
+  flowchart:
+    rankSpacing: 1
+---
+flowchart TB
     subgraph DELEGATE["Delegate"]
-        direction LR
-        COWORK@{ img: "/img/services/copilot/copilot-cowork.svg", label: "Copilot Cowork
-──────────────
-Copilot Credits", w: 48, h: 48, constraint: "on" }
-        AUTO@{ img: "/img/services/copilot/copilot-autopilot.svg", label: "Autopilot
-──────────────
-Usage-based; private preview", w: 48, h: 48, constraint: "on" }
-        COWORK ~~~ AUTO
+        direction TB
+        %% Invisible anchor keeps the group title above the app cards.
+        TITLE_SPACE[" "]
+        TITLE_SPACE ~~~ COWORK_CARD & AUTO_CARD
+        subgraph COWORK_APP[" "]
+            COWORK_CARD@{ img: "/img/services/copilot/copilot-cowork.svg", label: "Copilot Cowork", w: 72, h: 72, constraint: "on" }
+        end
+        COWORK_LICENSE["Copilot Credits"]
+        subgraph AUTO_APP[" "]
+            AUTO_CARD@{ img: "/img/services/copilot/copilot-autopilot.svg", label: "Autopilot", w: 72, h: 72, constraint: "on" }
+        end
+        AUTO_LICENSE["Usage-based"]
+        COWORK_CARD ~~~ COWORK_LICENSE
+        AUTO_CARD ~~~ AUTO_LICENSE
     end
+    classDef appCard stroke-width:2px
+    classDef noBorder fill:transparent,stroke:transparent
+    class COWORK_APP,AUTO_APP appCard
+    class TITLE_SPACE,COWORK_CARD,AUTO_CARD noBorder
+    classDef groupFrame fill:transparent,stroke:#858578,stroke-width:1px
+    class DELEGATE groupFrame
 ```
 
 Start here when the desired result takes several steps. Cowork carries out a task you assign and lets you review its work. Autopilot is intended to keep working toward a goal across time with less continuous prompting. More autonomy calls for clearer boundaries, ownership, and review. Autopilot is in private preview, so do not plan an ordinary rollout around it. [Compare delegation options](./delegate.md).
@@ -63,17 +97,34 @@ Start here when the desired result takes several steps. Cowork carries out a tas
 ## Build
 
 ```mermaid
-flowchart LR
+---
+config:
+  flowchart:
+    rankSpacing: 1
+---
+flowchart TB
     subgraph BUILD["Build"]
-        direction LR
-        BUILDER@{ img: "/img/services/copilot/agent-builder.svg", label: "Agent Builder
-──────────────
-Included or usage-based", w: 48, h: 48, constraint: "on" }
-        STUDIO@{ img: "/img/services/copilot/copilot-studio.svg", label: "Copilot Studio
-──────────────
-Included or Copilot Credits", w: 48, h: 48, constraint: "on" }
-        BUILDER ~~~ STUDIO
+        direction TB
+        %% Invisible anchor keeps the group title above the app cards.
+        TITLE_SPACE[" "]
+        TITLE_SPACE ~~~ BUILDER_CARD & STUDIO_CARD
+        subgraph BUILDER_APP[" "]
+            BUILDER_CARD@{ img: "/img/services/copilot/agent-builder.svg", label: "Agent Builder", w: 72, h: 72, constraint: "on" }
+        end
+        BUILDER_LICENSE["Included or usage-based"]
+        subgraph STUDIO_APP[" "]
+            STUDIO_CARD@{ img: "/img/services/copilot/copilot-studio.svg", label: "Copilot Studio", w: 72, h: 72, constraint: "on" }
+        end
+        STUDIO_LICENSE["Included or Copilot Credits"]
+        BUILDER_CARD ~~~ BUILDER_LICENSE
+        STUDIO_CARD ~~~ STUDIO_LICENSE
     end
+    classDef appCard stroke-width:2px
+    classDef noBorder fill:transparent,stroke:transparent
+    class BUILDER_APP,STUDIO_APP appCard
+    class TITLE_SPACE,BUILDER_CARD,STUDIO_CARD noBorder
+    classDef groupFrame fill:transparent,stroke:#858578,stroke-width:1px
+    class BUILD groupFrame
 ```
 
 Start with Agent Builder for a focused agent that answers questions from suitable knowledge sources for you or a small team. Choose Copilot Studio when the agent needs actions, wider publication, integrations, or a managed production lifecycle. Both can create agents; the audience and operating needs decide where to build. [Compare the building options](./build.md).
@@ -81,17 +132,34 @@ Start with Agent Builder for a focused agent that answers questions from suitabl
 ## Develop
 
 ```mermaid
-flowchart LR
+---
+config:
+  flowchart:
+    rankSpacing: 1
+---
+flowchart TB
     subgraph DEVELOP["Develop"]
-        direction LR
-        GITHUB@{ img: "/img/services/copilot/github-copilot.svg", label: "GitHub Copilot
-──────────────
-Developer license", w: 48, h: 48, constraint: "on" }
-        FOUNDRY@{ img: "/img/services/copilot/microsoft-foundry.svg", label: "Microsoft Foundry
-──────────────
-Azure consumption", w: 48, h: 48, constraint: "on" }
-        GITHUB ~~~ FOUNDRY
+        direction TB
+        %% Invisible anchor keeps the group title above the app cards.
+        TITLE_SPACE[" "]
+        TITLE_SPACE ~~~ GITHUB_CARD & FOUNDRY_CARD
+        subgraph GITHUB_APP[" "]
+            GITHUB_CARD@{ img: "/img/services/copilot/github-copilot.svg", label: "GitHub Copilot", w: 72, h: 72, constraint: "on" }
+        end
+        GITHUB_LICENSE["Developer license"]
+        subgraph FOUNDRY_APP[" "]
+            FOUNDRY_CARD@{ img: "/img/services/copilot/microsoft-foundry.svg", label: "Microsoft Foundry", w: 72, h: 72, constraint: "on" }
+        end
+        FOUNDRY_LICENSE["Azure consumption"]
+        GITHUB_CARD ~~~ GITHUB_LICENSE
+        FOUNDRY_CARD ~~~ FOUNDRY_LICENSE
     end
+    classDef appCard stroke-width:2px
+    classDef noBorder fill:transparent,stroke:transparent
+    class GITHUB_APP,FOUNDRY_APP appCard
+    class TITLE_SPACE,GITHUB_CARD,FOUNDRY_CARD noBorder
+    classDef groupFrame fill:transparent,stroke:#858578,stroke-width:1px
+    class DEVELOP groupFrame
 ```
 
 Use GitHub Copilot to help write, explain, test, and review code. Use Microsoft Foundry to build and operate AI applications, agents, and models on Azure. A development team may use both: GitHub Copilot while writing the application and Foundry for its AI runtime and evaluation. [Compare the development options](./develop.md).
