@@ -1,6 +1,6 @@
 ---
 title: Copilot Licensing And Costs
-sidebar_position: 6
+sidebar_position: 8
 roles: [EndUser, KeyUser, IT]
 level: intermediate
 license: ""
@@ -17,7 +17,7 @@ Choose the work pattern first, then check how the experience is funded. An inclu
 | --- | --- | --- |
 | Included with an eligible subscription | No separate Copilot Chat add-on charge for the covered experience | Copilot Chat; some simple agents |
 | Per-user license | A named person receives the licensed experience | Microsoft 365 Copilot; organizational GitHub Copilot seats |
-| Copilot Credits | Eligible AI work draws from usage-based capacity or billing | Copilot Cowork; applicable agents and Copilot Studio use |
+| Copilot Credits | Eligible AI work draws from usage-based capacity or billing | Copilot Cowork; Copilot Code; applicable agents and Copilot Studio use |
 | Azure consumption | Azure resources and services generate charges according to their meters | Microsoft Foundry models and supporting services |
 
 ## Included Access Is Scenario-Specific
@@ -32,7 +32,7 @@ Microsoft 365 Copilot is an add-on for eligible base subscriptions. It provides 
 
 Copilot Credits measure eligible usage-based Microsoft AI work. The organization can fund them through supported capacity packs, pre-purchase plans, or pay-as-you-go billing. Consumption changes with the work performed, so estimate representative tasks and monitor actual use instead of multiplying a single prompt cost by the number of users. [Microsoft's Copilot Credit billing guidance](https://learn.microsoft.com/en-us/microsoft-365/copilot/usage-based-billing-compare-dashboard-views) describes the purchasing and reporting paths.
 
-Cowork uses credits for its work and requires billing to be enabled. Microsoft places Autopilot under usage-based billing, but its private preview terms need confirmation before an organization budgets or enables it. Copilot Studio and Agent Builder can be included for some licensed users or scenarios and metered for others. Check the agent type, knowledge sources, audience, and billing policy rather than assigning one price to the product name.
+Cowork uses credits for its work and requires billing to be enabled. [Microsoft's billing guidance](https://learn.microsoft.com/en-us/microsoft-365/copilot/user-subscription-license-usage-based-billing) also places Code and Autopilot under usage-based billing. Confirm preview access, licenses, and billing terms before an organization budgets or enables them. Copilot Studio and Agent Builder can be included for some licensed users or scenarios and metered for others. Check the agent type, knowledge sources, audience, and billing policy rather than assigning one price to the product name.
 
 :::warning[Set A Budget Before Repeated Work]
 
@@ -53,5 +53,7 @@ Confirm eligible base subscriptions, assigned user licenses, agent access, billi
 - [Copilot Overview](./index.mdx)
 - [Assist With AI](./assist.md)
 - [Delegate Work To AI](./delegate.md)
+- [Build Solutions With Copilot Code](./code.md)
+- [Automate Ongoing Work With Autopilot](./automate.md)
 - [Build An Agent](./build.md)
 - [Develop With AI](./develop.md)

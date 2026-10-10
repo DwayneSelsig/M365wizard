@@ -15,14 +15,14 @@ prereqs: []
 
 # Copilot
 
-**What do you want AI to do?** Start with the work: get help with a question, delegate a task, build an agent for a recurring need, or develop an AI solution. I use these four directions to choose a starting point. The same task may fit more than one product.
+Start with the work: get help, delegate a task, build a solution, or automate ongoing work. I use four modes of work in Copilot:
 
-- **Assist:** Ask, draft, analyze, or work with your Microsoft 365 context.
-- **Delegate:** Give AI a task with a result to review, or arrange work that continues over time.
-- **Build:** Make an agent around knowledge or a process without starting a software project.
-- **Develop:** Write software with AI assistance or build an AI-powered application.
+- **Assist:** Ask, draft, and analyze with Chat.
+- **Delegate:** Assign Cowork a multistep task and review the result.
+- **Build:** Create your own solution with Code by describing what it should do.
+- **Automate:** Give Autopilot an ongoing goal within agreed boundaries.
 
-Assist and Delegate mainly help people work more effectively themselves. Build and Develop help an organization create reusable solutions. The products do not represent required maturity levels. A simple question can still belong in Copilot Chat in an organization that also develops advanced agents.
+Microsoft brings Chat and Cowork together in Home. Code and Autopilot add building and ongoing work to that experience. See [Microsoft's September 25, 2026 announcement](https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/). Access depends on the feature, license, and preview terms.
 
 ## Assist
 
@@ -72,27 +72,22 @@ flowchart TB
         direction TB
         %% Invisible anchor keeps the group title above the app cards.
         TITLE_SPACE[" "]
-        TITLE_SPACE ~~~ COWORK_CARD & AUTO_CARD
+        TITLE_SPACE ~~~ COWORK_CARD
         subgraph COWORK_APP[" "]
             COWORK_CARD@{ img: "/img/services/copilot/copilot-cowork.svg", label: "Copilot Cowork", w: 72, h: 72, constraint: "on" }
         end
         COWORK_LICENSE["Copilot Credits"]
-        subgraph AUTO_APP[" "]
-            AUTO_CARD@{ img: "/img/services/copilot/copilot-autopilot.svg", label: "Autopilot", w: 72, h: 72, constraint: "on" }
-        end
-        AUTO_LICENSE["Usage-based"]
         COWORK_CARD ~~~ COWORK_LICENSE
-        AUTO_CARD ~~~ AUTO_LICENSE
     end
     classDef appCard fill:#808080,fill-opacity:0.15,stroke:#858578,stroke-width:2px
     classDef noBorder fill:transparent,stroke:transparent
-    class COWORK_APP,AUTO_APP appCard
-    class TITLE_SPACE,COWORK_CARD,AUTO_CARD noBorder
+    class COWORK_APP appCard
+    class TITLE_SPACE,COWORK_CARD noBorder
     classDef groupFrame fill:transparent,stroke:#858578,stroke-width:1px
     class DELEGATE groupFrame
 ```
 
-Start here when the desired result takes several steps. Cowork carries out a task you assign and lets you review its work. Autopilot is intended to keep working toward a goal across time with less continuous prompting. More autonomy calls for clearer boundaries, ownership, and review. Autopilot is in private preview, so do not plan an ordinary rollout around it. [Compare delegation options](./delegate.md).
+Use Copilot Cowork when the result needs several steps across apps, files, or connected services. Set the task and boundaries, approve requested actions, and inspect the result. Cowork can also handle recurring tasks. A standing responsibility with proactive follow-up fits Autopilot under Automate. [Read how to delegate work](./delegate.md).
 
 ## Build
 
@@ -104,6 +99,70 @@ config:
 ---
 flowchart TB
     subgraph BUILD["Build"]
+        direction TB
+        %% Invisible anchor keeps the group title above the app cards.
+        TITLE_SPACE[" "]
+        TITLE_SPACE ~~~ CODE_CARD
+        subgraph CODE_APP[" "]
+            CODE_CARD@{ img: "/img/services/copilot/copilot-code.svg", label: "Copilot Code", w: 72, h: 72, constraint: "on" }
+        end
+        CODE_LICENSE["Usage-based<br/>Frontier preview"]
+        CODE_CARD ~~~ CODE_LICENSE
+    end
+    classDef appCard fill:#808080,fill-opacity:0.15,stroke:#858578,stroke-width:2px
+    classDef noBorder fill:transparent,stroke:transparent
+    class CODE_APP appCard
+    class TITLE_SPACE,CODE_CARD noBorder
+    classDef groupFrame fill:transparent,stroke:#858578,stroke-width:1px
+    class BUILD groupFrame
+```
+
+Use Copilot Code to create your own solution through natural language, such as a small tool for your team. Start with the need and validate the first version before others rely on it. Code is available through Frontier. [Explore building with Copilot Code](./code.md) for access, validation, and ownership.
+
+## Automate
+
+```mermaid
+---
+config:
+  flowchart:
+    rankSpacing: 1
+---
+flowchart TB
+    subgraph AUTOMATE["Automate"]
+        direction TB
+        %% Invisible anchor keeps the group title above the app cards.
+        TITLE_SPACE[" "]
+        TITLE_SPACE ~~~ AUTO_CARD
+        subgraph AUTO_APP[" "]
+            AUTO_CARD@{ img: "/img/services/copilot/copilot-autopilot.svg", label: "Autopilot", w: 72, h: 72, constraint: "on" }
+        end
+        AUTO_LICENSE["Usage-based<br/>Preview"]
+        AUTO_CARD ~~~ AUTO_LICENSE
+    end
+    classDef appCard fill:#808080,fill-opacity:0.15,stroke:#858578,stroke-width:2px
+    classDef noBorder fill:transparent,stroke:transparent
+    class AUTO_APP appCard
+    class TITLE_SPACE,AUTO_CARD noBorder
+    classDef groupFrame fill:transparent,stroke:#858578,stroke-width:1px
+    class AUTOMATE groupFrame
+```
+
+Use Autopilot when work needs continued attention, such as watching updates and preparing follow-ups. Microsoft describes a proactive cloud-hosted agent with its own identity and workspace. Autopilot is a preview experience. Set authority, monitoring, and cost boundaries before relying on it for a process. [Read the automation guide](./automate.md).
+
+## Build Agents And Develop AI Applications
+
+For a reusable organizational agent or a maintained software application, choose tools that support its publishing, access, and operating needs.
+
+### Build Agents
+
+```mermaid
+---
+config:
+  flowchart:
+    rankSpacing: 1
+---
+flowchart TB
+    subgraph AGENTS["Build Agents"]
         direction TB
         %% Invisible anchor keeps the group title above the app cards.
         TITLE_SPACE[" "]
@@ -124,12 +183,12 @@ flowchart TB
     class BUILDER_APP,STUDIO_APP appCard
     class TITLE_SPACE,BUILDER_CARD,STUDIO_CARD noBorder
     classDef groupFrame fill:transparent,stroke:#858578,stroke-width:1px
-    class BUILD groupFrame
+    class AGENTS groupFrame
 ```
 
 Start with Agent Builder for a focused agent that answers questions from suitable knowledge sources for you or a small team. Choose Copilot Studio when the agent needs actions, wider publication, integrations, or a managed production lifecycle. Both can create agents; the audience and operating needs decide where to build. [Compare the building options](./build.md).
 
-## Develop
+### Develop Software And AI Applications
 
 ```mermaid
 ---
@@ -172,10 +231,14 @@ Check the quality and ownership of the information AI will use. Review access, e
 
 - [Microsoft Copilot licensing options](https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-licensing)
 - [Agent Builder and Copilot Studio comparison](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/copilot-studio-experience)
-- [Microsoft announcement of Cowork and Autopilot](https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/)
+- [Microsoft announcement of Home, Code, and Autopilot](https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/)
+- [Build solutions with Copilot Code](https://learn.microsoft.com/en-us/training/modules/build-solutions-copilot-code/)
+- [Delegate ongoing work to Autopilot](https://learn.microsoft.com/en-us/training/modules/delegate-ongoing-work-autopilot-copilot/)
 - [Microsoft Foundry overview](https://learn.microsoft.com/en-us/azure/foundry/what-is-foundry)
 
 ## Related Guides
 
+- [Build Solutions With Copilot Code](./code.md)
+- [Automate Ongoing Work With Autopilot](./automate.md)
 - [Licensing And Costs](./licensing-and-costs.md)
 - [Which Microsoft Purview Solution Should You Use?](../../decisions/which-purview-solution-should-you-use.md)

@@ -1,6 +1,6 @@
 ---
 title: Een agent bouwen
-sidebar_position: 4
+sidebar_position: 6
 roles: [EndUser, KeyUser, IT]
 level: intermediate
 license: ""
@@ -35,6 +35,7 @@ Agent Builder kan voor eenvoudige agents met webkennis beschikbaar zijn zonder a
 
 ## Gerelateerde gidsen
 
+- [Bouwen met Copilot Code](./code.md)
 - [Copilot-overzicht](./index.mdx)
 - [Assisteren met AI](./assist.md)
 - [Werk delegeren aan AI](./delegate.md)

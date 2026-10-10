@@ -1,6 +1,6 @@
 ---
 title: Develop With AI
-sidebar_position: 5
+sidebar_position: 7
 roles: [KeyUser, IT]
 level: intermediate
 license: ""
@@ -31,6 +31,7 @@ GitHub Copilot uses developer plans and seats, with usage rules that depend on t
 
 ## Related Guides
 
+- [Build Solutions With Copilot Code](./code.md)
 - [Copilot Overview](./index.mdx)
 - [Build An Agent](./build.md)
 - [Permissions And Ownership](../../admin-and-governance/permissions-and-ownership.md)

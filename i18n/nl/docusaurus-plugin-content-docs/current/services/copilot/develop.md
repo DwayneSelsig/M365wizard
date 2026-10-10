@@ -1,6 +1,6 @@
 ---
 title: Ontwikkelen met AI
-sidebar_position: 5
+sidebar_position: 7
 roles: [KeyUser, IT]
 level: intermediate
 license: ""
@@ -31,6 +31,7 @@ GitHub Copilot werkt met ontwikkelaarsabonnementen en gebruikerslicenties. De ge
 
 ## Gerelateerde gidsen
 
+- [Bouwen met Copilot Code](./code.md)
 - [Copilot-overzicht](./index.mdx)
 - [Een agent bouwen](./build.md)
 - [Machtigingen en eigenaarschap](../../admin-and-governance/permissions-and-ownership.md)

@@ -1,6 +1,6 @@
 ---
 title: Build An Agent
-sidebar_position: 4
+sidebar_position: 6
 roles: [EndUser, KeyUser, IT]
 level: intermediate
 license: ""
@@ -35,6 +35,7 @@ Agent Builder can be available for simple web-grounded agents without a Microsof
 
 ## Related Guides
 
+- [Build Solutions With Copilot Code](./code.md)
 - [Copilot Overview](./index.mdx)
 - [Assist With AI](./assist.md)
 - [Delegate Work To AI](./delegate.md)

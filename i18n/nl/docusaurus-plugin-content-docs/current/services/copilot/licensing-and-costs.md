@@ -1,6 +1,6 @@
 ---
 title: Copilot-licenties en kosten
-sidebar_position: 6
+sidebar_position: 8
 roles: [EndUser, KeyUser, IT]
 level: intermediate
 license: ""
@@ -17,7 +17,7 @@ Kies eerst hoe je wilt werken en controleer daarna hoe je voor de ervaring betaa
 | --- | --- | --- |
 | Inbegrepen bij een geschikt abonnement | Geen afzonderlijke Copilot Chat-toeslag voor de inbegrepen ervaring | Copilot Chat; sommige eenvoudige agents |
 | Licentie per gebruiker | Een aangewezen persoon krijgt de gelicentieerde ervaring | Microsoft 365 Copilot; GitHub Copilot-licenties voor organisaties |
-| Copilot Credits | Geschikt AI-werk gebruikt verbruiksgebaseerde capaciteit of facturering | Copilot Cowork; toepasselijke agents en Copilot Studio-gebruik |
+| Copilot Credits | Geschikt AI-werk gebruikt verbruiksgebaseerde capaciteit of facturering | Copilot Cowork; Copilot Code; toepasselijke agents en Copilot Studio-gebruik |
 | Azure-verbruik | Azure-resources en -diensten brengen kosten in rekening volgens hun meeteenheden | Microsoft Foundry-modellen en ondersteunende diensten |
 
 ## Wat inbegrepen is, hangt af van het gebruik
@@ -32,7 +32,7 @@ Microsoft 365 Copilot is een aanvullende licentie bij geschikte basisabonnemente
 
 Copilot Credits meten geschikt verbruiksgebaseerd Microsoft AI-werk. De organisatie kan ze betalen via ondersteunde capaciteitspakketten, vooruitbetaalde plannen of betalen naar verbruik. Het verbruik verschilt per taak. Schat daarom representatieve taken en volg het werkelijke gebruik, in plaats van de kosten van één prompt met het aantal gebruikers te vermenigvuldigen. [Microsofts richtlijnen voor Copilot Credit-facturering](https://learn.microsoft.com/nl-nl/microsoft-365/copilot/usage-based-billing-compare-dashboard-views) beschrijven de aankoop- en rapportageroutes.
 
-Cowork gebruikt credits voor zijn werk en vereist ingeschakelde facturering. Microsoft plaatst Autopilot ook onder facturering naar verbruik, maar de voorwaarden van de private preview moeten worden bevestigd voordat een organisatie ervoor budgetteert of het inschakelt. Copilot Studio en Agent Builder kunnen voor sommige gebruikers of situaties inbegrepen zijn en voor andere naar verbruik worden berekend. Controleer het soort agent, de kennisbronnen, de doelgroep en het factureringsbeleid. Ga niet uit van één prijs per productnaam.
+Cowork gebruikt credits voor zijn werk en vereist ingeschakelde facturering. [Microsofts richtlijnen voor facturering](https://learn.microsoft.com/nl-nl/microsoft-365/copilot/user-subscription-license-usage-based-billing) plaatst ook Code en Autopilot onder facturering naar verbruik. Controleer previewtoegang, licenties en factureringsvoorwaarden voordat een organisatie ervoor budgetteert of ze inschakelt. Copilot Studio en Agent Builder kunnen voor sommige gebruikers of situaties inbegrepen zijn en voor andere naar verbruik worden berekend. Controleer het soort agent, de kennisbronnen, de doelgroep en het factureringsbeleid. Ga niet uit van één prijs per productnaam.
 
 :::warning[Stel een budget vast voor terugkerend werk]
 
@@ -53,5 +53,7 @@ Bevestig geschikte basisabonnementen, toegewezen gebruikerslicenties, agenttoega
 - [Copilot-overzicht](./index.mdx)
 - [Assisteren met AI](./assist.md)
 - [Werk delegeren aan AI](./delegate.md)
+- [Bouwen met Copilot Code](./code.md)
+- [Doorlopend werk automatiseren met Autopilot](./automate.md)
 - [Een agent bouwen](./build.md)
 - [Ontwikkelen met AI](./develop.md)

@@ -15,14 +15,14 @@ prereqs: []
 
 # Copilot
 
-**Wat wil je AI laten doen?** Begin bij het werk: hulp krijgen bij een vraag, een taak delegeren, een agent bouwen voor een terugkerende behoefte of een AI-oplossing ontwikkelen. Ik gebruik deze vier richtingen om een beginpunt te kiezen. Dezelfde taak kan bij meer dan één product passen.
+Begin bij het werk: hulp krijgen, een taak delegeren, een oplossing bouwen of doorlopend werk automatiseren. Ik gebruik daarvoor vier werkvormen in Copilot:
 
-- **Assisteren:** Vragen stellen, schrijven, analyseren of met je Microsoft 365-context werken.
-- **Delegeren:** AI een taak met een te beoordelen resultaat geven, of werk laten doorlopen.
-- **Bouwen:** Zonder softwareproject een agent rond kennis of een proces maken.
-- **Ontwikkelen:** Met AI-hulp software schrijven of een AI-toepassing bouwen.
+- **Assisteren (Assist):** Vragen stellen, schrijven en analyseren met Chat.
+- **Delegeren (Delegate):** Een taak met meerdere stappen aan Cowork geven en het resultaat beoordelen.
+- **Bouwen (Build):** Met Code een eigen oplossing maken door te beschrijven wat die moet doen.
+- **Automatiseren (Automate):** Autopilot binnen afgesproken grenzen aan een doorlopend doel laten werken.
 
-Assisteren en Delegeren helpen vooral mensen om zelf slimmer te werken. Bouwen en Ontwikkelen helpen een organisatie om herbruikbare oplossingen te maken. De producten zijn geen verplichte volwassenheidsniveaus. Ook in een organisatie met geavanceerde agents kan een eenvoudige vraag prima in Copilot Chat blijven.
+Microsoft brengt Chat en Cowork samen in Home. Code en Autopilot voegen bouwen en doorlopend werk toe aan die ervaring. Zie [Microsofts aankondiging van 25 september 2026](https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/). Toegang hangt af van de functie, licentie en previewvoorwaarden.
 
 ## Assisteren
 
@@ -72,27 +72,22 @@ flowchart TB
         direction TB
         %% Invisible anchor keeps the group title above the app cards.
         TITLE_SPACE[" "]
-        TITLE_SPACE ~~~ COWORK_CARD & AUTO_CARD
+        TITLE_SPACE ~~~ COWORK_CARD
         subgraph COWORK_APP[" "]
             COWORK_CARD@{ img: "/img/services/copilot/copilot-cowork.svg", label: "Copilot Cowork", w: 72, h: 72, constraint: "on" }
         end
         COWORK_LICENSE["Copilot Credits"]
-        subgraph AUTO_APP[" "]
-            AUTO_CARD@{ img: "/img/services/copilot/copilot-autopilot.svg", label: "Autopilot", w: 72, h: 72, constraint: "on" }
-        end
-        AUTO_LICENSE["Naar verbruik"]
         COWORK_CARD ~~~ COWORK_LICENSE
-        AUTO_CARD ~~~ AUTO_LICENSE
     end
     classDef appCard fill:#808080,fill-opacity:0.15,stroke:#858578,stroke-width:2px
     classDef noBorder fill:transparent,stroke:transparent
-    class COWORK_APP,AUTO_APP appCard
-    class TITLE_SPACE,COWORK_CARD,AUTO_CARD noBorder
+    class COWORK_APP appCard
+    class TITLE_SPACE,COWORK_CARD noBorder
     classDef groupFrame fill:transparent,stroke:#858578,stroke-width:1px
     class DELEGATE groupFrame
 ```
 
-Begin hier als het gewenste resultaat meerdere stappen vraagt. Cowork voert een taak uit die je geeft en laat je het werk beoordelen. Autopilot is bedoeld om met minder voortdurende aanwijzingen langere tijd aan een doel te werken. Meer autonomie vraagt om duidelijkere grenzen, eigenaarschap en controle. Autopilot is in private preview. Plan er daarom geen gewone uitrol omheen. [Vergelijk de opties voor delegeren](./delegate.md).
+Gebruik Copilot Cowork wanneer het gewenste resultaat meerdere stappen in apps, bestanden of gekoppelde diensten vraagt. Geef de taak en de grenzen, keur gevraagde acties goed en controleer het resultaat. Cowork kan ook terugkerende taken uitvoeren. Een blijvende verantwoordelijkheid met proactieve opvolging past bij Autopilot onder Automatiseren. [Lees hoe je werk delegeert](./delegate.md).
 
 ## Bouwen
 
@@ -104,6 +99,70 @@ config:
 ---
 flowchart TB
     subgraph BUILD["Bouwen"]
+        direction TB
+        %% Invisible anchor keeps the group title above the app cards.
+        TITLE_SPACE[" "]
+        TITLE_SPACE ~~~ CODE_CARD
+        subgraph CODE_APP[" "]
+            CODE_CARD@{ img: "/img/services/copilot/copilot-code.svg", label: "Copilot Code", w: 72, h: 72, constraint: "on" }
+        end
+        CODE_LICENSE["Naar verbruik<br/>Frontier preview"]
+        CODE_CARD ~~~ CODE_LICENSE
+    end
+    classDef appCard fill:#808080,fill-opacity:0.15,stroke:#858578,stroke-width:2px
+    classDef noBorder fill:transparent,stroke:transparent
+    class CODE_APP appCard
+    class TITLE_SPACE,CODE_CARD noBorder
+    classDef groupFrame fill:transparent,stroke:#858578,stroke-width:1px
+    class BUILD groupFrame
+```
+
+Gebruik Copilot Code om met gewone taal een eigen oplossing te maken, bijvoorbeeld een klein hulpmiddel voor je team. Begin met de behoefte en controleer de eerste versie voordat anderen erop vertrouwen. Code is beschikbaar via Frontier. [Bekijk het bouwen met Copilot Code](./code.md) voor toegang, validatie en beheer.
+
+## Automatiseren
+
+```mermaid
+---
+config:
+  flowchart:
+    rankSpacing: 1
+---
+flowchart TB
+    subgraph AUTOMATE["Automatiseren"]
+        direction TB
+        %% Invisible anchor keeps the group title above the app cards.
+        TITLE_SPACE[" "]
+        TITLE_SPACE ~~~ AUTO_CARD
+        subgraph AUTO_APP[" "]
+            AUTO_CARD@{ img: "/img/services/copilot/copilot-autopilot.svg", label: "Autopilot", w: 72, h: 72, constraint: "on" }
+        end
+        AUTO_LICENSE["Naar verbruik<br/>Preview"]
+        AUTO_CARD ~~~ AUTO_LICENSE
+    end
+    classDef appCard fill:#808080,fill-opacity:0.15,stroke:#858578,stroke-width:2px
+    classDef noBorder fill:transparent,stroke:transparent
+    class AUTO_APP appCard
+    class TITLE_SPACE,AUTO_CARD noBorder
+    classDef groupFrame fill:transparent,stroke:#858578,stroke-width:1px
+    class AUTOMATE groupFrame
+```
+
+Gebruik Autopilot wanneer werk aandacht blijft vragen, zoals updates volgen en opvolging voorbereiden. Microsoft beschrijft een proactieve agent in de cloud met een eigen identiteit en werkruimte. Autopilot is een preview-ervaring. Leg bevoegdheden, toezicht en kosten vast voordat je er een proces van laat afhangen. [Lees de gids voor automatiseren](./automate.md).
+
+## Agents bouwen en AI-toepassingen ontwikkelen
+
+Kies voor een herbruikbare organisatieagent of een onderhouden softwaretoepassing hulpmiddelen die bij de publicatie, toegang en het beheer passen.
+
+### Agents bouwen
+
+```mermaid
+---
+config:
+  flowchart:
+    rankSpacing: 1
+---
+flowchart TB
+    subgraph AGENTS["Agents bouwen"]
         direction TB
         %% Invisible anchor keeps the group title above the app cards.
         TITLE_SPACE[" "]
@@ -124,12 +183,12 @@ flowchart TB
     class BUILDER_APP,STUDIO_APP appCard
     class TITLE_SPACE,BUILDER_CARD,STUDIO_CARD noBorder
     classDef groupFrame fill:transparent,stroke:#858578,stroke-width:1px
-    class BUILD groupFrame
+    class AGENTS groupFrame
 ```
 
 Begin met Agent Builder voor een gerichte agent die vragen beantwoordt uit geschikte kennisbronnen voor jou of een klein team. Kies Copilot Studio wanneer de agent acties, brede publicatie, koppelingen of een beheerde productielevenscyclus nodig heeft. Met beide producten kun je agents maken. De doelgroep en het beheer bepalen waar je bouwt. [Vergelijk de bouwmogelijkheden](./build.md).
 
-## Ontwikkelen
+### Software en AI-toepassingen ontwikkelen
 
 ```mermaid
 ---
@@ -172,10 +231,14 @@ Controleer de kwaliteit en het eigenaarschap van de informatie die AI gebruikt. 
 
 - [Licentieopties voor Microsoft Copilot](https://learn.microsoft.com/nl-nl/copilot/microsoft-365/microsoft-365-copilot-licensing)
 - [Agent Builder en Copilot Studio vergelijken](https://learn.microsoft.com/nl-nl/microsoft-365-copilot/extensibility/copilot-studio-experience)
-- [Microsofts aankondiging van Cowork en Autopilot](https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/)
+- [Microsofts aankondiging van Home, Code en Autopilot](https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/)
+- [Oplossingen bouwen met Copilot Code](https://learn.microsoft.com/nl-nl/training/modules/build-solutions-copilot-code/)
+- [Doorlopend werk delegeren aan Autopilot](https://learn.microsoft.com/nl-nl/training/modules/delegate-ongoing-work-autopilot-copilot/)
 - [Overzicht van Microsoft Foundry](https://learn.microsoft.com/nl-nl/azure/foundry/what-is-foundry)
 
 ## Gerelateerde gidsen
 
+- [Bouwen met Copilot Code](./code.md)
+- [Doorlopend werk automatiseren met Autopilot](./automate.md)
 - [Licenties en kosten](./licensing-and-costs.md)
 - [Welke Microsoft Purview-oplossing moet je gebruiken?](../../decisions/which-purview-solution-should-you-use.md)
