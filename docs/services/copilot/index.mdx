@@ -117,7 +117,7 @@ flowchart TB
     class BUILD groupFrame
 ```
 
-Use Copilot Code to create your own solution through natural language, such as a small tool for your team. Start with the need and validate the first version before others rely on it. Code is available through Frontier. [Explore building with Copilot Code](./code.md) for access, validation, and ownership.
+Use Copilot Code to create your own solution through natural language, such as a small tool for your team. Microsoft describes this as [building without prior coding experience](https://learn.microsoft.com/en-us/training/modules/build-solutions-copilot-code/). Start with the need and validate the first version before others rely on it. Code is available through Frontier. [Explore building with Copilot Code](./code.md) for access, validation, and ownership.
 
 ## Automate
 
@@ -186,7 +186,10 @@ flowchart TB
     class AGENTS groupFrame
 ```
 
-Start with Agent Builder for a focused agent that answers questions from suitable knowledge sources for you or a small team. Choose Copilot Studio when the agent needs actions, wider publication, integrations, or a managed production lifecycle. Both can create agents; the audience and operating needs decide where to build. [Compare the building options](./build.md).
+- **[Agent Builder](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/agent-builder) is no-code:** Configure instructions and knowledge sources without writing code. Start here for a focused agent that answers questions for you or a small team.
+- **[Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio) is low-code:** Build with visual tools, connectors, and reusable components, with custom code where needed. Choose it when the agent needs actions, wider publication, integrations, or a managed production lifecycle.
+
+I recommend low-code when the available building blocks fit the process. [Compare the building options](./build.md).
 
 ### Develop Software And AI Applications
 
@@ -221,11 +224,16 @@ flowchart TB
     class DEVELOP groupFrame
 ```
 
-Use GitHub Copilot to help write, explain, test, and review code. Use Microsoft Foundry to build and operate AI applications, agents, and models on Azure. A development team may use both: GitHub Copilot while writing the application and Foundry for its AI runtime and evaluation. [Compare the development options](./develop.md).
+With **pro-code**, a development team writes and maintains software with code, APIs, and SDKs:
+
+- **[GitHub Copilot](https://docs.github.com/en/copilot/get-started/about-github-copilot) supports pro-code development:** It helps developers write, explain, test, and review code.
+- **[Microsoft Foundry](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-custom-engine-agent) supports pro-code AI solutions:** Use it to build and operate AI applications, agents, and models on Azure, with your own logic and integrations.
+
+A team may use both: GitHub Copilot for application code and Foundry for the AI runtime and evaluation. Choose pro-code when custom logic or control over models and orchestration justifies the development work and a team can maintain it. A solution can combine this code with low-code components. [Compare the development options](./develop.md).
 
 ## Before You Expand Use
 
-Check the quality and ownership of the information AI will use. Review access, expected human checks, support, and the cost of repeated or long-running work. Start with [Permissions And Ownership](../../admin-and-governance/permissions-and-ownership.md) and [Microsoft Purview](../purview.md); use [Copilot Studio agent governance](../../admin-and-governance/govern-copilot-studio-agents.md) when an agent becomes an organizational service.
+Assign an owner, test the solution, and arrange support before others rely on it. Check the quality and ownership of the information AI will use. Review access, expected human checks, support, and the cost of repeated or long-running work. Start with [Permissions And Ownership](../../admin-and-governance/permissions-and-ownership.md) and [Microsoft Purview](../purview.md); use [Copilot Studio agent governance](../../admin-and-governance/govern-copilot-studio-agents.md) when an agent becomes an organizational service.
 
 ## Official Microsoft Documentation
 
