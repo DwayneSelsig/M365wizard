@@ -21,7 +21,9 @@ Gebruik GitHub Copilot wanneer je met AI-hulp software wilt schrijven en onderho
 | Modellen kiezen en uitrollen, een agent bouwen, gedrag evalueren en gebruik volgen | Microsoft Foundry | Een team bouwt een toepassing die vragen beantwoordt uit een goedgekeurde gegevensbron. |
 | Een toepassing ontwikkelen die een AI-dienst aanroept | Beide | GitHub Copilot helpt bij de code; Foundry verzorgt en bewaakt de AI-functie. |
 
-GitHub Copilot hoort bij het ontwikkelproces van software. Microsoft Foundry biedt Azure-resources en hulpmiddelen voor AI-oplossingen, waaronder modellen, agents, evaluatie en beheer. Microsoft heeft Azure AI Foundry hernoemd naar [Microsoft Foundry](https://learn.microsoft.com/nl-nl/azure/foundry/what-is-foundry). Kies op basis van het deel van de oplossing dat je team moet maken of beheren.
+GitHub Copilot helpt bij pro-codeontwikkeling: een team schrijft en onderhoudt software met code, API's en SDK's. Microsoft Foundry biedt Azure-resources en hulpmiddelen voor AI-oplossingen, waaronder modellen, agents, evaluatie en beheer. Microsoft heeft Azure AI Foundry hernoemd naar [Microsoft Foundry](https://learn.microsoft.com/nl-nl/azure/foundry/what-is-foundry).
+
+Foundry ondersteunt pro-code voor AI-oplossingen, maar laat je ook prompt agents in het portaal configureren zonder applicatiecode te schrijven. Kies op basis van het deel van de oplossing dat je team moet maken of beheren.
 
 ## Plan voor de werkende oplossing
 

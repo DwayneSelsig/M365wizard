@@ -11,7 +11,7 @@ prereqs: []
 
 # Een agent bouwen
 
-Begin met Agent Builder wanneer iemand of een klein team een gerichte agent rond onderhouden kennis nodig heeft. Stap over op Copilot Studio wanneer de oplossing acties moet uitvoeren, met bedrijfssystemen moet verbinden, een grotere doelgroep krijgt of een beheerd proces voor uitrol en ondersteuning nodig heeft.
+Begin met Agent Builder (no-code) wanneer iemand of een klein team een gerichte agent rond onderhouden kennis nodig heeft. Stap over op Copilot Studio (low-code) wanneer de oplossing acties moet uitvoeren, met bedrijfssystemen moet verbinden, een grotere doelgroep krijgt of een beheerd proces voor uitrol en ondersteuning nodig heeft.
 
 ## Kies op basis van het werk
 
@@ -21,7 +21,15 @@ Begin met Agent Builder wanneer iemand of een klein team een gerichte agent rond
 | Kennis met een proces verbinden en acties uitvoeren | Copilot Studio | Een ondersteuningsagent controleert een systeem, maakt een ticket en stuurt een goedkeuring door. |
 | Breed publiceren met afzonderlijke omgevingen en beheermaatregelen | Copilot Studio | Een afdeling beheert een dienstverlenende agent via ontwikkeling, test en productie. |
 
-Met beide producten kun je agents maken. Een gerichte agent kan in beide nuttig zijn. Agent Builder is geschikt om snel in je werkomgeving een agent te maken en met een kleine groep te delen. Copilot Studio voegt meer kanalen, connectors, workflows, analyses en levenscyclusbeheer toe. Microsoft beschrijft een route om een agent [naar Copilot Studio te kopiëren](https://learn.microsoft.com/nl-nl/microsoft-365/copilot/extensibility/copy-agent-to-copilot-studio) wanneer die verder groeit. Controleer na het kopiëren opnieuw de kennisbronnen, acties, toegang en eigenaar. Een bredere uitrol vraagt om een nieuw beheerbesluit.
+[Agent Builder](https://learn.microsoft.com/nl-nl/microsoft-365/copilot/extensibility/agent-builder) laat je instructies en kennisbronnen configureren zonder code te schrijven. [Copilot Studio](https://learn.microsoft.com/nl-nl/microsoft-copilot-studio/fundamentals-what-is-copilot-studio) gebruikt visuele hulpmiddelen en herbruikbare onderdelen, waar nodig aangevuld met eigen code. Copilot Studio voegt meer kanalen, connectors, workflows, analyses en levenscyclusbeheer toe.
+
+Microsoft beschrijft een route om een agent [naar Copilot Studio te kopiëren](https://learn.microsoft.com/nl-nl/microsoft-365/copilot/extensibility/copy-agent-to-copilot-studio) wanneer die verder groeit. Controleer na het kopiëren opnieuw de kennisbronnen, acties, toegang en eigenaar. Een bredere uitrol vraagt om een nieuw beheerbesluit.
+
+:::warning[De kopie is een aparte agent]
+
+Wijzigingen in het origineel werken niet door in de kopie. Sommige kenniskoppelingen moet je opnieuw instellen. Test de kopie en bepaal daarna welke versie je onderhoudt en deelt.
+
+:::
 
 ## Beheer de kennis en acties
 
@@ -36,6 +44,7 @@ Agent Builder kan voor eenvoudige agents met webkennis beschikbaar zijn zonder a
 ## Gerelateerde gidsen
 
 - [Bouwen met Copilot Code](./code.md)
+- [Ontwikkelen met AI](./develop.md)
 - [Copilot-overzicht](./index.mdx)
 - [Assisteren met AI](./assist.md)
 - [Werk delegeren aan AI](./delegate.md)

@@ -11,14 +11,14 @@ prereqs: []
 
 # Assisteren met AI
 
-Begin bij de informatie die je taak nodig heeft. Gebruik Copilot Chat voor een vraag, concept of analyse op basis van openbare informatie of materiaal dat je zelf aanlevert. Kies Microsoft 365 Copilot wanneer het werk afhangt van je toegestane Microsoft 365-bestanden, e-mail, vergaderingen of chats in ondersteunde ervaringen.
+Begin bij de informatie die je taak nodig heeft. Gebruik Copilot Chat voor een vraag, concept of analyse op basis van openbare informatie of materiaal dat je zelf aanlevert. Kies de gelicentieerde ervaring met werkcontext van Microsoft 365 Copilot wanneer het werk afhangt van je toegestane Microsoft 365-bestanden, e-mail, vergaderingen of chats in ondersteunde ervaringen.
 
 ## Kies op basis van het werk
 
 | Behoefte | Beter beginpunt | Voorbeeld |
 | --- | --- | --- |
 | Een onderwerp verkennen of een eerste concept maken met aangeleverde informatie | Copilot Chat | Vergelijk twee aanpakken met een bijgevoegde beschrijving. |
-| Je werk in Microsoft 365 bijwerken | Microsoft 365 Copilot | Zoek besluiten in vergaderingen, berichten en bestanden waartoe je toegang hebt. |
+| Bijblijven met je werk in Microsoft 365 | Microsoft 365 Copilot (Premium) | Zoek besluiten in vergaderingen, berichten en bestanden waartoe je toegang hebt. |
 | Een vraag herhalen met een afgebakende kennisbron | Een agent in een van beide ervaringen, afhankelijk van toegang en facturering | Beantwoord vragen van nieuwe teamleden met onderhouden werkinstructies. |
 
 Microsoft 365 Copilot kan ook algemene vragen beantwoorden en concepten maken. Copilot Chat kan via agents en andere geconfigureerde ervaringen geselecteerde organisatiebronnen gebruiken. Dit zijn overlappende manieren om werk uit te voeren, geen gescheiden lijsten van toegestane taken. [Microsofts Copilot-overzicht](https://learn.microsoft.com/nl-nl/microsoft-365/copilot/microsoft-365-copilot-overview) en [kostenrichtlijnen voor agents](https://learn.microsoft.com/nl-nl/microsoft-365/copilot/extensibility/cost-considerations) beschrijven de actuele verschillen in toegang en facturering.
@@ -35,7 +35,9 @@ Een antwoord kan zeker klinken terwijl context ontbreekt of een verouderd docume
 
 ## Houd rekening met de licentie
 
-Copilot Chat is inbegrepen bij geschikte Microsoft 365-abonnementen. Microsoft 365 Copilot vereist een geschikt basisabonnement en een aanvullende licentie per gebruiker. Een agent die gedeelde organisatiegegevens gebruikt, kan Copilot Credits verbruiken voor iemand zonder die aanvullende licentie. Geschiktheid en inbegrepen functies verschillen. Gebruik de [centrale gids over licenties](./licensing-and-costs.md) voordat je een team toegang toezegt.
+Copilot Chat is inbegrepen bij geschikte Microsoft 365-abonnementen. Beperkte standaardtoegang in ondersteunde Microsoft 365-apps kan ook beschikbaar zijn zonder aanvullende Copilot-licentie. De volledige Microsoft 365 Copilot (Premium)-ervaring, die automatisch werkcontext gebruikt, vereist die aanvullende licentie. Zie [Microsofts vergelijking van de ervaringen](https://learn.microsoft.com/nl-nl/microsoft-365/copilot/microsoft-365-copilot-overview).
+
+Een agent die gedeelde organisatiegegevens gebruikt, kan Copilot Credits verbruiken voor iemand zonder die aanvullende licentie. Geschiktheid en inbegrepen functies verschillen. Gebruik de [centrale gids over licenties](./licensing-and-costs.md) voordat je een team toegang toezegt.
 
 ## Gerelateerde gidsen
 

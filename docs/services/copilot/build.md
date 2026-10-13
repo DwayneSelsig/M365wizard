@@ -11,7 +11,7 @@ prereqs: []
 
 # Build An Agent
 
-Start with Agent Builder when a person or small team needs a focused agent around maintained knowledge. Move to Copilot Studio when the solution must perform actions, connect to business systems, serve a wider audience, or run through a managed release and support process.
+Start with Agent Builder (no-code) when a person or small team needs a focused agent around maintained knowledge. Move to Copilot Studio (low-code) when the solution must perform actions, connect to business systems, serve a wider audience, or run through a managed release and support process.
 
 ## Choose By The Work
 
@@ -21,7 +21,15 @@ Start with Agent Builder when a person or small team needs a focused agent aroun
 | Connect knowledge to a process and take actions | Copilot Studio | A support agent checks a system, creates a ticket, and routes an approval. |
 | Publish broadly with distinct environments and operational controls | Copilot Studio | A department maintains a service agent through development, test, and production. |
 
-Both products create agents, and a focused agent may be useful in either. Agent Builder favors quick, in-context creation and sharing with a small audience. Copilot Studio adds broader channels, connectors, workflows, analytics, and lifecycle controls. Microsoft documents a [Copy to Copilot Studio](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/copy-agent-to-copilot-studio) path when a lightweight agent grows. Recheck its knowledge sources, actions, access, and owner after the copy; a wider deployment is a new operating decision.
+[Agent Builder](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/agent-builder) lets you configure instructions and knowledge sources without writing code. [Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio) uses visual tools and reusable components, with custom code where needed. Copilot Studio adds broader channels, connectors, workflows, analytics, and lifecycle controls.
+
+Microsoft documents a [Copy to Copilot Studio](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/copy-agent-to-copilot-studio) path when a lightweight agent grows. Recheck its knowledge sources, actions, access, and owner after the copy; a wider deployment is a new operating decision.
+
+:::warning[The Copy Is A Separate Agent]
+
+Changes to the original do not update the copy. Some knowledge connections must be configured again. Test the copy, then decide which version to maintain and share.
+
+:::
 
 ## Own The Knowledge And Actions
 
@@ -36,6 +44,7 @@ Agent Builder can be available for simple web-grounded agents without a Microsof
 ## Related Guides
 
 - [Build Solutions With Copilot Code](./code.md)
+- [Develop With AI](./develop.md)
 - [Copilot Overview](./index.mdx)
 - [Assist With AI](./assist.md)
 - [Delegate Work To AI](./delegate.md)

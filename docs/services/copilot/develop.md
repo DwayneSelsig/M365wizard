@@ -21,7 +21,9 @@ Use GitHub Copilot when the job is to write and maintain software with AI assist
 | Select and deploy models, build an agent, evaluate behavior, and monitor use | Microsoft Foundry | A team builds an application that answers questions from an approved data source. |
 | Develop an application that calls an AI service | Both | GitHub Copilot helps write the code; Foundry hosts and monitors the AI capability. |
 
-GitHub Copilot belongs in the software development workflow. Microsoft Foundry provides Azure resources and tools for AI solutions, including models, agents, evaluation, and operations. Microsoft renamed Azure AI Foundry to [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/foundry/what-is-foundry). Choose according to the part of the solution your team needs to create or operate.
+GitHub Copilot supports pro-code development: a team writes and maintains software with code, APIs, and SDKs. Microsoft Foundry provides Azure resources and tools for AI solutions, including models, agents, evaluation, and operations. Microsoft renamed Azure AI Foundry to [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/foundry/what-is-foundry).
+
+Foundry supports pro-code AI solutions, but also lets you configure prompt agents in its portal without writing application code. Choose according to the part of the solution your team needs to create or operate.
 
 ## Plan For The Running Solution
 
