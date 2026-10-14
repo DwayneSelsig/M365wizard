@@ -29,32 +29,30 @@ Microsoft brengt Chat en Cowork samen in Home. Code en Autopilot voegen bouwen e
 ```mermaid
 ---
 config:
+  themeCSS: |
+    .image-shape .labelBkg { width: 200px; height: 52px; background: transparent; }
+    .image-shape .labelBkg p { background: transparent; }
+    .cluster-label { font-weight: 600; }
   flowchart:
-    rankSpacing: 1
+    rankSpacing: 24
+    subGraphTitleMargin:
+      top: 12
+      bottom: 16
 ---
-flowchart TB
-    subgraph ASSIST["Assisteren"]
-        direction TB
-        %% Invisible anchor keeps the group title above the app cards.
-        TITLE_SPACE[" "]
-        TITLE_SPACE ~~~ CHAT_CARD & M365_CARD
-        subgraph CHAT_APP[" "]
-            CHAT_CARD@{ img: "/img/services/copilot.svg", label: "Copilot Chat", w: 72, h: 72, constraint: "on" }
-        end
-        CHAT_LICENSE["Inbegrepen bij geschikte licenties"]
-        subgraph M365_APP[" "]
-            M365_CARD@{ img: "/img/services/copilot.svg", label: "Microsoft 365 Copilot", w: 72, h: 72, constraint: "on" }
-        end
-        M365_LICENSE["Licentie per gebruiker"]
-        CHAT_CARD ~~~ CHAT_LICENSE
-        M365_CARD ~~~ M365_LICENSE
+flowchart LR
+    accTitle: Opties voor assisteren
+    accDescr: Copilot Chat: Inbegrepen bij geschikte licenties; Microsoft 365 Copilot: Licentie per gebruiker.
+    subgraph COPILOT_CHAT_CARD["Copilot Chat"]
+        COPILOT_CHAT@{ img: "/img/services/copilot.svg", label: "Inbegrepen bij<br/>geschikte licenties", h: 64, constraint: "on" }
     end
-    classDef appCard fill:#808080,fill-opacity:0.15,stroke:#858578,stroke-width:2px
-    classDef noBorder fill:transparent,stroke:transparent
-    class CHAT_APP,M365_APP appCard
-    class TITLE_SPACE,CHAT_CARD,M365_CARD noBorder
-    classDef groupFrame fill:transparent,stroke:#858578,stroke-width:1px
-    class ASSIST groupFrame
+    subgraph M365_COPILOT_CARD["Microsoft 365 Copilot"]
+        M365_COPILOT@{ img: "/img/services/copilot.svg", label: "Licentie per gebruiker", h: 64, constraint: "on" }
+    end
+    %% Alleen voor de opmaak: zet de opties naast elkaar.
+    COPILOT_CHAT_CARD ~~~ M365_COPILOT_CARD
+    classDef default fill:transparent,stroke:transparent
+    classDef card fill:#808080,fill-opacity:0.08,stroke:#858578,stroke-width:1px,rx:12,ry:12
+    class COPILOT_CHAT_CARD,M365_COPILOT_CARD card
 ```
 
 Begin hier als je een antwoord, een concept of hulp bij je eigen werk wilt. Copilot Chat kan werken met informatie die je aanlevert en mogelijkheden die bij een geschikte Microsoft 365-licentie horen. Microsoft 365 Copilot voegt gelicentieerde ervaringen met werkcontext toe in ondersteunde Microsoft 365-inhoud en apps. Agents kunnen ook geselecteerde organisatiegegevens beschikbaar maken in Copilot Chat. De grens is dus niet absoluut. [Vergelijk de hulpmiddelen voor je werk](./assist.md) en [bekijk de licentiemodellen](./licensing-and-costs.md).
@@ -64,27 +62,25 @@ Begin hier als je een antwoord, een concept of hulp bij je eigen werk wilt. Copi
 ```mermaid
 ---
 config:
+  themeCSS: |
+    .image-shape .labelBkg { width: 200px; height: 52px; background: transparent; }
+    .image-shape .labelBkg p { background: transparent; }
+    .cluster-label { font-weight: 600; }
   flowchart:
-    rankSpacing: 1
+    rankSpacing: 24
+    subGraphTitleMargin:
+      top: 12
+      bottom: 16
 ---
-flowchart TB
-    subgraph DELEGATE["Delegeren"]
-        direction TB
-        %% Invisible anchor keeps the group title above the app cards.
-        TITLE_SPACE[" "]
-        TITLE_SPACE ~~~ COWORK_CARD
-        subgraph COWORK_APP[" "]
-            COWORK_CARD@{ img: "/img/services/copilot/copilot-cowork.svg", label: "Copilot Cowork", w: 72, h: 72, constraint: "on" }
-        end
-        COWORK_LICENSE["Copilot Credits"]
-        COWORK_CARD ~~~ COWORK_LICENSE
+flowchart LR
+    accTitle: Opties voor delegeren
+    accDescr: Copilot Cowork: Copilot Credits.
+    subgraph COPILOT_COWORK_CARD["Copilot Cowork"]
+        COPILOT_COWORK@{ img: "/img/services/copilot/copilot-cowork.svg", label: "Copilot Credits", h: 64, constraint: "on" }
     end
-    classDef appCard fill:#808080,fill-opacity:0.15,stroke:#858578,stroke-width:2px
-    classDef noBorder fill:transparent,stroke:transparent
-    class COWORK_APP appCard
-    class TITLE_SPACE,COWORK_CARD noBorder
-    classDef groupFrame fill:transparent,stroke:#858578,stroke-width:1px
-    class DELEGATE groupFrame
+    classDef default fill:transparent,stroke:transparent
+    classDef card fill:#808080,fill-opacity:0.08,stroke:#858578,stroke-width:1px,rx:12,ry:12
+    class COPILOT_COWORK_CARD card
 ```
 
 Gebruik Copilot Cowork wanneer het gewenste resultaat meerdere stappen in apps, bestanden of gekoppelde diensten vraagt. Geef de taak en de grenzen, keur gevraagde acties goed en controleer het resultaat. Cowork kan ook terugkerende taken uitvoeren. Een blijvende verantwoordelijkheid met proactieve opvolging past bij Autopilot onder Automatiseren. [Lees hoe je werk delegeert](./delegate.md).
@@ -94,27 +90,25 @@ Gebruik Copilot Cowork wanneer het gewenste resultaat meerdere stappen in apps, 
 ```mermaid
 ---
 config:
+  themeCSS: |
+    .image-shape .labelBkg { width: 200px; height: 52px; background: transparent; }
+    .image-shape .labelBkg p { background: transparent; }
+    .cluster-label { font-weight: 600; }
   flowchart:
-    rankSpacing: 1
+    rankSpacing: 24
+    subGraphTitleMargin:
+      top: 12
+      bottom: 16
 ---
-flowchart TB
-    subgraph BUILD["Bouwen"]
-        direction TB
-        %% Invisible anchor keeps the group title above the app cards.
-        TITLE_SPACE[" "]
-        TITLE_SPACE ~~~ CODE_CARD
-        subgraph CODE_APP[" "]
-            CODE_CARD@{ img: "/img/services/copilot/copilot-code.svg", label: "Copilot Code", w: 72, h: 72, constraint: "on" }
-        end
-        CODE_LICENSE["Naar verbruik<br/>Frontier preview"]
-        CODE_CARD ~~~ CODE_LICENSE
+flowchart LR
+    accTitle: Opties voor bouwen
+    accDescr: Copilot Code: Naar verbruik, Frontier preview.
+    subgraph COPILOT_CODE_CARD["Copilot Code"]
+        COPILOT_CODE@{ img: "/img/services/copilot/copilot-code.svg", label: "Naar verbruik<br/>Frontier preview", h: 64, constraint: "on" }
     end
-    classDef appCard fill:#808080,fill-opacity:0.15,stroke:#858578,stroke-width:2px
-    classDef noBorder fill:transparent,stroke:transparent
-    class CODE_APP appCard
-    class TITLE_SPACE,CODE_CARD noBorder
-    classDef groupFrame fill:transparent,stroke:#858578,stroke-width:1px
-    class BUILD groupFrame
+    classDef default fill:transparent,stroke:transparent
+    classDef card fill:#808080,fill-opacity:0.08,stroke:#858578,stroke-width:1px,rx:12,ry:12
+    class COPILOT_CODE_CARD card
 ```
 
 Gebruik Copilot Code om met gewone taal een eigen oplossing te maken, bijvoorbeeld een klein hulpmiddel voor je team. Microsoft beschrijft dit als [bouwen zonder eerdere programmeerervaring](https://learn.microsoft.com/nl-nl/training/modules/build-solutions-copilot-code/). Begin met de behoefte en controleer de eerste versie voordat anderen erop vertrouwen. Code is beschikbaar via Frontier. [Bekijk het bouwen met Copilot Code](./code.md) voor toegang, validatie en beheer.
@@ -124,27 +118,25 @@ Gebruik Copilot Code om met gewone taal een eigen oplossing te maken, bijvoorbee
 ```mermaid
 ---
 config:
+  themeCSS: |
+    .image-shape .labelBkg { width: 200px; height: 52px; background: transparent; }
+    .image-shape .labelBkg p { background: transparent; }
+    .cluster-label { font-weight: 600; }
   flowchart:
-    rankSpacing: 1
+    rankSpacing: 24
+    subGraphTitleMargin:
+      top: 12
+      bottom: 16
 ---
-flowchart TB
-    subgraph AUTOMATE["Automatiseren"]
-        direction TB
-        %% Invisible anchor keeps the group title above the app cards.
-        TITLE_SPACE[" "]
-        TITLE_SPACE ~~~ AUTO_CARD
-        subgraph AUTO_APP[" "]
-            AUTO_CARD@{ img: "/img/services/copilot/copilot-autopilot.svg", label: "Autopilot", w: 72, h: 72, constraint: "on" }
-        end
-        AUTO_LICENSE["Naar verbruik<br/>Preview"]
-        AUTO_CARD ~~~ AUTO_LICENSE
+flowchart LR
+    accTitle: Opties voor automatiseren
+    accDescr: Autopilot: Naar verbruik, preview.
+    subgraph AUTOPILOT_CARD["Autopilot"]
+        AUTOPILOT@{ img: "/img/services/copilot/copilot-autopilot.svg", label: "Naar verbruik<br/>Preview", h: 64, constraint: "on" }
     end
-    classDef appCard fill:#808080,fill-opacity:0.15,stroke:#858578,stroke-width:2px
-    classDef noBorder fill:transparent,stroke:transparent
-    class AUTO_APP appCard
-    class TITLE_SPACE,AUTO_CARD noBorder
-    classDef groupFrame fill:transparent,stroke:#858578,stroke-width:1px
-    class AUTOMATE groupFrame
+    classDef default fill:transparent,stroke:transparent
+    classDef card fill:#808080,fill-opacity:0.08,stroke:#858578,stroke-width:1px,rx:12,ry:12
+    class AUTOPILOT_CARD card
 ```
 
 Gebruik Autopilot wanneer werk aandacht blijft vragen, zoals updates volgen en opvolging voorbereiden. Microsoft beschrijft een proactieve agent in de cloud met een eigen identiteit en werkruimte. Autopilot is een preview-ervaring. Leg bevoegdheden, toezicht en kosten vast voordat je er een proces van laat afhangen. [Lees de gids voor automatiseren](./automate.md).
@@ -158,32 +150,30 @@ Kies voor een herbruikbare organisatieagent of een onderhouden softwaretoepassin
 ```mermaid
 ---
 config:
+  themeCSS: |
+    .image-shape .labelBkg { width: 200px; height: 52px; background: transparent; }
+    .image-shape .labelBkg p { background: transparent; }
+    .cluster-label { font-weight: 600; }
   flowchart:
-    rankSpacing: 1
+    rankSpacing: 24
+    subGraphTitleMargin:
+      top: 12
+      bottom: 16
 ---
-flowchart TB
-    subgraph AGENTS["Agents bouwen"]
-        direction TB
-        %% Invisible anchor keeps the group title above the app cards.
-        TITLE_SPACE[" "]
-        TITLE_SPACE ~~~ BUILDER_CARD & STUDIO_CARD
-        subgraph BUILDER_APP[" "]
-            BUILDER_CARD@{ img: "/img/services/copilot/agent-builder.svg", label: "Agent Builder", w: 72, h: 72, constraint: "on" }
-        end
-        BUILDER_LICENSE["Inbegrepen of naar verbruik"]
-        subgraph STUDIO_APP[" "]
-            STUDIO_CARD@{ img: "/img/services/copilot/copilot-studio.svg", label: "Copilot Studio", w: 72, h: 72, constraint: "on" }
-        end
-        STUDIO_LICENSE["Inbegrepen of Copilot Credits"]
-        BUILDER_CARD ~~~ BUILDER_LICENSE
-        STUDIO_CARD ~~~ STUDIO_LICENSE
+flowchart LR
+    accTitle: Opties voor agents bouwen
+    accDescr: Agent Builder: Inbegrepen of naar verbruik; Copilot Studio: Inbegrepen of Copilot Credits.
+    subgraph AGENT_BUILDER_CARD["Agent Builder"]
+        AGENT_BUILDER@{ img: "/img/services/copilot/agent-builder.svg", label: "Inbegrepen of<br/>naar verbruik", h: 64, constraint: "on" }
     end
-    classDef appCard fill:#808080,fill-opacity:0.15,stroke:#858578,stroke-width:2px
-    classDef noBorder fill:transparent,stroke:transparent
-    class BUILDER_APP,STUDIO_APP appCard
-    class TITLE_SPACE,BUILDER_CARD,STUDIO_CARD noBorder
-    classDef groupFrame fill:transparent,stroke:#858578,stroke-width:1px
-    class AGENTS groupFrame
+    subgraph COPILOT_STUDIO_CARD["Copilot Studio"]
+        COPILOT_STUDIO@{ img: "/img/services/copilot/copilot-studio.svg", label: "Inbegrepen of<br/>Copilot Credits", h: 64, constraint: "on" }
+    end
+    %% Alleen voor de opmaak: zet de opties naast elkaar.
+    AGENT_BUILDER_CARD ~~~ COPILOT_STUDIO_CARD
+    classDef default fill:transparent,stroke:transparent
+    classDef card fill:#808080,fill-opacity:0.08,stroke:#858578,stroke-width:1px,rx:12,ry:12
+    class AGENT_BUILDER_CARD,COPILOT_STUDIO_CARD card
 ```
 
 - **[Agent Builder](https://learn.microsoft.com/nl-nl/microsoft-365/copilot/extensibility/agent-builder) is no-code:** Configureer instructies en kennisbronnen zonder code te schrijven. Begin hier voor een gerichte agent die vragen beantwoordt voor jou of een klein team.
@@ -196,32 +186,30 @@ Ik adviseer low-code als de beschikbare bouwblokken bij het proces passen. [Verg
 ```mermaid
 ---
 config:
+  themeCSS: |
+    .image-shape .labelBkg { width: 200px; height: 52px; background: transparent; }
+    .image-shape .labelBkg p { background: transparent; }
+    .cluster-label { font-weight: 600; }
   flowchart:
-    rankSpacing: 1
+    rankSpacing: 24
+    subGraphTitleMargin:
+      top: 12
+      bottom: 16
 ---
-flowchart TB
-    subgraph DEVELOP["Ontwikkelen"]
-        direction TB
-        %% Invisible anchor keeps the group title above the app cards.
-        TITLE_SPACE[" "]
-        TITLE_SPACE ~~~ GITHUB_CARD & FOUNDRY_CARD
-        subgraph GITHUB_APP[" "]
-            GITHUB_CARD@{ img: "/img/services/copilot/github-copilot.svg", label: "GitHub Copilot", w: 72, h: 72, constraint: "on" }
-        end
-        GITHUB_LICENSE["Ontwikkelaarslicentie"]
-        subgraph FOUNDRY_APP[" "]
-            FOUNDRY_CARD@{ img: "/img/services/copilot/microsoft-foundry.svg", label: "Microsoft Foundry", w: 72, h: 72, constraint: "on" }
-        end
-        FOUNDRY_LICENSE["Azure-verbruik"]
-        GITHUB_CARD ~~~ GITHUB_LICENSE
-        FOUNDRY_CARD ~~~ FOUNDRY_LICENSE
+flowchart LR
+    accTitle: Opties voor ontwikkelen
+    accDescr: GitHub Copilot: Ontwikkelaarslicentie; Microsoft Foundry: Azure-verbruik.
+    subgraph GITHUB_COPILOT_CARD["GitHub Copilot"]
+        GITHUB_COPILOT@{ img: "/img/services/copilot/github-copilot.svg", label: "Ontwikkelaarslicentie", h: 64, constraint: "on" }
     end
-    classDef appCard fill:#808080,fill-opacity:0.15,stroke:#858578,stroke-width:2px
-    classDef noBorder fill:transparent,stroke:transparent
-    class GITHUB_APP,FOUNDRY_APP appCard
-    class TITLE_SPACE,GITHUB_CARD,FOUNDRY_CARD noBorder
-    classDef groupFrame fill:transparent,stroke:#858578,stroke-width:1px
-    class DEVELOP groupFrame
+    subgraph MICROSOFT_FOUNDRY_CARD["Microsoft Foundry"]
+        MICROSOFT_FOUNDRY@{ img: "/img/services/copilot/microsoft-foundry.svg", label: "Azure-verbruik", h: 64, constraint: "on" }
+    end
+    %% Alleen voor de opmaak: zet de opties naast elkaar.
+    GITHUB_COPILOT_CARD ~~~ MICROSOFT_FOUNDRY_CARD
+    classDef default fill:transparent,stroke:transparent
+    classDef card fill:#808080,fill-opacity:0.08,stroke:#858578,stroke-width:1px,rx:12,ry:12
+    class GITHUB_COPILOT_CARD,MICROSOFT_FOUNDRY_CARD card
 ```
 
 Bij **pro-code** schrijft en onderhoudt een ontwikkelteam software met code, API's en SDK's:
