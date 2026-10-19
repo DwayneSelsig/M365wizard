@@ -91,9 +91,45 @@ Behandel bestaande machtigingen als informatiebron, niet als het doelontwerp. Ja
 
 [Microsoft Migration Manager kan fileshares scannen en beoordelen](https://learn.microsoft.com/nl-nl/sharepointmigration/mm-fileshare-scan-assess) en vóór de migratie overzichtsrapporten en gedetailleerde logboeken maken. Gebruik de resultaten om technische blokkades te vinden, maar verwacht niet dat een scan eigenaarschap, waarde of bewaarbehoefte voor je bepaalt.
 
+### Maak onderscheid tussen gebruikersdata en applicatiedata
+
+Kijk eerst wie de informatie gebruikt: een persoon, een applicatie of beide. Kies daarna de nieuwe opslaglocatie. Alleen het bestandstype en de huidige map zeggen niet genoeg.
+
+| Gebruikspatroon | Excelvoorbeeld | Wat moet je regelen? |
+| --- | --- | --- |
+| Gebruikersdata: mensen gebruiken de informatie zelf | Een team bewerkt een begroting en bespreekt de cijfers | Kies een gedeelde opslaglocatie. Wijs een eigenaar aan en leg uit hoe het team er werkt |
+| Applicatiedata: software leest of schrijft gegevens in het bestand | Een applicatie importeert een Excelbestand. Een gebruiker kan de import handmatig starten | Test of de applicatie het bestand kan vinden, openen en verwerken |
+| Gemengd gebruik: mensen en applicaties gebruiken hetzelfde bestand | Medewerkers vullen een werkmap in. Een andere werkmap, macro of applicatie gebruikt die gegevens | Test alle betrokken bestanden, koppelingen en verwerkingsstappen |
+
+Gebruikersdata kan ook van een team zijn. Zet die bestanden daarom niet zomaar in de OneDrive van één medewerker. Een Excelbestand kan door mensen én applicaties worden gebruikt.
+
+Gebruikers kun je leren waar de bestanden voortaan staan. Voor applicaties moet je vaste paden aanpassen. Soms moet je ook de applicatie aanpassen of vervangen. Test daarna of het hele proces nog werkt.
+
+Excel kan [koppelingen naar andere werkmappen in SharePoint en OneDrive](https://support.microsoft.com/nl-nl/excel/create-workbook-links) gebruiken. Met de [SharePoint-mapconnector van Power Query](https://learn.microsoft.com/nl-nl/power-query/connectors/sharepoint-folder) kan Excel ook gegevens uit bestanden ophalen. Andere applicaties kunnen dit niet altijd.
+
+Test dit met de Excelversie die je organisatie gebruikt. Controleer ook of koppelingen, query's, macro's en imports na de verhuizing nog werken.
+
+### Controleer hoe de applicatie zich aanmeldt
+
+Op een Windows-fileshare kan een applicatie vaak het account van de aangemelde gebruiker gebruiken. Dat kan bijvoorbeeld via [Kerberos-authenticatie](https://learn.microsoft.com/nl-nl/windows-server/security/kerberos/kerberos-authentication-overview). Een service of geplande taak kan een ander account gebruiken. Leg vast welk account ieder bestand leest en schrijft.
+
+Toegang in de browser zegt nog weinig over toegang vanuit een applicatie. Een applicatie kan niet automatisch de aanmeldcookies van je browser gebruiken. De applicatie moet zelf kunnen aanmelden, bijvoorbeeld via een connector. Ook zijn de juiste machtigingen nodig.
+
+Bij [Microsoft Graph](https://learn.microsoft.com/nl-nl/graph/auth/auth-concepts) heeft de applicatie een toegangstoken nodig. Een applicatie kan namens een aangemelde gebruiker werken (gedelegeerde toegang) of een eigen identiteit gebruiken (app-only-toegang). Controleer welke methode de applicatie ondersteunt.
+
+:::warning[Voorkom ongeplande synchronisatie als uitweg]
+
+Als een applicatie bestanden in SharePoint niet kan openen, kunnen gebruikers die gaan synchroniseren. De applicatie gebruikt dan een lokale kopie. Het werk kan zo afhankelijk worden van één medewerker, computer en synchronisatieclient.
+
+Laat de applicatie-eigenaar en IT deze werkwijze vóór de verhuizing goedkeuren. Controleer de beveiliging van het apparaat en de bestanden. Spreek af hoe je bestanden actueel houdt en zo nodig herstelt. Controleer ook of het werk doorgaat als die medewerker of computer niet beschikbaar is. Volg de [maatregelen voor synchronisatie en lokale gegevens](#5-beheers-risicos-van-synchronisatie-en-lokale-gegevens).
+
+:::
+
+Je kunt voor synchronisatie kiezen als deze werkwijze wordt ondersteund en goedgekeurd. De synchronisatieclient meldt zich aan bij SharePoint. De applicatie gebruikt de lokale kopie en krijgt daarmee geen rechtstreekse toegang tot SharePoint. Test of wijzigingen van beide locaties op tijd beschikbaar zijn voor de volgende verwerkingsstap.
+
 ### Breng afhankelijkheden van werkprocessen in kaart
 
-Een bestandsinventarisatie laat niet zien hoe een bedrijfsproces een bestand gebruikt. Applicaties buiten de Microsoft Office-familie verwachten vaak een lokaal of gekoppeld pad, een vaste mapnaam, exclusieve bestandsvergrendeling of een serviceaccount. Een synchronisatieclient kan in sommige gevallen een lokaal pad leveren, maar maakt niet iedere bestandsapplicatie geschikt voor de cloud.
+Controleer zowel Office- als niet-Office-applicaties. Sommige hebben een lokaal of gekoppeld pad, een vaste mapnaam of een serviceaccount nodig. Een applicatie moet een bestand soms ook blokkeren voor anderen tijdens het bewerken. Een synchronisatieclient kan soms een lokaal pad leveren. Je moet nog steeds testen of de applicatie daarmee werkt.
 
 Volg ieder kritisch proces van taak naar applicatie, bestand, identiteit en pad. Test de volledige taak en controleer niet alleen of het gemigreerde bestand opent.
 
@@ -117,9 +153,12 @@ Rond deze checklist af voordat je de betreffende migratiefase plant:
 
 - [ ] Benoem de proceseigenaar, gebruikers, kriticiteit en aanvaardbare uitvalduur.
 - [ ] Leg iedere applicatie, automatisering, macro, integratie, serviceaccount en geplande taak vast die de bestanden leest of schrijft.
+- [ ] Leg per bestand vast wie het gebruikt: mensen, applicaties of beide. Noteer welke andere bestanden ervan afhangen.
 - [ ] Leg gekoppelde stations, vaste paden, snelkoppelingen, invoermappen, uitvoermappen en ingesloten koppelingen vast.
+- [ ] Noteer welk account of welke applicatie-identiteit iedere applicatie of taak gebruikt. Controleer hoe deze zich aanmeldt en welke machtigingen nodig zijn.
 - [ ] Test gelijktijdig gebruik, bestandsvergrendeling, offlinegebruik, Files On-Demand en het doelpad met de echte applicatie.
 - [ ] Kies en keur één uitkomst goed: gebruik de browser, gebruik een ondersteund synchronisatiepad, pas de applicatie aan, vervang het proces of behoud de afhankelijkheid tijdelijk op beheerde opslag.
+- [ ] Laat de applicatie-eigenaar en IT het gebruik van synchronisatie goedkeuren. Controleer apparaatbeveiliging, actuele bestanden en hoe het werk doorgaat zonder de gebruikelijke gebruiker of het apparaat.
 - [ ] Bepaal monitoring, ondersteuning, terugval en een datum waarop iedere tijdelijke uitzondering wordt beëindigd.
 
 ## 3. Bepaal de bestemming
@@ -132,6 +171,7 @@ Kies een bestemming per samenhangend werkgebied, niet in één keer voor de hele
 | Documenten die een afgebakende groep actief maakt en onderhoudt | Een aan Teams gekoppelde SharePoint-teamsite |
 | Gepubliceerde naslaginformatie voor een brede doelgroep | Een SharePoint-communicatiesite |
 | Formele documenten met een vastgelegd proces, eigenaar en toegangsmodel | Een beheerste SharePoint-site of documentbibliotheek |
+| Applicatiedata of bestanden die mensen én applicaties gebruiken | Test eerst het hele proces. Gebruik SharePoint als de applicatie dat ondersteunt, of opslag die voor de applicatie is bedoeld. Houd je bestanden tijdelijk ergens anders, wijs dan een eigenaar en einddatum aan |
 | Informatie die bewaard moet blijven maar weinig wordt gebruikt | Een goedgekeurde record- of archiefoplossing op basis van bewaar- en toegangseisen |
 | Verouderde, dubbele of eigenaarloze inhoud waarvan verwijdering is goedgekeurd | Niet migreren |
 
@@ -227,7 +267,10 @@ Valideer ten minste:
 - [ ] Voormalige leden, functiewijzigers, verlopen gasten, rechtstreekse machtigingen en oude deelkoppelingen worden zoals verwacht geweigerd in de toepasselijke negatieve toegangstests.
 - [ ] Het gedrag van Word, PowerPoint en Excel, inclusief externe koppelingen en macro's, is getest.
 - [ ] Kritieke niet-Office-applicaties en volledige bedrijfstaken slagen voor hun afhankelijkheidstests.
+- [ ] Handmatige verwerking, bestandsimports, gekoppelde Excelwerkmappen en achtergrondtaken zijn getest waar ze worden gebruikt. Iedere test gebruikt het account of de applicatie-identiteit die na de verhuizing het werk uitvoert.
+- [ ] Een gewijzigde waarde in een bronbestand geeft na import, verversen en verdere verwerking het verwachte resultaat. De test gebruikt geen oude opgeslagen waarden.
 - [ ] OneDrive-synchronisatie is alleen ingeschakeld waar deze onderdeel is van het bedoelde patroon; Files On-Demand, offlinegebruik, aantallen items, verwijdering en herstel zijn getest.
+- [ ] De applicatie-eigenaar en IT hebben het gebruik van synchronisatie door applicaties goedgekeurd. Tests laten zien dat het werk doorgaat zonder de gebruikelijke gebruiker of het apparaat.
 - [ ] Het gedrag op beheerde en onbeheerde apparaten en toepasselijke Purview-bescherming zijn met representatieve gevoelige bestanden getest.
 - [ ] Zoeken, metadata, weergaven, navigatie, delen en goedkeuringsprocessen werken zoals ontworpen.
 - [ ] Gebruikersinstructies, gereedheid van ondersteuning, terugvalcriteria en acceptatie door de eigenaar zijn afgerond.
@@ -285,6 +328,10 @@ Meet succes aan vindbaarheid, juiste toegang, acceptatie door de eigenaar, conti
 - [Informatiearchitectuur in modern SharePoint](https://learn.microsoft.com/nl-nl/sharepoint/information-architecture-modern-experience)
 - [Bewaarbeleid voor SharePoint en OneDrive](https://learn.microsoft.com/nl-nl/purview/retention-policies-sharepoint)
 - [Servicelimieten van SharePoint](https://learn.microsoft.com/nl-nl/office365/servicedescriptions/sharepoint-online-service-description/sharepoint-online-limits)
+- [Werkmapkoppelingen maken in Excel](https://support.microsoft.com/nl-nl/excel/create-workbook-links)
+- [SharePoint-mapconnector van Power Query](https://learn.microsoft.com/nl-nl/power-query/connectors/sharepoint-folder)
+- [Kerberos-authenticatie in Windows Server](https://learn.microsoft.com/nl-nl/windows-server/security/kerberos/kerberos-authentication-overview)
+- [Authenticatie en autorisatie voor Microsoft Graph](https://learn.microsoft.com/nl-nl/graph/auth/auth-concepts)
 - [Integratie tussen Teams en SharePoint](https://learn.microsoft.com/nl-nl/sharepoint/teams-connected-sites)
 - [Microsoft 365 Copilot veilig beheren](https://learn.microsoft.com/nl-nl/microsoft-365/copilot/secure-govern-copilot-foundational-deployment-guidance)
 - [Gevoeligheidslabels voor groepen en sites gebruiken](https://learn.microsoft.com/nl-nl/purview/sensitivity-labels-teams-groups-sites)

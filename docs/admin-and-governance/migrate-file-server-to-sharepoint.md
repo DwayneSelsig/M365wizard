@@ -91,9 +91,45 @@ Treat existing permissions as evidence, not as the target design. Years of excep
 
 [Microsoft Migration Manager can scan and assess file shares](https://learn.microsoft.com/en-us/sharepointmigration/mm-fileshare-scan-assess) and produce summary reports and detailed logs before migration. Use those results to find technical blockers, but do not expect a scan to decide ownership, value, or retention for you.
 
+### Distinguish User Data From Application Data
+
+First check who uses the information: a person, an application, or both. Then choose the new storage location. The file type and current folder alone do not tell you enough.
+
+| Use pattern | Excel example | What to arrange |
+| --- | --- | --- |
+| User data: people use the information themselves | A team edits a budget and discusses the figures | Choose shared storage. Assign an owner and show the team how to use it |
+| Application data: software reads or writes data in the file | An application imports an Excel file. A user may start the import manually | Test whether the application can find, open, and process the file |
+| Mixed use: people and applications use the same file | Staff enter data in a workbook. Another workbook, macro, or application uses that data | Test all files, links, and processing steps involved |
+
+User data can also belong to a team. Check before putting team files in one person's OneDrive. An Excel file can be used by both people and applications.
+
+You can teach users where to find their files after the move. For applications, you need to update fixed paths. Sometimes you also need to change or replace the application. Then test whether the whole process still works.
+
+Excel can use [links to other workbooks in SharePoint and OneDrive](https://support.microsoft.com/en-us/excel/create-workbook-links). It can also retrieve data from files through the [Power Query SharePoint Folder connector](https://learn.microsoft.com/en-us/power-query/connectors/sharepoint-folder). Other applications cannot always do this.
+
+Test this with the Excel version your organization uses. Check that links, queries, macros, and imports still work after the move.
+
+### Check How The Application Signs In
+
+On a Windows file share, an application can often use the signed-in user's account. This can work through [Kerberos authentication](https://learn.microsoft.com/en-us/windows-server/security/kerberos/kerberos-authentication-overview). A service or scheduled task may use a different account. Record which account reads and writes each file.
+
+Access in the browser tells you little about access from an application. The application cannot automatically use your browser's sign-in cookies. It must support a way to sign in, for example through a connector. It also needs the right permissions.
+
+Access through [Microsoft Graph](https://learn.microsoft.com/en-us/graph/auth/auth-concepts) requires an access token. An application can act on behalf of a signed-in user (delegated access) or use its own identity (app-only access). Check which method the application supports.
+
+:::warning[Prevent Unplanned Synchronization Workarounds]
+
+If an application cannot open files in SharePoint, users may start synchronizing them. The application then uses a local copy. Work can become dependent on one staff member, computer, and sync client.
+
+Have the application owner and IT approve this approach before the move. Check the security of the device and files. Agree on how to keep files up to date and restore them if needed. Also check whether work can continue without that staff member or computer. Follow the [controls for synchronization and local data](#5-control-synchronization-and-local-data-risk).
+
+:::
+
+You can choose synchronization if it is supported and approved. The sync client signs in to SharePoint. The application uses the local copy and gains no direct access to SharePoint. Test whether changes from both locations arrive in time for the next processing step.
+
 ### Map Work Process Dependencies
 
-A file inventory does not show how a business process uses a file. Applications outside the Microsoft Office family often expect a local or mapped path, a specific folder name, exclusive file locking, or a service account. A sync client can provide a local path in some cases, but it does not make every file-based application cloud compatible.
+Check both Office and non-Office applications. Some need a local or mapped path, a fixed folder name, or a service account. An application may also need to lock a file while it edits it. A sync client can sometimes provide a local path. You still need to test whether the application works with it.
 
 Trace each critical process from task to application, file, identity, and path. Test the complete task rather than only checking whether the migrated file opens.
 
@@ -117,9 +153,12 @@ Complete this checklist before scheduling the affected migration wave:
 
 - [ ] Name the process owner, users, criticality, and acceptable outage.
 - [ ] Record every application, automation, macro, integration, service account, and scheduled task that reads or writes the files.
+- [ ] Record who uses each file: people, applications, or both. Note which other files depend on it.
 - [ ] Record mapped drives, fixed paths, shortcuts, input folders, output folders, and embedded links.
+- [ ] Record the account or application identity used by each application or task. Check how it signs in and which permissions it needs.
 - [ ] Test concurrent use, file locking, offline use, Files On-Demand, and the target path with the real application.
 - [ ] Choose and approve one outcome: use the browser, use a supported synchronized path, change the application, replace the process, or keep the dependency on managed storage temporarily.
+- [ ] Have the application owner and IT approve any use of synchronization. Check device security, up-to-date files, and how work continues without the usual user or device.
 - [ ] Define monitoring, support, rollback, and a date for removing any temporary exception.
 
 ## 3. Choose The Destination
@@ -132,6 +171,7 @@ Choose a destination for each coherent work area, not for the entire drive at on
 | Documents that a defined group actively creates and maintains | A Teams-connected SharePoint team site |
 | Published reference information for a broad audience | A SharePoint communication site |
 | Formal documents with a defined process, owner, and access model | A governed SharePoint site or document library |
+| Application data or files used by both people and applications | Test the whole process first. Use SharePoint if the application supports it, or storage designed for the application. If you keep files elsewhere temporarily, assign an owner and an end date |
 | Information that must be retained but is rarely used | An approved records or archive solution based on retention and access requirements |
 | Obsolete, duplicate, or ownerless content with approved disposal | Do not migrate it |
 
@@ -227,7 +267,10 @@ Validate at least:
 - [ ] Former members, role changers, expired guests, direct permissions, and old sharing links are denied as expected in the applicable negative access tests.
 - [ ] Word, PowerPoint, and Excel behavior, including external links and macros, has been tested.
 - [ ] Critical non-Office applications and complete business tasks pass their dependency tests.
+- [ ] Manual work, file imports, linked Excel workbooks, and background tasks have been tested where used. Each test uses the account or application identity that will do the work after the move.
+- [ ] Changing a value in a source file gives the expected result after import, refresh, and further processing. The test does not rely on old saved values.
 - [ ] OneDrive synchronization is enabled only where it is part of the intended pattern; Files On-Demand, offline use, item volume, deletion, and recovery have been tested.
+- [ ] The application owner and IT have approved any use of synchronization by applications. Tests show that work can continue without the usual user or device.
 - [ ] Managed- and unmanaged-device behavior and applicable Purview protection have been tested with representative sensitive files.
 - [ ] Search, metadata, views, navigation, sharing, and approval processes work as designed.
 - [ ] User instructions, support readiness, rollback criteria, and owner acceptance are complete.
@@ -285,6 +328,10 @@ Measure success by findability, correct access, owner acceptance, process contin
 - [Information architecture in modern SharePoint](https://learn.microsoft.com/en-us/sharepoint/information-architecture-modern-experience)
 - [Retention for SharePoint and OneDrive](https://learn.microsoft.com/en-us/purview/retention-policies-sharepoint)
 - [SharePoint service limits](https://learn.microsoft.com/en-us/office365/servicedescriptions/sharepoint-online-service-description/sharepoint-online-limits)
+- [Create workbook links in Excel](https://support.microsoft.com/en-us/excel/create-workbook-links)
+- [Power Query SharePoint Folder connector](https://learn.microsoft.com/en-us/power-query/connectors/sharepoint-folder)
+- [Kerberos authentication in Windows Server](https://learn.microsoft.com/en-us/windows-server/security/kerberos/kerberos-authentication-overview)
+- [Microsoft Graph authentication and authorization](https://learn.microsoft.com/en-us/graph/auth/auth-concepts)
 - [Teams and SharePoint integration](https://learn.microsoft.com/en-us/sharepoint/teams-connected-sites)
 - [Secure and govern Microsoft 365 Copilot](https://learn.microsoft.com/en-us/microsoft-365/copilot/secure-govern-copilot-foundational-deployment-guidance)
 - [Use sensitivity labels for groups and sites](https://learn.microsoft.com/en-us/purview/sensitivity-labels-teams-groups-sites)
