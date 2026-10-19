@@ -25,24 +25,24 @@ Do not migrate everything first and decide how to organize it afterward. Work in
 
 ```mermaid
 flowchart TD
-    Scope[Define scope, capacity, and decision owners] --> Assess[Inventory content and run a technical scan]
-    Assess --> Decide{Decision for each work area}
-    Decide -->|Delete after approval| Delete[Do not migrate]
-    Decide -->|Retain but rarely use| Archive[Approved records or archive solution]
+    Scope[Set scope,<br/>capacity and owners] --> Assess[Inventory<br/>and scan]
+    Assess --> Decide{Decision per<br/>work area?}
+    Decide -->|Approved deletion| Delete[Do not<br/>migrate]
+    Decide -->|Keep, rarely used| Archive[Approved archive<br/>or records storage]
     Decide -->|Personal work| OneDrive[OneDrive]
-    Decide -->|Active team collaboration| Team[Teams-connected team site]
-    Decide -->|Published or controlled content| SharePoint[SharePoint site or library]
+    Decide -->|Teamwork| Team[Teams-connected<br/>team site]
+    Decide -->|Publish or control| SharePoint[SharePoint site<br/>or library]
 
-    Archive --> Design[Design structure, access, and lifecycle]
+    Archive --> Design[Design structure,<br/>access and lifecycle]
     OneDrive --> Design
     Team --> Design
     SharePoint --> Design
     Design --> Pilot[Pilot and validate]
-    Pilot -->|Issues found| Fix[Remediate content or design]
+    Pilot -->|Issues found| Fix[Fix content<br/>or design]
     Fix --> Pilot
     Pilot -->|Accepted| Waves[Migrate in waves]
-    Waves --> Cutover[Make the source read-only and complete cut-over]
-    Cutover --> Review[Validate, support, and retire the source]
+    Waves --> Cutover[Source read-only;<br/>complete cut-over]
+    Cutover --> Review[Validate, support<br/>and retire source]
 ```
 
 ## Reserve Time And Capacity
@@ -133,20 +133,22 @@ Check both Office and non-Office applications. Some need a local or mapped path,
 
 Trace each critical process from task to application, file, identity, and path. Test the complete task rather than only checking whether the migrated file opens.
 
+Services, integrations, databases, and shared application data may need a different design. The checklist below covers the detailed tests, including Files On-Demand, offline use, and file locking.
+
 ```mermaid
 flowchart TD
-    Process[Identify the business task and process owner] --> Use{How does the application use the file?}
-    Use -->|Browser or supported Microsoft 365 app| Cloud[Test in the target location]
-    Use -->|Local or mapped path| Local{Can a supported synchronized path be used?}
-    Use -->|Service, integration, database, or multi-user data file| Redesign[Redesign, replace, or retain temporarily]
-    Local -->|Yes| Sync[Test Files On-Demand, locking, paths, offline use, and scale]
+    Process[Name the task<br/>and owner] --> Use{How is the<br/>file accessed?}
+    Use -->|Supported<br/>cloud access| Cloud[Test cloud access]
+    Use -->|Local or<br/>mapped path| Local{Supported<br/>sync path?}
+    Use -->|Service or<br/>shared data| Redesign[Redesign, replace<br/>or retain temporarily]
+    Local -->|Yes| Sync[Test sync, paths<br/>and file locking]
     Local -->|No| Redesign
-    Cloud --> Task[Test the complete business task]
+    Cloud --> Task[Test the<br/>whole process]
     Sync --> Task
-    Redesign --> Plan[Assign an owner and transition plan]
+    Redesign --> Plan[Assign owner<br/>and transition plan]
     Plan --> Task
-    Task -->|Pass| Approve[Approve the dependency for a migration wave]
-    Task -->|Fail| Block[Do not cut over this dependency]
+    Task -->|Pass| Approve[Approve for<br/>migration]
+    Task -->|Fail| Block[Do not<br/>cut over]
 ```
 
 Complete this checklist before scheduling the affected migration wave:

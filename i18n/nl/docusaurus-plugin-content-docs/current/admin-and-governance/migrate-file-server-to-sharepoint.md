@@ -25,24 +25,24 @@ Migreer niet eerst alles om pas daarna over de inrichting na te denken. Werk in 
 
 ```mermaid
 flowchart TD
-    Scope[Bepaal scope, capaciteit en beslissingsbevoegden] --> Assess[Inventariseer inhoud en voer een technische scan uit]
-    Assess --> Decide{Besluit per werkgebied}
-    Decide -->|Verwijderen na goedkeuring| Delete[Niet migreren]
-    Decide -->|Bewaren maar weinig gebruiken| Archive[Goedgekeurde archief- of recordoplossing]
+    Scope[Bepaal scope,<br/>capaciteit en eigenaren] --> Assess[Inventariseer<br/>en scan]
+    Assess --> Decide{Besluit per<br/>werkgebied?}
+    Decide -->|Verwijderen akkoord| Delete[Niet<br/>migreren]
+    Decide -->|Bewaren, weinig gebruikt| Archive[Goedgekeurd archief<br/>of recordopslag]
     Decide -->|Persoonlijk werk| OneDrive[OneDrive]
-    Decide -->|Actieve teamsamenwerking| Team[Teams-gekoppelde teamsite]
-    Decide -->|Gepubliceerde of beheerste inhoud| SharePoint[SharePoint-site of -bibliotheek]
+    Decide -->|Teamwerk| Team[Teams-gekoppelde<br/>teamsite]
+    Decide -->|Publiceren of beheren| SharePoint[SharePoint-site<br/>of -bibliotheek]
 
-    Archive --> Design[Ontwerp structuur, toegang en levenscyclus]
+    Archive --> Design[Ontwerp structuur,<br/>toegang en levenscyclus]
     OneDrive --> Design
     Team --> Design
     SharePoint --> Design
-    Design --> Pilot[Voer een proefmigratie uit en valideer]
-    Pilot -->|Problemen gevonden| Fix[Herstel inhoud of ontwerp]
+    Design --> Pilot[Voer proefmigratie uit<br/>en valideer]
+    Pilot -->|Problemen| Fix[Herstel inhoud<br/>of ontwerp]
     Fix --> Pilot
     Pilot -->|Geaccepteerd| Waves[Migreer in fasen]
-    Waves --> Cutover[Maak de bron alleen-lezen en rond de overgang af]
-    Cutover --> Review[Valideer, ondersteun en faseer de bron uit]
+    Waves --> Cutover[Bron alleen-lezen;<br/>rond overgang af]
+    Cutover --> Review[Valideer, ondersteun<br/>en faseer bron uit]
 ```
 
 ## Reserveer tijd en capaciteit
@@ -133,20 +133,22 @@ Controleer zowel Office- als niet-Office-applicaties. Sommige hebben een lokaal 
 
 Volg ieder kritisch proces van taak naar applicatie, bestand, identiteit en pad. Test de volledige taak en controleer niet alleen of het gemigreerde bestand opent.
 
+Services, integraties, databases en gedeelde applicatiegegevens kunnen een ander ontwerp nodig hebben. De checklist hieronder bevat de afzonderlijke tests, waaronder Files On-Demand, offlinegebruik en bestandsvergrendeling.
+
 ```mermaid
 flowchart TD
-    Process[Bepaal de bedrijfstaak en proceseigenaar] --> Use{Hoe gebruikt de applicatie het bestand?}
-    Use -->|Browser of ondersteunde Microsoft 365-app| Cloud[Test in de doellocatie]
-    Use -->|Lokaal of gekoppeld pad| Local{Kan een ondersteund synchronisatiepad worden gebruikt?}
-    Use -->|Service, integratie, database of gegevensbestand voor meerdere gebruikers| Redesign[Ontwerp opnieuw, vervang of behoud tijdelijk]
-    Local -->|Ja| Sync[Test Files On-Demand, vergrendeling, paden, offlinegebruik en schaal]
+    Process[Benoem de taak<br/>en eigenaar] --> Use{Hoe wordt het<br/>bestand benaderd?}
+    Use -->|Ondersteunde<br/>cloudtoegang| Cloud[Test cloudtoegang]
+    Use -->|Lokaal of<br/>gekoppeld pad| Local{Ondersteund<br/>synchronisatiepad?}
+    Use -->|Service of<br/>gedeelde gegevens| Redesign[Ontwerp opnieuw,<br/>vervang of behoud tijdelijk]
+    Local -->|Ja| Sync[Test synchronisatie,<br/>paden en vergrendeling]
     Local -->|Nee| Redesign
-    Cloud --> Task[Test de volledige bedrijfstaak]
+    Cloud --> Task[Test het<br/>hele proces]
     Sync --> Task
-    Redesign --> Plan[Wijs een eigenaar en transitieplan toe]
+    Redesign --> Plan[Wijs eigenaar<br/>en transitieplan toe]
     Plan --> Task
-    Task -->|Geslaagd| Approve[Keur de afhankelijkheid goed voor een migratiefase]
-    Task -->|Mislukt| Block[Voer voor deze afhankelijkheid geen cut-over uit]
+    Task -->|Geslaagd| Approve[Keur goed<br/>voor migratie]
+    Task -->|Mislukt| Block[Voer geen<br/>cut-over uit]
 ```
 
 Rond deze checklist af voordat je de betreffende migratiefase plant:
