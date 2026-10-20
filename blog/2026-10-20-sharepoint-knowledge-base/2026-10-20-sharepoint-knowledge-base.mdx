@@ -1,0 +1,67 @@
+---
+slug: sharepoint-knowledge-base
+title: "Meet SharePoint Knowledge Base: connected knowledge for people and agents"
+authors: [dwayne]
+tags: [microsoft-365, sharepoint]
+---
+
+import YouTubeVideo from '@site/src/components/YouTubeVideo';
+
+I recently wrote about a [SharePoint resource center with dynamic filtering](../2026-09-29-sharepoint-resource-center-dynamic-filtering.mdx). I like that approach because it helps colleagues find documents and links without knowing the right search term.
+
+On October 14, 2026, Microsoft announced [SharePoint Knowledge Base in Frontier Preview](https://techcommunity.microsoft.com/blog/spblog/introducing-a-team-knowledge-base-curated-by-copilot-and-agents/4564203), with connected knowledge pages built on Markdown. That choice appeals to me because M365Wizard is also built from Markdown files. In SharePoint, authors can use a visual editor or edit the Markdown directly.
+
+A resource center points readers to sources. In a knowledge base, you can write the explanation itself and connect related topics. SharePoint then provides a shared knowledge platform where colleagues, Copilot, and agents can use that guidance.
+
+<!-- truncate -->
+
+## Connected pages, with Markdown underneath
+
+You can create a Knowledge Base from **+ New → Knowledge base** on a SharePoint site. Microsoft's [manual creation guide](https://support.microsoft.com/en-us/sharepoint/knowledge-base/create-edit-knowledge-base-manually) explains the entry point and editor.
+
+![SharePoint's + New menu with the Knowledge base option selected](@site/blog/2026-10-20-sharepoint-knowledge-base/new-menu-knowledge-base.png)
+
+Image source: [Microsoft Support: create and edit a Knowledge Base manually](https://support.microsoft.com/en-us/sharepoint/knowledge-base/create-edit-knowledge-base-manually).
+
+Daniel Anderson demonstrates the experience in his [first-look video](https://www.youtube.com/watch?v=NVFZhF4FS5w). He creates an HR knowledge base, adds subpages, imports Markdown folders, and adds page properties. The demonstration is his; the observations and recommendations here are mine.
+
+<YouTubeVideo
+  id="NVFZhF4FS5w"
+  title="Daniel Anderson demonstrates SharePoint Knowledge Base, Markdown imports, and page properties"
+  videoLanguage="en"
+/>
+
+The page tree and links connect topics. Page properties appear as YAML frontmatter, a metadata block at the start of the file. You can also start with imported Markdown, Confluence content, or a classic SharePoint wiki. These imports are one-time copies, so agree which location becomes the maintained source.
+
+## SharePoint as a knowledge platform
+
+Microsoft describes the Knowledge Base as a specialized library of linked Markdown files. Its [announcement](https://techcommunity.microsoft.com/blog/spblog/introducing-a-team-knowledge-base-curated-by-copilot-and-agents/4564203) explains how Copilot uses Work IQ's knowledge compilation engine to turn source content into knowledge that people and agents can use.
+
+That gives SharePoint a more explicit role in preparing context for work. A team can explain how a process works, connect related decisions, and point back to the sources. An agent can use that shared explanation alongside the people who maintain it.
+
+I find the shared understanding more interesting than the file format. A clear explanation of an exception can help a new colleague and give an agent relevant context. Someone still has to check whether the explanation is correct and whether the exception still applies.
+
+## How it differs from a resource center
+
+My earlier post about a [resource center with dynamic filtering](../2026-09-29-sharepoint-resource-center-dynamic-filtering.mdx) describes a way to browse documents and links through topics and metadata. A Knowledge Base puts the explanation itself on connected pages.
+
+For example, an HR resource center could help an employee find the approved leave policy and request form. A knowledge page could explain the request process, exceptions, and who approves them, with links to those official sources.
+
+I would keep source documents and working files in a document library. For news or a visually arranged intranet landing page, use [modern SharePoint pages and web parts](../docs/services/sharepoint/sharepoint-pages-and-web-parts). Choose the experience that serves the reader's task; several can work together.
+
+## Start with one subject and an owner
+
+Check the [current access and licensing requirements](https://support.microsoft.com/en-us/sharepoint/knowledge-base/get-started-with-sharepoint-knowledge-base) with your administrator. Frontier Preview availability varies, and Microsoft's announcement specifies access for users enabled for usage-based billing. Manual creation and editing need the appropriate SharePoint permissions, but no Copilot license or credits. Copilot creation, updates, and health checks use Copilot Credits; asking Copilot about page content requires a Microsoft 365 Copilot license.
+
+:::danger[Check the audience before adding sources]
+
+Knowledge pages do not inherit source permissions. File-level sensitivity labels are not supported or carried over. Content from a restricted source can become visible to the knowledge page's audience. Check access and required protection before adding it; Microsoft's [preview limitations](https://support.microsoft.com/en-us/sharepoint/knowledge-base/get-started-with-sharepoint-knowledge-base) explain these boundaries.
+
+:::
+
+The documented preview does not automatically update pages when sources change. Assign an owner to review source changes, check the affected guidance, and retire outdated pages. Start with one procedure colleagues regularly need help with. Test whether they can follow the explanation and reach the approved source before expanding.
+
+## Official Microsoft documentation
+
+- [Get started, check licensing, and review preview limitations](https://support.microsoft.com/en-us/sharepoint/knowledge-base/get-started-with-sharepoint-knowledge-base).
+- [Create and edit a Knowledge Base manually](https://support.microsoft.com/en-us/sharepoint/knowledge-base/create-edit-knowledge-base-manually).
