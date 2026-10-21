@@ -7,23 +7,23 @@ tags: [microsoft-365, sharepoint]
 
 import YouTubeVideo from '@site/src/components/YouTubeVideo';
 
-Onlangs schreef ik over [een SharePoint-resourcecenter met dynamisch filteren](../2026-09-29-sharepoint-resource-center-dynamic-filtering.mdx). Ik vind die opzet bruikbaar omdat collega's documenten en koppelingen kunnen vinden zonder dat ze de juiste zoekterm hoeven te kennen.
+Onlangs schreef ik over [een SharePoint-resourcecenter met dynamisch filteren](../2026-09-29-sharepoint-resource-center-dynamic-filtering.mdx). Ik vind die opzet handig. Collega's kunnen documenten en links vinden, ook als ze de juiste zoekterm niet kennen.
 
-Op 14 oktober 2026 kondigde Microsoft [SharePoint Knowledge Base in Frontier Preview](https://techcommunity.microsoft.com/blog/spblog/introducing-a-team-knowledge-base-curated-by-copilot-and-agents/4564203) aan, met verbonden kennispagina's en Markdown als basis. Die keuze spreekt mij aan, want ook M365Wizard is opgebouwd uit Markdown-bestanden. In SharePoint kunnen auteurs hiervoor een visuele editor gebruiken of de Markdown rechtstreeks bewerken.
+Op 14 oktober 2026 kondigde Microsoft [SharePoint Knowledge Base in Frontier Preview](https://techcommunity.microsoft.com/blog/spblog/introducing-a-team-knowledge-base-curated-by-copilot-and-agents/4564203) aan. De pagina's gebruiken Markdown. Die keuze spreekt mij aan, want ook M365Wizard gebruikt Markdown-bestanden. In SharePoint kun je een visuele editor gebruiken, of de Markdown bewerken.
 
-Een resourcecenter verwijst lezers naar bronnen. In een kennisbank kun je de uitleg zelf vastleggen en samenhangende onderwerpen verbinden. SharePoint biedt daarmee een gedeeld kennisplatform waar collega's, Copilot en agents die uitleg kunnen gebruiken.
+Een resourcecenter verwijst lezers naar bronnen. In een kennisbank schrijf je de uitleg op de pagina zelf. Je kunt pagina's over verwante onderwerpen aan elkaar linken. Collega's, Copilot en agents kunnen dan dezelfde uitleg gebruiken. Zo werkt SharePoint als gedeeld kennisplatform.
 
 <!-- truncate -->
 
 ## Verbonden pagina's, met Markdown als basis
 
-Je kunt op een SharePoint-site een Knowledge Base maken via **+ Nieuw → Knowledge base**. Microsoft beschrijft dit startpunt en de editor in de [handleiding voor handmatig maken en bewerken](https://support.microsoft.com/nl-nl/sharepoint/knowledge-base/create-edit-knowledge-base-manually).
+Kies op een SharePoint-site **+ Nieuw → Knowledge base** om een kennisbank te maken. Microsoft legt de stappen en het bewerken van pagina's uit in de [handleiding voor handmatig maken en bewerken](https://support.microsoft.com/nl-nl/sharepoint/knowledge-base/create-edit-knowledge-base-manually).
 
 ![Het menu + New in SharePoint met de optie Knowledge base geselecteerd](@site/blog/2026-10-20-sharepoint-knowledge-base/new-menu-knowledge-base.png)
 
 Bron afbeelding: [Microsoft Support: een Knowledge Base handmatig maken en bewerken](https://support.microsoft.com/nl-nl/sharepoint/knowledge-base/create-edit-knowledge-base-manually).
 
-Daniel Anderson demonstreert de mogelijkheden in zijn [eerste video over de functie](https://www.youtube.com/watch?v=NVFZhF4FS5w). Hij maakt een HR-kennisbank, voegt subpagina's toe, importeert Markdown-mappen en voegt pagina-eigenschappen toe. De demonstratie is van hem; de observaties en aanbevelingen hier zijn van mij.
+Daniel Anderson laat zien hoe het werkt in zijn [eerste video over de functie](https://www.youtube.com/watch?v=NVFZhF4FS5w). Hij maakt een HR-kennisbank en voegt subpagina's toe. Ook importeert hij Markdown-mappen en voegt hij pagina-eigenschappen toe. De video is van hem. Ik geef hier mijn eigen uitleg en advies.
 
 <YouTubeVideo
   id="NVFZhF4FS5w"
@@ -31,35 +31,43 @@ Daniel Anderson demonstreert de mogelijkheden in zijn [eerste video over de func
   videoLanguage="en"
 />
 
-De paginaboom en koppelingen verbinden onderwerpen. Pagina-eigenschappen staan in YAML-frontmatter, een blok met metagegevens aan het begin van het bestand. Je kunt ook beginnen met geïmporteerde Markdown, Confluence-inhoud of een klassieke SharePoint-wiki. Zo'n import is een eenmalige kopie. Spreek daarom af welke locatie daarna de onderhouden bron wordt.
+In het menu staan pagina's en subpagina's. Via links gaan lezers naar verwante onderwerpen. Je kunt ook eigenschappen aan een pagina toevoegen. Die staan in een blok bovenaan het Markdown-bestand. Dat blok heet YAML-frontmatter.
+
+Je kunt Markdown-bestanden, inhoud uit Confluence of een klassieke SharePoint-wiki importeren. Een import maakt een eenmalige kopie. Latere wijzigingen in de oude bron komen niet vanzelf mee. Spreek af waar je de inhoud voortaan bijhoudt.
 
 ## SharePoint als kennisplatform
 
-Microsoft beschrijft de Knowledge Base als een gespecialiseerde bibliotheek met gekoppelde Markdown-bestanden. In de [aankondiging](https://techcommunity.microsoft.com/blog/spblog/introducing-a-team-knowledge-base-curated-by-copilot-and-agents/4564203) legt Microsoft uit hoe Copilot de knowledge compilation engine van Work IQ gebruikt om broninhoud om te zetten in kennis voor mensen en agents.
+Microsoft beschrijft de Knowledge Base als een bibliotheek met gekoppelde Markdown-bestanden. In de [aankondiging](https://techcommunity.microsoft.com/blog/spblog/introducing-a-team-knowledge-base-curated-by-copilot-and-agents/4564203) legt Microsoft uit hoe Copilot met Work IQ informatie uit bronnen samenbrengt. Mensen en agents kunnen de kennis die daaruit ontstaat gebruiken.
 
-Daarmee krijgt SharePoint een explicietere rol in het voorbereiden van context voor het werk. Een team kan uitleggen hoe een proces werkt, samenhangende besluiten verbinden en naar de bronnen verwijzen. Een agent kan die gedeelde uitleg gebruiken, net als de mensen die haar onderhouden.
+Een team kan op die pagina's uitleggen hoe een proces werkt. Het kan besluiten vastleggen en naar de bronnen linken. Collega's kunnen die uitleg lezen. Een agent kan die uitleg ook gebruiken.
 
-Ik vind dat gedeelde begrip interessanter dan het bestandsformaat. Een duidelijke uitleg van een uitzondering kan een nieuwe collega helpen en een agent relevante context geven. Iemand moet wel controleren of de uitleg klopt en of de uitzondering nog geldt.
+Voor mij zit de waarde in de uitleg. Een uitzondering op een regel moet duidelijk zijn voor een nieuwe collega. Een agent moet ook weten wanneer die uitzondering geldt. Iemand moet controleren of de tekst klopt en nog actueel is.
 
 ## Het verschil met een resourcecenter
 
-Mijn eerdere blog over een [informatie- en kenniscentrum met dynamisch filteren](../2026-09-29-sharepoint-resource-center-dynamic-filtering.mdx) beschrijft hoe je documenten en koppelingen via onderwerpen en metagegevens ontsluit. Een Knowledge Base plaatst de uitleg zelf op verbonden pagina's.
+Mijn eerdere blog over een [informatie- en kenniscentrum met dynamisch filteren](../2026-09-29-sharepoint-resource-center-dynamic-filtering.mdx) laat zien hoe onderwerpen en labels helpen om bestanden en links te vinden. In een Knowledge Base leest de bezoeker de uitleg op de pagina zelf.
 
-Een HR-resourcecenter kan een medewerker bijvoorbeeld naar het goedgekeurde verlofbeleid en het aanvraagformulier leiden. Een kennispagina kan uitleggen hoe je verlof aanvraagt, welke uitzonderingen er zijn en wie aanvragen goedkeurt, met koppelingen naar die officiële bronnen.
+Een HR-resourcecenter kan een medewerker helpen het goedgekeurde verlofbeleid en het aanvraagformulier te vinden. Een kennispagina kan uitleggen hoe je verlof aanvraagt en wie het goedkeurt. Ook kan de pagina uitzonderingen uitleggen, met links naar de officiële bronnen.
 
-Ik zou brondocumenten en werkbestanden in een documentbibliotheek houden. Gebruik voor nieuws of een visueel ingerichte intranetstartpagina [moderne SharePoint-pagina's en webparts](../docs/services/sharepoint/sharepoint-pages-and-web-parts). Kies de vorm die de taak van de lezer ondersteunt; verschillende vormen kunnen naast elkaar werken.
+Ik zou brondocumenten en werkbestanden in een documentbibliotheek houden. Gebruik voor nieuws of een startpagina van het intranet [moderne SharePoint-pagina's en webparts](../docs/services/sharepoint/sharepoint-pages-and-web-parts). Kies wat de lezer helpt bij het werk. Deze vormen kunnen naast elkaar bestaan, elk met een eigen taak.
 
 ## Begin met één onderwerp en een eigenaar
 
-Controleer samen met je beheerder de [actuele toegangs- en licentievoorwaarden](https://support.microsoft.com/nl-nl/sharepoint/knowledge-base/get-started-with-sharepoint-knowledge-base). De beschikbaarheid verschilt tijdens Frontier Preview. Microsoft noemt in de aankondiging toegang voor gebruikers voor wie facturering op basis van gebruik is ingeschakeld. Handmatig maken en bewerken vereist passende SharePoint-machtigingen, maar geen Copilot-licentie of credits. Maken, bijwerken en statuscontroles met Copilot gebruiken Copilot Credits; vragen aan Copilot over pagina-inhoud vereisen een Microsoft 365 Copilot-licentie.
+Bekijk samen met je beheerder de [actuele toegangs- en licentievoorwaarden](https://support.microsoft.com/nl-nl/sharepoint/knowledge-base/get-started-with-sharepoint-knowledge-base). De Frontier Preview is mogelijk nog niet voor jou beschikbaar. Volgens de aankondiging moet je beheerder facturering op basis van gebruik voor je hebben aangezet. Daarbij hangt de rekening af van het gebruik.
+
+Om zelf pagina's te maken en te bewerken, heb je rechten in SharePoint nodig. Je hebt hiervoor geen Copilot-licentie of credits nodig.
+
+Als Copilot de kennisbank maakt, bijwerkt of controleert, gebruik je Copilot Credits. Voor vragen aan Copilot over de pagina's heb je een Microsoft 365 Copilot-licentie nodig.
 
 :::danger[Controleer de doelgroep voordat je bronnen toevoegt]
 
-Kennispagina's nemen geen bronmachtigingen over. Vertrouwelijkheidslabels op bestandsniveau worden niet ondersteund of overgenomen. Inhoud uit een afgeschermde bron kan zichtbaar worden voor de doelgroep van de kennispagina. Controleer vooraf de toegang en vereiste bescherming; Microsoft licht deze grenzen toe bij de [previewbeperkingen](https://support.microsoft.com/nl-nl/sharepoint/knowledge-base/get-started-with-sharepoint-knowledge-base).
+De rechten van een bron gaan niet mee naar de kennispagina. Je kunt kennispagina's geen vertrouwelijkheidslabel op bestandsniveau geven. Labels van bronbestanden gaan ook niet mee. Mensen die de bron niet mogen openen, kunnen de inhoud dus wel op de kennispagina lezen. Controleer vooraf wie de inhoud mag lezen en welke bescherming nodig is. Zie Microsofts [previewbeperkingen](https://support.microsoft.com/nl-nl/sharepoint/knowledge-base/get-started-with-sharepoint-knowledge-base).
 
 :::
 
-In de gedocumenteerde preview worden pagina's niet automatisch bijgewerkt wanneer bronnen veranderen. Wijs een eigenaar aan die bronwijzigingen volgt, de bijbehorende uitleg controleert en verouderde pagina's uit gebruik neemt. Begin met één procedure waarbij collega's regelmatig hulp nodig hebben. Test of zij de uitleg kunnen volgen en de goedgekeurde bron kunnen bereiken voordat je uitbreidt.
+In deze preview veranderen pagina's niet vanzelf mee als een bron wijzigt. Kies een eigenaar die die wijzigingen volgt en de uitleg controleert. Die persoon moet ook oude pagina's uit gebruik nemen.
+
+Begin met één procedure waarbij collega's vaak hulp nodig hebben. Controleer of zij de uitleg kunnen volgen en de goedgekeurde bron kunnen vinden. Breid uit als dat goed gaat.
 
 ## Officiële Microsoft-documentatie
 
