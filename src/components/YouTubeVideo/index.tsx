@@ -1,6 +1,7 @@
 import {useState, type ReactNode} from 'react';
 import Translate, {translate} from '@docusaurus/Translate';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import IconExternalLink from '@theme/Icon/ExternalLink';
 import styles from './styles.module.css';
 import {buildYouTubeEmbedUrl} from './buildYouTubeEmbedUrl';
 import {resolveYouTubeVideoId} from './parseYouTubeVideoId';
@@ -100,12 +101,12 @@ export default function YouTubeVideo({
                 target="_blank"
                 rel="noopener noreferrer"
                 referrerPolicy="no-referrer">
-                <span className={styles.externalIcon} aria-hidden="true">
-                  ↗
-                </span>
                 <Translate id="youtubeVideo.openOnYouTube" description="Button label that opens a YouTube video in a new tab">
                   Open on YouTube
                 </Translate>
+                <span className={styles.externalIcon} aria-hidden="true">
+                  <IconExternalLink width="1em" height="1em" />
+                </span>
               </a>
             </div>
           </div>

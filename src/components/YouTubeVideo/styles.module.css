@@ -121,11 +121,10 @@
   align-items: center;
   justify-content: center;
   flex: 0 0 auto;
-  width: 1.65em;
-  height: 1.65em;
-  font-size: 1.2em;
-  font-weight: 400;
-  line-height: 1;
+}
+
+.externalIcon > svg {
+  margin: 0;
 }
 
 .visual {
