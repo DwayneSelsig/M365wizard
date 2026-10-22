@@ -64,6 +64,37 @@ title in the page's language. The component displays a privacy notice before it
 connects to YouTube. Describe the video's key point in the surrounding text so
 the page remains useful without playing it.
 
+## External-Link Icons
+
+Normal Markdown and MDX content links to external HTTP(S) websites display an
+icon after the link text in both languages. Protocol-relative URLs (`//...`)
+also qualify. Relative links, page anchors, `mailto:`, and `tel:` links do not.
+Absolute links to `m365wizard.com` and `www.m365wizard.com` are treated as
+internal, including URLs with paths, queries, fragments, or ports.
+
+The theme wrapper in `src/theme/MDXComponents/A/index.tsx` adds the icon only
+to Markdown/MDX content links. It preserves Docusaurus' original link component
+and checks the URL protocol and hostname. Navbar, footer, and custom component
+links keep their existing behavior. The rules in `src/css/custom.css` hide the
+icon for Infima `.button` links, links with `role="button"`, and links
+containing images, pictures, or other SVGs.
+
+The wrapper reuses `@theme/Icon/ExternalLink`, the same component as the navbar.
+Its asset is the `#theme-svg-external-link` sprite supplied by
+`node_modules/@docusaurus/theme-classic/src/inlineSvgSprites.ts`. No separate
+SVG asset is needed. The sprite uses `fill="currentColor"`, so the icon follows
+the link color in light, dark, hover, and focus states. The wrapper marks it
+as decorative for screen readers and preserves the link's tab behavior.
+
+To exclude an individual MDX link, add `no-external-icon`:
+
+```mdx
+<a href="https://example.com" className="no-external-icon">Example</a>
+```
+
+The same class on a wrapper excludes all links inside it. Keep exclusions
+aligned between English and Dutch content.
+
 ## Local Development
 
 Use Node.js 20.18.1 or newer and npm. Install the locked dependencies for an

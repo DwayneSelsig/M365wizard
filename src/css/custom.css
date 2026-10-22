@@ -53,3 +53,14 @@
   display: block;
 }
 
+/* Reuse the theme icon for Markdown/MDX links; leave image and UI links alone. */
+.markdown-external-link-icon > svg {
+  margin: 0;
+  margin-inline-start: 0.25em;
+}
+
+a:is(.button, [role='button'], .no-external-icon, .no-external-icon a) > .markdown-external-link-icon,
+a:has(img, picture, svg:not(.markdown-external-link-icon > svg)) > .markdown-external-link-icon {
+  display: none;
+}
+
