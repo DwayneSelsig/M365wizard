@@ -37,7 +37,8 @@ flowchart TD
     OneDrive --> Design
     Team --> Design
     SharePoint --> Design
-    Design --> Pilot[Pilot and validate]
+    Design --> Prepare[Prepare users<br/>and support]
+    Prepare --> Pilot[Pilot and validate]
     Pilot -->|Issues found| Fix[Fix content<br/>or design]
     Fix --> Pilot
     Pilot -->|Accepted| Waves[Migrate in waves]
@@ -90,6 +91,31 @@ Use two complementary assessments. The business inventory explains what the cont
 Treat existing permissions as evidence, not as the target design. Years of exceptions and individual access entries can hide the intended audience. Ask the owner to confirm who needs read, edit, or owner access in the new location.
 
 [Microsoft Migration Manager can scan and assess file shares](https://learn.microsoft.com/en-us/sharepointmigration/mm-fileshare-scan-assess) and produce summary reports and detailed logs before migration. Use those results to find technical blockers, but do not expect a scan to decide ownership, value, or retention for you.
+
+### Check The Intended Target
+
+Check the source against the planned destination, including its site and library paths:
+
+- [ ] The complete decoded target path, including the file name, is no longer than 400 characters.
+- [ ] Each file is within the 250 GB upload limit. Check the chosen migration tool's limits separately.
+- [ ] Names pass the current restrictions for invalid characters and reserved names, such as `CON` and `NUL`.
+- [ ] Count unique permission scopes, where content has its own access rules instead of inheriting them. SharePoint supports 50,000 per list or library; Microsoft's general recommendation is 5,000. Prefer far fewer exceptions.
+
+The path, size, and supported permission limits come from [SharePoint service limits](https://learn.microsoft.com/en-us/office365/servicedescriptions/sharepoint-online-service-description/sharepoint-online-limits). Check [OneDrive and SharePoint name restrictions](https://support.microsoft.com/en-us/onedrive/restrictions-and-limitations-in-onedrive-and-sharepoint) before setting rename rules. A supported maximum is not a design target.
+
+The 5,000-item List View Threshold is a separate query threshold, not a hard folder capacity. Test indexed columns and filtered views with realistic volumes, following [Microsoft's List View Threshold guidance](https://support.microsoft.com/en-us/sharepoint/data-and-lists/working-with-the-list-view-threshold-limit-for-all-versions-of-sharepoint). Use [SharePoint 5,000 Item View Threshold Explained](../../blog/sharepoint-5000-item-view-threshold-explained) for the differences between views, search, synchronization, and automation.
+
+### Set Migration Tool Acceptance Criteria
+
+Choose a tool against the migration requirements. Require evidence that it can:
+
+- scan without copying and export detailed findings;
+- map sources to destinations and support the approved restructuring;
+- map identities and permissions, with documented handling of unsupported rules;
+- run initial and incremental copies with predictable handling of existing or changed files;
+- report failures, support retries, and account for expected, migrated, and excluded content.
+
+Prove these requirements in the pilot. Record manual steps and unsupported cases, with an owner and an agreed solution, before accepting the tool for wider use.
 
 ### Distinguish User Data From Application Data
 
@@ -204,6 +230,14 @@ Within a site:
 - define at least two suitable owners for important workspaces;
 - agree on naming, navigation, versioning, sharing, retention, and review before migration.
 
+:::warning[Verify Access Previously Blocked By Deny]
+
+The [SharePoint Migration Tool permission guidance](https://learn.microsoft.com/en-us/sharepointmigration/understanding-permissions-when-migrating) states that special permissions such as NTFS Deny are not preserved. A user excluded on the source could gain access through another permission on the destination. Verify other tools' behavior separately.
+
+Record these exclusions and have the business owner approve the replacement access design. In the pilot, test that excluded users cannot open the affected content.
+
+:::
+
 :::warning[Do Not Transfer Access Governance By Accident]
 
 File-server access is often based on groups maintained by IT or identity management. A group-connected SharePoint team site or Team can let workspace owners manage membership. If that membership does not follow an authoritative joiner, mover, and leaver process, a role change can leave someone without required access or with access that should have ended.
@@ -215,6 +249,10 @@ Team membership is not the only access path. Direct file or folder sharing can c
 Microsoft 365 Copilot respects existing permissions, but it can make accessible information easier to find and reuse. Before a broad rollout, remediate oversharing, ownerless content, and obsolete access. Use Purview to discover, classify, and protect sensitive information, but do not treat labels as a replacement for access remediation. A site or group label does not automatically label the files inside it. See Microsoft's [secure and governed data foundation for Copilot](https://learn.microsoft.com/en-us/microsoft-365/copilot/secure-govern-copilot-foundational-deployment-guidance) and [sensitivity labels for groups and sites](https://learn.microsoft.com/en-us/purview/sensitivity-labels-teams-groups-sites).
 
 :::
+
+Check for `Everyone except external users` access at site, library, folder, and file level. Have owners confirm where organization-wide access is intended and remove it elsewhere. A site membership review alone can miss direct grants on individual items. Microsoft's [data access governance reports](https://learn.microsoft.com/en-us/sharepoint/data-access-governance-reports) can help identify broad sharing; check the reporting prerequisites before using them.
+
+During a permissions review, consider [Restricted Content Discovery](https://learn.microsoft.com/en-us/sharepoint/restricted-content-discovery) for selected sensitive sites. It temporarily limits discovery in organization-wide search and Copilot. It does not change permissions or prevent direct access by an authorized user. Check the current licensing and administrative prerequisites, assign a review owner, and remove the restriction after access remediation is accepted.
 
 The objective is not to remove every folder. It is to make the structure explainable to a new employee without relying on knowledge of the old drive.
 
@@ -257,16 +295,40 @@ Have the business owner approve whether content should be migrated, archived, or
 
 Do not use last modified date as the only deletion rule. Some records are rarely opened but must still be retained. Conversely, a recently modified duplicate is not necessarily valuable.
 
-## 7. Pilot With A Representative Group
+After remediation, scan again against the approved destination. Renaming or moving a folder changes the target paths of its contents and can affect dependencies. Keep the updated findings with the migration wave's decisions. Resolve blockers or approve a different destination before scheduling the copy.
+
+## 7. Prepare Users And Practice The New Working Pattern
+
+Prepare people before each migration wave. Explain why the work is changing, where documents will belong, which old habits must change, and what users can expect during the transition. Use the agreed structure and access rules in the training. Show where the team's existing documents belong in the new structure.
+
+Name an adoption lead who coordinates training, instructions, and feedback with the migration lead. Reserve preparation, practice, and support time for local Key Users or champions. Ask managers to make that time available and explain the agreed working pattern to their teams. Microsoft's [champion resources](https://learn.microsoft.com/en-us/office365/customlearning/champ_getstarted) can help organize this local support.
+
+Set learning goals for each audience:
+
+| Audience | What to practice |
+| --- | --- |
+| End users | Find and save documents in the right place, edit together, share a link, check who has access, and restore an earlier version. Recognize when synchronization is approved and how to request help |
+| Key Users and workspace owners | Coach colleagues, maintain useful metadata and views, handle membership within their authority, and escalate access or content decisions |
+| IT and service desk | Diagnose missing access and sync problems, use recovery procedures, and route application or security incidents to the right owner |
+
+Before cut-over, let representative users practice their real tasks in the configured destination with their normal permissions. Use representative content with approved access. Make the exercises follow the [document collaboration working pattern](../scenarios/collaborate-on-documents.md). Record where users get stuck and change the instructions or design before repeating the test.
+
+At cut-over, provide short task instructions, the new locations, and a named support route. During aftercare, offer drop-in sessions, repeat exercises where needed, and collect questions through one agreed channel. The adoption lead should review these with Key Users and IT so recurring problems lead to a correction in training, configuration, or the working pattern.
+
+Check readiness through tasks users can complete independently. Attendance alone does not show that a team can work in the new location. Give unresolved learning or usability problems an owner and an agreed solution before accepting the wave.
+
+## 8. Pilot With A Representative Group
 
 Choose a pilot that contains realistic complexity: folders, Office files, special permissions, links, larger files, and users with different working patterns. A technically easy folder proves very little.
 
 Validate at least:
 
-- [ ] File counts, migration reports, failures, and exclusions have been reviewed.
+- [ ] Inventoried content, approved exclusions, expected content, migrated content, and failures have been reconciled. The owner has accepted explained differences.
+- [ ] The tool meets the agreed scan, mapping, restructuring, incremental-copy, retry, and reporting requirements.
 - [ ] Names, paths, and representative documents work in the intended target experience.
 - [ ] Owners, members, visitors, and approved exceptions have the expected access.
 - [ ] Former members, role changers, expired guests, direct permissions, and old sharing links are denied as expected in the applicable negative access tests.
+- [ ] Source Deny exclusions and unintended `Everyone except external users` access have been checked with affected test accounts.
 - [ ] Word, PowerPoint, and Excel behavior, including external links and macros, has been tested.
 - [ ] Critical non-Office applications and complete business tasks pass their dependency tests.
 - [ ] Manual work, file imports, linked Excel workbooks, and background tasks have been tested where used. Each test uses the account or application identity that will do the work after the move.
@@ -275,38 +337,51 @@ Validate at least:
 - [ ] The application owner and IT have approved any use of synchronization by applications. Tests show that work can continue without the usual user or device.
 - [ ] Managed- and unmanaged-device behavior and applicable Purview protection have been tested with representative sensitive files.
 - [ ] Search, metadata, views, navigation, sharing, and approval processes work as designed.
+- [ ] Representative users complete their key tasks independently; remaining learning or usability problems have owners and agreed solutions.
 - [ ] User instructions, support readiness, rollback criteria, and owner acceptance are complete.
 
 [Microsoft's file share migration guidance](https://learn.microsoft.com/en-us/sharepointmigration/fileshare-to-odsp-migration-guide) recommends an incremental pilot followed by a cut-over. Use the pilot findings to update the destination design, remediation rules, communications, and wave plan before scaling up.
 
-## 8. Migrate In Waves And Cut Over
+## 9. Migrate In Waves And Cut Over
 
 Migrate by work area so that each wave has an accountable owner and a known audience. A typical wave has these checkpoints:
 
 1. The owner approves the content list, destination, and access model.
-2. IT resolves scan findings and prepares the destination.
+2. IT resolves scan findings, rescans, and prepares the destination.
 3. The migration team performs an initial or incremental copy.
-4. Users validate the destination before the agreed deadline.
+4. Users practice and validate the destination before the agreed deadline.
 5. The source becomes read-only, the final changes are migrated, and users switch to Microsoft 365.
-6. The team validates reports, permissions, critical files, and business processes.
-7. Support records unresolved issues and confirms when the source can be retired.
+6. The team reconciles the content inventory and results, explains differences for owner acceptance, and validates permissions, critical files, and business processes.
+7. Support records unresolved issues and takes over the agreed aftercare and operational responsibilities.
 
 Publish the cut-over time, write-freeze rules, new location, support route, and rollback criteria in advance. Avoid leaving both locations writable for an extended period; duplicate working copies make it unclear which version is authoritative.
+
+Agree on a read-only period for the old share, its access rules, and a retirement decision date. Set the period from validation, operational, and retention needs. A read-only source does not replace backup or the recovery plan.
+
+Before cut-over, record the aftercare arrangements:
+
+- the aftercare lead, service desk contact, Key Users, and escalation owners;
+- short support instructions for missing access and sync problems, including checks before retrying and when to escalate;
+- a review date for recurring questions, unresolved defects, and training needs;
+- exit criteria: content differences accepted, critical tasks working, users ready, and remaining issues accepted by named operational owners.
+
+Retire the source only after the business owner and IT accept these criteria and confirm retention and recovery arrangements. Record who carries out retirement and when.
 
 ## Definition Of Done
 
 A wave is complete when:
 
 - [ ] The business owner has accepted the content, structure, access, and working pattern.
-- [ ] Migration reports have been reviewed and exceptions have owners and end dates.
-- [ ] Users know where to find and save documents, when to synchronize, and how to share them.
+- [ ] Migration results reconcile with the inventory and approved exclusions; the owner has accepted explained differences. Remaining exceptions have owners and end dates.
+- [ ] Representative users have demonstrated the new working pattern independently; training, instructions, and follow-up support are arranged for the affected users.
 - [ ] Critical links, applications, and processes have been tested or deliberately replaced.
 - [ ] Retention, recovery, device protection, review, and workspace ownership are documented.
 - [ ] The membership source, sharing model, access-review owner, and exception route are documented.
 - [ ] The old location is read-only or retired according to the plan.
 - [ ] A post-migration review date is scheduled.
+- [ ] The service desk and operational owners have accepted the support instructions, remaining issues, and aftercare exit criteria.
 
-Measure success by findability, correct access, owner acceptance, process continuity, and reduced use of the file server—not only by the number of copied files.
+Measure success by findability, correct access, owner acceptance, process continuity, and reduced use of the file server. Copied item counts are only part of the evidence.
 
 :::warning[Common Migration Mistakes]
 
@@ -326,10 +401,15 @@ Measure success by findability, correct access, owner acceptance, process contin
 
 - [Overview of Migration Manager for file shares](https://learn.microsoft.com/en-us/sharepointmigration/mm-get-started)
 - [Scan and assess file shares with Migration Manager](https://learn.microsoft.com/en-us/sharepointmigration/mm-fileshare-scan-assess)
+- [File and folder permissions when using the SharePoint Migration Tool](https://learn.microsoft.com/en-us/sharepointmigration/understanding-permissions-when-migrating)
 - [Microsoft's file share migration planning guide](https://learn.microsoft.com/en-us/sharepointmigration/fileshare-to-odsp-migration-guide)
 - [Information architecture in modern SharePoint](https://learn.microsoft.com/en-us/sharepoint/information-architecture-modern-experience)
 - [Retention for SharePoint and OneDrive](https://learn.microsoft.com/en-us/purview/retention-policies-sharepoint)
 - [SharePoint service limits](https://learn.microsoft.com/en-us/office365/servicedescriptions/sharepoint-online-service-description/sharepoint-online-limits)
+- [Working with the List View Threshold](https://support.microsoft.com/en-us/sharepoint/data-and-lists/working-with-the-list-view-threshold-limit-for-all-versions-of-sharepoint)
+- [Data access governance reports](https://learn.microsoft.com/en-us/sharepoint/data-access-governance-reports)
+- [Restricted Content Discovery prerequisites and behavior](https://learn.microsoft.com/en-us/sharepoint/restricted-content-discovery)
+- [Microsoft 365 champion resources](https://learn.microsoft.com/en-us/office365/customlearning/champ_getstarted)
 - [Create workbook links in Excel](https://support.microsoft.com/en-us/excel/create-workbook-links)
 - [Power Query SharePoint Folder connector](https://learn.microsoft.com/en-us/power-query/connectors/sharepoint-folder)
 - [Kerberos authentication in Windows Server](https://learn.microsoft.com/en-us/windows-server/security/kerberos/kerberos-authentication-overview)

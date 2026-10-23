@@ -37,7 +37,8 @@ flowchart TD
     OneDrive --> Design
     Team --> Design
     SharePoint --> Design
-    Design --> Pilot[Voer proefmigratie uit<br/>en valideer]
+    Design --> Prepare[Gebruikers en<br/>ondersteuning voorbereiden]
+    Prepare --> Pilot[Voer proefmigratie uit<br/>en valideer]
     Pilot -->|Problemen| Fix[Herstel inhoud<br/>of ontwerp]
     Fix --> Pilot
     Pilot -->|Geaccepteerd| Waves[Migreer in fasen]
@@ -90,6 +91,31 @@ Gebruik twee aanvullende beoordelingen. De bedrijfsinventarisatie beschrijft wat
 Behandel bestaande machtigingen als informatiebron, niet als het doelontwerp. Jaren aan uitzonderingen en individuele toegangsregels kunnen de bedoelde doelgroep verbergen. Laat de eigenaar bevestigen wie in de nieuwe locatie lees-, bewerk- of eigenaarsrechten nodig heeft.
 
 [Microsoft Migration Manager kan fileshares scannen en beoordelen](https://learn.microsoft.com/nl-nl/sharepointmigration/mm-fileshare-scan-assess) en vóór de migratie overzichtsrapporten en gedetailleerde logboeken maken. Gebruik de resultaten om technische blokkades te vinden, maar verwacht niet dat een scan eigenaarschap, waarde of bewaarbehoefte voor je bepaalt.
+
+### Controleer de beoogde bestemming
+
+Controleer de bron tegen de geplande bestemming, inclusief de site- en bibliotheekpaden:
+
+- [ ] Het volledige gedecodeerde doelpad, inclusief de bestandsnaam, is niet langer dan 400 tekens.
+- [ ] Ieder bestand valt binnen de uploadlimiet van 250 GB. Controleer de limieten van de gekozen migratietool afzonderlijk.
+- [ ] Namen voldoen aan de actuele beperkingen voor ongeldige tekens en gereserveerde namen, zoals `CON` en `NUL`.
+- [ ] Tel unieke machtigingsbereiken: inhoud met eigen toegangsregels in plaats van overgeërfde machtigingen. SharePoint ondersteunt er 50.000 per lijst of bibliotheek; Microsoft adviseert in het algemeen maximaal 5.000. Streef naar veel minder uitzonderingen.
+
+De limieten voor paden, bestandsgrootte en ondersteunde machtigingen staan in de [servicelimieten van SharePoint](https://learn.microsoft.com/nl-nl/office365/servicedescriptions/sharepoint-online-service-description/sharepoint-online-limits). Controleer de [naambeperkingen van OneDrive en SharePoint](https://support.microsoft.com/nl-nl/onedrive/restrictions-and-limitations-in-onedrive-and-sharepoint) voordat je hernoemregels vastlegt. Gebruik een ondersteund maximum niet als ontwerpdoel.
+
+De lijstweergavedrempel van 5.000 items is een afzonderlijke querydrempel, geen harde capaciteitslimiet voor mappen. Test geïndexeerde kolommen en gefilterde weergaven met realistische aantallen volgens [Microsofts uitleg over de lijstweergavedrempel](https://support.microsoft.com/nl-nl/sharepoint/data-and-lists/working-with-the-list-view-threshold-limit-for-all-versions-of-sharepoint). Gebruik [De SharePoint-weergavedrempel van 5.000 items uitgelegd](../../blog/sharepoint-5000-item-view-threshold-explained) voor de verschillen tussen weergaven, zoeken, synchronisatie en automatisering.
+
+### Bepaal acceptatiecriteria voor de migratietool
+
+Kies een tool op basis van de migratie-eisen. Vraag bewijs dat de tool:
+
+- zonder kopiëren kan scannen en gedetailleerde bevindingen kan exporteren;
+- bronnen aan bestemmingen kan koppelen en de goedgekeurde herstructurering ondersteunt;
+- identiteiten en machtigingen kan koppelen, met vastgelegde verwerking van niet-ondersteunde regels;
+- eerste en incrementele kopieën kan uitvoeren met voorspelbare verwerking van bestaande of gewijzigde bestanden;
+- fouten rapporteert, nieuwe pogingen ondersteunt en verwachte, gemigreerde en uitgesloten inhoud verantwoordt.
+
+Toets deze eisen in de proefmigratie. Leg handmatige stappen en niet-ondersteunde situaties vast, met een eigenaar en een afgesproken oplossing, voordat je de tool voor breder gebruik accepteert.
 
 ### Maak onderscheid tussen gebruikersdata en applicatiedata
 
@@ -204,6 +230,14 @@ Binnen een site:
 - wijs je voor belangrijke werkomgevingen ten minste twee geschikte eigenaren aan;
 - spreek je vóór de migratie naamgeving, navigatie, versiebeheer, delen, bewaarbeleid en evaluatie af.
 
+:::warning[Controleer toegang die Deny eerder blokkeerde]
+
+De [machtigingsrichtlijnen voor de SharePoint Migration Tool](https://learn.microsoft.com/nl-nl/sharepointmigration/understanding-permissions-when-migrating) vermelden dat bijzondere machtigingen zoals NTFS Deny niet behouden blijven. Een gebruiker die op de bron was uitgesloten, kan via een andere machtiging toegang krijgen op de bestemming. Controleer het gedrag van andere tools afzonderlijk.
+
+Leg deze uitsluitingen vast en laat de bedrijfseigenaar het vervangende toegangsontwerp goedkeuren. Test in de proefmigratie dat uitgesloten gebruikers de betreffende inhoud niet kunnen openen.
+
+:::
+
 :::warning[Verplaats toegangsgovernance niet onbedoeld]
 
 Toegang tot fileservers is vaak gebaseerd op groepen die IT of identitymanagement onderhoudt. Een groepsgekoppelde SharePoint-teamsite of een Team kan werkruimte-eigenaren het lidmaatschap laten beheren. Als dat lidmaatschap geen gezaghebbend proces voor instroom, functiewijziging en uitstroom volgt, kan iemand na een functiewijziging noodzakelijke toegang missen of toegang behouden die had moeten eindigen.
@@ -215,6 +249,10 @@ Teamlidmaatschap is niet de enige toegangsroute. Rechtstreeks delen van bestande
 Microsoft 365 Copilot respecteert bestaande machtigingen, maar kan toegankelijke informatie gemakkelijker vindbaar en herbruikbaar maken. Herstel vóór een brede uitrol te ruime toegang, eigenaarloze inhoud en verouderde toegang. Gebruik Purview om gevoelige informatie te vinden, classificeren en beschermen, maar zie labels niet als vervanging voor het herstellen van toegang. Een site- of groepslabel labelt niet automatisch de bestanden erin. Bekijk Microsofts [veilige en beheerste databasis voor Copilot](https://learn.microsoft.com/nl-nl/microsoft-365/copilot/secure-govern-copilot-foundational-deployment-guidance) en [gevoeligheidslabels voor groepen en sites](https://learn.microsoft.com/nl-nl/purview/sensitivity-labels-teams-groups-sites).
 
 :::
+
+Controleer toegang via `Everyone except external users` op site-, bibliotheek-, map- en bestandsniveau. Laat eigenaren bevestigen waar organisatiebrede toegang bedoeld is en verwijder die elders. Alleen sitelidmaatschap beoordelen kan rechtstreekse toekenningen op afzonderlijke items missen. Microsofts [rapporten voor datatoegangsgovernance](https://learn.microsoft.com/nl-nl/sharepoint/data-access-governance-reports) kunnen helpen om breed delen te vinden; controleer de rapportagevoorwaarden voordat je ze gebruikt.
+
+Overweeg tijdens een machtigingsbeoordeling [Restricted Content Discovery](https://learn.microsoft.com/nl-nl/sharepoint/restricted-content-discovery) voor geselecteerde gevoelige sites. Dit beperkt tijdelijk de vindbaarheid in organisatiebrede zoekresultaten en Copilot. Het verandert geen machtigingen en blokkeert geen rechtstreekse toegang voor een bevoegde gebruiker. Controleer de actuele licentie- en beheervoorwaarden, wijs een beoordelaar aan en verwijder de beperking nadat het toegangsherstel is geaccepteerd.
 
 Het doel is niet om iedere map af te schaffen. De structuur moet uit te leggen zijn aan een nieuwe medewerker zonder kennis van de oude schijf.
 
@@ -257,16 +295,40 @@ Laat de bedrijfseigenaar goedkeuren of inhoud moet worden gemigreerd, gearchivee
 
 Gebruik de laatste wijzigingsdatum niet als enige verwijderregel. Sommige records worden zelden geopend, maar moeten wel worden bewaard. Andersom is een recent gewijzigd duplicaat niet automatisch waardevol.
 
-## 7. Voer een proefmigratie uit met een representatieve groep
+Scan na herstel opnieuw tegen de goedgekeurde bestemming. Een map hernoemen of verplaatsen verandert de doelpaden van de inhoud en kan afhankelijkheden raken. Bewaar de bijgewerkte bevindingen bij de besluiten voor de migratiefase. Los blokkades op of keur een andere bestemming goed voordat je de kopie plant.
+
+## 7. Bereid gebruikers voor en oefen het nieuwe werkpatroon
+
+Bereid mensen vóór iedere migratiefase voor. Leg uit waarom het werk verandert, waar documenten thuishoren, welke oude gewoonten moeten veranderen en wat gebruikers tijdens de overgang kunnen verwachten. Gebruik de afgesproken structuur en toegangsregels in de training. Laat zien waar de bestaande teamdocumenten in de nieuwe structuur thuishoren.
+
+Wijs een adoptieverantwoordelijke aan die training, instructies en feedback afstemt met de migratieleider. Reserveer voorbereidings-, oefen- en ondersteuningstijd voor lokale Key Users of champions. Vraag leidinggevenden die tijd beschikbaar te maken en het afgesproken werkpatroon aan hun teams uit te leggen. Microsofts [hulpmiddelen voor champions](https://learn.microsoft.com/nl-nl/office365/customlearning/champ_getstarted) helpen bij het organiseren van deze lokale ondersteuning.
+
+Bepaal leerdoelen per doelgroep:
+
+| Doelgroep | Wat moet worden geoefend? |
+| --- | --- |
+| Eindgebruikers | Documenten op de juiste plek vinden en opslaan, samen bewerken, een koppeling delen, toegang controleren en een eerdere versie herstellen. Herkennen wanneer synchronisatie is goedgekeurd en weten hoe ze hulp vragen |
+| Key Users en werkruimte-eigenaren | Collega's begeleiden, bruikbare metadata en weergaven onderhouden, lidmaatschap binnen hun bevoegdheid beheren en toegangs- of inhoudsbesluiten escaleren |
+| IT en servicedesk | Ontbrekende toegang en synchronisatieproblemen onderzoeken, herstelprocedures gebruiken en applicatie- of beveiligingsincidenten naar de juiste eigenaar doorzetten |
+
+Laat representatieve gebruikers vóór de overgang hun echte taken oefenen in de ingerichte bestemming met hun normale machtigingen. Gebruik representatieve inhoud met goedgekeurde toegang. Laat de oefeningen aansluiten op het [werkpatroon voor samenwerken aan documenten](../scenarios/collaborate-on-documents.md). Leg vast waar gebruikers vastlopen en pas instructies of ontwerp aan voordat je opnieuw test.
+
+Geef bij de overgang korte taakinstructies, de nieuwe locaties en een duidelijke ondersteuningsroute. Bied tijdens de nazorg inloopmomenten aan, herhaal oefeningen waar nodig en verzamel vragen via één afgesproken kanaal. Laat de adoptieverantwoordelijke deze met Key Users en IT beoordelen, zodat terugkerende problemen leiden tot aanpassingen in training, inrichting of werkpatroon.
+
+Controleer gereedheid met taken die gebruikers zelfstandig kunnen uitvoeren. Alleen aanwezigheid bij training laat niet zien dat een team op de nieuwe locatie kan werken. Geef resterende leer- of gebruiksproblemen een eigenaar en een afgesproken oplossing voordat je de fase accepteert.
+
+## 8. Voer een proefmigratie uit met een representatieve groep
 
 Kies een proefmigratie met realistische complexiteit: mappen, Office-bestanden, bijzondere machtigingen, koppelingen, grotere bestanden en gebruikers met verschillende werkpatronen. Een technisch eenvoudige map bewijst weinig.
 
 Valideer ten minste:
 
-- [ ] Aantallen bestanden, migratierapporten, fouten en uitsluitingen zijn beoordeeld.
+- [ ] Geïnventariseerde inhoud, goedgekeurde uitsluitingen, verwachte inhoud, gemigreerde inhoud en fouten zijn met elkaar vergeleken. De eigenaar heeft verklaarde verschillen geaccepteerd.
+- [ ] De tool voldoet aan de afgesproken eisen voor scans, koppelingen, herstructurering, incrementele kopieën, nieuwe pogingen en rapportage.
 - [ ] Namen, paden en representatieve documenten werken in de bedoelde doelervaring.
 - [ ] Eigenaren, leden, bezoekers en goedgekeurde uitzonderingen hebben de verwachte toegang.
 - [ ] Voormalige leden, functiewijzigers, verlopen gasten, rechtstreekse machtigingen en oude deelkoppelingen worden zoals verwacht geweigerd in de toepasselijke negatieve toegangstests.
+- [ ] Deny-uitsluitingen op de bron en onbedoelde toegang via `Everyone except external users` zijn met de betreffende testaccounts gecontroleerd.
 - [ ] Het gedrag van Word, PowerPoint en Excel, inclusief externe koppelingen en macro's, is getest.
 - [ ] Kritieke niet-Office-applicaties en volledige bedrijfstaken slagen voor hun afhankelijkheidstests.
 - [ ] Handmatige verwerking, bestandsimports, gekoppelde Excelwerkmappen en achtergrondtaken zijn getest waar ze worden gebruikt. Iedere test gebruikt het account of de applicatie-identiteit die na de verhuizing het werk uitvoert.
@@ -275,36 +337,49 @@ Valideer ten minste:
 - [ ] De applicatie-eigenaar en IT hebben het gebruik van synchronisatie door applicaties goedgekeurd. Tests laten zien dat het werk doorgaat zonder de gebruikelijke gebruiker of het apparaat.
 - [ ] Het gedrag op beheerde en onbeheerde apparaten en toepasselijke Purview-bescherming zijn met representatieve gevoelige bestanden getest.
 - [ ] Zoeken, metadata, weergaven, navigatie, delen en goedkeuringsprocessen werken zoals ontworpen.
+- [ ] Representatieve gebruikers voeren hun belangrijkste taken zelfstandig uit; resterende leer- of gebruiksproblemen hebben eigenaren en afgesproken oplossingen.
 - [ ] Gebruikersinstructies, gereedheid van ondersteuning, terugvalcriteria en acceptatie door de eigenaar zijn afgerond.
 
 [Microsofts migratierichtlijnen voor fileshares](https://learn.microsoft.com/nl-nl/sharepointmigration/fileshare-to-odsp-migration-guide) adviseren een incrementele proefmigratie gevolgd door een cut-over. Gebruik de bevindingen om het doelontwerp, de herstelregels, communicatie en faseplanning bij te werken voordat je opschaalt.
 
-## 8. Migreer in fasen en rond de overgang af
+## 9. Migreer in fasen en rond de overgang af
 
 Migreer per werkgebied, zodat iedere fase een verantwoordelijke eigenaar en bekende doelgroep heeft. Een gebruikelijke fase bevat deze controlepunten:
 
 1. De eigenaar keurt de inhoudslijst, bestemming en het toegangsmodel goed.
-2. IT lost scanbevindingen op en bereidt de bestemming voor.
+2. IT lost scanbevindingen op, scant opnieuw en bereidt de bestemming voor.
 3. Het migratieteam voert een eerste of incrementele kopie uit.
-4. Gebruikers valideren de bestemming vóór de afgesproken deadline.
+4. Gebruikers oefenen en valideren de bestemming vóór de afgesproken deadline.
 5. De bron wordt alleen-lezen, de laatste wijzigingen worden gemigreerd en gebruikers stappen over op Microsoft 365.
-6. Het team valideert rapporten, machtigingen, kritieke bestanden en bedrijfsprocessen.
-7. Ondersteuning registreert openstaande problemen en bevestigt wanneer de bron kan worden uitgefaseerd.
+6. Het team vergelijkt de inhoudsinventarisatie met de resultaten, verklaart verschillen voor acceptatie door de eigenaar en valideert machtigingen, kritieke bestanden en bedrijfsprocessen.
+7. Ondersteuning registreert openstaande problemen en neemt de afgesproken nazorg- en beheerverantwoordelijkheden over.
 
 Communiceer vooraf het overgangsmoment, de regels voor de schrijfstops, de nieuwe locatie, de ondersteuningsroute en de terugvalcriteria. Laat beide locaties niet langdurig beschrijfbaar; dubbele werkkopieën maken onduidelijk welke versie leidend is.
+
+Spreek voor de oude share een alleen-lezenperiode, toegangsregels en een beslisdatum voor uitfasering af. Bepaal die periode op basis van validatie-, bedrijfsvoerings- en bewaarbehoeften. Een alleen-lezenbron vervangt geen back-up of herstelplan.
+
+Leg vóór de overgang de nazorgafspraken vast:
+
+- de nazorgverantwoordelijke, het servicedeskcontact, Key Users en eigenaren voor escalaties;
+- korte ondersteuningsinstructies voor ontbrekende toegang en synchronisatieproblemen, inclusief controles vóór een nieuwe poging en wanneer escalatie nodig is;
+- een evaluatiedatum voor terugkerende vragen, openstaande fouten en trainingsbehoeften;
+- uitstapcriteria: geaccepteerde inhoudsverschillen, werkende kritieke taken, voorbereide gebruikers en resterende problemen die benoemde beheereigenaren hebben geaccepteerd.
+
+Faseer de bron pas uit nadat de bedrijfseigenaar en IT deze criteria hebben geaccepteerd en bewaar- en herstelafspraken hebben bevestigd. Leg vast wie de uitfasering uitvoert en wanneer.
 
 ## Wanneer is de migratie klaar?
 
 Een fase is afgerond wanneer:
 
 - [ ] De bedrijfseigenaar heeft de inhoud, structuur, toegang en het werkpatroon geaccepteerd.
-- [ ] Migratierapporten zijn beoordeeld en afwijkingen hebben een eigenaar en einddatum.
-- [ ] Gebruikers weten waar ze documenten vinden en opslaan, wanneer ze synchroniseren en hoe ze delen.
+- [ ] Migratieresultaten sluiten aan op de inventarisatie en goedgekeurde uitsluitingen; de eigenaar heeft verklaarde verschillen geaccepteerd. Resterende afwijkingen hebben eigenaren en einddatums.
+- [ ] Representatieve gebruikers hebben het nieuwe werkpatroon zelfstandig aangetoond; training, instructies en verdere ondersteuning zijn voor de betrokken gebruikers geregeld.
 - [ ] Kritieke koppelingen, applicaties en processen zijn getest of bewust vervangen.
 - [ ] Bewaarbeleid, herstel, apparaatbescherming, evaluatie en eigenaarschap van de werkomgeving zijn vastgelegd.
 - [ ] De bron voor lidmaatschap, het deelmodel, de eigenaar van toegangsbeoordelingen en de uitzonderingsroute zijn vastgelegd.
 - [ ] De oude locatie is volgens plan alleen-lezen of uitgefaseerd.
 - [ ] Een datum voor evaluatie na de migratie is gepland.
+- [ ] De servicedesk en beheereigenaren hebben de ondersteuningsinstructies, resterende problemen en uitstapcriteria voor de nazorg geaccepteerd.
 
 Meet succes aan vindbaarheid, juiste toegang, acceptatie door de eigenaar, continuïteit van processen en afgenomen gebruik van de fileserver, niet alleen aan het aantal gekopieerde bestanden.
 
@@ -326,10 +401,15 @@ Meet succes aan vindbaarheid, juiste toegang, acceptatie door de eigenaar, conti
 
 - [Overzicht van Migration Manager voor fileshares](https://learn.microsoft.com/nl-nl/sharepointmigration/mm-get-started)
 - [Fileshares scannen en beoordelen met Migration Manager](https://learn.microsoft.com/nl-nl/sharepointmigration/mm-fileshare-scan-assess)
+- [Bestands- en mapmachtigingen bij gebruik van de SharePoint Migration Tool](https://learn.microsoft.com/nl-nl/sharepointmigration/understanding-permissions-when-migrating)
 - [Microsofts planningsgids voor de migratie van fileshares](https://learn.microsoft.com/nl-nl/sharepointmigration/fileshare-to-odsp-migration-guide)
 - [Informatiearchitectuur in modern SharePoint](https://learn.microsoft.com/nl-nl/sharepoint/information-architecture-modern-experience)
 - [Bewaarbeleid voor SharePoint en OneDrive](https://learn.microsoft.com/nl-nl/purview/retention-policies-sharepoint)
 - [Servicelimieten van SharePoint](https://learn.microsoft.com/nl-nl/office365/servicedescriptions/sharepoint-online-service-description/sharepoint-online-limits)
+- [Werken met de lijstweergavedrempel](https://support.microsoft.com/nl-nl/sharepoint/data-and-lists/working-with-the-list-view-threshold-limit-for-all-versions-of-sharepoint)
+- [Rapporten voor datatoegangsgovernance](https://learn.microsoft.com/nl-nl/sharepoint/data-access-governance-reports)
+- [Voorwaarden en werking van Restricted Content Discovery](https://learn.microsoft.com/nl-nl/sharepoint/restricted-content-discovery)
+- [Hulpmiddelen voor Microsoft 365-champions](https://learn.microsoft.com/nl-nl/office365/customlearning/champ_getstarted)
 - [Werkmapkoppelingen maken in Excel](https://support.microsoft.com/nl-nl/excel/create-workbook-links)
 - [SharePoint-mapconnector van Power Query](https://learn.microsoft.com/nl-nl/power-query/connectors/sharepoint-folder)
 - [Kerberos-authenticatie in Windows Server](https://learn.microsoft.com/nl-nl/windows-server/security/kerberos/kerberos-authentication-overview)
