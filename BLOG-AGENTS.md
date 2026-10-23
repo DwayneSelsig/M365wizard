@@ -22,6 +22,13 @@ A faster model may perform fewer intermediate steps, but it must not replace ana
 
 A deeper reasoning model may examine more alternatives, assumptions, and counterarguments, but it must not make the final article unnecessarily long or complicated.
 
+## Readability
+
+Follow the shared [readability rules in AGENTS.md](AGENTS.md#readability).
+They apply to both languages and every reader role. Keep technical names
+accurate and explain terms the reader needs. Preserve the personal voice
+and chosen structure while simplifying difficult wording.
+
 ## Adaptive Execution Rule
 
 Use the deepest workflow reasonably supported by:
@@ -64,7 +71,7 @@ Do not generate several complete alternatives unless requested.
 Write one focused draft that:
 
 * starts with the actual subject;
-* explains why the issue occurs;
+* explains why the issue occurs when that helps the reader;
 * connects technology to practical consequences;
 * includes a clear recommendation;
 * avoids marketing and generic AI language.
@@ -78,6 +85,7 @@ Before returning the result, check:
 * Is there a concrete practical consequence?
 * Is ownership or maintainability relevant and, if so, addressed?
 * Is any sentence generic enough to fit almost any technology article?
+* Are the words familiar and the comparisons easy to follow?
 * Does the conclusion add a lesson rather than repeat the introduction?
 
 Correct problems before returning the text.
@@ -85,6 +93,10 @@ Correct problems before returning the text.
 ## Standard Workflow
 
 Use this workflow for normal articles, guides, and substantial LinkedIn posts.
+
+Use the analysis steps that help the article. A straightforward news or how-to
+post may not need a deeper cause or a counterargument. Include those only when
+they affect the advice.
 
 1. Identify the visible problem.
 2. Identify the commonly accepted explanation.
@@ -123,7 +135,7 @@ The roles exist to improve the final reasoning, not to increase the amount of te
 
 ### Required extended analysis
 
-Examine:
+Examine the points relevant to this article:
 
 * the visible symptom;
 * the underlying cause;
@@ -136,6 +148,10 @@ Examine:
 * reasonable counterarguments;
 * conditions under which the recommendation fails;
 * facts that require verification.
+
+This list guides the analysis. It is not a required article outline. Publish
+only what helps the reader understand the issue or act on the advice. Keep
+necessary facts and cautions, even when they need a separate explanation.
 
 ### Alternative formulations
 
@@ -204,7 +220,8 @@ The preferred reasoning pattern is:
 6. explain the consequences.
 7. formulate a useful and qualified lesson.
 
-The writing should show enough of this reasoning for the reader to follow it.
+Show only the reasoning the reader needs to follow the advice. The article
+does not need to display every step in this pattern.
 
 Do not reveal private chain-of-thought or internal agent deliberations.
 
@@ -422,7 +439,7 @@ Why this is weak:
 
 #### Better
 
-> Prefer one centrally managed source when people need to use the same approved information. Separate sources are justified when ownership, audience, process, or access genuinely differs.
+> Use one approved source when everyone needs the same information. Keep that source centrally managed. Separate sources can help when different people own the content. They can also serve different readers or workflows. Different access needs may also justify a separate source.
 
 Why this is better:
 
@@ -470,7 +487,7 @@ Why this is weak:
 
 #### Better
 
-> Technology determines what is possible. Processes, incentives, skills, and ownership largely determine what people will actually do with it.
+> Technology sets the options. Skills affect which options people can use. Work processes shape how they use them. What people gain or risk can steer their choices. Clear roles show who does what.
 
 Why this is better:
 
@@ -565,12 +582,13 @@ Do not copy surface features blindly.
 
 For example:
 
-* short sentences are useful, but a complex argument may require a longer sentence;
+* longer sentences can be clear; check the words and relationships as well as length;
 * a practical example is useful, but not every section needs one;
 * contrast can clarify an idea, but repeated contrast becomes artificial;
 * a strong recommendation is useful, but confidence must not exceed the evidence.
 
 The goal is consistent judgment, not mechanical imitation.
+The shared readability rules take priority over difficult wording in an example.
 
 ## Final Voice Gate
 
@@ -580,14 +598,17 @@ The final editor must answer these questions:
 
 1. Does the opening describe a real issue rather than announce a topic?
 2. Is the central reasoning understandable?
-3. Does the text examine why something happens?
-4. Is technology connected to users, processes, ownership, or maintenance?
+3. Does the text explain causes where they affect the advice?
+4. Does it explain the practical effects of the technology where relevant?
 5. Does the text contain at least one specific and useful insight?
 6. Is the recommendation clear enough to help the reader decide?
-7. Is relevant nuance included without weakening the conclusion?
+7. Are necessary conditions and exceptions clear?
 8. Has generic AI, marketing, and consultancy language been removed?
 9. Does the conclusion provide a lesson rather than a summary formula?
 10. Does the text sound like one experienced professional throughout?
+11. Does the text follow the shared readability rules?
+12. Are necessary technical terms correct and briefly explained?
+13. Are facts and warnings preserved after simplification?
 
 When time or reasoning capacity is limited, prioritize this voice gate over producing additional variants.
 
@@ -612,7 +633,8 @@ The main body must contain no more than six headings.
 
 This keeps the text concise and easy to process while ensuring that all essential elements are covered. Additional explanations or documentation may be placed after the main body.
 
-Match the writing style of other articles where possible, but do not exceed CEFR B2 language level.
+Use simpler language whenever possible. CEFR B2 is the ceiling, not the target.
+Match nearby articles only where their style supports clear writing.
 
 ## Structure
 

@@ -52,10 +52,10 @@ pattern for blog headings. Write translations in natural Netherlands Dutch
 (`nl-NL`) with sentence case headings. Translate meaning and intent rather than
 wording mechanically.
 
-Retain established English technical jargon in Dutch when it helps readers
-recognize the concept. On first use, pair it with a natural Dutch explanation
-where helpful, such as `permission scopes` and machtigingsbereiken, and then use
-the familiar term consistently.
+Keep established English technical terms when Dutch readers need them.
+Prefer a common word when it keeps the same meaning. Explain a necessary
+term briefly on first use, then use it consistently. For example, explain
+`permission scopes` as machtigingsbereiken.
 
 For external links on a `microsoft.com` domain, use an explicit locale segment:
 `en-us` in English content and `nl-nl` in Dutch content. Replace a different or
@@ -84,7 +84,8 @@ pages must still be translated manually.
 - Use official Microsoft product names and capitalization consistently.
 - Separate verified product behavior from M365Wizard recommendations or
   opinion.
-- Match the terminology, depth, and tone of nearby guides.
+- Match the depth and tone of nearby guides where useful. Their difficult
+  wording is not a model to follow. Apply the readability rules below.
 - Use descriptive relative links for other pages in this repository. Keep the
   same target in both locales and translate the visible link label.
 - Link to an existing decision, service, or governance guide instead of
@@ -98,6 +99,46 @@ pages must still be translated manually.
   aligned between English and Dutch. Translate visible link text naturally.
 - Preserve useful prose when adding visuals. Diagrams and videos supplement 
   the text; they do not replace it.
+
+## Readability
+
+Apply these rules to blogs and docs in both languages. Adapt technical depth
+to the reader's role. Keep the language simple for every role.
+
+The uppercase words MUST, SHOULD, and MAY use the meanings in
+[RFC 2119](https://www.rfc-editor.org/rfc/rfc2119.html) and
+[RFC 8174](https://www.rfc-editor.org/rfc/rfc8174.html). MUST marks a requirement.
+SHOULD marks a recommendation with room for a justified exception. MAY marks
+an option. These keywords belong in writing instructions. Do not add them to
+published articles to express these writing rules.
+
+- You SHOULD prefer sentences of ten words or fewer. This is a M365Wizard
+  preference alongside ASD-STE100, not a limit from that standard.
+- You SHOULD give each sentence one main idea. Explain comparisons step by
+  step. Avoid comparing several unfamiliar concepts in one sentence.
+- You SHOULD choose common, short words. Remove words that add no meaning.
+- You SHOULD introduce technical terms one at a time. Briefly explain terms
+  the reader needs. Avoid several new terms in one sentence.
+- You MAY use longer sentences when they remain clear. Split sentences that
+  combine difficult words or several relationships. Keep a natural rhythm
+  instead of forcing every sentence into the same length.
+- You MUST preserve correct product names and technical identifiers. Keep
+  technical terms when a simpler word would change the meaning.
+- You MUST retain facts, conditions, exceptions, and warnings when simplifying.
+
+The ASD-STE100 guidance in Writing Standards remains in place. Apply the same
+readability principles in natural Netherlands Dutch. Ten words is a preference,
+not a hard limit. Do not reject text automatically by word count. Judge clarity
+and technical accuracy together.
+
+Examples of removing an unnecessary word:
+
+- Dutch before: "visuele editor gebruiken of de Markdown rechtstreeks bewerken"
+- Dutch after: "visuele editor gebruiken, of de Markdown bewerken"
+- English before: "use a visual editor or edit the Markdown directly"
+- English after: "use a visual editor, or edit the Markdown"
+
+Keep words such as "directly" when they express a real distinction.
 
 ## Final Editorial Review With `no-ai-slop`
 
@@ -114,6 +155,10 @@ improves comprehension, emphasis, safety, or instructional clarity. Keep
 terminology consistent when technical accuracy requires it. Do not remove an
 important recommendation merely because the surrounding explanation covers the
 same subject.
+
+Check readability before and after the skill review. Keep the personal voice
+while simplifying unclear sentences. Personal style is not a reason to keep
+difficult wording that the reader does not need.
 
 When `no-ai-slop` identifies duplicated or overly verbose text:
 
@@ -132,13 +177,15 @@ Use this editing order for substantial documentation or blog changes:
 1. Determine the reader, problem, and recommendation.
 2. Verify technical claims and sources.
 3. Write or restructure the content.
-4. Check repository-specific writing, localization, Mermaid, and admonition
+4. Check readability. Simplify words and untangle comparisons where needed.
+5. Check repository-specific writing, localization, Mermaid, and admonition
    rules.
-5. Run the `no-ai-slop` skill as an editorial pass.
-6. Review every suggested deletion or simplification for lost meaning.
-7. Restore or convert important recommendations, cautions, exceptions, or
+6. Run the `no-ai-slop` skill as an editorial pass.
+7. Review every suggested deletion or simplification for lost meaning.
+8. Restore or convert important recommendations, cautions, exceptions, or
    consequences when necessary.
-8. Perform the normal validation steps.
+9. Recheck readability and technical accuracy after the edits.
+10. Perform the normal validation steps.
 
 Do not run `no-ai-slop` on code, command output, configuration syntax, URLs, or
 Mermaid syntax. Apply the repository's Mermaid writing rules manually. The
@@ -170,6 +217,10 @@ Use practical principles from [FORA](https://fora.wikixl.nl/index.php/Alle_FORA_
 and [TOGAF](https://www.opengroup.org/togaf) to improve the reasoning behind
 content. These frameworks guide the analysis; they do not need to be visible in
 the published text.
+
+Publish only the analysis that helps the reader choose or act. Explain
+ownership, maintenance, and lifecycle separately when that is clearer. They
+do not need to share a sentence or paragraph.
 
 - **Start with the need, not the product.** Identify the user or business need,
   process or working pattern, actors and stakeholders, relevant information,
@@ -275,7 +326,7 @@ The English and Dutch versions must follow the same reasoning, editorial perspec
 
 When instructions conflict:
 
-1. repository safety, factual accuracy, localization, and validation requirements in the root `AGENTS.md` take precedence;
+1. repository safety, factual accuracy, localization, shared readability, and validation requirements in the root `AGENTS.md` take precedence;
 2. blog voice, reasoning, structure, and editorial examples in `BLOG-AGENTS.md` take precedence over the general documentation writing style.
 
 
