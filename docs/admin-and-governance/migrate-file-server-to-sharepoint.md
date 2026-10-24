@@ -13,7 +13,7 @@ prereqs: []
 
 Reorganize before you migrate. A file server is usually arranged around drives, folders, and inherited permissions. SharePoint works best when its structure reflects purpose, ownership, collaboration, access, and information lifecycle.
 
-A migration is therefore an information and adoption project supported by technology, not just a copy job.
+Plan the migration as an information and adoption project, with technology supporting the agreed working pattern.
 
 ## Recommended Approach
 
@@ -42,8 +42,10 @@ flowchart TD
     Pilot -->|Issues found| Fix[Fix content<br/>or design]
     Fix --> Pilot
     Pilot -->|Accepted| Waves[Migrate in waves]
-    Waves --> Cutover[Source read-only;<br/>complete cut-over]
-    Cutover --> Review[Validate, support<br/>and retire source]
+    Waves --> Cutover[Source read-only;<br/>validate final copy]
+    Cutover --> Accept[Accept the<br/>cut-over]
+    Accept --> Aftercare[Complete<br/>aftercare]
+    Aftercare --> Retire[Retire the source]
 ```
 
 ## Reserve Time And Capacity
@@ -94,7 +96,7 @@ Treat existing permissions as evidence, not as the target design. Years of excep
 
 ### Check The Intended Target
 
-Check the source against the planned destination, including its site and library paths:
+Check whether the source files meet the destination requirements, including the planned site and library paths:
 
 - [ ] The complete decoded target path, including the file name, is no longer than 400 characters.
 - [ ] Each file is within the 250 GB upload limit. Check the chosen migration tool's limits separately.
@@ -133,7 +135,7 @@ You can teach users where to find their files after the move. For applications, 
 
 Excel can use [links to other workbooks in SharePoint and OneDrive](https://support.microsoft.com/en-us/excel/create-workbook-links). It can also retrieve data from files through the [Power Query SharePoint Folder connector](https://learn.microsoft.com/en-us/power-query/connectors/sharepoint-folder). Other applications cannot always do this.
 
-Test this with the Excel version your organization uses. Check that links, queries, macros, and imports still work after the move.
+Include the organization's Excel version, workbook links, queries, macros, and imports in the process tests below.
 
 ### Check How The Application Signs In
 
@@ -151,24 +153,23 @@ Have the application owner and IT approve this approach before the move. Check t
 
 :::
 
-You can choose synchronization if it is supported and approved. The sync client signs in to SharePoint. The application uses the local copy and gains no direct access to SharePoint. Test whether changes from both locations arrive in time for the next processing step.
+With approved synchronization, the sync client signs in to SharePoint. The application uses the local copy and gains no direct access to SharePoint. Include the time needed for changes to reach the next processing step in the process test.
 
 ### Map Work Process Dependencies
 
-Check both Office and non-Office applications. Some need a local or mapped path, a fixed folder name, or a service account. An application may also need to lock a file while it edits it. A sync client can sometimes provide a local path. You still need to test whether the application works with it.
+Check both Office and non-Office applications. Some need a local or mapped path, a fixed folder name, or a service account. An application may also need to lock a file while it edits it. A sync client can sometimes provide a local path.
 
-Trace each critical process from task to application, file, identity, and path. Test the complete task rather than only checking whether the migrated file opens.
+Trace each critical process from task to application, file, identity, and path. Test the complete task with the real Office or non-Office application. Opening the migrated file alone does not prove that linked files, imports, or background processing work.
 
-Services, integrations, databases, and shared application data may need a different design. The checklist below covers the detailed tests, including Files On-Demand, offline use, and file locking.
+Apply the same assessment to services, integrations, databases, and shared application data. Check their sign-in method, access requirements, and concurrent use before choosing cloud access, approved synchronization, or another storage design.
 
 ```mermaid
 flowchart TD
-    Process[Name the task<br/>and owner] --> Use{How is the<br/>file accessed?}
-    Use -->|Supported<br/>cloud access| Cloud[Test cloud access]
-    Use -->|Local or<br/>mapped path| Local{Supported<br/>sync path?}
-    Use -->|Service or<br/>shared data| Redesign[Redesign, replace<br/>or retain temporarily]
+    Process[Name the task<br/>and owner] --> Use{Supported<br/>cloud access?}
+    Use -->|Yes| Cloud[Test cloud access]
+    Use -->|No| Local{Supported<br/>sync path?}
     Local -->|Yes| Sync[Test sync, paths<br/>and file locking]
-    Local -->|No| Redesign
+    Local -->|No| Redesign[Redesign, replace<br/>or retain temporarily]
     Cloud --> Task[Test the<br/>whole process]
     Sync --> Task
     Redesign --> Plan[Assign owner<br/>and transition plan]
@@ -230,6 +231,10 @@ Within a site:
 - define at least two suitable owners for important workspaces;
 - agree on naming, navigation, versioning, sharing, retention, and review before migration.
 
+Make the structure explainable to a new employee without relying on knowledge of the old drive.
+
+### Govern Membership And Access
+
 :::warning[Verify Access Previously Blocked By Deny]
 
 The [SharePoint Migration Tool permission guidance](https://learn.microsoft.com/en-us/sharepointmigration/understanding-permissions-when-migrating) states that special permissions such as NTFS Deny are not preserved. A user excluded on the source could gain access through another permission on the destination. Verify other tools' behavior separately.
@@ -238,39 +243,45 @@ Record these exclusions and have the business owner approve the replacement acce
 
 :::
 
-:::warning[Do Not Transfer Access Governance By Accident]
+:::warning[Keep Membership Correct When Roles Change]
 
 File-server access is often based on groups maintained by IT or identity management. A group-connected SharePoint team site or Team can let workspace owners manage membership. If that membership does not follow an authoritative joiner, mover, and leaver process, a role change can leave someone without required access or with access that should have ended.
 
-For every destination, record whether membership is centrally managed, owner-managed, or hybrid. Name the business owner, at least two workspace owners, the identity source, the approver, the exception route, and the review date. Use [Permissions And Ownership](./permissions-and-ownership.md) for the responsibility model.
-
-Team membership is not the only access path. Direct file or folder sharing can create unique SharePoint permissions, and private or shared Teams channels use separate SharePoint sites. Review members, guests, sharing links, direct access, and channel sites as separate evidence. Use [Govern Sharing In SharePoint](./govern-sharing-in-sharepoint.md) and [Teams and SharePoint integration](https://learn.microsoft.com/en-us/sharepoint/teams-connected-sites) for the applicable controls.
-
-Microsoft 365 Copilot respects existing permissions, but it can make accessible information easier to find and reuse. Before a broad rollout, remediate oversharing, ownerless content, and obsolete access. Use Purview to discover, classify, and protect sensitive information, but do not treat labels as a replacement for access remediation. A site or group label does not automatically label the files inside it. See Microsoft's [secure and governed data foundation for Copilot](https://learn.microsoft.com/en-us/microsoft-365/copilot/secure-govern-copilot-foundational-deployment-guidance) and [sensitivity labels for groups and sites](https://learn.microsoft.com/en-us/purview/sensitivity-labels-teams-groups-sites).
+Assign who updates membership for each event, which identity source they use, and who checks that the change is complete.
 
 :::
 
-Check for `Everyone except external users` access at site, library, folder, and file level. Have owners confirm where organization-wide access is intended and remove it elsewhere. A site membership review alone can miss direct grants on individual items. Microsoft's [data access governance reports](https://learn.microsoft.com/en-us/sharepoint/data-access-governance-reports) can help identify broad sharing; check the reporting prerequisites before using them.
+For every destination, record whether membership is centrally managed, owner-managed, or hybrid. Name the business owner, at least two workspace owners, the identity source, the approver, the exception route, and the review date. Use [Permissions And Ownership](./permissions-and-ownership.md) for the responsibility model. Check Microsoft's [sharing and permissions guidance](https://learn.microsoft.com/en-us/sharepoint/modern-experience-sharing-permissions) for membership management in group-connected sites and Teams.
+
+Review all access paths. Direct file or folder sharing can create unique SharePoint permissions, and private or shared Teams channels use separate SharePoint sites. Check members, guests, sharing links, direct access, and channel sites separately. Follow [Govern Sharing In SharePoint](./govern-sharing-in-sharepoint.md) and Microsoft's [Teams and SharePoint integration guidance](https://learn.microsoft.com/en-us/sharepoint/teams-connected-sites).
+
+### Review Broad Access Before Copilot
+
+Microsoft 365 Copilot respects existing permissions, but it can make accessible information easier to find and reuse. Before a broad rollout, correct oversharing, ownerless content, and obsolete access. Microsoft's [secure and governed data foundation for Copilot](https://learn.microsoft.com/en-us/microsoft-365/copilot/secure-govern-copilot-foundational-deployment-guidance) explains the preparation.
+
+Use Purview to discover, classify, and protect sensitive information. Labels do not replace access remediation, and a site or group label does not automatically label the files inside it. Check the [scope of sensitivity labels for groups and sites](https://learn.microsoft.com/en-us/purview/sensitivity-labels-teams-groups-sites).
+
+Check for `Everyone except external users` access at site, library, folder, and file level. Have owners confirm where organization-wide access is intended and remove it elsewhere. Microsoft's [data access governance reports](https://learn.microsoft.com/en-us/sharepoint/data-access-governance-reports) can help identify broad sharing; check the reporting prerequisites before using them.
 
 During a permissions review, consider [Restricted Content Discovery](https://learn.microsoft.com/en-us/sharepoint/restricted-content-discovery) for selected sensitive sites. It temporarily limits discovery in organization-wide search and Copilot. It does not change permissions or prevent direct access by an authorized user. Check the current licensing and administrative prerequisites, assign a review owner, and remove the restriction after access remediation is accepted.
 
-The objective is not to remove every folder. It is to make the structure explainable to a new employee without relying on knowledge of the old drive.
-
 ## 5. Control Synchronization And Local Data Risk
 
-Oversharing is usually a loss of confidentiality rather than loss of the file itself. Synchronization introduces a different risk: OneDrive synchronizes additions, changes, and deletions between the device and the cloud. An accidental deletion, destructive application, or compromised device can therefore affect the shared cloud copy and other synchronized devices. Treat synchronization as an access method, not as a backup.
+Oversharing can expose information to unintended people. Synchronization can also affect the files themselves: [OneDrive synchronizes additions, changes, and deletions](https://support.microsoft.com/en-us/onedrive/sync-your-computer-s-files-and-folders-with-onedrive) between the device and the cloud. An accidental deletion, destructive application, or compromised device can therefore affect the shared cloud copy and other synchronized devices. Treat synchronization as an access method, not as a backup.
 
 | Risk | What can happen | Required design response |
 | --- | --- | --- |
 | Oversharing | Broad membership, direct permissions, or links expose information to unintended people | Remediate access and follow [Govern Sharing In SharePoint](./govern-sharing-in-sharepoint.md) |
 | Local exposure | Locally available or always-available files can be read through an unlocked or compromised user session | Require managed device controls, disk encryption, screen locking, incident response, and appropriate download restrictions |
-| Propagated deletion or damage | A synchronized deletion or modification can reach SharePoint and other devices | Configure versioning and recovery, retain appropriate recycle-bin or restore options, and test the recovery procedure |
-| Excessive synchronization | Large libraries, too many synchronized items, or widespread offline copies can affect storage, network use, and sync reliability | Synchronize only what the work pattern requires, use Files On-Demand, and test against the current OneDrive and SharePoint limits |
+| Propagated deletion or damage | A synchronized deletion or modification can reach SharePoint and other devices | Configure versioning and [recovery options](https://learn.microsoft.com/en-us/sharepoint/safeguarding-your-data), and test the recovery procedure |
+| Excessive synchronization | Large libraries, too many synchronized items, or widespread offline copies can affect storage, network use, and sync reliability | Synchronize only what the work pattern requires, use Files On-Demand, and test against the [current OneDrive and SharePoint limits](https://support.microsoft.com/en-us/onedrive/restrictions-and-limitations-in-onedrive-and-sharepoint) |
 | Incompatible process | An application expects a mapped drive, fixed path, locking behavior, or local data file | Resolve the dependency before cut-over or keep an explicitly managed temporary exception |
 
-Files On-Demand can keep file contents online until needed, but a user can make files always available and some applications can automatically download online-only files. It is therefore a storage and synchronization control, not a security boundary.
+[Files On-Demand](https://support.microsoft.com/en-us/onedrive/save-disk-space-with-onedrive-files-on-demand-for-windows) can keep file contents online until needed. Users can make files always available, and applications can download online-only files when they access them. Treat this as a storage and synchronization control, not a security boundary.
 
-SharePoint permissions also do not by themselves protect every downloaded copy. Start with managed and compliant devices, device encryption, strong sign-in and locking, and controls for unmanaged devices. Add Purview sensitivity labels with encryption, protection that extends SharePoint permissions to downloaded files, and Endpoint DLP when the information risk and licensing justify them. A label used only for classification does not prevent someone who can use the authorized, unlocked session from reading the file.
+SharePoint permissions do not by themselves protect every downloaded copy. Require managed and compliant devices, device encryption, strong sign-in and locking, and appropriate [controls for unmanaged devices](https://learn.microsoft.com/en-us/sharepoint/control-access-from-unmanaged-devices).
+
+When the information risk and licensing justify them, add Purview sensitivity labels with encryption, [protection that extends SharePoint permissions to downloaded files](https://learn.microsoft.com/en-us/purview/sensitivity-labels-sharepoint-extend-permissions), or [Endpoint DLP](https://learn.microsoft.com/en-us/purview/endpoint-dlp-learn-about). A classification-only label does not stop someone using an authorized, unlocked session from reading the file.
 
 Before enabling synchronization for a site or library:
 
@@ -315,71 +326,92 @@ Before cut-over, let representative users practice their real tasks in the confi
 
 At cut-over, provide short task instructions, the new locations, and a named support route. During aftercare, offer drop-in sessions, repeat exercises where needed, and collect questions through one agreed channel. The adoption lead should review these with Key Users and IT so recurring problems lead to a correction in training, configuration, or the working pattern.
 
-Check readiness through tasks users can complete independently. Attendance alone does not show that a team can work in the new location. Give unresolved learning or usability problems an owner and an agreed solution before accepting the wave.
+Check readiness through tasks users can complete independently. Attendance alone does not show that a team can work in the new location. Resolve learning or usability problems that prevent essential work before cut-over. Give other problems an owner, an agreed solution, and a follow-up date.
 
 ## 8. Pilot With A Representative Group
 
 Choose a pilot that contains realistic complexity: folders, Office files, special permissions, links, larger files, and users with different working patterns. A technically easy folder proves very little.
 
-Validate at least:
+Validate these four areas:
 
-- [ ] Inventoried content, approved exclusions, expected content, migrated content, and failures have been reconciled. The owner has accepted explained differences.
-- [ ] The tool meets the agreed scan, mapping, restructuring, incremental-copy, retry, and reporting requirements.
-- [ ] Names, paths, and representative documents work in the intended target experience.
-- [ ] Owners, members, visitors, and approved exceptions have the expected access.
-- [ ] Former members, role changers, expired guests, direct permissions, and old sharing links are denied as expected in the applicable negative access tests.
-- [ ] Source Deny exclusions and unintended `Everyone except external users` access have been checked with affected test accounts.
-- [ ] Word, PowerPoint, and Excel behavior, including external links and macros, has been tested.
-- [ ] Critical non-Office applications and complete business tasks pass their dependency tests.
-- [ ] Manual work, file imports, linked Excel workbooks, and background tasks have been tested where used. Each test uses the account or application identity that will do the work after the move.
-- [ ] Changing a value in a source file gives the expected result after import, refresh, and further processing. The test does not rely on old saved values.
-- [ ] OneDrive synchronization is enabled only where it is part of the intended pattern; Files On-Demand, offline use, item volume, deletion, and recovery have been tested.
-- [ ] The application owner and IT have approved any use of synchronization by applications. Tests show that work can continue without the usual user or device.
-- [ ] Managed- and unmanaged-device behavior and applicable Purview protection have been tested with representative sensitive files.
-- [ ] Search, metadata, views, navigation, sharing, and approval processes work as designed.
-- [ ] Representative users complete their key tasks independently; remaining learning or usability problems have owners and agreed solutions.
-- [ ] User instructions, support readiness, rollback criteria, and owner acceptance are complete.
+**Content And Migration Results**
+
+- [ ] Compare the inventory, approved exclusions, expected content, migrated content, and failures. Record the reasons for differences and obtain the business owner's approval.
+- [ ] Confirm that the tool meets the agreed scan, mapping, restructuring, incremental-copy, retry, and reporting requirements.
+- [ ] Test names, paths, and representative documents in the intended browser, Teams, or synchronization workflow.
+
+**Access And Protection**
+
+- [ ] Verify the expected access for owners, members, visitors, and approved exceptions.
+- [ ] Run the required negative access tests for former members, role changers, expired guests, obsolete direct permissions, and old sharing links.
+- [ ] Test source Deny exclusions and unintended `Everyone except external users` access with the affected accounts.
+- [ ] Test managed- and unmanaged-device behavior and applicable Purview protection with representative sensitive files.
+
+**Applications And Processes**
+
+- [ ] Test Word, PowerPoint, and Excel, including external links and macros.
+- [ ] Run critical non-Office applications through their complete business tasks.
+- [ ] Test manual work, file imports, linked Excel workbooks, and background tasks where used. Use the account or application identity that will do the work after the move.
+- [ ] Change a value in a source file and check the result after import, refresh, and further processing. Do not rely on old saved values.
+- [ ] Enable OneDrive synchronization only for the approved working pattern. Test Files On-Demand, offline use, item volume, deletion, and recovery.
+- [ ] Obtain application-owner and IT approval for application use of synchronization. Demonstrate that work continues without the usual user or device.
+
+**Users And Support**
+
+- [ ] Test search, metadata, views, navigation, sharing, and approval processes.
+- [ ] Have representative users complete their key tasks independently. Assign owners and solutions for remaining non-blocking learning or usability problems.
+- [ ] Make task instructions available and confirm that users know where to request help.
+- [ ] Confirm who provides support at cut-over and how they handle access, synchronization, and application problems.
+- [ ] Agree on rollback criteria, the decision maker, and the recovery procedure.
+- [ ] Record the business owner's and IT owner's pilot acceptance.
+
+Do not cut over with unintended access, failed critical processes, users unable to complete essential tasks, or missing support and rollback arrangements. Resolve these blockers first. Only accept other issues with named owners and agreed end dates.
 
 [Microsoft's file share migration guidance](https://learn.microsoft.com/en-us/sharepointmigration/fileshare-to-odsp-migration-guide) recommends an incremental pilot followed by a cut-over. Use the pilot findings to update the destination design, remediation rules, communications, and wave plan before scaling up.
 
 ## 9. Migrate In Waves And Cut Over
 
-Migrate by work area so that each wave has an accountable owner and a known audience. A typical wave has these checkpoints:
+Migrate by work area so that each wave has an accountable owner and a known audience. Plan three decisions for each wave: accept the cut-over, complete aftercare, and retire the source.
 
 1. The owner approves the content list, destination, and access model.
 2. IT resolves scan findings, rescans, and prepares the destination.
 3. The migration team performs an initial or incremental copy.
 4. Users practice and validate the destination before the agreed deadline.
-5. The source becomes read-only, the final changes are migrated, and users switch to Microsoft 365.
-6. The team reconciles the content inventory and results, explains differences for owner acceptance, and validates permissions, critical files, and business processes.
-7. Support records unresolved issues and takes over the agreed aftercare and operational responsibilities.
+5. The source becomes read-only and the team migrates the final changes.
+6. The team compares the inventory with the results and validates permissions, critical files, and business processes. The owner approves documented differences.
+7. The business owner and IT accept the cut-over against the criteria below. Users switch to Microsoft 365 and aftercare starts.
 
-Publish the cut-over time, write-freeze rules, new location, support route, and rollback criteria in advance. Avoid leaving both locations writable for an extended period; duplicate working copies make it unclear which version is authoritative.
+Publish the cut-over time, write-freeze rules, new locations, support route, and rollback criteria in advance. Resolve blockers before switching users. Avoid leaving both locations writable; duplicate working copies make it unclear which version is authoritative.
 
-Agree on a read-only period for the old share, its access rules, and a retirement decision date. Set the period from validation, operational, and retention needs. A read-only source does not replace backup or the recovery plan.
+Name the aftercare lead, service desk contact, local Key Users, and escalation owners before cut-over. Prepare short support instructions for missing access and sync problems, including checks before retrying and when to escalate. Schedule a review of recurring questions, unresolved defects, and training needs.
 
-Before cut-over, record the aftercare arrangements:
-
-- the aftercare lead, service desk contact, Key Users, and escalation owners;
-- short support instructions for missing access and sync problems, including checks before retrying and when to escalate;
-- a review date for recurring questions, unresolved defects, and training needs;
-- exit criteria: content differences accepted, critical tasks working, users ready, and remaining issues accepted by named operational owners.
-
-Retire the source only after the business owner and IT accept these criteria and confirm retention and recovery arrangements. Record who carries out retirement and when.
+Agree on a read-only period for the old share, its access rules, and a retirement decision date. Base the period on validation, operational, and retention needs. Keep the source read-only through aftercare and until retirement is approved. A read-only source does not replace backup or the recovery plan.
 
 ## Definition Of Done
 
-A wave is complete when:
+Record each of the following decisions separately. Unintended access or a failed critical process blocks acceptance. Other issues need an owner, an agreed solution, and an end date.
 
-- [ ] The business owner has accepted the content, structure, access, and working pattern.
-- [ ] Migration results reconcile with the inventory and approved exclusions; the owner has accepted explained differences. Remaining exceptions have owners and end dates.
-- [ ] Representative users have demonstrated the new working pattern independently; training, instructions, and follow-up support are arranged for the affected users.
-- [ ] Critical links, applications, and processes have been tested or deliberately replaced.
-- [ ] Retention, recovery, device protection, review, and workspace ownership are documented.
-- [ ] The membership source, sharing model, access-review owner, and exception route are documented.
-- [ ] The old location is read-only or retired according to the plan.
-- [ ] A post-migration review date is scheduled.
-- [ ] The service desk and operational owners have accepted the support instructions, remaining issues, and aftercare exit criteria.
+### Accept The Cut-Over
+
+- [ ] The business owner has approved the content, structure, and destination. The migration results match the inventory and approved exclusions, or the owner has approved documented differences.
+- [ ] Access tests pass. The membership source, sharing model, workspace owners, access-review owner, exception route, and review dates are recorded.
+- [ ] Critical links, applications, and complete business tasks pass their tests or have been replaced by tested alternatives.
+- [ ] Representative users complete essential tasks independently. Training and task instructions are available for the affected users.
+- [ ] IT has confirmed retention, recovery, device protection, and rollback arrangements.
+- [ ] The service desk and aftercare team are available with support instructions, escalation owners, and a scheduled review.
+- [ ] The source is read-only and Microsoft 365 is the agreed working location.
+
+### Complete Aftercare
+
+- [ ] The scheduled review has taken place. The team has addressed recurring support problems and provided further training where needed.
+- [ ] Operational owners have accepted the remaining non-blocking issues, with named owners, solutions, and end dates.
+- [ ] The aftercare lead and service owner have approved the handover to regular support, including instructions, recovery procedures, responsibilities, and review dates.
+
+### Retire The Source
+
+- [ ] Aftercare is complete. The business owner and IT have confirmed that required records, legal holds, and recovery needs are covered before retiring the source.
+- [ ] The retirement decision, executor, and date are recorded. Critical links and processes no longer depend on the old share.
+- [ ] The old location has been retired according to the approved plan.
 
 Measure success by findability, correct access, owner acceptance, process continuity, and reduced use of the file server. Copied item counts are only part of the evidence.
 
@@ -419,6 +451,7 @@ Measure success by findability, correct access, owner acceptance, process contin
 - [Use sensitivity labels for groups and sites](https://learn.microsoft.com/en-us/purview/sensitivity-labels-teams-groups-sites)
 - [Sync files between a computer and OneDrive](https://support.microsoft.com/en-us/onedrive/sync-your-computer-s-files-and-folders-with-onedrive)
 - [Restrictions and limitations in OneDrive and SharePoint](https://support.microsoft.com/en-us/onedrive/restrictions-and-limitations-in-onedrive-and-sharepoint)
+- [Save disk space with OneDrive Files On-Demand](https://support.microsoft.com/en-us/onedrive/save-disk-space-with-onedrive-files-on-demand-for-windows)
 - [Control SharePoint and OneDrive access from unmanaged devices](https://learn.microsoft.com/en-us/sharepoint/control-access-from-unmanaged-devices)
 - [Extend SharePoint permissions to downloaded documents](https://learn.microsoft.com/en-us/purview/sensitivity-labels-sharepoint-extend-permissions)
 - [Learn about Endpoint Data Loss Prevention](https://learn.microsoft.com/en-us/purview/endpoint-dlp-learn-about)

@@ -13,7 +13,7 @@ prereqs: []
 
 Organiseer opnieuw voordat je migreert. Een fileserver is meestal ingericht rond schijven, mappen en overgeërfde machtigingen. SharePoint werkt het beste wanneer de structuur aansluit op doel, eigenaarschap, samenwerking, toegang en de levenscyclus van informatie.
 
-Een migratie is daarom een informatie- en adoptieproject dat door techniek wordt ondersteund, niet alleen een kopieeractie.
+Plan de migratie als een informatie- en adoptieproject, waarbij techniek het afgesproken werkpatroon ondersteunt.
 
 ## Aanbevolen aanpak
 
@@ -42,8 +42,10 @@ flowchart TD
     Pilot -->|Problemen| Fix[Herstel inhoud<br/>of ontwerp]
     Fix --> Pilot
     Pilot -->|Geaccepteerd| Waves[Migreer in fasen]
-    Waves --> Cutover[Bron alleen-lezen;<br/>rond overgang af]
-    Cutover --> Review[Valideer, ondersteun<br/>en faseer bron uit]
+    Waves --> Cutover[Bron alleen-lezen;<br/>valideer laatste kopie]
+    Cutover --> Accept[Accepteer<br/>de overgang]
+    Accept --> Aftercare[Rond de<br/>nazorg af]
+    Aftercare --> Retire[Faseer de bron uit]
 ```
 
 ## Reserveer tijd en capaciteit
@@ -94,7 +96,7 @@ Behandel bestaande machtigingen als informatiebron, niet als het doelontwerp. Ja
 
 ### Controleer de beoogde bestemming
 
-Controleer de bron tegen de geplande bestemming, inclusief de site- en bibliotheekpaden:
+Toets de bronbestanden aan de eisen van de bestemming, inclusief de geplande site- en bibliotheekpaden:
 
 - [ ] Het volledige gedecodeerde doelpad, inclusief de bestandsnaam, is niet langer dan 400 tekens.
 - [ ] Ieder bestand valt binnen de uploadlimiet van 250 GB. Controleer de limieten van de gekozen migratietool afzonderlijk.
@@ -133,7 +135,7 @@ Gebruikers kun je leren waar de bestanden voortaan staan. Voor applicaties moet 
 
 Excel kan [koppelingen naar andere werkmappen in SharePoint en OneDrive](https://support.microsoft.com/nl-nl/excel/create-workbook-links) gebruiken. Met de [SharePoint-mapconnector van Power Query](https://learn.microsoft.com/nl-nl/power-query/connectors/sharepoint-folder) kan Excel ook gegevens uit bestanden ophalen. Andere applicaties kunnen dit niet altijd.
 
-Test dit met de Excelversie die je organisatie gebruikt. Controleer ook of koppelingen, query's, macro's en imports na de verhuizing nog werken.
+Neem de Excelversie van je organisatie, werkmapkoppelingen, query's, macro's en imports op in de procestests hieronder.
 
 ### Controleer hoe de applicatie zich aanmeldt
 
@@ -151,24 +153,23 @@ Laat de applicatie-eigenaar en IT deze werkwijze vóór de verhuizing goedkeuren
 
 :::
 
-Je kunt voor synchronisatie kiezen als deze werkwijze wordt ondersteund en goedgekeurd. De synchronisatieclient meldt zich aan bij SharePoint. De applicatie gebruikt de lokale kopie en krijgt daarmee geen rechtstreekse toegang tot SharePoint. Test of wijzigingen van beide locaties op tijd beschikbaar zijn voor de volgende verwerkingsstap.
+Bij goedgekeurde synchronisatie meldt de synchronisatieclient zich aan bij SharePoint. De applicatie gebruikt de lokale kopie en krijgt daarmee geen rechtstreekse toegang tot SharePoint. Neem de tijd die wijzigingen nodig hebben om de volgende verwerkingsstap te bereiken op in de procestest.
 
 ### Breng afhankelijkheden van werkprocessen in kaart
 
-Controleer zowel Office- als niet-Office-applicaties. Sommige hebben een lokaal of gekoppeld pad, een vaste mapnaam of een serviceaccount nodig. Een applicatie moet een bestand soms ook blokkeren voor anderen tijdens het bewerken. Een synchronisatieclient kan soms een lokaal pad leveren. Je moet nog steeds testen of de applicatie daarmee werkt.
+Controleer zowel Office- als niet-Office-applicaties. Sommige hebben een lokaal of gekoppeld pad, een vaste mapnaam of een serviceaccount nodig. Een applicatie moet een bestand soms ook blokkeren voor anderen tijdens het bewerken. Een synchronisatieclient kan soms een lokaal pad leveren.
 
-Volg ieder kritisch proces van taak naar applicatie, bestand, identiteit en pad. Test de volledige taak en controleer niet alleen of het gemigreerde bestand opent.
+Volg ieder kritisch proces van taak naar applicatie, bestand, identiteit en pad. Test de volledige taak met de echte Office- of niet-Office-applicatie. Alleen het gemigreerde bestand openen bewijst niet dat gekoppelde bestanden, imports of achtergrondverwerking werken.
 
-Services, integraties, databases en gedeelde applicatiegegevens kunnen een ander ontwerp nodig hebben. De checklist hieronder bevat de afzonderlijke tests, waaronder Files On-Demand, offlinegebruik en bestandsvergrendeling.
+Beoordeel services, integraties, databases en gedeelde applicatiegegevens op dezelfde manier. Controleer hoe ze zich aanmelden, welke toegang ze nodig hebben en hoe gelijktijdig gebruik werkt. Kies daarna cloudtoegang, goedgekeurde synchronisatie of een ander opslagontwerp.
 
 ```mermaid
 flowchart TD
-    Process[Benoem de taak<br/>en eigenaar] --> Use{Hoe wordt het<br/>bestand benaderd?}
-    Use -->|Ondersteunde<br/>cloudtoegang| Cloud[Test cloudtoegang]
-    Use -->|Lokaal of<br/>gekoppeld pad| Local{Ondersteund<br/>synchronisatiepad?}
-    Use -->|Service of<br/>gedeelde gegevens| Redesign[Ontwerp opnieuw,<br/>vervang of behoud tijdelijk]
+    Process[Benoem de taak<br/>en eigenaar] --> Use{Ondersteunde<br/>cloudtoegang?}
+    Use -->|Ja| Cloud[Test cloudtoegang]
+    Use -->|Nee| Local{Ondersteund<br/>synchronisatiepad?}
     Local -->|Ja| Sync[Test synchronisatie,<br/>paden en vergrendeling]
-    Local -->|Nee| Redesign
+    Local -->|Nee| Redesign[Ontwerp opnieuw,<br/>vervang of behoud tijdelijk]
     Cloud --> Task[Test het<br/>hele proces]
     Sync --> Task
     Redesign --> Plan[Wijs eigenaar<br/>en transitieplan toe]
@@ -230,6 +231,10 @@ Binnen een site:
 - wijs je voor belangrijke werkomgevingen ten minste twee geschikte eigenaren aan;
 - spreek je vóór de migratie naamgeving, navigatie, versiebeheer, delen, bewaarbeleid en evaluatie af.
 
+Maak de structuur uitlegbaar aan een nieuwe medewerker zonder kennis van de oude schijf.
+
+### Beheer lidmaatschap en toegang
+
 :::warning[Controleer toegang die Deny eerder blokkeerde]
 
 De [machtigingsrichtlijnen voor de SharePoint Migration Tool](https://learn.microsoft.com/nl-nl/sharepointmigration/understanding-permissions-when-migrating) vermelden dat bijzondere machtigingen zoals NTFS Deny niet behouden blijven. Een gebruiker die op de bron was uitgesloten, kan via een andere machtiging toegang krijgen op de bestemming. Controleer het gedrag van andere tools afzonderlijk.
@@ -238,39 +243,45 @@ Leg deze uitsluitingen vast en laat de bedrijfseigenaar het vervangende toegangs
 
 :::
 
-:::warning[Verplaats toegangsgovernance niet onbedoeld]
+:::warning[Houd lidmaatschap correct bij personeelswijzigingen]
 
-Toegang tot fileservers is vaak gebaseerd op groepen die IT of identitymanagement onderhoudt. Een groepsgekoppelde SharePoint-teamsite of een Team kan werkruimte-eigenaren het lidmaatschap laten beheren. Als dat lidmaatschap geen gezaghebbend proces voor instroom, functiewijziging en uitstroom volgt, kan iemand na een functiewijziging noodzakelijke toegang missen of toegang behouden die had moeten eindigen.
+Toegang tot fileservers is vaak gebaseerd op groepen die IT of identitymanagement onderhoudt. Een groepsgekoppelde SharePoint-teamsite of een Team kan werkruimte-eigenaren het lidmaatschap laten beheren. Als dat lidmaatschap niet aansluit op het vastgestelde proces voor instroom, functiewijziging en uitstroom, kan iemand na een functiewijziging noodzakelijke toegang missen of toegang behouden die had moeten eindigen.
 
-Leg voor iedere bestemming vast of lidmaatschap centraal, door eigenaren of hybride wordt beheerd. Benoem de bedrijfseigenaar, minimaal twee werkruimte-eigenaren, de identiteitsbron, de goedkeurder, de uitzonderingsroute en de beoordelingsdatum. Gebruik [Machtigingen en eigenaarschap](./permissions-and-ownership.md) voor het verantwoordelijkheidsmodel.
-
-Teamlidmaatschap is niet de enige toegangsroute. Rechtstreeks delen van bestanden of mappen kan unieke SharePoint-machtigingen maken en privé- of gedeelde Teams-kanalen gebruiken aparte SharePoint-sites. Beoordeel leden, gasten, deelkoppelingen, rechtstreekse toegang en kanaalsites als afzonderlijk bewijs. Gebruik [Delen in SharePoint beheren](./govern-sharing-in-sharepoint.md) en [integratie tussen Teams en SharePoint](https://learn.microsoft.com/nl-nl/sharepoint/teams-connected-sites) voor de toepasselijke maatregelen.
-
-Microsoft 365 Copilot respecteert bestaande machtigingen, maar kan toegankelijke informatie gemakkelijker vindbaar en herbruikbaar maken. Herstel vóór een brede uitrol te ruime toegang, eigenaarloze inhoud en verouderde toegang. Gebruik Purview om gevoelige informatie te vinden, classificeren en beschermen, maar zie labels niet als vervanging voor het herstellen van toegang. Een site- of groepslabel labelt niet automatisch de bestanden erin. Bekijk Microsofts [veilige en beheerste databasis voor Copilot](https://learn.microsoft.com/nl-nl/microsoft-365/copilot/secure-govern-copilot-foundational-deployment-guidance) en [gevoeligheidslabels voor groepen en sites](https://learn.microsoft.com/nl-nl/purview/sensitivity-labels-teams-groups-sites).
+Leg per gebeurtenis vast wie het lidmaatschap bijwerkt, welke identiteitsbron die persoon gebruikt en wie controleert of de wijziging is afgerond.
 
 :::
 
-Controleer toegang via `Everyone except external users` op site-, bibliotheek-, map- en bestandsniveau. Laat eigenaren bevestigen waar organisatiebrede toegang bedoeld is en verwijder die elders. Alleen sitelidmaatschap beoordelen kan rechtstreekse toekenningen op afzonderlijke items missen. Microsofts [rapporten voor datatoegangsgovernance](https://learn.microsoft.com/nl-nl/sharepoint/data-access-governance-reports) kunnen helpen om breed delen te vinden; controleer de rapportagevoorwaarden voordat je ze gebruikt.
+Leg voor iedere bestemming vast of lidmaatschap centraal, door eigenaren of hybride wordt beheerd. Benoem de bedrijfseigenaar, minimaal twee werkruimte-eigenaren, de identiteitsbron, de goedkeurder, de uitzonderingsroute en de beoordelingsdatum. Gebruik [Machtigingen en eigenaarschap](./permissions-and-ownership.md) voor het verantwoordelijkheidsmodel. Bekijk Microsofts [richtlijnen voor delen en machtigingen](https://learn.microsoft.com/nl-nl/sharepoint/modern-experience-sharing-permissions) voor lidmaatschapsbeheer in groepsgekoppelde sites en Teams.
+
+Beoordeel alle toegangsroutes. Rechtstreeks delen van bestanden of mappen kan unieke SharePoint-machtigingen maken en privé- of gedeelde Teams-kanalen gebruiken aparte SharePoint-sites. Controleer leden, gasten, deelkoppelingen, rechtstreekse toegang en kanaalsites afzonderlijk. Volg [Delen in SharePoint beheren](./govern-sharing-in-sharepoint.md) en Microsofts [uitleg over de integratie tussen Teams en SharePoint](https://learn.microsoft.com/nl-nl/sharepoint/teams-connected-sites).
+
+### Beoordeel brede toegang vóór Copilot
+
+Microsoft 365 Copilot respecteert bestaande machtigingen, maar kan toegankelijke informatie gemakkelijker vindbaar en herbruikbaar maken. Herstel vóór een brede uitrol te ruime toegang, eigenaarloze inhoud en verouderde toegang. Microsofts [veilige en beheerste databasis voor Copilot](https://learn.microsoft.com/nl-nl/microsoft-365/copilot/secure-govern-copilot-foundational-deployment-guidance) beschrijft de voorbereiding.
+
+Gebruik Purview om gevoelige informatie te vinden, classificeren en beschermen. Labels vervangen toegangsherstel niet en een site- of groepslabel labelt niet automatisch de bestanden erin. Controleer het [toepassingsgebied van gevoeligheidslabels voor groepen en sites](https://learn.microsoft.com/nl-nl/purview/sensitivity-labels-teams-groups-sites).
+
+Controleer toegang via `Everyone except external users` op site-, bibliotheek-, map- en bestandsniveau. Laat eigenaren bevestigen waar organisatiebrede toegang bedoeld is en verwijder die elders. Microsofts [rapporten voor datatoegangsgovernance](https://learn.microsoft.com/nl-nl/sharepoint/data-access-governance-reports) kunnen helpen om breed delen te vinden; controleer de rapportagevoorwaarden voordat je ze gebruikt.
 
 Overweeg tijdens een machtigingsbeoordeling [Restricted Content Discovery](https://learn.microsoft.com/nl-nl/sharepoint/restricted-content-discovery) voor geselecteerde gevoelige sites. Dit beperkt tijdelijk de vindbaarheid in organisatiebrede zoekresultaten en Copilot. Het verandert geen machtigingen en blokkeert geen rechtstreekse toegang voor een bevoegde gebruiker. Controleer de actuele licentie- en beheervoorwaarden, wijs een beoordelaar aan en verwijder de beperking nadat het toegangsherstel is geaccepteerd.
 
-Het doel is niet om iedere map af te schaffen. De structuur moet uit te leggen zijn aan een nieuwe medewerker zonder kennis van de oude schijf.
-
 ## 5. Beheers risico's van synchronisatie en lokale gegevens
 
-Te ruim delen is meestal verlies van vertrouwelijkheid en niet het verlies van het bestand zelf. Synchronisatie introduceert een ander risico: OneDrive synchroniseert toevoegingen, wijzigingen en verwijderingen tussen het apparaat en de cloud. Een onbedoelde verwijdering, schadelijke applicatie of gecompromitteerd apparaat kan daardoor de gedeelde cloudkopie en andere gesynchroniseerde apparaten raken. Behandel synchronisatie als toegangsmethode en niet als back-up.
+Te ruim delen kan informatie blootstellen aan mensen voor wie die niet bedoeld is. Synchronisatie kan ook de bestanden zelf raken: [OneDrive synchroniseert toevoegingen, wijzigingen en verwijderingen](https://support.microsoft.com/nl-nl/onedrive/sync-your-computer-s-files-and-folders-with-onedrive) tussen het apparaat en de cloud. Een onbedoelde verwijdering, schadelijke applicatie of gecompromitteerd apparaat kan daardoor de gedeelde cloudkopie en andere gesynchroniseerde apparaten raken. Behandel synchronisatie als toegangsmethode en niet als back-up.
 
 | Risico | Wat kan gebeuren | Vereiste ontwerpmaatregel |
 | --- | --- | --- |
 | Te ruim delen | Breed lidmaatschap, rechtstreekse machtigingen of koppelingen maken informatie zichtbaar voor onbedoelde personen | Herstel toegang en volg [Delen in SharePoint beheren](./govern-sharing-in-sharepoint.md) |
 | Lokale blootstelling | Lokaal beschikbare of altijd beschikbare bestanden zijn mogelijk leesbaar via een ontgrendelde of gecompromitteerde gebruikerssessie | Vereis beheer van apparaten, schijfversleuteling, schermvergrendeling, incidentafhandeling en passende downloadbeperkingen |
-| Doorgegeven verwijdering of beschadiging | Een gesynchroniseerde verwijdering of wijziging kan SharePoint en andere apparaten bereiken | Configureer versiebeheer en herstel, behoud passende prullenbak- of herstelopties en test de herstelprocedure |
-| Overmatige synchronisatie | Grote bibliotheken, te veel gesynchroniseerde items of veel offlinekopieën kunnen opslag, netwerkgebruik en betrouwbaarheid beïnvloeden | Synchroniseer alleen wat het werkpatroon vereist, gebruik Files On-Demand en test tegen de actuele OneDrive- en SharePoint-limieten |
+| Doorgegeven verwijdering of beschadiging | Een gesynchroniseerde verwijdering of wijziging kan SharePoint en andere apparaten bereiken | Configureer versiebeheer en [herstelopties](https://learn.microsoft.com/nl-nl/sharepoint/safeguarding-your-data) en test de herstelprocedure |
+| Overmatige synchronisatie | Grote bibliotheken, te veel gesynchroniseerde items of veel offlinekopieën kunnen opslag, netwerkgebruik en betrouwbaarheid beïnvloeden | Synchroniseer alleen wat het werkpatroon vereist, gebruik Files On-Demand en test tegen de [actuele OneDrive- en SharePoint-limieten](https://support.microsoft.com/nl-nl/onedrive/restrictions-and-limitations-in-onedrive-and-sharepoint) |
 | Incompatibel proces | Een applicatie verwacht een gekoppeld station, vast pad, specifiek vergrendelgedrag of lokaal gegevensbestand | Los de afhankelijkheid vóór de cut-over op of behoud een expliciet beheerde tijdelijke uitzondering |
 
-Files On-Demand kan bestandsinhoud online houden totdat deze nodig is, maar een gebruiker kan bestanden altijd beschikbaar maken en sommige applicaties kunnen bestanden die alleen online staan automatisch downloaden. Het is daarom een opslag- en synchronisatiemaatregel, geen beveiligingsgrens.
+[Files On-Demand](https://support.microsoft.com/nl-nl/onedrive/save-disk-space-with-onedrive-files-on-demand-for-windows) kan bestandsinhoud online houden totdat deze nodig is. Gebruikers kunnen bestanden altijd beschikbaar maken en applicaties kunnen bestanden die alleen online staan downloaden wanneer ze die benaderen. Behandel dit als een opslag- en synchronisatiemaatregel, niet als beveiligingsgrens.
 
-SharePoint-machtigingen beschermen ook niet vanzelf iedere gedownloade kopie. Begin met beheerde en conforme apparaten, apparaatversleuteling, sterke aanmelding en vergrendeling en maatregelen voor onbeheerde apparaten. Voeg Purview-gevoeligheidslabels met versleuteling, bescherming die SharePoint-machtigingen uitbreidt naar gedownloade bestanden en Endpoint DLP toe wanneer het informatierisico en de licenties dit rechtvaardigen. Een label dat alleen classificeert, voorkomt niet dat iemand met toegang tot de bevoegde, ontgrendelde sessie het bestand leest.
+SharePoint-machtigingen beschermen niet vanzelf iedere gedownloade kopie. Vereis beheerde en conforme apparaten, apparaatversleuteling, sterke aanmelding en vergrendeling en passende [maatregelen voor onbeheerde apparaten](https://learn.microsoft.com/nl-nl/sharepoint/control-access-from-unmanaged-devices).
+
+Voeg waar het informatierisico en de licenties dit rechtvaardigen Purview-gevoeligheidslabels met versleuteling, [bescherming die SharePoint-machtigingen uitbreidt naar gedownloade bestanden](https://learn.microsoft.com/nl-nl/purview/sensitivity-labels-sharepoint-extend-permissions) of [Endpoint DLP](https://learn.microsoft.com/nl-nl/purview/endpoint-dlp-learn-about) toe. Een label dat alleen classificeert, voorkomt niet dat iemand met een bevoegde, ontgrendelde sessie het bestand leest.
 
 Voordat je synchronisatie voor een site of bibliotheek inschakelt:
 
@@ -315,73 +326,94 @@ Laat representatieve gebruikers vóór de overgang hun echte taken oefenen in de
 
 Geef bij de overgang korte taakinstructies, de nieuwe locaties en een duidelijke ondersteuningsroute. Bied tijdens de nazorg inloopmomenten aan, herhaal oefeningen waar nodig en verzamel vragen via één afgesproken kanaal. Laat de adoptieverantwoordelijke deze met Key Users en IT beoordelen, zodat terugkerende problemen leiden tot aanpassingen in training, inrichting of werkpatroon.
 
-Controleer gereedheid met taken die gebruikers zelfstandig kunnen uitvoeren. Alleen aanwezigheid bij training laat niet zien dat een team op de nieuwe locatie kan werken. Geef resterende leer- of gebruiksproblemen een eigenaar en een afgesproken oplossing voordat je de fase accepteert.
+Controleer gereedheid met taken die gebruikers zelfstandig kunnen uitvoeren. Alleen aanwezigheid bij training laat niet zien dat een team op de nieuwe locatie kan werken. Los leer- of gebruiksproblemen die essentieel werk verhinderen vóór de overgang op. Geef andere problemen een eigenaar, een afgesproken oplossing en een opvolgdatum.
 
 ## 8. Voer een proefmigratie uit met een representatieve groep
 
 Kies een proefmigratie met realistische complexiteit: mappen, Office-bestanden, bijzondere machtigingen, koppelingen, grotere bestanden en gebruikers met verschillende werkpatronen. Een technisch eenvoudige map bewijst weinig.
 
-Valideer ten minste:
+Valideer deze vier gebieden:
 
-- [ ] Geïnventariseerde inhoud, goedgekeurde uitsluitingen, verwachte inhoud, gemigreerde inhoud en fouten zijn met elkaar vergeleken. De eigenaar heeft verklaarde verschillen geaccepteerd.
-- [ ] De tool voldoet aan de afgesproken eisen voor scans, koppelingen, herstructurering, incrementele kopieën, nieuwe pogingen en rapportage.
-- [ ] Namen, paden en representatieve documenten werken in de bedoelde doelervaring.
-- [ ] Eigenaren, leden, bezoekers en goedgekeurde uitzonderingen hebben de verwachte toegang.
-- [ ] Voormalige leden, functiewijzigers, verlopen gasten, rechtstreekse machtigingen en oude deelkoppelingen worden zoals verwacht geweigerd in de toepasselijke negatieve toegangstests.
-- [ ] Deny-uitsluitingen op de bron en onbedoelde toegang via `Everyone except external users` zijn met de betreffende testaccounts gecontroleerd.
-- [ ] Het gedrag van Word, PowerPoint en Excel, inclusief externe koppelingen en macro's, is getest.
-- [ ] Kritieke niet-Office-applicaties en volledige bedrijfstaken slagen voor hun afhankelijkheidstests.
-- [ ] Handmatige verwerking, bestandsimports, gekoppelde Excelwerkmappen en achtergrondtaken zijn getest waar ze worden gebruikt. Iedere test gebruikt het account of de applicatie-identiteit die na de verhuizing het werk uitvoert.
-- [ ] Een gewijzigde waarde in een bronbestand geeft na import, verversen en verdere verwerking het verwachte resultaat. De test gebruikt geen oude opgeslagen waarden.
-- [ ] OneDrive-synchronisatie is alleen ingeschakeld waar deze onderdeel is van het bedoelde patroon; Files On-Demand, offlinegebruik, aantallen items, verwijdering en herstel zijn getest.
-- [ ] De applicatie-eigenaar en IT hebben het gebruik van synchronisatie door applicaties goedgekeurd. Tests laten zien dat het werk doorgaat zonder de gebruikelijke gebruiker of het apparaat.
-- [ ] Het gedrag op beheerde en onbeheerde apparaten en toepasselijke Purview-bescherming zijn met representatieve gevoelige bestanden getest.
-- [ ] Zoeken, metadata, weergaven, navigatie, delen en goedkeuringsprocessen werken zoals ontworpen.
-- [ ] Representatieve gebruikers voeren hun belangrijkste taken zelfstandig uit; resterende leer- of gebruiksproblemen hebben eigenaren en afgesproken oplossingen.
-- [ ] Gebruikersinstructies, gereedheid van ondersteuning, terugvalcriteria en acceptatie door de eigenaar zijn afgerond.
+**Inhoud en migratieresultaten**
+
+- [ ] Vergelijk de inventarisatie, goedgekeurde uitsluitingen, verwachte inhoud, gemigreerde inhoud en fouten. Leg de redenen voor verschillen vast en vraag goedkeuring aan de bedrijfseigenaar.
+- [ ] Bevestig dat de tool voldoet aan de afgesproken eisen voor scans, mapping, herstructurering, incrementele kopieën, nieuwe pogingen en rapportage.
+- [ ] Test namen, paden en representatieve documenten bij de beoogde werkwijze via de browser, Teams of synchronisatie.
+
+**Toegang en bescherming**
+
+- [ ] Controleer de verwachte toegang voor eigenaren, leden, bezoekers en goedgekeurde uitzonderingen.
+- [ ] Voer de vereiste negatieve toegangstests uit voor voormalige leden, functiewijzigers, verlopen gasten, verouderde rechtstreekse machtigingen en oude deelkoppelingen.
+- [ ] Test Deny-uitsluitingen op de bron en onbedoelde toegang via `Everyone except external users` met de betreffende accounts.
+- [ ] Test het gedrag op beheerde en onbeheerde apparaten en toepasselijke Purview-bescherming met representatieve gevoelige bestanden.
+
+**Applicaties en processen**
+
+- [ ] Test Word, PowerPoint en Excel, inclusief externe koppelingen en macro's.
+- [ ] Voer met kritieke niet-Office-applicaties de volledige bedrijfstaken uit.
+- [ ] Test handmatige verwerking, bestandsimports, gekoppelde Excelwerkmappen en achtergrondtaken waar deze worden gebruikt. Gebruik het account of de applicatie-identiteit die na de verhuizing het werk uitvoert.
+- [ ] Wijzig een waarde in een bronbestand en controleer het resultaat na import, verversen en verdere verwerking. Vertrouw niet op oude opgeslagen waarden.
+- [ ] Schakel OneDrive-synchronisatie alleen voor het goedgekeurde werkpatroon in. Test Files On-Demand, offlinegebruik, aantallen items, verwijdering en herstel.
+- [ ] Vraag goedkeuring van de applicatie-eigenaar en IT voor synchronisatiegebruik door applicaties. Toon aan dat het werk doorgaat zonder de gebruikelijke gebruiker of het apparaat.
+
+**Gebruikers en ondersteuning**
+
+- [ ] Test zoeken, metadata, weergaven, navigatie, delen en goedkeuringsprocessen.
+- [ ] Laat representatieve gebruikers hun belangrijkste taken zelfstandig uitvoeren. Wijs eigenaren en oplossingen toe aan resterende leer- of gebruiksproblemen die de overgang niet blokkeren.
+- [ ] Maak taakinstructies beschikbaar en bevestig dat gebruikers weten waar ze hulp vragen.
+- [ ] Bevestig wie bij de overgang ondersteuning biedt en hoe toegangsvragen, synchronisatieproblemen en applicatieproblemen worden afgehandeld.
+- [ ] Spreek terugvalcriteria, de beslisser en de herstelprocedure af.
+- [ ] Leg de acceptatie van de proefmigratie door de bedrijfseigenaar en IT-eigenaar vast.
+
+Ga niet over bij onbedoelde toegang, falende kritieke processen, gebruikers die essentiële taken niet kunnen uitvoeren of ontbrekende ondersteunings- en terugvalafspraken. Los deze blokkades eerst op. Accepteer andere problemen alleen met benoemde eigenaren en afgesproken einddatums.
 
 [Microsofts migratierichtlijnen voor fileshares](https://learn.microsoft.com/nl-nl/sharepointmigration/fileshare-to-odsp-migration-guide) adviseren een incrementele proefmigratie gevolgd door een cut-over. Gebruik de bevindingen om het doelontwerp, de herstelregels, communicatie en faseplanning bij te werken voordat je opschaalt.
 
 ## 9. Migreer in fasen en rond de overgang af
 
-Migreer per werkgebied, zodat iedere fase een verantwoordelijke eigenaar en bekende doelgroep heeft. Een gebruikelijke fase bevat deze controlepunten:
+Migreer per werkgebied, zodat iedere fase een verantwoordelijke eigenaar en bekende doelgroep heeft. Plan per fase drie besluiten: de overgang accepteren, de nazorg afronden en de bron uitfaseren.
 
 1. De eigenaar keurt de inhoudslijst, bestemming en het toegangsmodel goed.
 2. IT lost scanbevindingen op, scant opnieuw en bereidt de bestemming voor.
 3. Het migratieteam voert een eerste of incrementele kopie uit.
 4. Gebruikers oefenen en valideren de bestemming vóór de afgesproken deadline.
-5. De bron wordt alleen-lezen, de laatste wijzigingen worden gemigreerd en gebruikers stappen over op Microsoft 365.
-6. Het team vergelijkt de inhoudsinventarisatie met de resultaten, verklaart verschillen voor acceptatie door de eigenaar en valideert machtigingen, kritieke bestanden en bedrijfsprocessen.
-7. Ondersteuning registreert openstaande problemen en neemt de afgesproken nazorg- en beheerverantwoordelijkheden over.
+5. De bron wordt alleen-lezen en het team migreert de laatste wijzigingen.
+6. Het team vergelijkt de inventarisatie met de resultaten en valideert machtigingen, kritieke bestanden en bedrijfsprocessen. De eigenaar keurt vastgelegde verschillen goed.
+7. De bedrijfseigenaar en IT accepteren de overgang op basis van de onderstaande criteria. Gebruikers stappen over op Microsoft 365 en de nazorg begint.
 
-Communiceer vooraf het overgangsmoment, de regels voor de schrijfstops, de nieuwe locatie, de ondersteuningsroute en de terugvalcriteria. Laat beide locaties niet langdurig beschrijfbaar; dubbele werkkopieën maken onduidelijk welke versie leidend is.
+Communiceer vooraf het overgangsmoment, de regels voor de schrijfstop, de nieuwe locaties, de ondersteuningsroute en de terugvalcriteria. Los blokkades op voordat gebruikers overstappen. Laat beide locaties niet beschrijfbaar; dubbele werkkopieën maken onduidelijk welke versie leidend is.
 
-Spreek voor de oude share een alleen-lezenperiode, toegangsregels en een beslisdatum voor uitfasering af. Bepaal die periode op basis van validatie-, bedrijfsvoerings- en bewaarbehoeften. Een alleen-lezenbron vervangt geen back-up of herstelplan.
+Benoem vóór de overgang de nazorgverantwoordelijke, het servicedeskcontact, lokale Key Users en eigenaren voor escalaties. Bereid korte ondersteuningsinstructies voor ontbrekende toegang en synchronisatieproblemen voor, inclusief controles vóór een nieuwe poging en wanneer escalatie nodig is. Plan een evaluatie van terugkerende vragen, openstaande fouten en trainingsbehoeften.
 
-Leg vóór de overgang de nazorgafspraken vast:
-
-- de nazorgverantwoordelijke, het servicedeskcontact, Key Users en eigenaren voor escalaties;
-- korte ondersteuningsinstructies voor ontbrekende toegang en synchronisatieproblemen, inclusief controles vóór een nieuwe poging en wanneer escalatie nodig is;
-- een evaluatiedatum voor terugkerende vragen, openstaande fouten en trainingsbehoeften;
-- uitstapcriteria: geaccepteerde inhoudsverschillen, werkende kritieke taken, voorbereide gebruikers en resterende problemen die benoemde beheereigenaren hebben geaccepteerd.
-
-Faseer de bron pas uit nadat de bedrijfseigenaar en IT deze criteria hebben geaccepteerd en bewaar- en herstelafspraken hebben bevestigd. Leg vast wie de uitfasering uitvoert en wanneer.
+Spreek voor de oude share een alleen-lezenperiode, toegangsregels en een beslisdatum voor uitfasering af. Baseer die periode op validatie-, bedrijfsvoerings- en bewaarbehoeften. Houd de bron tijdens de nazorg en tot goedkeuring van de uitfasering alleen-lezen. Een alleen-lezenbron vervangt geen back-up of herstelplan.
 
 ## Wanneer is de migratie klaar?
 
-Een fase is afgerond wanneer:
+Leg elk van de volgende besluiten afzonderlijk vast. Onbedoelde toegang of een falend kritisch proces blokkeert acceptatie. Andere problemen hebben een eigenaar, een afgesproken oplossing en een einddatum nodig.
 
-- [ ] De bedrijfseigenaar heeft de inhoud, structuur, toegang en het werkpatroon geaccepteerd.
-- [ ] Migratieresultaten sluiten aan op de inventarisatie en goedgekeurde uitsluitingen; de eigenaar heeft verklaarde verschillen geaccepteerd. Resterende afwijkingen hebben eigenaren en einddatums.
-- [ ] Representatieve gebruikers hebben het nieuwe werkpatroon zelfstandig aangetoond; training, instructies en verdere ondersteuning zijn voor de betrokken gebruikers geregeld.
-- [ ] Kritieke koppelingen, applicaties en processen zijn getest of bewust vervangen.
-- [ ] Bewaarbeleid, herstel, apparaatbescherming, evaluatie en eigenaarschap van de werkomgeving zijn vastgelegd.
-- [ ] De bron voor lidmaatschap, het deelmodel, de eigenaar van toegangsbeoordelingen en de uitzonderingsroute zijn vastgelegd.
-- [ ] De oude locatie is volgens plan alleen-lezen of uitgefaseerd.
-- [ ] Een datum voor evaluatie na de migratie is gepland.
-- [ ] De servicedesk en beheereigenaren hebben de ondersteuningsinstructies, resterende problemen en uitstapcriteria voor de nazorg geaccepteerd.
+### Accepteer de overgang
 
-Meet succes aan vindbaarheid, juiste toegang, acceptatie door de eigenaar, continuïteit van processen en afgenomen gebruik van de fileserver, niet alleen aan het aantal gekopieerde bestanden.
+- [ ] De bedrijfseigenaar heeft inhoud, structuur en bestemming goedgekeurd. De migratieresultaten sluiten aan op de inventarisatie en goedgekeurde uitsluitingen, of de eigenaar heeft vastgelegde verschillen goedgekeurd.
+- [ ] De toegangstests slagen. De bron voor lidmaatschap, het deelmodel, de werkruimte-eigenaren, de eigenaar van toegangsbeoordelingen, de uitzonderingsroute en de beoordelingsdatums zijn vastgelegd.
+- [ ] Kritieke koppelingen, applicaties en volledige bedrijfstaken slagen voor hun tests of zijn vervangen door geteste alternatieven.
+- [ ] Representatieve gebruikers voeren essentiële taken zelfstandig uit. Training en taakinstructies zijn beschikbaar voor de betrokken gebruikers.
+- [ ] IT heeft afspraken over bewaring, herstel, apparaatbescherming en terugval bevestigd.
+- [ ] De servicedesk en het nazorgteam zijn beschikbaar met ondersteuningsinstructies, eigenaren voor escalaties en een geplande evaluatie.
+- [ ] De bron is alleen-lezen en Microsoft 365 is de afgesproken werklocatie.
+
+### Rond de nazorg af
+
+- [ ] De geplande evaluatie heeft plaatsgevonden. Het team heeft terugkerende ondersteuningsproblemen aangepakt en waar nodig aanvullende training gegeven.
+- [ ] Beheereigenaren hebben de resterende problemen die het werk niet blokkeren geaccepteerd, met benoemde eigenaren, oplossingen en einddatums.
+- [ ] De nazorgverantwoordelijke en service-eigenaar hebben de overdracht naar reguliere ondersteuning goedgekeurd, inclusief instructies, herstelprocedures, verantwoordelijkheden en beoordelingsdatums.
+
+### Faseer de bron uit
+
+- [ ] De nazorg is afgerond. De bedrijfseigenaar en IT hebben bevestigd dat vereiste records, juridische bewaarplichten en herstelbehoeften zijn geregeld voordat de bron wordt uitgefaseerd.
+- [ ] Het besluit tot uitfasering, de uitvoerder en de datum zijn vastgelegd. Kritieke koppelingen en processen zijn niet meer afhankelijk van de oude share.
+- [ ] De oude locatie is volgens het goedgekeurde plan uitgefaseerd.
+
+Meet succes aan vindbaarheid, juiste toegang, acceptatie door de eigenaar, continuïteit van processen en afgenomen gebruik van de fileserver. Aantallen gekopieerde items vormen slechts een deel van het bewijs.
 
 :::warning[Veelgemaakte migratiefouten]
 
@@ -419,6 +451,7 @@ Meet succes aan vindbaarheid, juiste toegang, acceptatie door de eigenaar, conti
 - [Gevoeligheidslabels voor groepen en sites gebruiken](https://learn.microsoft.com/nl-nl/purview/sensitivity-labels-teams-groups-sites)
 - [Bestanden tussen een computer en OneDrive synchroniseren](https://support.microsoft.com/nl-nl/onedrive/sync-your-computer-s-files-and-folders-with-onedrive)
 - [Beperkingen en limieten in OneDrive en SharePoint](https://support.microsoft.com/nl-nl/onedrive/restrictions-and-limitations-in-onedrive-and-sharepoint)
+- [Schijfruimte besparen met OneDrive Files On-Demand](https://support.microsoft.com/nl-nl/onedrive/save-disk-space-with-onedrive-files-on-demand-for-windows)
 - [Toegang tot SharePoint en OneDrive vanaf onbeheerde apparaten beheren](https://learn.microsoft.com/nl-nl/sharepoint/control-access-from-unmanaged-devices)
 - [SharePoint-machtigingen uitbreiden naar gedownloade documenten](https://learn.microsoft.com/nl-nl/purview/sensitivity-labels-sharepoint-extend-permissions)
 - [Meer informatie over Endpoint Data Loss Prevention](https://learn.microsoft.com/nl-nl/purview/endpoint-dlp-learn-about)
