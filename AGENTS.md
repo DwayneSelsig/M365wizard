@@ -140,6 +140,19 @@ Examples of removing an unnecessary word:
 
 Keep words such as "directly" when they express a real distinction.
 
+### Preserve Explanatory Text
+
+You MUST preserve explanations of causes, technical dependencies, and
+consequences when editing. Checklists and diagrams supplement these
+explanations; they do not replace them.
+
+You SHOULD simplify difficult sentences by splitting them first. Remove
+explanatory prose only when the same explanation remains equally clear
+elsewhere. Mentioning the same topic is not enough.
+
+Do not treat fewer words as an editorial goal. After each deletion, check
+whether useful explanation was lost.
+
 ## Final Editorial Review With `no-ai-slop`
 
 For substantial new or rewritten prose, use the project-local `no-ai-slop`
