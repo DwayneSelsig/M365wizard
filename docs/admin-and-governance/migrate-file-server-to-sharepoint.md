@@ -133,7 +133,37 @@ User data can also belong to a team. Check before putting team files in one pers
 
 You can teach users where to find their files after the move. For applications, you need to update fixed paths. Sometimes you also need to change or replace the application. Then test whether the whole process still works.
 
-Excel can use [links to other workbooks in SharePoint and OneDrive](https://support.microsoft.com/en-us/excel/create-workbook-links). It can also retrieve data from files through the [Power Query SharePoint Folder connector](https://learn.microsoft.com/en-us/power-query/connectors/sharepoint-folder). Other applications cannot always do this.
+If an application only accepts local file paths, keeping its data in SharePoint may require synchronization. The application needs the local copy to do its work. Synchronization does not make those local paths identical across users. Check whether the application supports cloud access before choosing this approach.
+
+#### Example: Power Query Reads A Local File
+
+User A creates a Power Query import in `Summary.xlsx`. The query reads `Source.xlsx` from a synchronized project folder. User B opens `Summary.xlsx` and tries to refresh the query. Both users have the source file, but its local path differs:
+
+| User | Local source path |
+| --- | --- |
+| User A | `C:\Users\userA\OneDrive - Contoso\Project A\Source.xlsx` |
+| User B | `C:\Users\userB\OneDrive - Contoso\Project A\Source.xlsx` |
+
+The query still points to user A's local path. User B may not have that location or permission to read it. Refresh can therefore fail even though both files are fully synchronized. Synchronizing the source folder does not by itself change the query's source.
+
+For this import, I recommend the [Power Query SharePoint Folder connector](https://learn.microsoft.com/en-us/power-query/connectors/sharepoint-folder):
+
+1. In Excel, choose **Data > Get Data > From File > From SharePoint Folder**. Microsoft describes this option in its [Power Query import guidance](https://support.microsoft.com/en-us/excel/import-data-from-data-sources-power-query).
+2. Enter the SharePoint site URL, for example `https://contoso.sharepoint.com/sites/Projects`. Use the site address, without a library or file path.
+3. Sign in with an organizational account that can read the source. Filter the returned files to the intended folder and `Source.xlsx` before importing its data.
+4. Select the required table or sheet. Check the query's transformations and load the result into `Summary.xlsx`.
+
+The query now reads the source through SharePoint. Its source no longer depends on `C:\Users\userA\...` or a synchronized source folder. Each user still needs a working connection and access to the source. Test refresh as user B after changing and saving a value in `Source.xlsx` on SharePoint. Compare the result with that new value, rather than trusting data already loaded in the workbook.
+
+For an existing query, update its source and check the later steps. A SharePoint folder connection returns a list of files. Select the intended file before processing its contents. Merely replacing a local path with an HTTPS address is not enough to change a local-file query into a SharePoint folder query.
+
+#### Distinguish Power Query From Workbook Links
+
+Power Query imports and transforms data. Workbook links refer to cells in another workbook. Changing the Power Query source does not automatically repair those links, macros, or other applications that expect local paths.
+
+Excel can also [store workbook links as relative paths](https://support.microsoft.com/en-us/excel/description-of-workbook-link-management-and-storage-in-excel). These links can keep working if the relative folder structure stays the same. A full path in the formula bar does not always mean Excel stored an absolute path. Check how the link is stored and how users open the workbooks.
+
+For cell references between workbooks, Excel also supports [workbook links using SharePoint and OneDrive addresses](https://support.microsoft.com/en-us/excel/create-workbook-links). For shared workbooks, I prefer these supported cloud links over links tied to a Windows profile. Create or repair the workbook link in Excel. Each user still needs access to the source workbook. Check whether link refresh is enabled, and test that changed source values appear. Other applications cannot always use these cloud access methods.
 
 Include the organization's Excel version, workbook links, queries, macros, and imports in the process tests below.
 
@@ -267,6 +297,67 @@ During a permissions review, consider [Restricted Content Discovery](https://lea
 
 ## 5. Control Synchronization And Local Data Risk
 
+I recommend this access order for shared documents:
+
+1. Start from SharePoint or Teams.
+2. Use a OneDrive shortcut when the task requires File Explorer. Select only the folders needed.
+3. Use full library **Sync** only for a documented, approved exception.
+
+Starting from SharePoint or Teams can include browser editing or [opening files in a supported desktop app](https://support.microsoft.com/en-us/sharepoint/sync/open-a-onedrive-or-sharepoint-file-in-the-desktop-app-instead-of-the-browser). Check the app's requirements. The **Open in app** feature described by Microsoft requires the OneDrive client and Files On-Demand.
+
+Microsoft [recommends OneDrive shortcuts over the Sync button](https://learn.microsoft.com/en-us/sharepoint/sharepoint-sync). Shortcuts are available across devices; **Sync** connects a library to a specific device. Microsoft also reports better performance for shortcuts.
+
+For File Explorer access, both methods use the OneDrive sync client. A shortcut can cover [a specific folder or an entire library](https://support.microsoft.com/en-us/onedrive/add-shortcuts-to-shared-folders-in-onedrive). Select only the content needed for the task. A shortcut alone does not reduce the amount synchronized.
+
+For example, a team needs only the `Project A` folder. Add a shortcut to that folder rather than the library containing every project. Changes to `Project A` still synchronize through OneDrive. The shortcut limits the content involved; it does not remove the synchronization behavior.
+
+:::warning[Choose One Method Per Library]
+
+You cannot combine **Sync** and **Add shortcut to My files** for the same SharePoint library. This also applies when the shortcut targets a folder within that library. Follow [Microsoft's explanation of this restriction](https://learn.microsoft.com/en-us/troubleshoot/sharepoint/sync/cannot-sync-shortcut-folder).
+
+:::
+
+### Understand Shared-Library Conflicts
+
+Each device tracks local files and changes. A saved change on one laptop may not have reached SharePoint yet. Another person can keep working with the version already there. Microsoft documents [sync conflicts during offline or concurrent editing](https://support.microsoft.com/en-us/onedrive/restrictions-and-limitations-in-onedrive-and-sharepoint).
+
+This can also happen with personal files across several devices. Shared libraries add other people's edits and folder moves. OneDrive has to keep those changes aligned across everyone's devices.
+
+#### Example: A Connection Drops During Editing
+
+User A opens `Budget.xlsx` from a synchronized project folder. Their Wi-Fi or VPN connection drops. They keep editing the local file, but their changes no longer reach SharePoint.
+
+User B opens the same workbook from SharePoint. They change the figures and save. Their changes reach SharePoint while user A is still working offline.
+
+When user A reconnects, OneDrive has two sets of changes to handle. Supported apps and formats can [merge changes through co-authoring](https://support.microsoft.com/en-us/sharepoint/get-started-with-sharepoint/document-collaboration-and-co-authoring). Some changes need manual review or a separate saved copy. The result depends on the application, file type, and when changes arrive. A successful upload alone does not prove that both people's intended changes remain. Check the figures as part of the pilot.
+
+#### Example: A Folder Moves While A File Is Open
+
+User A moves `Projects/Project A` to `Completed/Project A`. User B still has `Budget.xlsx` open from the original folder on their laptop. The move reaches SharePoint before user B's device receives it.
+
+User B saves their work. Their application may still use the old path. OneDrive now has to process the folder move and user B's saved changes. If the application creates a file at the old path, files can remain in both locations. A duplicate or part of the old folder structure can then appear. Some applications handle the move without this problem. Test the actual application before accepting the working pattern.
+
+An application can also [block synchronization while a file is in use](https://support.microsoft.com/en-us/onedrive/troubleshoot-onedrive-error-this-file-can-t-be-synced). Plan large moves when colleagues can close the affected files. Let pending changes finish synchronizing before reorganizing shared folders.
+
+#### More Situations To Include In The Pilot
+
+Use the examples that match the team's work:
+
+| Situation | What to check |
+| --- | --- |
+| Someone uses a desktop and a laptop that has been offline for days | Save different changes on both devices. Reconnect the laptop and check which changes reach SharePoint |
+| A laptop goes to sleep before an upload finishes | Resume the laptop and confirm that the pending changes arrive before another person continues |
+| Someone moves or renames thousands of files during daily work | Check open files, pending changes, and the resulting folder locations |
+| An application, antivirus tool, DLP tool, or backup tool holds a file open | Check whether the file is locked and whether synchronization resumes after it is released |
+| Colleagues edit the same non-Office file | Verify whether the application supports co-authoring and how it handles conflicting saves |
+| A large library has many pending changes, or the client is outdated or shows errors | Check client health and whether changes finish syncing within the team's required time |
+| Someone copies a synchronized folder into another synchronized location | Check which copy colleagues edit and whether they can identify the agreed working file |
+| Someone reconnects OneDrive, or loses and later regains library access | Check what happens to pending local edits when synchronization resumes |
+
+Before choosing another sync client, review the process and storage choice. Another client still has to handle user A's offline edits and user B's changes. It must also handle folder moves and applications using old paths. Assess its support, security, administration, and costs against the requirements. Use the [application and process assessment](#map-work-process-dependencies) before approving it.
+
+### Protect Local Data And Plan Recovery
+
 Oversharing can expose information to unintended people. Synchronization can also affect the files themselves: [OneDrive synchronizes additions, changes, and deletions](https://support.microsoft.com/en-us/onedrive/sync-your-computer-s-files-and-folders-with-onedrive) between the device and the cloud. An accidental deletion, destructive application, or compromised device can therefore affect the shared cloud copy and other synchronized devices. Treat synchronization as an access method, not as a backup.
 
 | Risk | What can happen | Required design response |
@@ -353,7 +444,14 @@ Validate these four areas:
 - [ ] Run critical non-Office applications through their complete business tasks.
 - [ ] Test manual work, file imports, linked Excel workbooks, and background tasks where used. Use the account or application identity that will do the work after the move.
 - [ ] Change a value in a source file and check the result after import, refresh, and further processing. Do not rely on old saved values.
+- [ ] Repeat linked-workbook, query, macro, and import tests as user B, with a different Windows profile and the intended permissions. Check for paths tied to user A's profile and confirm that fresh source values reach the result.
+- [ ] Refresh the Power Query import through the SharePoint connector as both users without synchronizing the source folder. Check sign-in, source access, and the result after a source value changes.
 - [ ] Enable OneDrive synchronization only for the approved working pattern. Test Files On-Demand, offline use, item volume, deletion, and recovery.
+- [ ] Confirm the access method for each task: SharePoint or Teams, a targeted OneDrive shortcut, or an approved full library sync. Record the content needed and the reason for any offline access.
+- [ ] Use test files to try offline editing while another user edits the same file online. Reconnect and save the changes.
+- [ ] Move a shared test folder while another user has a file open from its original location. Save from that application.
+- [ ] Include other relevant situations from the [shared-library examples](#more-situations-to-include-in-the-pilot), such as a second device returning online, a sleeping laptop, or an application keeping files open.
+- [ ] For both scenarios, check both users' changes, the file location, sync status, and any duplicate copies. Validate the support route for unresolved issues. The tests can pass without producing a conflict.
 - [ ] Obtain application-owner and IT approval for application use of synchronization. Demonstrate that work continues without the usual user or device.
 
 **Users And Support**
@@ -443,13 +541,21 @@ Measure success by findability, correct access, owner acceptance, process contin
 - [Restricted Content Discovery prerequisites and behavior](https://learn.microsoft.com/en-us/sharepoint/restricted-content-discovery)
 - [Microsoft 365 champion resources](https://learn.microsoft.com/en-us/office365/customlearning/champ_getstarted)
 - [Create workbook links in Excel](https://support.microsoft.com/en-us/excel/create-workbook-links)
+- [How Excel stores relative and absolute workbook links](https://support.microsoft.com/en-us/excel/description-of-workbook-link-management-and-storage-in-excel)
 - [Power Query SharePoint Folder connector](https://learn.microsoft.com/en-us/power-query/connectors/sharepoint-folder)
+- [Import data into Excel with Power Query](https://support.microsoft.com/en-us/excel/import-data-from-data-sources-power-query)
 - [Kerberos authentication in Windows Server](https://learn.microsoft.com/en-us/windows-server/security/kerberos/kerberos-authentication-overview)
 - [Microsoft Graph authentication and authorization](https://learn.microsoft.com/en-us/graph/auth/auth-concepts)
 - [Teams and SharePoint integration](https://learn.microsoft.com/en-us/sharepoint/teams-connected-sites)
 - [Secure and govern Microsoft 365 Copilot](https://learn.microsoft.com/en-us/microsoft-365/copilot/secure-govern-copilot-foundational-deployment-guidance)
 - [Use sensitivity labels for groups and sites](https://learn.microsoft.com/en-us/purview/sensitivity-labels-teams-groups-sites)
 - [Sync files between a computer and OneDrive](https://support.microsoft.com/en-us/onedrive/sync-your-computer-s-files-and-folders-with-onedrive)
+- [Compare SharePoint synchronization and OneDrive shortcuts](https://learn.microsoft.com/en-us/sharepoint/sharepoint-sync)
+- [Add shortcuts to shared folders in OneDrive](https://support.microsoft.com/en-us/onedrive/add-shortcuts-to-shared-folders-in-onedrive)
+- [Why shortcuts and Sync cannot be combined for the same library](https://learn.microsoft.com/en-us/troubleshoot/sharepoint/sync/cannot-sync-shortcut-folder)
+- [Open a OneDrive or SharePoint file in a desktop app](https://support.microsoft.com/en-us/sharepoint/sync/open-a-onedrive-or-sharepoint-file-in-the-desktop-app-instead-of-the-browser)
+- [Document collaboration and co-authoring](https://support.microsoft.com/en-us/sharepoint/get-started-with-sharepoint/document-collaboration-and-co-authoring)
+- [Troubleshoot files that cannot sync while in use](https://support.microsoft.com/en-us/onedrive/troubleshoot-onedrive-error-this-file-can-t-be-synced)
 - [Restrictions and limitations in OneDrive and SharePoint](https://support.microsoft.com/en-us/onedrive/restrictions-and-limitations-in-onedrive-and-sharepoint)
 - [Save disk space with OneDrive Files On-Demand](https://support.microsoft.com/en-us/onedrive/save-disk-space-with-onedrive-files-on-demand-for-windows)
 - [Control SharePoint and OneDrive access from unmanaged devices](https://learn.microsoft.com/en-us/sharepoint/control-access-from-unmanaged-devices)

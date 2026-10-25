@@ -133,7 +133,37 @@ Gebruikersdata kan ook van een team zijn. Zet die bestanden daarom niet zomaar i
 
 Gebruikers kun je leren waar de bestanden voortaan staan. Voor applicaties moet je vaste paden aanpassen. Soms moet je ook de applicatie aanpassen of vervangen. Test daarna of het hele proces nog werkt.
 
-Excel kan [koppelingen naar andere werkmappen in SharePoint en OneDrive](https://support.microsoft.com/nl-nl/excel/create-workbook-links) gebruiken. Met de [SharePoint-mapconnector van Power Query](https://learn.microsoft.com/nl-nl/power-query/connectors/sharepoint-folder) kan Excel ook gegevens uit bestanden ophalen. Andere applicaties kunnen dit niet altijd.
+Als een applicatie alleen lokale bestandspaden accepteert, kan synchronisatie nodig zijn om de gegevens in SharePoint te houden. De applicatie heeft de lokale kopie nodig om te werken. Synchronisatie maakt die lokale paden niet voor iedere gebruiker gelijk. Controleer eerst of de applicatie cloudtoegang ondersteunt.
+
+#### Voorbeeld: Power Query leest een lokaal bestand
+
+Gebruiker A maakt een Power Query-import in `Summary.xlsx`. De query leest `Source.xlsx` vanuit een gesynchroniseerde projectmap. Gebruiker B opent `Summary.xlsx` en probeert de query te vernieuwen. Beide gebruikers hebben het bronbestand, maar het lokale pad verschilt:
+
+| Gebruiker | Lokaal bronpad |
+| --- | --- |
+| Gebruiker A | `C:\Users\userA\OneDrive - Contoso\Project A\Source.xlsx` |
+| Gebruiker B | `C:\Users\userB\OneDrive - Contoso\Project A\Source.xlsx` |
+
+De query verwijst nog naar het lokale pad van gebruiker A. Bij gebruiker B kan die locatie ontbreken of ontoegankelijk zijn. Vernieuwen kan daardoor mislukken terwijl beide bestanden volledig gesynchroniseerd zijn. Synchronisatie van de bronmap past de bron van de query niet vanzelf aan.
+
+Voor deze import adviseer ik de [SharePoint-mapconnector van Power Query](https://learn.microsoft.com/nl-nl/power-query/connectors/sharepoint-folder):
+
+1. Kies in Excel **Gegevens > Gegevens ophalen > Uit bestand > Uit SharePoint-map**. Microsoft beschrijft deze optie in de [uitleg over importeren met Power Query](https://support.microsoft.com/nl-nl/excel/import-data-from-data-sources-power-query).
+2. Vul de URL van de SharePoint-site in, bijvoorbeeld `https://contoso.sharepoint.com/sites/Projects`. Gebruik het siteadres, zonder bibliotheek- of bestandspad.
+3. Meld je aan met een organisatieaccount dat de bron mag lezen. Filter de gevonden bestanden op de bedoelde map en `Source.xlsx` voordat je de gegevens importeert.
+4. Selecteer de benodigde tabel of het werkblad. Controleer de verwerkingsstappen van de query en laad het resultaat in `Summary.xlsx`.
+
+De query leest de bron nu via SharePoint. De bron hangt niet meer af van `C:\Users\userA\...` of een gesynchroniseerde bronmap. Iedere gebruiker heeft nog steeds een werkende verbinding en toegang tot de bron nodig. Wijzig een waarde in `Source.xlsx` op SharePoint en sla deze op. Test daarna het vernieuwen als gebruiker B. Vergelijk het resultaat met die nieuwe waarde. Vertrouw niet op gegevens die al in de werkmap waren geladen.
+
+Pas bij een bestaande query de bron aan en controleer de volgende stappen. Een verbinding met een SharePoint-map geeft een lijst met bestanden terug. Selecteer het bedoelde bestand voordat je de inhoud verwerkt. Alleen een lokaal pad vervangen door een HTTPS-adres maakt van een lokale bestandsquery nog geen query voor een SharePoint-map.
+
+#### Maak onderscheid tussen Power Query en werkmapkoppelingen
+
+Power Query haalt gegevens op en verwerkt ze. Werkmapkoppelingen verwijzen naar cellen in een andere werkmap. Een aangepaste Power Query-bron herstelt niet automatisch die koppelingen, macro's of andere applicaties die lokale paden verwachten.
+
+Excel kan [werkmapkoppelingen ook als relatieve paden opslaan](https://support.microsoft.com/nl-nl/excel/description-of-workbook-link-management-and-storage-in-excel). Die koppelingen kunnen blijven werken als de onderlinge mapstructuur gelijk blijft. Een volledig pad in de formulebalk betekent niet altijd dat Excel een absoluut pad heeft opgeslagen. Controleer hoe de koppeling is opgeslagen en hoe gebruikers de werkmappen openen.
+
+Voor celverwijzingen tussen werkmappen ondersteunt Excel ook [werkmapkoppelingen met SharePoint- en OneDrive-adressen](https://support.microsoft.com/nl-nl/excel/create-workbook-links). Voor gedeelde werkmappen geef ik de voorkeur aan deze ondersteunde cloudkoppelingen boven koppelingen naar een Windows-profiel. Maak of herstel de koppeling via de functie voor werkmapkoppelingen in Excel. Iedere gebruiker heeft nog steeds toegang tot de bronwerkmap nodig. Controleer of de koppeling mag worden vernieuwd. Test of gewijzigde bronwaarden in het resultaat verschijnen. Andere applicaties kunnen deze vormen van cloudtoegang niet altijd gebruiken.
 
 Neem de Excelversie van je organisatie, werkmapkoppelingen, query's, macro's en imports op in de procestests hieronder.
 
@@ -267,6 +297,67 @@ Overweeg tijdens een machtigingsbeoordeling [Restricted Content Discovery](https
 
 ## 5. Beheers risico's van synchronisatie en lokale gegevens
 
+Ik adviseer deze toegangsvolgorde voor gedeelde documenten:
+
+1. Begin vanuit SharePoint of Teams.
+2. Gebruik een OneDrive-snelkoppeling voor taken die Verkenner vereisen. Selecteer alleen de benodigde mappen.
+3. Gebruik **Synchroniseren** voor een volledige bibliotheek alleen als vastgelegde, goedgekeurde uitzondering.
+
+Vanuit SharePoint of Teams kun je bestanden in de browser bewerken of [in een ondersteunde desktopapp openen](https://support.microsoft.com/nl-nl/sharepoint/sync/open-a-onedrive-or-sharepoint-file-in-the-desktop-app-instead-of-the-browser). Controleer de eisen van de app. De functie **Openen in app** die Microsoft beschrijft, vereist de OneDrive-client en Files On-Demand.
+
+Microsoft [adviseert OneDrive-snelkoppelingen boven de knop Synchroniseren](https://learn.microsoft.com/nl-nl/sharepoint/sharepoint-sync). Snelkoppelingen zijn op meerdere apparaten beschikbaar. **Synchroniseren** koppelt een bibliotheek aan één apparaat. Microsoft noemt ook betere prestaties voor snelkoppelingen.
+
+Voor toegang via Verkenner gebruiken beide methoden de OneDrive-synchronisatieclient. Een snelkoppeling kan [een specifieke map of een volledige bibliotheek](https://support.microsoft.com/nl-nl/onedrive/add-shortcuts-to-shared-folders-in-onedrive) omvatten. Selecteer alleen de inhoud die de taak vereist. Een snelkoppeling op zichzelf vermindert de gesynchroniseerde hoeveelheid niet.
+
+Een team heeft bijvoorbeeld alleen de map `Project A` nodig. Voeg een snelkoppeling naar die map toe. Kies niet de bibliotheek met alle projecten. Wijzigingen in `Project A` worden nog steeds via OneDrive gesynchroniseerd. De snelkoppeling beperkt de betrokken inhoud, maar neemt de synchronisatie niet weg.
+
+:::warning[Kies één methode per bibliotheek]
+
+Je kunt **Synchroniseren** en **Snelkoppeling toevoegen aan Mijn bestanden** niet combineren voor dezelfde SharePoint-bibliotheek. Dit geldt ook als de snelkoppeling naar een map binnen die bibliotheek verwijst. Volg [Microsofts uitleg over deze beperking](https://learn.microsoft.com/nl-nl/troubleshoot/sharepoint/sync/cannot-sync-shortcut-folder).
+
+:::
+
+### Begrijp conflicten bij gedeelde bibliotheken
+
+Elk apparaat houdt lokale bestanden en wijzigingen bij. Een opgeslagen wijziging op één laptop kan SharePoint nog niet hebben bereikt. Een collega kan verder werken met de versie die daar al staat. Microsoft beschrijft [synchronisatieconflicten bij offline of gelijktijdig bewerken](https://support.microsoft.com/nl-nl/onedrive/restrictions-and-limitations-in-onedrive-and-sharepoint).
+
+Dit kan ook gebeuren met persoonlijke bestanden op meerdere apparaten. Bij gedeelde bibliotheken komen daar wijzigingen en mapverplaatsingen van collega's bij. OneDrive moet die wijzigingen op alle apparaten op elkaar afstemmen.
+
+#### Voorbeeld: de verbinding valt weg tijdens het bewerken
+
+Gebruiker A opent `Budget.xlsx` vanuit een gesynchroniseerde projectmap. De wifi- of VPN-verbinding valt weg. Gebruiker A werkt lokaal verder. De wijzigingen bereiken SharePoint niet meer.
+
+Gebruiker B opent dezelfde werkmap vanuit SharePoint. Deze gebruiker past de bedragen aan en slaat op. De wijzigingen bereiken SharePoint terwijl gebruiker A nog offline werkt.
+
+Als gebruiker A weer verbinding maakt, moet OneDrive twee reeksen wijzigingen verwerken. Ondersteunde apps en bestandsindelingen kunnen [wijzigingen samenvoegen via cocreatie](https://support.microsoft.com/nl-nl/sharepoint/get-started-with-sharepoint/document-collaboration-and-co-authoring). Sommige wijzigingen vragen handmatige controle of een afzonderlijk opgeslagen kopie. De uitkomst hangt af van de applicatie, het bestandstype en wanneer wijzigingen binnenkomen. Een geslaagde upload bewijst nog niet dat de bedoelde wijzigingen van beiden behouden zijn. Controleer de bedragen tijdens de proefmigratie.
+
+#### Voorbeeld: een map verhuist terwijl een bestand openstaat
+
+Gebruiker A verplaatst `Projects/Project A` naar `Completed/Project A`. Gebruiker B heeft `Budget.xlsx` nog open vanuit de oorspronkelijke map op de laptop. De verplaatsing bereikt SharePoint voordat het apparaat van gebruiker B deze ontvangt.
+
+Gebruiker B slaat het werk op. De applicatie kan nog het oude pad gebruiken. OneDrive moet nu de mapverplaatsing en de opgeslagen wijzigingen van gebruiker B verwerken. Als de applicatie op het oude pad een bestand aanmaakt, kunnen op beide locaties bestanden staan. Zo kan een dubbele kopie of een deel van de oude mapstructuur verschijnen. Sommige applicaties verwerken de verplaatsing zonder dit probleem. Test de echte applicatie voordat je de werkwijze goedkeurt.
+
+Een applicatie kan ook [synchronisatie blokkeren terwijl een bestand in gebruik is](https://support.microsoft.com/nl-nl/onedrive/troubleshoot-onedrive-error-this-file-can-t-be-synced). Plan grote verplaatsingen wanneer collega's de betrokken bestanden kunnen sluiten. Laat openstaande wijzigingen eerst synchroniseren voordat je gedeelde mappen opnieuw indeelt.
+
+#### Meer situaties voor de proefmigratie
+
+Gebruik de voorbeelden die bij het werk van het team passen:
+
+| Situatie | Wat controleer je? |
+| --- | --- |
+| Iemand gebruikt een desktop en een laptop die dagen offline was | Sla op beide apparaten verschillende wijzigingen op. Verbind de laptop opnieuw en controleer welke wijzigingen SharePoint bereiken |
+| Een laptop gaat in slaapstand voordat een upload klaar is | Haal de laptop uit slaapstand. Controleer of de openstaande wijzigingen aankomen voordat een collega verdergaat |
+| Iemand verplaatst of hernoemt duizenden bestanden tijdens het dagelijkse werk | Controleer open bestanden, openstaande wijzigingen en de uiteindelijke maplocaties |
+| Een applicatie, antivirusprogramma, DLP-tool of back-uptool houdt een bestand open | Controleer of het bestand vergrendeld is en of de synchronisatie doorgaat nadat het is vrijgegeven |
+| Collega's bewerken hetzelfde niet-Office-bestand | Controleer of de applicatie cocreatie ondersteunt en hoe deze conflicterende opslagacties afhandelt |
+| Een grote bibliotheek heeft veel openstaande wijzigingen, of de client is verouderd of meldt fouten | Controleer de werking van de client. Kijk of wijzigingen binnen de voor het team vereiste tijd zijn gesynchroniseerd |
+| Iemand kopieert een gesynchroniseerde map naar een andere gesynchroniseerde locatie | Controleer welke kopie collega's bewerken en of zij het afgesproken werkbestand herkennen |
+| Iemand koppelt OneDrive opnieuw, of verliest toegang tot een bibliotheek en krijgt die later terug | Controleer wat er met openstaande lokale wijzigingen gebeurt als de synchronisatie wordt hervat |
+
+Beoordeel het proces en de opslagkeuze voordat je een andere synchronisatieclient kiest. Een andere client moet nog steeds de offlinewijzigingen van gebruiker A en de wijzigingen van gebruiker B verwerken. Deze moet ook omgaan met mapverplaatsingen en applicaties die oude paden gebruiken. Toets ondersteuning, beveiliging, beheer en kosten aan de eisen. Gebruik vóór goedkeuring de [beoordeling van applicaties en processen](#breng-afhankelijkheden-van-werkprocessen-in-kaart).
+
+### Bescherm lokale gegevens en regel herstel
+
 Te ruim delen kan informatie blootstellen aan mensen voor wie die niet bedoeld is. Synchronisatie kan ook de bestanden zelf raken: [OneDrive synchroniseert toevoegingen, wijzigingen en verwijderingen](https://support.microsoft.com/nl-nl/onedrive/sync-your-computer-s-files-and-folders-with-onedrive) tussen het apparaat en de cloud. Een onbedoelde verwijdering, schadelijke applicatie of gecompromitteerd apparaat kan daardoor de gedeelde cloudkopie en andere gesynchroniseerde apparaten raken. Behandel synchronisatie als toegangsmethode en niet als back-up.
 
 | Risico | Wat kan gebeuren | Vereiste ontwerpmaatregel |
@@ -353,7 +444,14 @@ Valideer deze vier gebieden:
 - [ ] Voer met kritieke niet-Office-applicaties de volledige bedrijfstaken uit.
 - [ ] Test handmatige verwerking, bestandsimports, gekoppelde Excelwerkmappen en achtergrondtaken waar deze worden gebruikt. Gebruik het account of de applicatie-identiteit die na de verhuizing het werk uitvoert.
 - [ ] Wijzig een waarde in een bronbestand en controleer het resultaat na import, verversen en verdere verwerking. Vertrouw niet op oude opgeslagen waarden.
+- [ ] Herhaal tests met gekoppelde werkmappen, query's, macro's en imports als gebruiker B, met een ander Windows-profiel en de bedoelde machtigingen. Controleer op paden naar het profiel van gebruiker A. Bevestig dat nieuwe bronwaarden het resultaat bereiken.
+- [ ] Vernieuw de Power Query-import via de SharePoint-connector als beide gebruikers, zonder de bronmap te synchroniseren. Controleer de aanmelding, toegang tot de bron en het resultaat nadat een bronwaarde verandert.
 - [ ] Schakel OneDrive-synchronisatie alleen voor het goedgekeurde werkpatroon in. Test Files On-Demand, offlinegebruik, aantallen items, verwijdering en herstel.
+- [ ] Bevestig de toegangsmethode per taak: SharePoint of Teams, een gerichte OneDrive-snelkoppeling of goedgekeurde synchronisatie van een volledige bibliotheek. Leg de benodigde inhoud en de reden voor offlinegebruik vast.
+- [ ] Gebruik testbestanden voor offline bewerken terwijl een andere gebruiker hetzelfde bestand online bewerkt. Maak opnieuw verbinding en sla de wijzigingen op.
+- [ ] Verplaats een gedeelde testmap terwijl een andere gebruiker daaruit nog een bestand open heeft. Sla vanuit die applicatie op.
+- [ ] Neem andere relevante situaties uit de [voorbeelden voor gedeelde bibliotheken](#meer-situaties-voor-de-proefmigratie) mee. Denk aan een tweede apparaat dat weer online komt, een laptop in slaapstand of een applicatie die bestanden openhoudt.
+- [ ] Controleer bij beide situaties de wijzigingen van beide gebruikers, de bestandslocatie, synchronisatiestatus en eventuele dubbele kopieën. Toets de ondersteuningsroute voor onopgeloste problemen. De tests kunnen slagen zonder dat een conflict ontstaat.
 - [ ] Vraag goedkeuring van de applicatie-eigenaar en IT voor synchronisatiegebruik door applicaties. Toon aan dat het werk doorgaat zonder de gebruikelijke gebruiker of het apparaat.
 
 **Gebruikers en ondersteuning**
@@ -443,13 +541,21 @@ Meet succes aan vindbaarheid, juiste toegang, acceptatie door de eigenaar, conti
 - [Voorwaarden en werking van Restricted Content Discovery](https://learn.microsoft.com/nl-nl/sharepoint/restricted-content-discovery)
 - [Hulpmiddelen voor Microsoft 365-champions](https://learn.microsoft.com/nl-nl/office365/customlearning/champ_getstarted)
 - [Werkmapkoppelingen maken in Excel](https://support.microsoft.com/nl-nl/excel/create-workbook-links)
+- [Hoe Excel relatieve en absolute werkmapkoppelingen opslaat](https://support.microsoft.com/nl-nl/excel/description-of-workbook-link-management-and-storage-in-excel)
 - [SharePoint-mapconnector van Power Query](https://learn.microsoft.com/nl-nl/power-query/connectors/sharepoint-folder)
+- [Gegevens in Excel importeren met Power Query](https://support.microsoft.com/nl-nl/excel/import-data-from-data-sources-power-query)
 - [Kerberos-authenticatie in Windows Server](https://learn.microsoft.com/nl-nl/windows-server/security/kerberos/kerberos-authentication-overview)
 - [Authenticatie en autorisatie voor Microsoft Graph](https://learn.microsoft.com/nl-nl/graph/auth/auth-concepts)
 - [Integratie tussen Teams en SharePoint](https://learn.microsoft.com/nl-nl/sharepoint/teams-connected-sites)
 - [Microsoft 365 Copilot veilig beheren](https://learn.microsoft.com/nl-nl/microsoft-365/copilot/secure-govern-copilot-foundational-deployment-guidance)
 - [Gevoeligheidslabels voor groepen en sites gebruiken](https://learn.microsoft.com/nl-nl/purview/sensitivity-labels-teams-groups-sites)
 - [Bestanden tussen een computer en OneDrive synchroniseren](https://support.microsoft.com/nl-nl/onedrive/sync-your-computer-s-files-and-folders-with-onedrive)
+- [SharePoint-synchronisatie en OneDrive-snelkoppelingen vergelijken](https://learn.microsoft.com/nl-nl/sharepoint/sharepoint-sync)
+- [Snelkoppelingen naar gedeelde mappen toevoegen in OneDrive](https://support.microsoft.com/nl-nl/onedrive/add-shortcuts-to-shared-folders-in-onedrive)
+- [Waarom snelkoppelingen en Synchroniseren niet samen kunnen voor dezelfde bibliotheek](https://learn.microsoft.com/nl-nl/troubleshoot/sharepoint/sync/cannot-sync-shortcut-folder)
+- [Een OneDrive- of SharePoint-bestand openen in een desktopapp](https://support.microsoft.com/nl-nl/sharepoint/sync/open-a-onedrive-or-sharepoint-file-in-the-desktop-app-instead-of-the-browser)
+- [Samenwerken aan documenten en cocreatie](https://support.microsoft.com/nl-nl/sharepoint/get-started-with-sharepoint/document-collaboration-and-co-authoring)
+- [Problemen met synchronisatie van bestanden die in gebruik zijn](https://support.microsoft.com/nl-nl/onedrive/troubleshoot-onedrive-error-this-file-can-t-be-synced)
 - [Beperkingen en limieten in OneDrive en SharePoint](https://support.microsoft.com/nl-nl/onedrive/restrictions-and-limitations-in-onedrive-and-sharepoint)
 - [Schijfruimte besparen met OneDrive Files On-Demand](https://support.microsoft.com/nl-nl/onedrive/save-disk-space-with-onedrive-files-on-demand-for-windows)
 - [Toegang tot SharePoint en OneDrive vanaf onbeheerde apparaten beheren](https://learn.microsoft.com/nl-nl/sharepoint/control-access-from-unmanaged-devices)
