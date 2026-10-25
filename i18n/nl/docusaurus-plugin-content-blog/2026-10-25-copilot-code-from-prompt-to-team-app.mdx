@@ -1,0 +1,58 @@
+---
+slug: copilot-code-from-prompt-to-team-app
+title: "Copilot Code: van een prompt naar een app voor je team"
+authors: [dwayne]
+tags: [microsoft-365, copilot, copilot-studio, sharepoint, security]
+---
+
+import YouTubeVideo from '@site/src/components/YouTubeVideo';
+
+Je hebt een idee voor een app die het werk van je team veel makkelijker kan maken. Iedereen ziet wat er moet gebeuren, wie het oppakt en hoe het ervoor staat. Je beschrijft hoe de app moet werken. Copilot Code bouwt een eerste versie die je kunt uitproberen en verfijnen voordat je de app met je team deelt.
+
+Ik zie Microsoft een appplatform bouwen binnen Microsoft 365. Code maken met prompts, vaak *vibe coding* genoemd, wordt onderdeel van een bredere werkwijze: bouwen, publiceren, delen en onderhouden.
+
+<!-- truncate -->
+
+[Sean Astrakhans demonstratie](https://www.youtube.com/watch?v=1f1_kakZRSw) laat deze werkwijze zien met [Cowork](../docs/services/copilot/delegate) en [Copilot Code](../docs/services/copilot/code).
+
+<YouTubeVideo
+  id="1f1_kakZRSw"
+  title="Sean Astrakhan demonstreert Copilot Code, Cowork, Chat en appbeheer"
+  videoLanguage="en"
+/>
+
+:::info[Regel eerst de creditfinanciering]
+
+Code en Cowork vereisen een Copilot-gebruikerslicentie. Daarnaast verbruik je Copilot Credits. Een beheerder moet de facturering inschakelen. Je betaalt het verbruik met capacity packs, een pre-purchase plan of naar verbruik via Azure. Voor het draaien van de app geldt aparte dekking: Copilot Credits of Power Apps Premium, binnen de toepasselijke limieten. Controleer [Licenties en kosten](../docs/services/copilot/licensing-and-costs) en de [uitleg over appfinanciering](../docs/services/copilot/managed-apps#budget-for-building-and-running) met je beheerder.
+
+:::
+
+## Regel de gegevens voordat je bouwt
+
+Het bord slaat teamgegevens op en geeft ze weer. Plaats de [teamlijst](../docs/services/lists) op de SharePoint-site voor dat team of proces. Hergebruik waar mogelijk een geschikte bestaande lijst.
+
+Spreek af wie gegevens mag lezen, toevoegen, wijzigen en verwijderen. Controleer of de doelgroep van de site past bij de gegevens. Zo niet, heroverweeg dan de locatie voordat je bouwt.
+
+Gebruik [SharePoint-structuur en machtigingen](../docs/services/sharepoint/sharepoint-content-structure) om de juiste site en het toegangsmodel te kiezen. Maak die architectuur- en governancekeuzes voordat je het scherm ontwerpt.
+
+Seans bord legt een bruikbaar detail bloot. Kaarten tussen statussen verplaatsen werkt. Een handmatige volgorde binnen een kolom bewaren vereist een extra gegevensveld. Vragen om een bord legt niet alle regels vast.
+
+## Als een update een ICT-verzoek wordt
+
+Stel dat het team het bord dagelijks gebruikt. Een collega publiceert een update. Een statuswijziging wordt niet meer goed opgeslagen. Het team vraagt ICT om de werkende app te herstellen. Dat is een realistisch beheerrisico voor een gedeelde applicatie.
+
+[Copilot Managed Runtime](https://learn.microsoft.com/nl-nl/microsoft-365/managed-apps/) geeft apps uit Code, Cowork, Copilot Studio en ontwikkelhulpmiddelen een gedeeld hostingplatform. Microsoft beschrijft identiteit, beleid, inventarisatie en monitoring rond die apps. Daarmee krijgt IT één plek om te beheren wat mensen bouwen.
+
+Ik zou afspreken [wie het proces beheert en wie de app ondersteunt](../docs/admin-and-governance/permissions-and-ownership) voordat collega's ervan afhankelijk worden. Tenantbeheer omvat niet automatisch het onderhoud van de code en bedrijfsregels van elk team. ICT kan teams helpen [wijzigingen te testen, ontwikkelondersteuning te regelen en herstel voor te bereiden](../docs/services/copilot/managed-apps#support-changes-and-incidents). De proceseigenaar bepaalt nog steeds wat de juiste werking is.
+
+## Seans voorbeeld met @Word
+
+Sean typt ook `@Word` in [Chat](../docs/services/copilot/assist). Daarmee spreekt hij de Word-agent rechtstreeks aan. Zo kiest hij welke agent zijn verzoek afhandelt. Microsoft beschrijft dit voor de [Word-, Excel- en PowerPoint-agents](https://techcommunity.microsoft.com/blog/microsoft365copilotblog/what%E2%80%99s-new-in-microsoft-365-copilot--july-2026/4538332).
+
+Je kunt ondersteunde agents ook met een @mention aanspreken in [Copilot binnen apps, waaronder Word](https://learn.microsoft.com/nl-nl/microsoft-365/copilot/extensibility/ecosystem#agent-in-app-experience). Beschikbare agents hangen af van de hostapp, licentie en tenantinstellingen. Controleer welke agents de huidige app aanbiedt.
+
+:::tip[Gebruik de gids voordat je een app deelt]
+
+[Copilot-apps publiceren en beheren](../docs/services/copilot/managed-apps) behandelt publiceren, SharePoint-rechten, beheerbeperkingen, monitoring, Copilot Credits en de vergelijking met Power Apps en Copilot Studio. Gebruik de gids om eigenaarschap, toegang en een budget af te spreken voordat collega's afhankelijk worden van de app.
+
+:::

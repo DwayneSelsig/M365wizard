@@ -42,6 +42,7 @@ Code is an early-access Frontier experience. Confirm availability in your enviro
 
 ## Related Guides
 
+- [Publish And Govern Copilot Apps](./managed-apps.mdx)
 - [Copilot Overview](./index.mdx)
 - [Build An Agent](./build.md)
 - [Develop With AI](./develop.md)

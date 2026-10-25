@@ -1,0 +1,58 @@
+---
+slug: copilot-code-from-prompt-to-team-app
+title: "Copilot Code: from a prompt to an app for your team"
+authors: [dwayne]
+tags: [microsoft-365, copilot, copilot-studio, sharepoint, security]
+---
+
+import YouTubeVideo from '@site/src/components/YouTubeVideo';
+
+You have an idea for an app that could make your team's work much easier. It would give everyone a clear view of tasks, responsibilities, and progress. You describe how it should work, and Copilot Code builds a first version. You can try it, refine it, and prepare it for your team.
+
+I see Microsoft building an app platform inside Microsoft 365. Creating code through prompts, often called *vibe coding*, is becoming part of a broader process: build, publish, share, and maintain.
+
+<!-- truncate -->
+
+[Sean Astrakhan's walkthrough](https://www.youtube.com/watch?v=1f1_kakZRSw) shows this working pattern with [Cowork](../docs/services/copilot/delegate) and [Copilot Code](../docs/services/copilot/code).
+
+<YouTubeVideo
+  id="1f1_kakZRSw"
+  title="Sean Astrakhan demonstrates Copilot Code, Cowork, Chat, and app administration"
+  videoLanguage="en"
+/>
+
+:::info[Arrange credit funding first]
+
+Code and Cowork need a Copilot user license. Their use consumes Copilot Credits. An administrator must enable billing. Fund eligible usage with prepaid capacity packs, a pre-purchase plan, or Azure pay-as-you-go. Running the app needs separate coverage: Copilot Credits or Power Apps Premium, within its applicable limits. Check [Licensing And Costs](../docs/services/copilot/licensing-and-costs) and the [app funding guide](../docs/services/copilot/managed-apps#budget-for-building-and-running) with your administrator.
+
+:::
+
+## Plan the data before building
+
+The board stores and displays team records. Put the [team-owned list](../docs/services/lists) in the SharePoint site for that team or process. Reuse a suitable existing list when possible.
+
+Agree who may read, add, edit, and delete records. Check that the site's audience fits the data. If it does not, reconsider the location before building.
+
+Use [SharePoint structure and permissions](../docs/services/sharepoint/sharepoint-content-structure) to choose the right site and access model. Settle those architecture and governance choices before designing the screen.
+
+Sean's board exposes a useful detail. Moving cards between statuses works. Keeping a manual order within a column needs an extra data field. Asking for a board does not define all its rules.
+
+## When an update becomes an IT support request
+
+Suppose the team uses the board every day. A colleague publishes an update. A status change no longer saves correctly. The team asks IT to restore the working app. That is a realistic support risk for a shared application.
+
+[Copilot Managed Runtime](https://learn.microsoft.com/en-us/microsoft-365/managed-apps/) gives apps from Code, Cowork, Copilot Studio, and developer tools a shared hosting platform. Microsoft documents identity, policies, inventory, and monitoring around those apps. That gives IT a common place to manage what people build.
+
+I would agree [who owns the process and supports the app](../docs/admin-and-governance/permissions-and-ownership) before colleagues depend on it. Managing the tenant does not automatically include maintaining every team's code or business rules. IT can help teams [test changes, arrange developer support, and plan recovery](../docs/services/copilot/managed-apps#support-changes-and-incidents). The process owner still decides what correct behavior means.
+
+## Sean's @Word example
+
+Sean also types `@Word` in [Chat](../docs/services/copilot/assist). He is addressing the Word agent directly. With that mention, he chooses which agent handles his request. Microsoft describes this for the [Word, Excel, and PowerPoint agents](https://techcommunity.microsoft.com/blog/microsoft365copilotblog/what%E2%80%99s-new-in-microsoft-365-copilot--july-2026/4538332).
+
+You can also address supported agents with an @mention in [Copilot within apps, including Word](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/ecosystem#agent-in-app-experience). Available agents depend on the host app, license, and tenant settings. Check which agents the current app offers.
+
+:::tip[Use the guide before sharing an app]
+
+[Publish and govern Copilot apps](../docs/services/copilot/managed-apps) covers publishing, SharePoint permissions, governance gaps, monitoring, Copilot Credits, and the comparison with Power Apps and Copilot Studio. Use the guide to agree ownership, access, and a budget before colleagues depend on the app.
+
+:::

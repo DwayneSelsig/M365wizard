@@ -42,6 +42,7 @@ Code is een Frontier-ervaring met vroege toegang. Controleer de beschikbaarheid 
 
 ## Gerelateerde gidsen
 
+- [Copilot-apps publiceren en beheren](./managed-apps.mdx)
 - [Copilot-overzicht](./index.mdx)
 - [Een agent bouwen](./build.md)
 - [Ontwikkelen met AI](./develop.md)
