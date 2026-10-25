@@ -11,9 +11,9 @@ prereqs: []
 
 # Copilot-apps publiceren en beheren
 
-Behandel een gedeelde Copilot-app als een te beheren teamdienst. Bepaal de gegevensregels, toegang, eigenaar, ondersteuning en het budget. Doe dat voordat collega's ervan afhankelijk worden. Hergebruik een bestaande lijst of applicatie als die al voldoet.
+Behandel een gedeelde Copilot-app als een te beheren teamdienst. Spreek toegang, eigenaarschap, ondersteuning en budget af voordat collega's ervan afhankelijk worden. Controleer of de geteste app na publicatie nog werkt.
 
-Gebruik deze gids voor publiceren, SharePoint-verbindingen, rechten, monitoring, kosten en platformkeuzes. Begin bij [Copilot Code](./code.md) als je eerst een oplossing wilt beschrijven en controleren.
+Gebruik deze gids voor publiceren, gegevensverbindingen, rechten, monitoring, kosten en ondersteuning. Begin bij [Copilot Code](./code.md) om aanpakken te vergelijken, gegevensregels te bepalen en een eerste versie te testen. Het contentbord uit die gids is hier het voorbeeld.
 
 :::info[Controleer previewtoegang]
 
@@ -21,21 +21,19 @@ Gebruik deze gids voor publiceren, SharePoint-verbindingen, rechten, monitoring,
 
 :::
 
-## Kies het werk voordat je bouwt
+## Bereid de app voor op gedeeld gebruik {#choose-the-work-before-building}
 
-Gebruik [Chat](./assist.md) om samen met een persoon te schrijven of analyseren. Gebruik [Cowork](./delegate.md) voor een taak over bestanden en diensten heen. Bouw een app wanneer mensen een herbruikbare interface nodig hebben. Bewaar gedeelde resultaten op de afgesproken teamlocatie en wijs een eigenaar aan.
+Bevestig de doelgroep, toegestane acties, gegevensbron en testresultaten. Hergebruik de bestaande lijst of applicatie als die al voldoet. De [platformvergelijking in de Code-gids](./code.md#choose-the-work-before-building) helpt bij die keuze. Bewaar gedeelde gegevens op de afgesproken teamlocatie en wijs een eigenaar aan.
 
-Bepaal selectieregels als Cowork gegevens aan de app toevoegt. Beslis hoe je dubbele vermeldingen en gemiste uitvoeringen afhandelt. Houd persoonlijke notities gescheiden van goedgekeurde teaminformatie. Neem alleen over wat het team nodig heeft, met bron en selectiedatum. Beoordeel ook Power Automate voor een vaste overdracht met duidelijke regels. Gebruik Cowork wanneer het interpreteren van het materiaal waarde toevoegt.
+Neem de [eisen en testresultaten](./code.md#prepare-shared-use) mee in de releasebeoordeling. Spreek af wie de app accepteert en wie fouten herstelt. Een ontwikkelaar moet mogelijk onderhouden wat een zakelijke gebruiker begon. Test die overdracht voordat de maker vertrekt.
 
-## Publiceer naar een gedeelde runtime
+## Publiceer naar een gedeelde runtime {#publish-to-a-shared-runtime}
 
-Een tekenteller zonder blijvende gegevensopslag is een bruikbare kleine test. Een gedeeld contentbord stelt een extra eis: wijzigingen moeten bewaard blijven en beschikbaar zijn voor collega's. Een aantrekkelijke preview bewijst die werking niet.
+Controleer voor het contentbord of gegevens bewaard blijven nadat de app sluit en opnieuw opent. Controleer de echte SharePoint-lijst, naast de kaarten op het scherm. De [Code-gids beschrijft de gegevensregels en eerste tests](./code.md#define-data-rules).
 
-[Microsofts uitleg over Code](https://learn.microsoft.com/nl-nl/copilot/code/use-code) maakt onderscheid tussen bouwen en publiceren. Een project opslaan publiceert het niet. Publiceren maakt de nieuwste versie beschikbaar voor de mensen met wie je de app deelt. Ik zou dat moment gebruiken voor een korte releasecontrole. Test de wijziging, leg haar vast en publiceer daarna.
+[Microsofts uitleg over Code](https://learn.microsoft.com/nl-nl/copilot/code/use-code#publish-your-app) maakt onderscheid tussen bouwen en publiceren. Code bewaart het project terwijl je werkt. Vraag Code om te publiceren als de versie klaar is. Na publicatie is die versie beschikbaar voor de mensen met wie je de app deelt. Ik zou eerst de wijziging testen en de versie vastleggen.
 
-De runtime is de omgeving die de app host en uitvoert. [Copilot Managed Runtime](https://learn.microsoft.com/nl-nl/microsoft-365/managed-apps/) biedt één bestemming voor apps uit Code, Cowork, Copilot Studio en de ontwikkelhulpmiddelen (SDK). Gebruikers vinden beschikbare apps op `managedapps.cloud.microsoft`. Je kiest het bouwhulpmiddel en het platform voor uitvoering afzonderlijk.
-
-Dit diagram vat die relaties samen:
+De runtime is de omgeving die de app host en uitvoert. [Copilot Managed Runtime](https://learn.microsoft.com/nl-nl/microsoft-365/managed-apps/) host apps uit Code, Cowork, Copilot Studio en de software development kit (SDK). Microsoft verzorgt de hosting. Apps gebruiken Microsoft Entra-verificatie en volgen tenantbeleid. Gebruikers vinden beschikbare apps op `managedapps.cloud.microsoft`.
 
 ```mermaid
 flowchart TB
@@ -45,28 +43,22 @@ flowchart TB
     Runtime -->|Goedgekeurde connector| Data["SharePoint-lijst"]
 ```
 
-Microsofts [aankondiging van de runtime](https://www.microsoft.com/nl-nl/copilot/blog/copilot-studio/build-where-you-want-run-with-confidence-now-microsoft-hosts-and-manages-the-code-created-by-copilot/) beschrijft hosting door Microsoft, Microsoft Entra-identiteit, Git-bronbeheer en beleidshandhaving. Teams kunnen verschillende bouwhulpmiddelen gebruiken. IT beheert hun gehoste apps op dezelfde plek.
+Je kiest het bouwhulpmiddel en het platform voor uitvoering afzonderlijk. Teams kunnen verschillende hulpmiddelen gebruiken terwijl IT hun gehoste apps samen beheert. Beoordeel de [opties voor bronbeheer en publicatie](https://learn.microsoft.com/nl-nl/microsoft-365/managed-apps/developer/dev-inner-loop) voor de gekozen app. Neem niet aan dat elke app dezelfde broncodeopzet heeft.
 
-Dat vraagt ook om een praktische overdracht. Een ontwikkelaar moet mogelijk onderhouden wat een zakelijke gebruiker begon. Leg de broncode, actieve versie, gegevensverbindingen en het supportcontact vast. Test hoe een andere beheerder het werk overneemt voordat de maker vertrekt.
+Leg de bronlocatie, actieve versie, gegevensverbindingen en het supportcontact vast. Gebruik de [controles voor overdracht aan een ontwikkelaar](#support-changes-and-incidents) voordat het team afhankelijk wordt van de app.
 
-## Bepaal gegevensregels en SharePoint-rechten
+## Controleer gegevensverbindingen en rechten {#check-data-connections-and-permissions}
 
-Neem een contentbord dat zijn gegevens in SharePoint bewaart. Een kaart naar een andere kolom verplaatsen verandert de status. Een handmatige volgorde binnen een kolom bewaren vereist ook een positieveld en wijzigingsregels.
+Bevestig welke lijst het gepubliceerde bord leest en wijzigt. Bewaar de [afgesproken gegevensregels](./code.md#define-data-rules) bij de beheerinformatie. Beoordeel het toegangsmodel van de site met [SharePoint-inhoudsstructuur en machtigingen](../sharepoint/sharepoint-content-structure.md).
 
-Een verzoek om een Kanban-bord beschrijft een interface. Het legt niet volledig vast hoe de gegevens zich moeten gedragen.
+Delen vraagt om afzonderlijke toegangsbeslissingen. [Microsofts veelgestelde vragen over de runtime](https://learn.microsoft.com/nl-nl/microsoft-365/admin/manage/apps/faq-about-apps) onderscheiden apptoegang van toegang tot gekoppelde gegevens. Een app delen met een collega geeft geen SharePoint-rechten. Gebruikers hebben ook de juiste gegevensverbindingen nodig.
 
-Voor dit bord zou ik vaste item-ID's, toegestane statussen, een eigenaar en publicatiedatums vastleggen. Bepaal wat er gebeurt als twee collega's hetzelfde item aanpassen. Toon mislukte opslagacties duidelijk. Anders zien gebruikers een verplaatste kaart misschien als een opgeslagen wijziging.
-
-Begin met de bestaande [uitleg over Microsoft Lists](../lists.md). Een beheerde lijst met bestaande weergaven kan al voldoen. Voeg een eigen app toe als die een concreet probleem oplost. Gebruik dezelfde leidende gegevensbron. Maak geen extra kopie voor de nieuwe interface. Kies de site en het toegangsmodel voor de lijst met [SharePoint-inhoudsstructuur en machtigingen](../sharepoint/sharepoint-content-structure.md).
-
-Delen vraagt om afzonderlijke toegangsbeslissingen. [Microsofts uitleg over apps delen](https://learn.microsoft.com/nl-nl/microsoft-365/managed-apps/developer/share-app) onderscheidt apptoegang van toegang tot gekoppelde gegevens. Een app delen met een collega geeft geen SharePoint-rechten. Gebruikers moeten mogelijk ook hun verbinding instellen.
-
-De volgende flow vat de controles voor een gekoppelde app samen. Toegang tot de runtime vereist een geschikte licentie of creditdekking.
+[Apps delen](https://learn.microsoft.com/nl-nl/microsoft-365/managed-apps/developer/share-app) kan met gebruikers, groepen of organisatielinks. Geef gewone gebruikers toegang om de app uit te voeren. Geef alleen bewerkrechten aan mensen die de app onderhouden. Een ontvanger heeft ook de vereiste runtimelicentie of creditdekking nodig.
 
 ```mermaid
 flowchart TB
     User["Appgebruiker"] --> App["Apptoegang"]
-    App --> Runtime["Licentie of creditdekking"]
+    App --> Runtime["Runtimelicentie<br/>of creditdekking"]
     Runtime --> Source["Bronrechten<br/>en verbinding"]
     Source --> Data["Toegestane gegevens en acties"]
 ```
@@ -79,13 +71,13 @@ Behandel een verborgen knop of gefilterd scherm niet als beveiligingsregel. Dwin
 
 :::
 
-Ik zou SharePoint kiezen voor een afgebakende teamregistratie met duidelijk eigenaarschap. Beoordeel het gegevensplatform opnieuw wanneer gerelateerde gegevens, complexe toegangsregels of meerdere afhankelijke wijzigingen centraal staan. Een eigen interface kan zwak gegevensontwerp minder zichtbaar maken.
+Beoordeel de overdracht als aparte afhankelijkheid als [Cowork](./delegate.md) gegevens aanlevert. Bevestig de selectieregels, bron en selectiedatum. Houd persoonlijke notities buiten de gedeelde lijst, tenzij goedgekeurd voor teamgebruik. Wijs iemand aan die dubbele vermeldingen, gemiste uitvoeringen en verkeerde selecties afhandelt. Bepaal of mensen het bord kunnen blijven gebruiken als de overdracht stopt.
 
 ## Beoordeel beheer en inzicht {#review-governance-and-visibility}
 
-Centraal beheer maakt deze apps beter vindbaar. Het geeft IT ook een plek om in te grijpen. Een app vinden verklaart echter niet elke actie die deze kan uitvoeren.
+IT kan de apps centraal vinden en waar nodig ingrijpen. De inventaris toont niet elke actie die een app kan uitvoeren. Beoordeel naast de inventaris ook de gegevensverbindingen en rechten.
 
-Microsoft beschrijft [standaard beheerregels](https://learn.microsoft.com/nl-nl/microsoft-365/admin/manage/apps/governance) voor routering, connectors, delen en browserinhoud. Je kunt connectoracties afzonderlijk beperken. Zo kan de SharePoint-connector beschikbaar blijven terwijl de vrije HTTP-aanvraagactie is geblokkeerd. Beoordeel bij het goedkeuren van een connector daarom ook de toegestane acties.
+Microsoft beschrijft [standaard beheerregels](https://learn.microsoft.com/nl-nl/microsoft-365/admin/manage/apps/governance) voor routering, connectors, delen en browserinhoud. Routering bepaalt de omgeving van de maker. Je kunt connectoracties afzonderlijk beperken. Zo kan de SharePoint-connector beschikbaar blijven terwijl de vrije HTTP-aanvraagactie is geblokkeerd. Beoordeel de toegestane acties als je een connector goedkeurt.
 
 De huidige beheerweergave heeft beperkingen:
 
@@ -96,17 +88,17 @@ De huidige beheerweergave heeft beperkingen:
 | Technische werking en gebruik | Een technisch geslaagde wijziging kan toch de verkeerde bedrijfsregel toepassen. |
 | Apptoegang en blokkeren | Het intrekken van apptoegang verwijdert niet alle onderliggende bronrechten. |
 
-Deze toegangs- en inzichtsbeperkingen staan in [Microsofts veelgestelde vragen over de runtime](https://learn.microsoft.com/nl-nl/microsoft-365/admin/manage/apps/faq-about-apps). Controleer naast de inventaris ook de echte gegevensverbindingen en rechten.
+[Microsofts veelgestelde vragen over de runtime](https://learn.microsoft.com/nl-nl/microsoft-365/admin/manage/apps/faq-about-apps) beschrijven de toegangs- en inzichtsbeperkingen. De proceseigenaar moet nog steeds controleren of de app de juiste regels toepast.
 
 :::warning[De beleidsweergave kan misleiden]
 
-Microsoft beschrijft een [bekende beperking bij bestaande omgevingsgroepen](https://learn.microsoft.com/nl-nl/microsoft-365/admin/manage/apps/governance#known-limitations). Een weergave zonder toegestane connectors kan wijzen op ontbrekend geavanceerd connectorbeleid. Dat betekent niet automatisch dat connectors geblokkeerd zijn. Controleer het effectieve beleid voordat je op die weergave vertrouwt.
+Microsoft beschrijft een [bekende beperking bij bestaande omgevingsgroepen](https://learn.microsoft.com/nl-nl/microsoft-365/admin/manage/apps/governance#known-limitations). Een weergave zonder toegestane connectors kan wijzen op ontbrekend geavanceerd connectorbeleid. Dat betekent niet automatisch dat connectors geblokkeerd zijn. Controleer dat beleid, de instelling *Advanced connector policies only* en toepasselijk klassiek gegevensbeleid in het Power Platform-beheercentrum.
 
 :::
 
-[Monitoring van de runtime](https://learn.microsoft.com/nl-nl/microsoft-365/managed-apps/developer/monitor-apps) omvat centrale technische bewaking en waarschuwingen. Apps kunnen ook runtimegegevens naar een gekozen monitoringdienst sturen. Spreek af welke fouten een waarschuwing vereisen en wie reageert. Voorkom dat dagboektekst of andere gevoelige inhoud in logboeken komt.
+[Monitoring van de runtime](https://learn.microsoft.com/nl-nl/microsoft-365/managed-apps/developer/monitor-apps) omvat centrale technische bewaking en waarschuwingen. Apps kunnen ook runtimegegevens naar een gekozen monitoringdienst sturen. Configureer daarvoor de app en toegestane monitoringbestemmingen. Spreek af welke fouten een waarschuwing vereisen en wie reageert. Voorkom dat persoonlijke notities of andere gevoelige inhoud in logboeken komt.
 
-Voor het contentbord zou ik mislukte opslagacties, verouderde gegevens en herhaalde automatiseringsfouten controleren. Daarnaast zou ik steekproeven nemen op geselecteerde ideeën. Voldoen ze aan de teamafspraken? Technische meetgegevens kunnen die redactionele keuze niet beoordelen.
+Voor het contentbord zou ik mislukte opslagacties, verouderde gegevens en herhaalde automatiseringsfouten controleren. Daarnaast zou ik met steekproeven nagaan of geselecteerde ideeën aan de teamafspraken voldoen. Technische meetgegevens kunnen die redactionele keuze niet beoordelen.
 
 Wijs een proceseigenaar, gegevenseigenaar en appbeheerder aan. Eén persoon kan meerdere rollen hebben. Leg vast wie wijzigingen goedkeurt, toegang beoordeelt en de app stopt. Bespreek bij uitfasering ook geplande taken, bronrechten en te bewaren gegevens.
 
@@ -122,30 +114,36 @@ Spreek ondersteuning af voordat het team afhankelijk wordt van de app. Ik raad d
 | Appbeheerder of ontwikkelaar | Onderhoudt broncode, test wijzigingen, publiceert releases en bereidt codeherstel voor. |
 | ICT-platform- of serviceteam | Beheert tenantinstellingen, toegang, connectors en platformwerking; coördineert escalatie bij dienststoringen. |
 
-Leg de app-ID, actieve URL, eigenaren, ondersteuningsroute, bronlocatie en gepubliceerde versie vast. Spreek af welke reparaties ICT ondersteunt en wie de rest afhandelt. Een tenantbeheerder is niet automatisch de ontwikkelaar van de app. Reserveer ontwikkeltijd als ICT codeonderhoud op zich neemt. Spreek af wie dat werk financiert en hoe spoedreparaties worden afgehandeld. Gebruik [Machtigingen en eigenaarschap](../../admin-and-governance/permissions-and-ownership.md) voor verantwoordelijkheden en continuïteit.
+Leg de app-ID, actieve URL, eigenaren, ondersteuningsroute, bronlocatie en gepubliceerde versie vast. Spreek af welke reparaties ICT ondersteunt en wie de rest afhandelt. Een tenantbeheerder is niet automatisch de ontwikkelaar van de app.
+
+Reserveer ontwikkeltijd als ICT codeonderhoud op zich neemt. Spreek af wie dat werk financiert en hoe spoedreparaties worden afgehandeld. Gebruik [Machtigingen en eigenaarschap](../../admin-and-governance/permissions-and-ownership.md) voor verantwoordelijkheden en continuïteit.
 
 ### Controleer bestaande werking voordat je publiceert
 
-Houd een korte lijst bij met taken die moeten werken. Gebruik die bij elke release. Test lezen, toevoegen en wijzigen, leestoegang, mislukte opslagacties en gelijktijdige aanpassingen. Controleer de bestaande werkwijze naast de gevraagde wijziging. Gebruik een testlijst met voorbeeldgegevens. Een preview-URL betekent op zichzelf niet dat je aparte testgegevens gebruikt.
+Houd een korte lijst bij met taken die moeten werken. Gebruik die bij elke release. Begin met de [tests voor een eerste versie in de Code-gids](./code.md#build-and-test-in-small-steps). Neem lezen, toevoegen en wijzigen, leestoegang, mislukte opslagacties en gelijktijdige aanpassingen mee. Controleer de bestaande werkwijze naast de gevraagde wijziging. Gebruik een testlijst met voorbeeldgegevens. Een preview-URL betekent op zichzelf niet dat je aparte testgegevens gebruikt.
 
-Microsoft beschrijft [aparte preview- en liveversies](https://learn.microsoft.com/nl-nl/microsoft-365/managed-apps/developer/dev-inner-loop). Het opdrachtregelhulpmiddel (CLI) gebruikt een ontwikkelpreview die schrijfrechten op de repository vereist. De repository bewaart code en de versiegeschiedenis. Spreek een testroute af voor zakelijke beoordelaars die deze rechten niet horen te hebben. Voor apps met Git-bronbeheer kan `ms app deploy --commit <sha>` een eerdere codeversie publiceren. Leg een werkende herstelversie vast en test die voordat je een wijziging publiceert.
+Microsoft beschrijft [aparte preview- en liveversies](https://learn.microsoft.com/nl-nl/microsoft-365/managed-apps/developer/dev-inner-loop). Het opdrachtregelhulpmiddel (CLI) biedt een ontwikkelpreview voor apps met Git-bronbeheer. Die preview vereist schrijfrechten op de repository, die code en versiegeschiedenis bewaart. Spreek een testroute af voor zakelijke beoordelaars die deze rechten niet horen te hebben.
+
+Voor deze apps kan `ms app deploy --commit <sha>` een eerdere codeversie publiceren. Leg een werkende herstelversie vast en test die voordat je een wijziging publiceert.
 
 ### Regel overdracht aan een ontwikkelaar
 
-Microsoft beschrijft [een bestaande app verder ontwikkelen in een code-editor](https://learn.microsoft.com/nl-nl/microsoft-365/managed-apps/developer/collaborate-on-app). De appeigenaar moet bewerkrechten geven. Een ontwikkelaar kan daarna een platformbeheerde repository kopiëren (klonen) met `ms app clone --app <app-id>`. Externe GitHub-repositories vereisen repositorytoegang en `git clone`. Apps zonder broncodekoppeling kunnen deze kloonroute niet gebruiken.
+Microsoft beschrijft [hoe je een bestaande app verder ontwikkelt in een code-editor](https://learn.microsoft.com/nl-nl/microsoft-365/managed-apps/developer/collaborate-on-app). De appeigenaar moet bewerkrechten geven. Een ontwikkelaar kan daarna een platformbeheerde repository kopiëren (klonen) met `ms app clone --app <app-id>`.
+
+Externe GitHub-repositories vereisen repositorytoegang en `git clone`. Apps zonder broncodekoppeling kunnen deze kloonroute niet gebruiken.
 
 Test de overdracht voor de gekozen app vóór een incident. Geef de beheerder toegang tot eisen, gegevensmodel, verbindingen en releasegeschiedenis. Broncode alleen verklaart niet waarom een bedrijfsregel bestaat.
 
 ### Los een storing na een update op
 
-1. Noteer de app, huidige en laatst werkende versies, het tijdstip, getroffen gebruikers en stappen om de fout te herhalen. Beschrijf de verwachte en werkelijke werking.
+1. Noteer de app, huidige en laatst werkende versies, het tijdstip en getroffen gebruikers. Voeg stappen toe om de fout te herhalen. Beschrijf de verwachte en werkelijke werking.
 2. Pauzeer nieuwe releases. Beoordeel of verkeerde schrijfacties het stoppen van werk vereisen. Spreek een tijdelijke werkwijze af met de proceseigenaar.
 3. Vergelijk code, lijstkolommen, rechten, verbindingen en uitgavenlimieten. Gebruik de [uitleg over monitoring](#review-governance-and-visibility) om platformstoringen van app- of gegevensproblemen te onderscheiden. Technische meetgegevens bevestigen op zichzelf geen juiste bedrijfsuitkomsten.
 4. Herstel een passende codeversie of publiceer een geteste reparatie. Laat de proceseigenaar het hele werkpad controleren voordat het werk hervat. Escaleer platformstoringen met de verzamelde informatie via de ondersteuningsroute van de organisatie.
 
 :::warning[Codeherstel herstelt geen gegevens]
 
-Oudere code publiceren draait gewijzigde records of lijstkolommen niet terug. Controleer vóór het terugzetten of de code past bij de huidige gegevens. Plan gegevensherstel apart met de gegevenseigenaar. SharePoint kan [eerdere itemversies herstellen als versiebeheer is ingeschakeld](https://support.microsoft.com/nl-nl/sharepoint/documents-and-library/restore-a-previous-version-of-an-item-or-file-in-sharepoint). Controleer wat je kunt herstellen voordat je gegevens of hun structuur wijzigt.
+Als je oudere code publiceert, blijven gewijzigde records en lijstkolommen bestaan. Controleer vóór het terugzetten of de code past bij de huidige gegevens. Plan gegevensherstel apart met de gegevenseigenaar. SharePoint kan [eerdere itemversies herstellen als versiebeheer is ingeschakeld](https://support.microsoft.com/nl-nl/sharepoint/documents-and-library/restore-a-previous-version-of-an-item-or-file-in-sharepoint). Controleer wat je kunt herstellen voordat je gegevens of hun structuur wijzigt.
 
 :::
 
@@ -161,7 +159,9 @@ Microsoft beschrijft deze [opties voor credits kopen en factureren](https://lear
 | Copilot Credit Pre-purchase Plan (P3) | Je koopt vooraf credits via een gekoppeld Azure-abonnement. |
 | Pay-as-you-go | Het toepasselijke creditverbruik wordt berekend via een gekoppeld Azure-abonnement. |
 
-Een beheerder moet [facturering naar verbruik inschakelen en uitgavenbeleid instellen](https://learn.microsoft.com/nl-nl/microsoft-365/copilot/usage-based-billing-copilot-credits-setup) voor de bedoelde gebruikers en diensten. Controleer de beschikbare capaciteit. Credits die aan Power Platform-omgevingen zijn toegewezen, verminderen het elders beschikbare tegoed. P3 vult pay-as-you-go aan. Na verbruik van het P3-tegoed loopt de facturering door naar verbruik. Capacity packs kunnen bij de juiste instellingen ook terugvallen op pay-as-you-go. Stel limieten en waarschuwingen in voordat je breed gebruik inschakelt.
+Een beheerder moet [facturering naar verbruik inschakelen en uitgavenbeleid instellen](https://learn.microsoft.com/nl-nl/microsoft-365/copilot/usage-based-billing-copilot-credits-setup) voor de bedoelde gebruikers en diensten. Controleer de beschikbare capaciteit. Credits die aan Power Platform-omgevingen zijn toegewezen, verminderen het elders beschikbare tegoed.
+
+P3 vult pay-as-you-go aan. Na verbruik van het P3-tegoed loopt de facturering door naar verbruik. Capacity packs kunnen bij de juiste instellingen ook terugvallen op pay-as-you-go. Stel limieten en waarschuwingen in voordat je breed gebruik inschakelt.
 
 Schat de kosten voor bouwen en doorlopend gebruik afzonderlijk. Een geslaagde eerste versie bepaalt de maandkosten nog niet. Meet het volgende tijdens een pilot:
 
@@ -174,32 +174,21 @@ Schat de kosten voor bouwen en doorlopend gebruik afzonderlijk. Een geslaagde ee
 
 Voor organisatiegebruik [vereisen Code en Cowork een gebruikerslicentie en facturering naar verbruik](https://learn.microsoft.com/nl-nl/microsoft-365/copilot/user-subscription-license-usage-based-billing). Credits vervangen die licentie niet.
 
-Voor het uitvoeren van de gebouwde app gelden andere regels. Microsofts [veelgestelde vragen over runtimelicenties](https://learn.microsoft.com/nl-nl/microsoft-365/admin/manage/apps/licensing-faq) noemen Power Apps Premium of Copilot Credits. Gebruikers hebben geen Microsoft 365 Copilot-licentie nodig om alleen de app uit te voeren. De inbegrepen Power Apps-rechten in Microsoft 365 dekken deze runtime niet.
+Om de app uit te voeren, hebben gebruikers Power Apps Premium of Copilot Credits nodig. Microsofts [veelgestelde vragen over runtimelicenties](https://learn.microsoft.com/nl-nl/microsoft-365/admin/manage/apps/licensing-faq) leggen die eis uit. Gebruikers hebben geen Microsoft 365 Copilot-licentie nodig om alleen de app uit te voeren. De inbegrepen Power Apps-rechten in Microsoft 365 dekken deze runtime niet.
 
-Dezelfde uitleg noemt 0,1 credit per runtime-API-aanroep. Power Apps Premium dekt runtimegebruik binnen de toepasselijke aanvraaglimieten. Gebruik boven die limieten en gespecialiseerde diensten kunnen extra kosten geven.
+Dezelfde uitleg noemt 0,1 credit per runtime-API-aanroep. Daaronder vallen het openen van een app, connectorverzoeken en publicatie. Power Apps Premium dekt runtimegebruik binnen de toepasselijke aanvraaglimieten. Gebruik boven die limieten en gespecialiseerde diensten kunnen extra kosten geven.
 
 Ter illustratie: 10.000 gemeten runtimeaanroepen verbruiken 1.000 credits. Tegen het [pay-as-you-go-tarief van $0,01 USD uit Microsofts Copilot Credits Guide](https://www.microsoft.com/licensing/guidance/CopilotCreditsGuide) is dat $10 USD. Gebruik deze rekensom om de verbruiksmeting te begrijpen. Meet aanroepen tijdens echt gebruik voordat je een maandbedrag schat.
 
-[Kosten voor bouwen en uitvoeren worden afzonderlijk beheerd](https://learn.microsoft.com/nl-nl/microsoft-365/admin/manage/apps/). Controleer de dekking voor gebruikers van de gepubliceerde app. Het budget van de maker geeft niet automatisch runtimedekking voor het hele team.
+[Kosten voor bouwen en uitvoeren worden afzonderlijk beheerd](https://learn.microsoft.com/nl-nl/microsoft-365/admin/manage/apps/licensing-faq#are-build-costs-and-runtime-costs-billed-together). Controleer de dekking voor gebruikers van de gepubliceerde app. Het budget van de maker geeft niet automatisch runtimedekking voor het hele team.
 
-Gebruik [uitgavenbeleid](https://learn.microsoft.com/nl-nl/microsoft-365/copilot/usage-based-billing-manage-copilot-credits) voor de bedoelde gebruikers en diensten. Stel limieten en waarschuwingen in. Bespreek het verbruik daarna met de budgethouder. Controleer overlappend beleid en of toekomstige diensten automatisch worden toegevoegd. Beoordeel toegangsbeperkingen los van de uitgavenbeslissing. Gebruik [Licenties en kosten](./licensing-and-costs.md) om abonnementen en creditfinanciering met de budgethouder te vergelijken.
+Gebruik [uitgavenbeleid](https://learn.microsoft.com/nl-nl/microsoft-365/copilot/usage-based-billing-manage-copilot-credits) voor de bedoelde gebruikers en diensten. Stel limieten en waarschuwingen in. Bespreek het verbruik daarna met de budgethouder. Controleer overlappend beleid en of toekomstige diensten automatisch worden toegevoegd. Beoordeel toegangsbeperkingen los van de uitgavenbeslissing.
+
+Gebruik [Licenties en kosten](./licensing-and-costs.md) om abonnementen en creditfinanciering met de budgethouder te vergelijken.
 
 ## Vergelijk platforms en plan een pilot
 
-Ik zou een bestaande Power Apps-oplossing niet vervangen omdat een nieuw bord mooier oogt. Vergelijk eerst de vereiste gegevensregels, beheerkennis, het releaseproces en de gebruikskosten.
-
-Dit zijn mijn vertrekpunten voor de keuze. De mogelijkheden van de hulpmiddelen overlappen:
-
-| Behoefte | Vertrekpunt dat ik zou beoordelen | Belangrijkste beheervraag |
-| --- | --- | --- |
-| Een kleine eigen webinterface voor teamwerk | Copilot Code en Managed Runtime | Kan iemand de gegenereerde app begrijpen, testen en onderhouden? |
-| Formulieren en taakschermen die Power Platform-makers beheren | Power Apps-canvas-apps | Ondersteunt het team de besturingselementen, formules en verbindingen al? |
-| Een proces rond gerelateerde bedrijfsgegevens | Modelgestuurde Power Apps-apps met Dataverse | Zijn het gegevensmodel en de beveiligingsrollen goed ontworpen? |
-| Een agent die vragen beantwoordt en acties uitvoert via meerdere kanalen | [Copilot Studio](./build.md) | Wie onderhoudt kennis, acties, evaluaties en releases? |
-
-Microsofts [Power Apps-overzicht](https://learn.microsoft.com/nl-nl/power-apps/maker/) behandelt canvas-apps en bouwen met AI. De [uitleg over modelgestuurde apps](https://learn.microsoft.com/nl-nl/power-apps/maker/model-driven-apps/model-driven-app-overview) beschrijft Dataverse-relaties. Ook legt die uit hoe je onderdelen via oplossingen tussen omgevingen verplaatst. Alleen het gebruik van prompts onderscheidt deze producten dus onvoldoende.
-
-[Copilot Studio](https://learn.microsoft.com/nl-nl/microsoft-copilot-studio/fundamentals-what-is-copilot-studio) ondersteunt agents en workflows. Er is ook een [preview voor appcreatie](https://learn.microsoft.com/nl-nl/microsoft-copilot-studio/apps-experience/create-app) die naar Managed Runtime publiceert. Wie alleen "Code-apps tegenover Studio-agents" vergelijkt, mist inmiddels een deel van Studio. Controleer wat je precies bouwt en hoe je het beheert. Neem niet aan dat elke Studio-agent op de appruntime draait.
+Vergelijk Code, Power Apps en Copilot Studio met de [platformvergelijking in de Code-gids](./code.md#choose-the-work-before-building). Controleer vóór de release wie de oplossing kan onderhouden. Beoordeel hoe wijzigingen gebruikers bereiken en wat het gebruik kost. Ik zou een bestaande Power Apps-oplossing behouden als die aan de eisen voldoet en het team haar kan ondersteunen.
 
 :::warning[Gebruik preview-apps niet voor kritieke productieprocessen]
 
@@ -207,7 +196,7 @@ Microsoft stelt dat de [Copilot Studio-apppreview niet voor productiegebruik bed
 
 :::
 
-Kies voor een eerste pilot één klein proces. Hergebruik de bestaande gegevens. Leg de eigenaar, doelgroep, toegestane acties en het budget vast. Test toegang, mislukte wijzigingen en gelijktijdige aanpassingen. Publiceer voor een kleine groep. Beoordeel daarna fouten, credits, beheerwerk en bruikbaarheid samen.
+Kies voor een eerste pilot één klein proces. Hergebruik de bestaande gegevens. Leg de eigenaar, doelgroep, toegestane acties en het budget vast. Test toegang, mislukte wijzigingen en gelijktijdige aanpassingen. Publiceer voor een kleine groep. Beoordeel fouten, credits, beheerwerk en bruikbaarheid samen voordat je de toegang uitbreidt.
 
 Zorg dat iemand de app kan herstellen voordat collega's ervan afhankelijk worden. Die persoon moet de gegevensregels kunnen uitleggen en de app veilig kunnen uitfaseren.
 
@@ -215,8 +204,10 @@ Zorg dat iemand de app kan herstellen voordat collega's ervan afhankelijk worden
 
 - [Copilot Code gebruiken, inclusief publiceren en delen](https://learn.microsoft.com/nl-nl/copilot/code/use-code).
 - [Copilot Managed Runtime en de bouwmogelijkheden begrijpen](https://learn.microsoft.com/nl-nl/microsoft-365/managed-apps/).
+- [Een app delen met gebruikers of groepen en toegangsniveaus beoordelen](https://learn.microsoft.com/nl-nl/microsoft-365/managed-apps/developer/share-app).
 - [Standaard beheerregels en bekende beperkingen van de beleidsweergave beoordelen](https://learn.microsoft.com/nl-nl/microsoft-365/admin/manage/apps/governance).
 - [Beperkingen van beheerinzicht en toegang controleren](https://learn.microsoft.com/nl-nl/microsoft-365/admin/manage/apps/faq-about-apps).
+- [Appwerking bewaken en runtimegegevens voor monitoring instellen](https://learn.microsoft.com/nl-nl/microsoft-365/managed-apps/developer/monitor-apps).
 - [Een app vooraf bekijken, publiceren en een eerdere versie terugzetten](https://learn.microsoft.com/nl-nl/microsoft-365/managed-apps/developer/dev-inner-loop).
 - [Een bestaande app overdragen aan een andere ontwikkelaar](https://learn.microsoft.com/nl-nl/microsoft-365/managed-apps/developer/collaborate-on-app).
 - [Een eerdere SharePoint-itemversie herstellen](https://support.microsoft.com/nl-nl/sharepoint/documents-and-library/restore-a-previous-version-of-an-item-or-file-in-sharepoint).
