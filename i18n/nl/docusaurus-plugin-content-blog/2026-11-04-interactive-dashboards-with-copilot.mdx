@@ -1,0 +1,103 @@
+---
+slug: interactive-dashboards-with-copilot
+title: "Interactieve dashboards met Copilot: een nieuw tijdperk"
+authors: [dwayne]
+tags: [microsoft-365, copilot, sharepoint, onedrive]
+---
+
+import YouTubeVideo from '@site/src/components/YouTubeVideo';
+
+Beschrijf een dashboard in gewone taal en Copilot kan een interactieve weergave van je gegevens maken. In de [demonstratie van Mike Tholfsen](https://www.youtube.com/watch?v=-XeCMdR7Zz4) zie je dat in Excel, PowerPoint, SharePoint en OneDrive. Filters, grafieken en wat-als-knoppen maken de gegevens gemakkelijker te verkennen.
+
+Ik vind dat veelbelovend. Een team kan een idee proberen zonder eerst elke grafiek te bouwen of een interface op maat te laten maken. Zodra collega's op het resultaat vertrouwen, verdienen de gegevens, toegang, het eigenaarschap en het onderhoud evenveel aandacht als het uiterlijk.
+
+<!-- truncate -->
+
+<YouTubeVideo
+  id="-XeCMdR7Zz4"
+  title="Mike Tholfsen demonstreert interactieve dashboards met Copilot in Microsoft 365"
+  videoLanguage="en"
+/>
+
+## Van een prompt naar een interactieve weergave
+
+In het Excel-voorbeeld vraagt Mike Copilot om verkoopgegevens te verkennen. Het dashboard brengt omzet, winst, marge, productprestaties en filters samen. Met wat-als-knoppen verandert hij aannames, zoals prijzen en kosten per eenheid. Een ander voorbeeld onderzoekt het klantverloop bij het fictieve Dunder Mifflin. Hij vraagt om vergelijkingen tussen regio's en voegt daarna scenario's toe met een nieuwe prompt.
+
+Het is nuttig om een analyse via een gesprek te kunnen aanpassen. Een analist kan een vraag met collega's uitproberen voordat het team in een grotere oplossing investeert. Een overtuigende grafiek bewijst nog niet dat een formule klopt. Controleer brongegevens, berekeningen en aannames. Een scenario laat zien wat uit de aannames volgt; het is niet vanzelf een betrouwbare voorspelling.
+
+Microsoft noemt de Excel-vaardigheid [interactive-canvas](https://support.microsoft.com/nl-nl/excel/copilot/copilot-in-excel-built-in-skills). Volgens Microsoft blijft het canvas verbonden met de werkmap en wordt het bijgewerkt als de gegevens daarin veranderen. Dat is nuttig, maar de bronnen van de werkmap kunnen nog steeds een aparte verversing en controle nodig hebben. Voor delen is ook passende toegang tot de werkmap nodig. Beschikbaarheid hangt af van account, instellingen en uitrol. Controleer de actuele documentatie en je tenant voordat je erop rekent.
+
+In PowerPoint toont Mike interactieve dia's met filters, vergelijkingen, tijdlijnen en stijlen. Dat kan een directieoverleg of bespreking van een enquête levendiger maken: de presentator kan tijdens de vergadering een vervolgvraag onderzoeken. De presentatie blijft een communicatiemiddel. Spreek daarom af waar de gezaghebbende cijfers staan.
+
+Volgens Microsoft kunnen gebruikers met de juiste toegang tot Copilot in PowerPoint [interactieve dia's](https://support.microsoft.com/nl-nl/powerpoint/copilot/create-interactive-slides-with-copilot-in-powerpoint) maken of bijwerken. Ontvangers kunnen ze verkennen zonder Copilot-licentie. De weergave hangt af van de client: Microsoft noemt interactieve ondersteuning op Windows, Mac, web, iPad en PowerPoint Live, met verschillen tussen presentatiemodi. Op iPhone en Android en in een PDF-export verschijnt de dia als een niet-interactieve afbeelding. Controleer vóór een vergadering de actuele uitrol en clientvereisten.
+
+De voorbeelden in SharePoint en OneDrive maken dashboards van bestaande bestanden en een SharePoint-lijst met meldingen. Een team kan aantallen en toewijzingen onderzoeken zonder eerst een webonderdeel op maat te bouwen. De ervaringen hangen samen, maar Excel, PowerPoint en SharePoint gebruiken niet allemaal dezelfde uitvoeromgeving. De HTML-pagina in SharePoint verdient daarom extra aandacht.
+
+## De grens rond een HTML-pagina in SharePoint
+
+De [handleiding van Microsoft voor HTML-pagina's](https://support.microsoft.com/nl-nl/sharepoint/create-edit-publish-html-pages) beschrijft hoe je HTML-pagina's maakt, uploadt, bewerkt, publiceert en deelt in de bibliotheek Sitepagina's. Sommige functies worden geleidelijk via Frontier aangeboden. Controleer op 4 november 2026 de beschikbaarheid en instellingen in je eigen tenant.
+
+De stappen hebben verschillende vereisten. Voor maken of bewerken met Copilot noemt Microsoft een Microsoft 365 Copilot-licentie en rechten om pagina's te bewerken. Voor bestaande HTML uploaden, pagina-inhoud direct bewerken, publiceren, delen en bekijken is die Copilot-licentie niet nodig. Voor elke stap zijn wel de juiste SharePoint-rechten nodig. Site-eigenaren kunnen bepalen of de bibliotheek Sitepagina's HTML-bestanden accepteert. Ga er niet van uit dat dezelfde licentieregels voor Excel, PowerPoint of OneDrive gelden.
+
+In zijn [technische onderzoek](https://n8d.at/anatomy-of-sharepoint-html-pages-explained/) beschrijft Stefan Bauer een HTML-pagina in een iframe met een sandbox. Een iframe is een browserkader dat een apart document toont. De sandbox beperkt wat dat document kan doen en scheidt het van de omliggende SharePoint-pagina. Dat helpt de omgeving te beschermen tegen willekeurige gegenereerde of geüploade code. Een Content Security Policy geeft de browser ook aan welke bronnen en verbindingen zijn toegestaan.
+
+Die afzondering heeft gevolgen. Het dashboard is geen standaard SharePoint-webonderdeel met hetzelfde model voor integratie en hergebruik. Microsoft geeft aan dat willekeurige fetch-verzoeken en uitgaande API-aanroepen niet worden ondersteund, hoewel ondersteunde livegegevens wel beschikbaar zijn. Houd rekening met die grenzen voordat je integraties toezegt. Bauer testte zijn eigen tenant in oktober 2026 en werkte zijn artikel op 27 oktober bij. Zijn bevindingen beschrijven die test en zijn geen garantie voor elke volgende versie.
+
+In zijn test werden paginakleuren ook vastgelegd bij het maken van de HTML. Een latere wijziging van het sitethema werkte de bestaande pagina niet automatisch bij. Microsoft documenteert huisstijl voor pagina's die met Copilot zijn gemaakt of bijgewerkt. Een passend uiterlijk bij het maken betekent dus niet vanzelf een live verbinding met het thema. Controleer bestaande dashboards na een nieuwe huisstijl en pas ze zo nodig aan of genereer ze opnieuw.
+
+## Interactief betekent niet altijd live
+
+Een filter kan prima werken op gegevens van gisteren. Stel vóór het delen vast welk patroon het dashboard gebruikt:
+
+- **Statische momentopname:** gegevens zijn vastgelegd in het bestand. Filters kunnen die kopie nog steeds verkennen, maar wijzigingen in de bron verschijnen niet vanzelf.
+- **Ondersteunde live verbinding:** de omgeving levert bijgewerkte gegevens uit een ondersteunde bron. Controleer wanneer die worden ververst en wat iedere kijker mag zien.
+- **Gegevensintegratie voor de organisatie:** een ontworpen proces combineert systemen, past regels toe, beheert toegang en bewaakt updates. De eisen gaan verder dan één visualisatie.
+
+Microsoft noemt [live delen van gegevens uit lijsten en Excel](https://support.microsoft.com/nl-nl/sharepoint/create-edit-publish-html-pages) voor HTML-pagina's in SharePoint. Willekeurige uitgaande API-aanroepen en live bronnen van derden vallen volgens die functietabel buiten de ondersteuning. Ga er niet van uit dat elke gegenereerde pagina een live verbinding gebruikt. Test de betreffende pagina en bron.
+
+Bauer onderzocht een mechanisme voor lijsten met een `LiveData`-manifest. In zijn test haalde SharePoint de lijstgegevens op de server op met de identiteit van de kijker en gaf ze vóór de weergave aan de pagina door. Het script van het dashboard toonde die gegevens. Het kreeg geen onbeperkte netwerktoegang of toegang tot Microsoft Graph. Volgens Bauer leverde opnieuw laden, of de verversknop van de omgeving gebruiken, in zijn voorbeeld opnieuw gegevens op. Dit zijn waarnemingen van de werking, geen openbaar contract over een verversinterval of alle machtigingsscenario's.
+
+Toegang tot een bron verschilt ook van toegang tot een kopie. Een SharePoint-bestand kan beperkte rechten hebben, terwijl gegevens in de HTML met een download of kopie meereizen. Rechten op het bronsysteem volgen die kopie niet automatisch. Een ondersteunde live verbinding neemt de noodzaak voor controle van toegang en gegevensbescherming evenmin weg. Onderzoek wat het bestand bevat, test met representatieve kijkers en kies een locatie en deelbeleid die bij de gegevens passen.
+
+## Van dashboard naar rapportage voor de organisatie
+
+Stel dat een organisatie één managementoverzicht wil van budget en werkelijke uitgaven, projectvoortgang, personeelscapaciteit en trends per afdeling. De gegevens komen uit een ERP-systeem, een HR-systeem en een SharePoint-projectlijst. Dit voorbeeld is fictief, maar de ontwerpvragen zijn herkenbaar.
+
+Eerst heeft de organisatie betrouwbare toegang tot elke bron nodig. Afhankelijk van de systemen zijn daarvoor API's, databaseverbindingen of een integratiedienst nodig. Het ontwerp moet rekening houden met authenticatie, bronrechten, mislukte verzoeken, bewaking en herstel. Een klein team met één goed beheerde lijst heeft die extra infrastructuur mogelijk niet nodig. Meerdere systemen en gevoelige besluiten kunnen die wel rechtvaardigen.
+
+Daarna moeten de gegevens op elkaar aansluiten. Systemen kunnen een afdeling verschillend aanduiden. Datums kunnen andere tijdzones gebruiken, medewerkers kunnen dubbel voorkomen en records kunnen onvolledig zijn. **ETL** betekent extract, transform en load: gegevens ophalen, corrigeren of op elkaar afstemmen en daarna laden voor gebruik. Bij **ELT** komt laden vóór het omzetten. In beide gevallen moet iemand de regels bepalen en de uitkomst controleren.
+
+De betekenis voor de organisatie is even belangrijk als de verbinding. Telt een medewerker met verlof als actief? Is omzet gebaseerd op facturen, orders of betalingen? Wat betekent een reorganisatie voor de afdelingscijfers van vorig jaar? Een herbruikbaar semantisch model kan gedeelde relaties en berekeningen bevatten, maar heeft een verantwoordelijke eigenaar en afgesproken definities nodig. Een gegenereerde grafiek neemt die besluiten niet vanzelf.
+
+Ook toegang heeft meerdere lagen. Een manager heeft mogelijk details van de eigen afdeling nodig, financiën organisatiebrede cijfers en medewerkers alleen totalen. Row-level security (RLS) beperkt welke records een gebruiker ziet. [RLS in Power BI](https://learn.microsoft.com/nl-nl/power-bi/enterprise/service-admin-rls) is een voorbeeld. Microsoft vermeldt dat de regels gelden voor kijkers in een werkruimte, niet voor de rollen Admin, Member of Contributor. Test de daadwerkelijke toegangsroute en rollen. Ga er niet van uit dat toegang tot een SharePoint-pagina automatisch rijen filtert die al naar een HTML-bestand zijn gekopieerd.
+
+Spreek af hoe actueel elk getal moet zijn. Bewaak mislukte verversingen, toon de leeftijd van gegevens als die van invloed is op besluiten, waarschuw een eigenaar en leg herstel vast. Een maandelijks overleg vraagt iets anders dan een actuele operationele beslissing. De [documentatie over verversen in Power BI](https://learn.microsoft.com/nl-nl/power-bi/connect-data/refresh-data) laat zien welke afhankelijkheden en bewaking bij beheerde rapportage kunnen horen.
+
+Vraag bij belangrijke rapportages waar een getal vandaan komt, welke records en bewerkingen eraan bijdragen, welke versie van de berekening geldt en wie de definitie beheert. **Data lineage** beschrijft de weg van bron via verwerking naar resultaat. Microsoft biedt een [lineageweergave in Power BI](https://learn.microsoft.com/nl-nl/power-bi/collaborate-share/service-data-lineage), al beantwoordt die niet vanzelf elke controlevraag. Power BI, Microsoft Fabric, beheerde modellen, pipelines en aparte integraties zijn opties als de eisen dat rechtvaardigen. Voor een klein dashboard zijn ze niet allemaal verplicht.
+
+## Eigenaarschap stopt niet na publicatie
+
+Stel dat een medewerker een HTML-dashboard maakt voor een kwartaaloverleg over een project. Collega's delen het en het blijft nuttig. Maanden later vertrekt de maker. Het bestand verdwijnt niet noodzakelijk, maar iemand moet weten of de cijfers actueel zijn, wie het kan corrigeren en of bewaren, archiveren of verwijderen passend is.
+
+De maker, proceseigenaar, gegevenseigenaar, site-eigenaar en technische ondersteuning kunnen verschillende mensen zijn. Spreek af wie de definities beheert, wie de pagina en bron onderhoudt, wie toegang goedkeurt en wanneer de controle plaatsvindt. Bewaar teaminformatie waar het team die kan beheren. De [gids voor eigenaarschap](../docs/admin-and-governance/permissions-and-ownership) en de [keuze voor een bestandslocatie](../docs/decisions/where-should-this-file-live) helpen daarbij.
+
+Gemakkelijk maken kan ook meerdere versies van dezelfde KPI opleveren. Kopieën, afwijkende definities, onduidelijke eigenaren en verouderde pagina's maken het lastiger om het gezaghebbende rapport te vinden. Dit risico vraagt beheer, maar is niet onvermijdelijk. Hergebruik waar mogelijk een betrouwbare bron en vermeld eigenaar, doel en controledatum.
+
+Bauer zag in zijn test dat SharePoint Search tekst uit de HTML-pagina indexeerde. Hij zag ook dat een pagina-inhoudseigenschap leeg bleef die sommige gestructureerde onderdelen gebruiken. Vindbaarheid via zoeken garandeert dus niet dat afzonderlijke dashboardonderdelen in standaardpagina's of webonderdelen kunnen worden hergebruikt. Test de gewenste publicatie en vindbaarheid. Voor standaardpagina's lees je [hoe een SharePoint-pagina is opgebouwd](../docs/services/sharepoint/sharepoint-pages-and-web-parts).
+
+Ook toegankelijkheid vraagt een test. In zijn aparte [onderzoek naar toegankelijkheid](https://n8d.at/accessibility-of-sharepoint-html-pages-explained/) meldde Bauer problemen in de omliggende pagina, waaronder een focusindicator en een link om inhoud over te slaan. Hij vond ook bruikbare toegankelijke markup in de gegenereerde inhoud. Test vóór brede publicatie de toetsenbordbediening, zichtbare focus, schermlezers en de gegenereerde bedieningselementen met de mensen en technologieën uit de doelgroep. Controleer opnieuw als de functie verandert.
+
+## Kies op basis van het werk en de gevolgen
+
+| Aanpak | Geschikt voor | Sterk punt | Belangrijk aandachtspunt |
+| --- | --- | --- | --- |
+| Excel Interactive Canvas | Werkmappen en scenario's verkennen | Analyse verbonden met de werkmap | Controleer formules, aannames, toegang en beschikbaarheid |
+| Interactieve PowerPoint-dia's | Vergaderingen en verhalen | Informatie verkennen tijdens een presentatie | Clientondersteuning en gezaghebbende bron |
+| SharePoint HTML-pagina | Prototype of afgebakend teamdashboard | Snel maken en ondersteunde livegegevens | Afzondering, toegankelijkheid, eigenaarschap en onderhoud |
+| Moderne SharePoint-pagina en webonderdelen | Intranetpublicatie en gestructureerde inhoud | Standaardpagina's samenstellen en publiceren | Kies passende bronnen en webonderdelen |
+| [SharePoint Framework](https://learn.microsoft.com/nl-nl/sharepoint/dev/spfx/sharepoint-framework-overview) (SPFx) | Herbruikbare SharePoint-functionaliteit op maat | Uitbreiding en ondersteunde integratie | Code bouwen, beveiligen, uitrollen en onderhouden |
+| Power BI | Beheerde analyse en rapportage over meerdere bronnen | Modellen, toegangsbeheer en verversing | Ontwerp en beheer het model en zijn afhankelijkheden |
+
+Deze aanpakken kunnen samenwerken. Een moderne SharePoint-pagina kan bijvoorbeeld verwijzen naar een Power BI-rapport of dit insluiten als aan de eisen voor integratie, rechten en licenties is voldaan. Ook een HTML-pagina kan geschikt zijn voor productie, als de eigenaar tijdens de beoogde levensduur aan de behoeften van de doelgroep kan voldoen.
+
+Begin met het besluit dat de doelgroep moet nemen. Spreek daarna de bron, aanvaardbare ouderdom van gegevens, toegang, eigenaar en controledatum af. Voldoet een klein, goed beheerd dashboard, gebruik dat dan. Gaat het resultaat besluiten over afdelingen heen sturen, ontwerp dan ook de gegevensvoorziening en het beheer voordat je een gegenereerde weergave als antwoord van de organisatie gebruikt.
