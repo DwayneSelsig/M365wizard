@@ -12,7 +12,7 @@ For detect requests, make sure the response names each pattern found with a quot
 4. Is the amount of cutting proportional to the actual slop, with no aggressive compression that strips out character?
 5. Does the draft lead with what the reader needs while keeping personal setup that adds context, tension, or character?
 6. Are points front-loaded where that improves clarity without forcing every unit into the same structure?
-7. Do sentences earn their place, with concrete facts, protected details, and direct verbs where the draft supports them?
+7. Do sentences earn their place, with concrete facts, protected details, and direct finite verbs instead of unnecessary nominalizations or gerunds?
 8. Does every generic sentence pass the portability test, or was it cut or made specific to this subject?
 9. Does the draft use active voice with human subjects where possible?
 10. Does the edit keep useful edge and preserve structure unless the structure was hurting the piece?
