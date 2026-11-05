@@ -13,6 +13,18 @@ prereqs: []
 
 Start with the information your task needs. Use Copilot Chat for a question, draft, or analysis based on public information or material you provide. Choose the licensed work-context experience of Microsoft 365 Copilot when the work depends on your permitted Microsoft 365 files, email, meetings, or chats across supported experiences.
 
+Bring the notes, unfinished email, or spreadsheet you already have. Ask Copilot to organize the material or suggest a next step. Check the suggestion and refine it together. You decide what to use and remain responsible for the result.
+
+This Microsoft video introduces that way of working:
+
+import YouTubeVideo from '@site/src/components/YouTubeVideo';
+
+<YouTubeVideo
+  id="eKDCAJ5dVKs"
+  title="Getting started with Microsoft Copilot as an AI assistant"
+  videoLanguage="en"
+/>
+
 ## Choose By The Work
 
 | Need | Better starting point | Example |
@@ -26,6 +38,8 @@ Microsoft 365 Copilot also handles general questions and drafting. Copilot Chat 
 ## Check The Information Behind The Answer
 
 The licensed work-context experience respects the user's permissions. That makes excessive access, stale files, and unclear ownership practical problems: Copilot may find information a person can access but should no longer use. Check the cited source and its date before sharing or acting on an answer. See [Permissions And Ownership](../../admin-and-governance/permissions-and-ownership.md) and [governance for SharePoint sharing](../../admin-and-governance/govern-sharing-in-sharepoint.md).
+
+For organizational Microsoft 365 Copilot, Microsoft states that prompts, responses, and data accessed through Microsoft Graph are not used to train foundation language models. See [Microsoft's data, privacy, and security guidance](https://learn.microsoft.com/en-us/copilot/plan/microsoft-365-copilot-privacy). Continue to follow your organization's rules for sensitive information. This protection does not make every file suitable for every task.
 
 :::warning[Check The Source Before Acting]
 

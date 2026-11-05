@@ -13,6 +13,18 @@ prereqs: []
 
 Begin bij de informatie die je taak nodig heeft. Gebruik Copilot Chat voor een vraag, concept of analyse op basis van openbare informatie of materiaal dat je zelf aanlevert. Kies de gelicentieerde ervaring met werkcontext van Microsoft 365 Copilot wanneer het werk afhangt van je toegestane Microsoft 365-bestanden, e-mail, vergaderingen of chats in ondersteunde ervaringen.
 
+Begin met je notities, onafgemaakte e-mail of bestaande spreadsheet. Vraag Copilot om het materiaal te ordenen of een vervolgstap voor te stellen. Controleer het voorstel en werk het samen verder uit. Jij bepaalt wat je gebruikt en blijft verantwoordelijk voor het resultaat.
+
+Deze Microsoft-video introduceert die manier van werken:
+
+import YouTubeVideo from '@site/src/components/YouTubeVideo';
+
+<YouTubeVideo
+  id="eKDCAJ5dVKs"
+  title="Beginnen met Microsoft Copilot als AI-assistent"
+  videoLanguage="en"
+/>
+
 ## Kies op basis van het werk
 
 | Behoefte | Beter beginpunt | Voorbeeld |
@@ -26,6 +38,8 @@ Microsoft 365 Copilot kan ook algemene vragen beantwoorden en concepten maken. C
 ## Controleer de informatie achter het antwoord
 
 De gelicentieerde ervaring met werkcontext houdt rekening met de machtigingen van de gebruiker. Daardoor vormen te ruime toegang, verouderde bestanden en onduidelijk eigenaarschap een praktisch probleem: Copilot kan informatie vinden die iemand wel mag openen, maar niet meer zou moeten gebruiken. Controleer de aangehaalde bron en datum voordat je een antwoord deelt of opvolgt. Lees [Machtigingen en eigenaarschap](../../admin-and-governance/permissions-and-ownership.md) en [governance voor delen in SharePoint](../../admin-and-governance/govern-sharing-in-sharepoint.md).
+
+Voor Microsoft 365 Copilot binnen organisaties stelt Microsoft dat prompts, antwoorden en gegevens uit Microsoft Graph niet worden gebruikt om basistaalmodellen te trainen. Lees [Microsofts richtlijnen voor gegevens, privacy en beveiliging](https://learn.microsoft.com/nl-nl/copilot/plan/microsoft-365-copilot-privacy). Blijf de organisatieregels voor gevoelige informatie volgen. Deze bescherming maakt niet elk bestand geschikt voor elke taak.
 
 :::warning[Controleer de bron voordat je handelt]
 
