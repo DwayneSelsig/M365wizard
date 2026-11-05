@@ -23,9 +23,9 @@ Ik vind dat veelbelovend. Een team kan een idee proberen zonder eerst elke grafi
 
 In het Excel-voorbeeld vraagt Mike Copilot om verkoopgegevens te verkennen. Het dashboard brengt omzet, winst, marge, productprestaties en filters samen. Met wat-als-knoppen verandert hij aannames, zoals prijzen en kosten per eenheid. Een ander voorbeeld onderzoekt het klantverloop bij het fictieve Dunder Mifflin. Hij vraagt om vergelijkingen tussen regio's en voegt daarna scenario's toe met een nieuwe prompt.
 
-Het is nuttig om een analyse via een gesprek te kunnen aanpassen. Een analist kan een vraag met collega's uitproberen voordat het team in een grotere oplossing investeert. Een overtuigende grafiek bewijst nog niet dat een formule klopt. Controleer brongegevens, berekeningen en aannames. Een scenario laat zien wat uit de aannames volgt; het is niet vanzelf een betrouwbare voorspelling.
+Door een analyse via een gesprek aan te passen, kan een analist een vraag met collega's uitproberen voordat het team in een grotere oplossing investeert. Een overtuigende grafiek bewijst nog niet dat een formule klopt. Controleer brongegevens, berekeningen en aannames. Een scenario laat zien wat uit de aannames volgt; het is niet vanzelf een betrouwbare voorspelling.
 
-Microsoft noemt de Excel-vaardigheid [interactive-canvas](https://support.microsoft.com/nl-nl/excel/copilot/copilot-in-excel-built-in-skills). Volgens Microsoft blijft het canvas verbonden met de werkmap en wordt het bijgewerkt als de gegevens daarin veranderen. Dat is nuttig, maar de bronnen van de werkmap kunnen nog steeds een aparte verversing en controle nodig hebben. Voor delen is ook passende toegang tot de werkmap nodig. Beschikbaarheid hangt af van account, instellingen en uitrol. Controleer de actuele documentatie en je tenant voordat je erop rekent.
+Microsoft noemt de Excel-vaardigheid [interactive-canvas](https://support.microsoft.com/nl-nl/excel/copilot/copilot-in-excel-built-in-skills). Volgens Microsoft blijft het canvas verbonden met de werkmap en wordt het bijgewerkt als de gegevens daarin veranderen. De bronnen van de werkmap kunnen nog steeds een aparte verversing en controle nodig hebben. Voor delen is ook passende toegang tot de werkmap nodig. Beschikbaarheid hangt af van account, instellingen en uitrol. Controleer de actuele documentatie en je tenant voordat je erop rekent.
 
 In PowerPoint toont Mike interactieve dia's met filters, vergelijkingen, tijdlijnen en stijlen. Dat kan een directieoverleg of bespreking van een enquête levendiger maken: de presentator kan tijdens de vergadering een vervolgvraag onderzoeken. De presentatie blijft een communicatiemiddel. Spreek daarom af waar de gezaghebbende cijfers staan.
 
@@ -44,6 +44,19 @@ In zijn [technische onderzoek](https://n8d.at/anatomy-of-sharepoint-html-pages-e
 Die afzondering heeft gevolgen. Het dashboard is geen standaard SharePoint-webonderdeel met hetzelfde model voor integratie en hergebruik. Microsoft geeft aan dat willekeurige fetch-verzoeken en uitgaande API-aanroepen niet worden ondersteund, hoewel ondersteunde livegegevens wel beschikbaar zijn. Houd rekening met die grenzen voordat je integraties toezegt. Bauer testte zijn eigen tenant in oktober 2026 en werkte zijn artikel op 27 oktober bij. Zijn bevindingen beschrijven die test en zijn geen garantie voor elke volgende versie.
 
 In zijn test werden paginakleuren ook vastgelegd bij het maken van de HTML. Een latere wijziging van het sitethema werkte de bestaande pagina niet automatisch bij. Microsoft documenteert huisstijl voor pagina's die met Copilot zijn gemaakt of bijgewerkt. Een passend uiterlijk bij het maken betekent dus niet vanzelf een live verbinding met het thema. Controleer bestaande dashboards na een nieuwe huisstijl en pas ze zo nodig aan of genereer ze opnieuw.
+
+Begin bij de informatie die de doelgroep nodig heeft. Deze beslisboom helpt bepalen wanneer een dashboard een breder ontwerp voor gegevens en beheer nodig heeft.
+
+```mermaid
+flowchart TD
+    A{"Wat heeft de<br/>doelgroep nodig?"} --> B{"Eén geschikte bron<br/>en een beperkte doelgroep?"}
+    B -->|"Ja"| C{"Zijn toegang, actualiteit<br/>en eigenaarschap geregeld?"}
+    B -->|"Nee"| D["Ontwerp de architectuur<br/>voor rapportage"]
+    C -->|"Ja"| E["Gebruik een afgebakend<br/>dashboard en controleer het"]
+    C -->|"Nee"| D
+    D --> F["Regel bronnen, definities,<br/>beveiliging en beheer"]
+    F --> G["Kies een rapportagevorm<br/>die daarbij past"]
+```
 
 ## Interactief betekent niet altijd live
 
@@ -77,7 +90,7 @@ Vraag bij belangrijke rapportages waar een getal vandaan komt, welke records en 
 
 ## Eigenaarschap stopt niet na publicatie
 
-Stel dat een medewerker een HTML-dashboard maakt voor een kwartaaloverleg over een project. Collega's delen het en het blijft nuttig. Maanden later vertrekt de maker. Het bestand verdwijnt niet noodzakelijk, maar iemand moet weten of de cijfers actueel zijn, wie het kan corrigeren en of bewaren, archiveren of verwijderen passend is.
+Stel dat een medewerker een HTML-dashboard maakt voor een kwartaaloverleg over een project. Collega's delen het en blijven het gebruiken. Maanden later vertrekt de maker. Het bestand verdwijnt niet noodzakelijk, maar iemand moet weten of de cijfers actueel zijn, wie het kan corrigeren en of bewaren, archiveren of verwijderen passend is.
 
 De maker, proceseigenaar, gegevenseigenaar, site-eigenaar en technische ondersteuning kunnen verschillende mensen zijn. Spreek af wie de definities beheert, wie de pagina en bron onderhoudt, wie toegang goedkeurt en wanneer de controle plaatsvindt. Bewaar teaminformatie waar het team die kan beheren. De [gids voor eigenaarschap](../docs/admin-and-governance/permissions-and-ownership) en de [keuze voor een bestandslocatie](../docs/decisions/where-should-this-file-live) helpen daarbij.
 

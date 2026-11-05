@@ -23,9 +23,9 @@ I find that exciting. A team can try an idea without first building every chart 
 
 In the Excel example, Mike asks Copilot to explore sales data. The resulting dashboard brings revenue, profit, margin, product performance, and filters together. What-if controls let him change assumptions such as prices and unit costs. Another example explores fictional Dunder Mifflin customer churn. He asks for territory comparisons and then adds scenarios through another prompt.
 
-The ability to refine an analytical interface in conversation is useful. A business analyst can test a question with colleagues before investing in a larger solution. Still, a convincing chart does not verify a formula. Check source data, calculations, and assumptions. A scenario describes what follows from its assumptions; it is not automatically a reliable forecast.
+By refining an analysis through conversation, a business analyst can test a question with colleagues before investing in a larger solution. Still, a convincing chart does not verify a formula. Check source data, calculations, and assumptions. A scenario describes what follows from its assumptions; it is not automatically a reliable forecast.
 
-Microsoft calls the Excel skill [interactive-canvas](https://support.microsoft.com/en-us/excel/copilot/copilot-in-excel-built-in-skills). Microsoft says its canvas remains connected to the workbook and updates as workbook data changes. That is a useful property, but the workbook's own sources may still need separate refresh and validation. Sharing also requires appropriate access to the workbook. Availability depends on the account, settings, and rollout; check the current documentation and your tenant before planning around it.
+Microsoft calls the Excel skill [interactive-canvas](https://support.microsoft.com/en-us/excel/copilot/copilot-in-excel-built-in-skills). Microsoft says its canvas remains connected to the workbook and updates as workbook data changes. The workbook's own sources may still need separate refresh and validation. Sharing also requires appropriate access to the workbook. Availability depends on the account, settings, and rollout; check the current documentation and your tenant before planning around it.
 
 In PowerPoint, Mike shows interactive slides with filters, comparisons, timelines, and visual styles. This can make a management review or survey discussion more responsive: the presenter can explore a follow-up question during the meeting instead of returning to a static chart. The presentation is still a communication artifact, so agree where the authoritative figures live.
 
@@ -44,6 +44,19 @@ In his [technical investigation](https://n8d.at/anatomy-of-sharepoint-html-pages
 That isolation has consequences. The dashboard is not a standard SharePoint web part with the same integration and reuse model. Microsoft documents that arbitrary fetch requests and outbound API calls are unsupported, even though supported live data is available. Plan for those boundaries before promising integrations. Bauer tested his own tenant in October 2026 and updated his article on October 27. His observations describe that test, not a guarantee for every future version.
 
 His test also found that page colors were captured when the HTML was created. A later site theme change did not update the existing page automatically. Microsoft documents branding for pages created or updated through Copilot, but a matching initial appearance should not be assumed to be a live theme connection. After a rebrand, review existing dashboards and adjust or regenerate them where needed.
+
+Start with the reporting need. This flow helps identify when a dashboard needs a broader data and operating design.
+
+```mermaid
+flowchart TD
+    A{"What does the<br/>audience need?"} --> B{"One suitable source<br/>and a limited audience?"}
+    B -->|"Yes"| C{"Are access, freshness,<br/>and ownership sufficient?"}
+    B -->|"No"| D["Design the reporting<br/>architecture"]
+    C -->|"Yes"| E["Use a scoped dashboard<br/>and review it"]
+    C -->|"No"| D
+    D --> F["Arrange sources, definitions,<br/>security, and operations"]
+    F --> G["Choose a reporting view<br/>that meets those needs"]
+```
 
 ## Interactive does not always mean live
 
@@ -77,7 +90,7 @@ For consequential reporting, ask where a number came from, which records and tra
 
 ## Ownership continues after publication
 
-Suppose an employee creates an HTML dashboard for a quarterly project review. Colleagues share it, and it stays useful. Months later the creator leaves. The file does not necessarily disappear, but someone must know whether its figures are current, who can correct it, and whether to retain, archive, or remove it.
+Suppose an employee creates an HTML dashboard for a quarterly project review. Colleagues share it and continue to use it. Months later the creator leaves. The file does not necessarily disappear, but someone must know whether its figures are current, who can correct it, and whether to retain, archive, or remove it.
 
 The creator, business owner, data owner, site owner, and technical support team may be different people. Agree who owns the definitions, who maintains the page and source, who approves access, and when to review it. Store team information where the team can maintain it. The [ownership guide](../docs/admin-and-governance/permissions-and-ownership) and [file location decision](../docs/decisions/where-should-this-file-live) help make those choices.
 
