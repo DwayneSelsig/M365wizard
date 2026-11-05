@@ -32,11 +32,11 @@ Copilot Chat is inbegrepen bij [geschikte Microsoft 365-abonnementen](https://le
 
 Copilot Credits meten geschikt verbruiksgebaseerd Microsoft AI-werk. De organisatie kan ze betalen via ondersteunde capaciteitspakketten, vooruitbetaalde plannen of betalen naar verbruik. Het verbruik verschilt per taak. Schat daarom representatieve taken en volg het werkelijke gebruik, in plaats van de kosten van één prompt met het aantal gebruikers te vermenigvuldigen. [Microsofts richtlijnen voor Copilot Credit-facturering](https://learn.microsoft.com/nl-nl/microsoft-365/copilot/usage-based-billing-compare-dashboard-views) beschrijven de aankoop- en rapportageroutes.
 
-Cowork gebruikt credits voor zijn werk en vereist ingeschakelde facturering. [Microsofts richtlijnen voor facturering](https://learn.microsoft.com/nl-nl/microsoft-365/copilot/user-subscription-license-usage-based-billing) plaatsen ook Code en Autopilot onder facturering naar verbruik. Voor Cowork, Code en Autopilot gelden de vereiste gebruikerslicentie en het creditverbruik samen. Credits kopen vervangt die gebruikerslicentie niet. Controleer previewtoegang, licenties en factureringsvoorwaarden voordat een organisatie ervoor budgetteert of ze inschakelt. Copilot Studio en Agent Builder kunnen voor sommige gebruikers of situaties inbegrepen zijn en voor andere naar verbruik worden berekend. Controleer het soort agent, de kennisbronnen, de doelgroep en het factureringsbeleid. Ga niet uit van één prijs per productnaam.
+[Microsofts richtlijnen voor facturering](https://learn.microsoft.com/nl-nl/microsoft-365/copilot/user-subscription-license-usage-based-billing) plaatsen Cowork, Code en Autopilot onder facturering naar verbruik. De vereiste gebruikerslicentie en het creditverbruik gelden samen. Credits kopen vervangt die gebruikerslicentie niet. Controleer toegang, eventuele previewvereisten, licenties en factureringsvoorwaarden voordat je budgetteert of een ervaring inschakelt. Copilot Studio en Agent Builder kunnen voor sommige gebruikers of situaties inbegrepen zijn en voor andere naar verbruik worden berekend. Controleer het soort agent, de kennisbronnen, de doelgroep en het factureringsbeleid. Ga niet uit van één prijs per productnaam.
 
 :::warning[Stel een budget vast voor terugkerend werk]
 
-Taken met meerdere stappen en agents die doorwerken, kunnen meer credits gebruiken dan een korte chat. Wijs een eigenaar aan, stel passend uitgavenbeleid in en bekijk het verbruik tijdens een pilot. Een bestedingslimiet vervangt geen regeling voor wie toegang heeft tot Cowork.
+Taken met meerdere stappen en agents die doorwerken, kunnen meer credits gebruiken dan een korte chat. Wijs een eigenaar aan, stel passend uitgavenbeleid in en bekijk het verbruik tijdens een pilot.
 
 :::
 
@@ -52,6 +52,48 @@ Taken met meerdere stappen en agents die doorwerken, kunnen meer credits gebruik
 
 [Wijs capaciteit toe en volg het verbruik](https://learn.microsoft.com/nl-nl/power-platform/admin/manage-copilot-studio-copilot-credits-capacity) in de Copilot Chat-omgeving. Beperk het creditbeleid tot de beoogde gebruikers. Ongebruikte maandcapaciteit vervalt. Dit creditbeleid geldt voor Copilot Chat. SharePoint-agents gebruiken op dit moment beleid voor betalen naar verbruik. Controleer de ondersteunde betaalvormen voor andere ervaringen afzonderlijk.
 
+## Budget voor Copilot Cowork {#budget-for-copilot-cowork}
+
+Begin met een klein aantal nuttige taken. Spreek af wie het budget beheert en de resultaten beoordeelt. Cowork vereist een Microsoft 365 Copilot-gebruikerslicentie en ingeschakelde facturering naar verbruik. De licentie en het taakverbruik zijn aparte budgetposten. Lees [Microsofts uitleg over licenties en facturering](https://learn.microsoft.com/nl-nl/copilot/plan/user-subscription-license-usage-based-billing).
+
+Microsofts [aankondiging van 16 juni 2026](https://www.microsoft.com/nl-nl/copilot/blog/2026/06/16/copilot-cowork-is-now-generally-available/) beschrijft vier kostenfactoren voor Cowork-taken: modelgebruik, opgehaalde context, toolaanroepen en runtime. Context ophalen betekent informatie verzamelen die de taak nodig heeft. Runtime is de omgeving waarin het werk wordt uitgevoerd. Eén opdracht kan meerdere model- en toolaanroepen vereisen. Alleen prompts tellen geeft daarom een zwakke schatting.
+
+### Schat een mix van taken
+
+Deel het verwachte werk in naar zwaarte. Microsofts categorieën licht, middelzwaar en zwaar helpen de raming opbouwen:
+
+| Soort taak | Kenmerken | Voorbeeld voor een pilot |
+| --- | --- | --- |
+| Licht | Weinig bronnen, beperkte redeneerstappen, één resultaat | Maak een briefing uit enkele goedgekeurde notities. |
+| Middelzwaar | Meerdere bronnen, gestructureerde redeneerstappen, meerdere resultaten | Vergelijk projectupdates en maak een briefing met een actielijst. |
+| Zwaar | Breed bronnenonderzoek, diepgaande redeneerstappen, veel resultaten | Vergelijk materiaal uit meerdere projecten en maak verschillende rapporten. |
+
+Deze categorieën helpen bij de planning. Ze hebben geen vaste credittarieven. Gebruik de [Copilot Credit Estimator](https://aka.ms/CopilotCreditPlanningModel), waarnaar [Microsofts factureringsoverzicht](https://learn.microsoft.com/nl-nl/copilot/plan/usage-based-billing-overview-copilot-credits) verwijst. Groepeer gebruikers op basis van hun verwachte werk. Schat het maandelijkse taakvolume en de verdeling over taaksoorten. Controleer de model- en prijsaannames van de estimator voordat je de totalen gebruikt. Houd gebruikerslicenties apart in het totale budget.
+
+Leg tijdens de pilot het creditverbruik van representatieve afgeronde taken vast. Tel herhaalde uitvoeringen en correcties mee. Beoordeel de resultaten. Vergelijk het controlewerk met de bespaarde tijd. Ook een taak die meerdere bestanden oplevert, vraagt om menselijke controle. Gebruik het [voorbeeld van de projectbriefing](./delegate.md) om een vaste testtaak te bepalen. Werk de maandraming bij met gemeten verbruik voordat je de toegang uitbreidt.
+
+Jared Spataro legt in deze video prijzen, ramingen en kostenbeheer uit. Gebruik de actuele Microsoft Learn-richtlijnen voor operationele besluiten. De startdatums en toekomstuitspraken in de video horen bij de publicatieperiode.
+
+import YouTubeVideo from '@site/src/components/YouTubeVideo';
+
+<YouTubeVideo
+  id="KBNgHnUmVp0"
+  title="Copilot Cowork: prijzen, kostenramingen en bestedingslimieten"
+  videoLanguage="en"
+/>
+
+### Regel toegang en beoordeel verbruik
+
+IT stelt facturering en bestedingsbeleid in. De budgeteigenaar spreekt af wie Cowork mag gebruiken en beoordeelt het verbruik. Begin met de beoogde pilotgroep. Stel limieten en meldingen in. Bepaal wie aanvragen voor extra credits behandelt. Beoordeel het verbruik wekelijks tijdens de pilot. [Microsofts overzicht van kostenbeheer](https://learn.microsoft.com/nl-nl/copilot/plan/usage-based-billing-overview-copilot-credits) beschrijft rapportage per beleid, gebruiker, groep en dienst. Controleer welke betaalvormen Cowork ondersteunt voordat je credits koopt.
+
+:::warning[Een lage limiet geeft nog steeds toegang]
+
+Bestedingsbeleid dat een gebruiker omvat en Cowork selecteert, geeft toegang. Ook een limiet van één credit geeft toegang. Verwijder de gebruiker uit elk beleid dat Cowork selecteert om toegang in te trekken. Controleer overlappend beleid voordat je de pilot uitbreidt.
+
+Creditverbruik en limieten worden met vertraging verwerkt. Een gebruiker kan extra taken starten voordat de limiet wordt afgedwongen. Beschouw de limiet niet als een onmiddellijke stop. Lees [Microsofts toegangsregels voor Cowork](https://learn.microsoft.com/nl-nl/copilot/cowork/cowork-access).
+
+:::
+
 ## Azure-verbruik kent andere meeteenheden
 
 Microsoft Foundry draait op Azure. Modelaanroepen, implementaties, opslag, zoekfuncties en andere gekoppelde resources kunnen afzonderlijke kosten hebben. De kosten van een AI-toepassing bestaan dus uit meer dan modelaanroepen. Gebruik [kostenplanning voor Foundry](https://learn.microsoft.com/nl-nl/azure/foundry/concepts/manage-costs) en Azure Cost Management voor de gekozen architectuur.
@@ -62,6 +104,9 @@ Bevestig geschikte basisabonnementen, toegewezen gebruikerslicenties, agenttoega
 
 ## Officiële Microsoft-documentatie
 
+- [Kostenfactoren en taaksoorten bij de algemene beschikbaarheid van Cowork](https://www.microsoft.com/nl-nl/copilot/blog/2026/06/16/copilot-cowork-is-now-generally-available/)
+- [Kostenbeheer voor Copilot Credits en de Cowork-estimator](https://learn.microsoft.com/nl-nl/copilot/plan/usage-based-billing-overview-copilot-credits)
+- [Cowork-toegang, overlappend beleid en vertraagde verwerking van limieten](https://learn.microsoft.com/nl-nl/copilot/cowork/cowork-access)
 - [Copilot-ervaringen en licentietoegang vergelijken](https://learn.microsoft.com/nl-nl/microsoft-365/copilot/microsoft-365-copilot-overview)
 - [Gebruikerslicenties en facturering naar verbruik](https://learn.microsoft.com/nl-nl/microsoft-365/copilot/user-subscription-license-usage-based-billing)
 - [Capaciteitspakketten en betalen naar verbruik voor Copilot Chat-agents](https://learn.microsoft.com/nl-nl/microsoft-365/copilot/pay-as-you-go/copilot-capacity-packs)
