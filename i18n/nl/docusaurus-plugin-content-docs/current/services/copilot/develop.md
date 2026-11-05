@@ -25,6 +25,32 @@ GitHub Copilot helpt bij pro-codeontwikkeling: een team schrijft en onderhoudt s
 
 Foundry ondersteunt pro-code voor AI-oplossingen, maar laat je ook prompt agents in het portaal configureren zonder applicatiecode te schrijven. Kies op basis van het deel van de oplossing dat je team moet maken of beheren.
 
+## Code schrijven met GitHub Copilot
+
+Gebruik GitHub Copilot om tijdens het werk codevoorstellen te krijgen. De video laat zien hoe code en commentaar context geven voor voorstellen, van losse regels tot hele functies. Begin met een kleine wijziging die je kunt beoordelen en testen.
+
+import YouTubeVideo from '@site/src/components/YouTubeVideo';
+
+<YouTubeVideo
+  id="IqXNhakuwVc"
+  title="GitHub Copilot: codevoorstellen op basis van code en commentaar"
+  videoLanguage="en"
+/>
+
+De video richt zich op codeaanvulling. GitHub Copilot ondersteunt ook chat, codebeoordeling en agents die ontwikkeltaken uitvoeren. Beschikbare functies hangen af van je abonnement, editor en organisatiebeleid. Bekijk [GitHubs actuele Copilot-overzicht](https://docs.github.com/en/copilot/get-started/about-github-copilot) voor de ondersteunde mogelijkheden.
+
+## AI bouwen en beheren met Microsoft Foundry
+
+Gebruik Foundry wanneer je toepassing AI-modellen of agents nodig heeft. De video introduceert modelkeuze, koppelingen met bedrijfsinformatie, uitrol en bewaking. Begin met één toepassing en goedgekeurde bronnen. Test de resultaten voordat je de oplossing uitbreidt.
+
+<YouTubeVideo
+  id="ooZ3xXEdOKI"
+  title="Microsoft Foundry: AI-toepassingen en agents bouwen en beheren"
+  videoLanguage="en"
+/>
+
+Gebruik [Microsofts Foundry-overzicht](https://learn.microsoft.com/nl-nl/azure/foundry/what-is-foundry) om de benodigde mogelijkheden te controleren. Sommige mogelijkheden zijn in preview. Controleer beschikbaarheid, toegangsbeheer en kosten van de gekozen diensten voordat je ze in productie gebruikt.
+
 ## Plan voor de werkende oplossing
 
 Bij Foundry moet het team bepalen wie de toepassing, gegevensbronnen, model- en uitrolkeuzes, toegang, bewaking, kosten en uitfasering beheert. Voorstellen van GitHub Copilot hebben nog steeds gewone codebeoordeling, tests en beveiligingscontroles nodig. Technische vrijheid brengt beheerwerk mee; de behoefte aan een verantwoordelijke proceseigenaar blijft.
