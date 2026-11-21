@@ -1,0 +1,65 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  padding: 0;
+  margin: 1.5rem 0 2rem;
+  list-style: none;
+}
+
+.grid li + li {
+  margin-top: 0;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  height: 100%;
+  padding: 0.9rem;
+  border-radius: 0.4rem;
+  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-font-color-base);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.link:hover {
+  color: var(--ifm-font-color-base);
+  background: var(--ifm-color-emphasis-200);
+  text-decoration: underline;
+}
+
+.link:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}
+
+.link svg {
+  flex: 0 0 1.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+@media (max-width: 700px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 400px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (forced-colors: active) {
+  .link {
+    border: 1px solid LinkText;
+    color: LinkText;
+  }
+
+  .link:focus-visible {
+    outline-color: Highlight;
+  }
+}

@@ -64,3 +64,25 @@ a:has(img, picture, svg:not(.markdown-external-link-icon > svg)) > .markdown-ext
   display: none;
 }
 
+/* Add document IDs or folder prefixes here to frame guide screenshots.
+   A final slash limits a prefix to that folder and its descendants. */
+:is(
+  [class~='docs-doc-id-tools/apps/my-calendars/overview'],
+  [class*='docs-doc-id-tools/apps/my-calendars/getting-started/'],
+  [class*='docs-doc-id-tools/apps/my-calendars/user-guide/'],
+  [class*='docs-doc-id-tools/apps/my-calendars/administration/']
+) .theme-doc-markdown img {
+  border: 1px solid var(--ifm-color-emphasis-300);
+}
+
+@media (forced-colors: active) {
+  :is(
+    [class~='docs-doc-id-tools/apps/my-calendars/overview'],
+    [class*='docs-doc-id-tools/apps/my-calendars/getting-started/'],
+    [class*='docs-doc-id-tools/apps/my-calendars/user-guide/'],
+    [class*='docs-doc-id-tools/apps/my-calendars/administration/']
+  ) .theme-doc-markdown img {
+    border-color: CanvasText;
+  }
+}
+

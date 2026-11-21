@@ -1,0 +1,8 @@
+{
+  "label": "My Calendars",
+  "position": 2,
+  "link": {
+    "type": "doc",
+    "id": "tools/apps/my-calendars/overview"
+  }
+}
