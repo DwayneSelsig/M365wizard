@@ -32,7 +32,8 @@ Choose **Load another mailbox** to add a calendar only to this web part.
 
 ![Outlook calendar options](/img/tools/my-calendars/add-outlook-calendar.png)
 
-Enter the mailbox's UPN, object ID, or primary SMTP address.
+Enter the mailbox's primary email address.
+You can also use its UPN or object ID.
 Select **Load calendars**, then choose the calendar.
 Secondary email aliases are not supported.
 You still need permission to read that calendar.
@@ -45,9 +46,9 @@ Set a display name and color, then add the calendar.
 
 1. Choose **SharePoint Calendar**.
 2. Search for and select a site you can access.
-3. Select a compatible list.
+3. Select a list with suitable title and date columns.
 4. Select **Next**.
-5. Map the title, start date, and end date fields.
+5. Choose which columns contain the title, start date, and end date.
 6. Set optional location and description fields.
 7. Check the result dates, then add the calendar.
 

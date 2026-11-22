@@ -32,7 +32,8 @@ Kies **Load another mailbox** om alleen hier een agenda toe te voegen.
 
 ![Opties voor Outlook-agenda's](/img/tools/my-calendars/add-outlook-calendar.png)
 
-Voer de UPN, object-ID of het primaire SMTP-adres van de mailbox in.
+Voer het primaire e-mailadres van de mailbox in.
+Je kunt ook de UPN of object-ID gebruiken.
 Selecteer **Load calendars** en kies daarna de agenda.
 Secundaire e-mailaliassen worden niet ondersteund.
 Je hebt ook leesrechten voor de agenda nodig.
@@ -45,9 +46,9 @@ Stel een weergavenaam en kleur in en voeg de agenda toe.
 
 1. Kies **SharePoint Calendar**.
 2. Zoek een site en selecteer een site die je mag openen.
-3. Selecteer een compatibele lijst.
+3. Selecteer een lijst met geschikte kolommen voor titel en datums.
 4. Selecteer **Next**.
-5. Koppel de titel-, begin- en einddatumvelden.
+5. Kies welke kolommen de titel, begindatum en einddatum bevatten.
 6. Stel zo nodig locatie- en beschrijvingsvelden in.
 7. Controleer de datums en voeg de agenda toe.
 

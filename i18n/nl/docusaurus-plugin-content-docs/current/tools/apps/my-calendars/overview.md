@@ -41,7 +41,8 @@ Het oorspronkelijke item blijft in de brondienst staan.
 
 Het webonderdeel leest gegevens als de aangemelde gebruiker.
 Iedereen heeft nog steeds toegang nodig tot elke bron.
-Een beheertoewijzing verleent die toegang niet.
+Een beheerder kan een agenda voor gebruikers toevoegen.
+Daardoor krijgen zij nog geen toegang tot die agenda.
 
 ## Bronnen die het kan tonen
 
@@ -60,9 +61,10 @@ Gebruikers kiezen hun agenda's, kleuren, zichtbaarheid en tijdlijninstellingen.
 Ze kunnen persoonlijke bronnen toevoegen als ze daar toegang toe hebben.
 
 Pagina-eigenaren kunnen gedeelde standaardinstellingen kiezen.
-Ze kunnen een toewijzing richten op een Microsoft Entra ID-groep.
-Daarbij kiezen ze Mandatory, Default of Available.
-Zo deelt het team een begininstelling, met ruimte voor toegestane persoonlijke keuzes.
+Ze kunnen een agenda voor een Microsoft Entra ID-groep toevoegen.
+Per agenda kiezen ze Mandatory, Default of Available.
+Die keuze bepaalt of de agenda eerst zichtbaar is.
+Ze bepaalt ook of gebruikers de agenda kunnen verbergen of verwijderen.
 
 ## Kies hoe gebruikers een agenda krijgen
 

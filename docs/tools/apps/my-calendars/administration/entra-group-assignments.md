@@ -11,8 +11,8 @@ prereqs: []
 
 # Entra Group Assignments
 
-Assign a source only to people who need it.
-Check their source access separately from the assignment.
+Add a calendar or other source only for people who need it.
+Check separately whether they have access to that source.
 
 ## Select An Audience
 

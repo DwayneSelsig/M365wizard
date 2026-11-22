@@ -41,8 +41,8 @@ Gebruik **Import configuration** om een opgeslagen concept te laden.
 Importeren vervangt het geopende concept, maar slaat het niet op.
 Selecteer **Save** en publiceer de pagina om de instellingen toe te passen.
 
-Geïmporteerde site-, lijst-, agenda- en groepsverwijzingen blijven gelijk.
-Ze moeten in de doelsite bestaan en toegankelijk zijn.
+Geïmporteerde instellingen verwijzen nog naar dezelfde sites, lijsten, agenda’s en groepen.
+Deze moeten in de doeltenant bestaan en toegankelijk zijn.
 
 ## Eigenaarschap en wijzigingen
 

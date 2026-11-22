@@ -11,8 +11,8 @@ prereqs: []
 
 # Mandatory, Default en Available
 
-Kies een beleid op basis van de ruimte die gebruikers nodig hebben.
-Het beleid regelt zichtbaarheid, niet de toegang tot de bron.
+Kies hoe gebruikers de agenda krijgen en wat zij kunnen wijzigen.
+Gebruikers hebben nog steeds toegang tot de oorspronkelijke agenda nodig.
 
 ![Weergavebeleid en persoonlijke wijzigingen voor een toewijzing](/img/tools/my-calendars/calendar-policy.png)
 
@@ -24,8 +24,9 @@ Het beleid regelt zichtbaarheid, niet de toegang tot de bron.
 | **Default** | Ingeschakeld | Ja, als dat is toegestaan | De agenda voor de meeste mensen nuttig is, maar afmelden mag. |
 | **Available** | Uitgeschakeld | Ja | De agenda alleen voor sommige gebruikers nuttig is. |
 
-Beheerders kiezen één van deze beleidsopties per toewijzing.
-De beleidsoptie wijzigt de bronrechten niet.
+Beheerders kiezen per toegewezen agenda één van deze opties.
+De optie bepaalt of gebruikers de agenda kunnen tonen of verbergen.
+De optie geeft geen toegang tot de oorspronkelijke agenda.
 
 ## Wat gebruikers zien
 
@@ -63,7 +64,7 @@ De strengste zichtbaarheidoptie geldt:
 Een uitzondering in één mailboxregel heft een andere passende toewijzing niet op.
 
 De gebruiker heeft aan één van de gekozen groepen genoeg.
-Bij een verificatiefout wordt de groep niet als geldige doelgroep beschouwd.
+Kan de app het lidmaatschap niet controleren? Dan behandelt de app de gebruiker niet als lid van de groep.
 
 ## Een beleid wijzigen en opslaan
 

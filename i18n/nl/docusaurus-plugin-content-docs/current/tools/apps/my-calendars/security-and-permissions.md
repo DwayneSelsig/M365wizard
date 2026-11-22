@@ -17,12 +17,12 @@ Een agendatoewijzing en toegang tot de agenda zijn twee aparte zaken.
 ## Hoe toegang werkt
 
 My Calendars gebruikt gedelegeerde Microsoft Graph-toegang.
-Aanvragen lopen namens de aangemelde gebruiker.
-De huidige implementatie heeft geen app-only gegevenspad.
+De app doet daarmee aanvragen namens de aangemelde gebruiker.
+De huidige app gebruikt geen app-only machtigingen om deze gegevens te lezen.
 
 Een beheertoewijzing bepaalt of het webonderdeel een bron aanbiedt.
 Deze geeft geen toegang tot Exchange-mailboxen of SharePoint-lijsten.
-Gebruikers hebben bronrechten nodig voordat de app items kan lezen.
+Gebruikers moeten toegang hebben tot de bron voordat de app items kan lezen.
 
 Het webonderdeel leest afspraken en taken uit bronnen.
 Het maakt, wijzigt of verwijdert deze niet.
@@ -32,7 +32,7 @@ Beheerstandaarden worden met de SharePoint-pagina opgeslagen.
 ## Aangevraagde Microsoft Graph-machtigingen
 
 Het pakket vraagt de volgende gedelegeerde machtigingsbereiken (scopes) aan.
-Deze tabel volgt de manifesten en gedragsdocumentatie van de huidige bronrepo.
+Deze tabel volgt de app-manifesten en documentatie bij de huidige broncode.
 
 | Machtiging | Huidig doel | Aandachtspunt |
 | --- | --- | --- |

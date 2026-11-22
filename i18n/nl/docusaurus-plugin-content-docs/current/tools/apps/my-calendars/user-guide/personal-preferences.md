@@ -12,14 +12,14 @@ prereqs: []
 # Persoonlijke voorkeuren
 
 Gebruik Calendar Settings om je weergave en optionele bronnen aan te passen.
-Je kunt niet alles wijzigen; het beheerbeleid bepaalt de mogelijkheden.
+De beheerder bepaalt welke instellingen je kunt wijzigen.
 
 ![Persoonlijke agenda-instellingen en tijdlijnvoorkeuren](/img/tools/my-calendars/personal-settings.png)
 
 ## Je weergave en tijdlijn wijzigen
 
 Kies een begintijd, het aantal zichtbare uren en de weekenden.
-Kies de beheerstandaard om de gedeelde instelling te volgen.
+Kies de standaard van de beheerder om de gedeelde instelling te gebruiken.
 De beheerder stelt het tijdsinterval voor Day en Week in.
 
 Kies **Day**, **Week** of **Month** op de werkbalk.

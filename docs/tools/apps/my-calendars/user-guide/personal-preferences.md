@@ -12,14 +12,14 @@ prereqs: []
 # Personal Preferences
 
 Use Calendar Settings to adjust your view and optional sources.
-The available changes depend on administrator policy.
+The administrator decides which settings you can change.
 
 ![Personal calendar settings and timeline preferences](/img/tools/my-calendars/personal-settings.png)
 
 ## Change Your View And Timeline
 
 Choose a start time, visible hours, and whether to show weekends.
-Choose the administrator default to follow the shared value.
+Choose the administrator default to use the shared setting.
 The administrator sets the time grid for Day and Week views.
 
 Choose a view from the toolbar: **Day**, **Week**, or **Month**.

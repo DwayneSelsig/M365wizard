@@ -41,7 +41,8 @@ It keeps each item in its original service.
 
 The web part reads data as the signed-in user.
 Each person still needs access to each source.
-An administrator assignment does not grant that access.
+An administrator can add a calendar for users.
+That action does not give them access to it.
 
 ## Sources It Can Show
 
@@ -60,9 +61,10 @@ People can choose their calendars, colors, visibility, and timeline settings.
 They can add personal sources where they have access.
 
 Page owners can set shared defaults for a team or department.
-They can target an assignment to a Microsoft Entra ID group.
-They can choose whether it is Mandatory, Default, or Available.
-The policy sets a shared starting point while preserving allowed user choices.
+They can add a calendar for a Microsoft Entra ID group.
+For each calendar, they choose Mandatory, Default, or Available.
+This choice determines whether the calendar starts visible.
+It also determines whether users can hide or remove it.
 
 ## Choose How Users Receive A Calendar
 

@@ -11,8 +11,8 @@ prereqs: []
 
 # Toewijzingen aan Entra-groepen
 
-Wijs een bron alleen toe aan mensen die deze nodig hebben.
-Controleer de brontoegang los van de toewijzing.
+Voeg een agenda of andere bron alleen toe voor mensen die deze nodig hebben.
+Controleer apart of zij toegang hebben tot die bron.
 
 ## Een doelgroep kiezen
 

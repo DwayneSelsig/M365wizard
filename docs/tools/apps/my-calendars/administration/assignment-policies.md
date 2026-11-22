@@ -11,8 +11,8 @@ prereqs: []
 
 # Mandatory, Default, and Available
 
-Choose a policy based on how much choice users need.
-The policy controls visibility, not access to the source.
+Choose how users receive each calendar and what they can change.
+Users still need permission to read the original calendar.
 
 ![Display policy and personal changes for an assignment](/img/tools/my-calendars/calendar-policy.png)
 
@@ -24,8 +24,9 @@ The policy controls visibility, not access to the source.
 | **Default** | Enabled | Yes, when allowed | The calendar helps most users, but they may opt out. |
 | **Available** | Disabled | Yes | The calendar is useful to some users who can opt in. |
 
-All three policies are set per administrator assignment.
-They do not change source permissions.
+Administrators choose one of these options for each assigned calendar.
+The option controls whether users can show or hide it.
+It does not grant access to the original calendar.
 
 ## What Users See
 
@@ -62,8 +63,8 @@ The strongest matching visibility policy wins:
 **Mandatory**, then **Default**, then **Available**.
 An exclusion in one mailbox rule does not cancel another matching assignment.
 
-Audience membership uses OR behavior across selected groups.
-Targeted group lookup fails closed when it cannot verify membership.
+A user only needs to belong to one of the selected groups.
+If the app cannot verify membership, it does not treat the user as a group member.
 
 ## Change And Save A Policy
 

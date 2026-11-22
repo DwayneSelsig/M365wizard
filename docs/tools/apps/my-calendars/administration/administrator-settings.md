@@ -41,8 +41,8 @@ Use **Import configuration** to load a saved draft.
 Import replaces the open draft; it does not save it.
 Select **Save** and publish the page to apply imported settings.
 
-Imported site, list, calendar, and group references do not change.
-They still need to exist and be accessible in the target tenant.
+Imported settings still refer to the same sites, lists, calendars, and groups.
+These must exist and be accessible in the target tenant.
 
 ## Ownership And Changes
 

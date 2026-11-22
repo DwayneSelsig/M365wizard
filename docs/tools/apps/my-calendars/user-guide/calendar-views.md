@@ -11,8 +11,8 @@ prereqs: []
 
 # Calendar Views
 
-Choose Day, Week, or Month to match the planning question.
-The view changes what you see, not the source data.
+Choose Day, Week, or Month to see a day, week, or month.
+The view does not change the original appointments.
 
 ## Choose A View
 
@@ -20,11 +20,23 @@ Select **Day**, **Week**, or **Month** near the top of the calendar.
 Use **Today**, the date field, or the arrows to move through dates.
 The web part remembers your selected view in your personal settings.
 
-![Month view](/img/tools/my-calendars/view-month.png)
+### Day View
+
+Choose **Day** to see one day.
+
+![Day view](/img/tools/my-calendars/view-day.png)
+
+### Week View
+
+Choose **Week** to see a week.
 
 ![Week view](/img/tools/my-calendars/view-week.png)
 
-![Day view](/img/tools/my-calendars/view-day.png)
+### Month View
+
+Choose **Month** to see a month.
+
+![Month view](/img/tools/my-calendars/view-month.png)
 
 ## Find An Appointment
 

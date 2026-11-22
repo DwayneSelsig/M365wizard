@@ -17,8 +17,8 @@ Calendar assignment and calendar access are separate controls.
 ## How Access Works
 
 My Calendars uses delegated Microsoft Graph access.
-Requests run in the signed-in user's context.
-The current implementation has no app-only data path.
+This means the app makes requests on behalf of the signed-in user.
+The current app does not access this data using app-only permissions.
 
 An administrator assignment decides whether the web part offers a source.
 It does not grant Exchange mailbox or SharePoint list access.

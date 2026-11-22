@@ -11,8 +11,8 @@ prereqs: []
 
 # Agendaweergaven
 
-Kies Day, Week of Month voor je planningsvraag.
-De weergave verandert wat je ziet, niet de brongegevens.
+Kies Day, Week of Month om een dag, week of maand te bekijken.
+De weergave verandert de oorspronkelijke afspraken niet.
 
 ## Een weergave kiezen
 
@@ -20,11 +20,23 @@ Selecteer bovenaan **Day**, **Week** of **Month**.
 Gebruik **Today**, het datumveld of de pijlen om te navigeren.
 Het webonderdeel onthoudt je keuze in je persoonlijke instellingen.
 
-![Maandweergave](/img/tools/my-calendars/view-month.png)
+### Dagweergave
+
+Kies **Day** om één dag te bekijken.
+
+![Dagweergave](/img/tools/my-calendars/view-day.png)
+
+### Weekweergave
+
+Kies **Week** om een week te bekijken.
 
 ![Weekweergave](/img/tools/my-calendars/view-week.png)
 
-![Dagweergave](/img/tools/my-calendars/view-day.png)
+### Maandweergave
+
+Kies **Month** om een maand te bekijken.
+
+![Maandweergave](/img/tools/my-calendars/view-month.png)
 
 ## Een afspraak zoeken
 

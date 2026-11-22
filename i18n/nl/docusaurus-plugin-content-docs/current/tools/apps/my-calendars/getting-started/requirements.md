@@ -11,7 +11,8 @@ prereqs: []
 
 # Vereisten
 
-Plan de brontoegang, Graph-toestemming en het pagina-eigenaarschap.
+Bepaal wie toegang nodig heeft tot elke agenda of lijst.
+Bepaal ook wie de Graph-machtigingen goedkeurt en wie de pagina beheert.
 Het webonderdeel toont alleen gegevens die elke gebruiker mag lezen.
 
 ## Voordat je installeert
@@ -32,8 +33,9 @@ Test die hosts vóór een bredere uitrol.
 ## Plan de machtigingscontrole
 
 Controleer de aangevraagde machtigingsbereiken vóór je het pakket uploadt.
+Een machtigingsbereik bepaalt wat de app aan Microsoft Graph mag vragen.
 De [handleiding over beveiliging en machtigingen](../security-and-permissions.md) geeft ze weer.
-De bronrepo beschrijft de huidige codepaden.
+De documentatie bij de broncode beschrijft hoe de app machtigingen gebruikt.
 
 SharePoint toont machtigingsaanvragen bij **API access**.
 Microsoft documenteert welke beheerdersrollen deze mogen goedkeuren.

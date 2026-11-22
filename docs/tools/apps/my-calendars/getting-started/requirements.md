@@ -11,7 +11,8 @@ prereqs: []
 
 # Requirements
 
-Plan for source access, Graph consent, and page ownership.
+Plan who needs access to each calendar or list.
+Also plan who approves Graph permissions and owns the page.
 The web part can only show data that each user can read.
 
 ## Before You Install
@@ -31,9 +32,10 @@ Test those hosts before wider use.
 
 ## Plan The Permission Review
 
-Review the requested scopes before uploading the package.
+Review the requested permission scopes before uploading the package.
+Each scope specifies what the app can ask Microsoft Graph to do.
 The [security and permissions guide](../security-and-permissions.md) lists each one.
-The source repository explains the current code paths.
+The documentation in the source repository describes how the app uses permissions.
 
 SharePoint displays permission requests under **API access**.
 Microsoft documents which administrator roles can approve them.
