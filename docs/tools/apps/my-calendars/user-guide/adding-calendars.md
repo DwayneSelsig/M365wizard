@@ -14,6 +14,8 @@ prereqs: []
 Add only sources that help with the work on this page.
 Check access before troubleshooting a missing source.
 
+![The Settings button next to the search box](/img/tools/my-calendars/settings-button.png)
+
 1. Open **Settings**.
 2. Select **Add Calendar**.
 3. Choose a source type.

@@ -14,6 +14,8 @@ prereqs: []
 Voeg alleen bronnen toe die het werk op deze pagina ondersteunen.
 Controleer de toegang voordat je een ontbrekende bron onderzoekt.
 
+![De knop Settings naast het zoekveld](/img/tools/my-calendars/settings-button.png)
+
 1. Open **Settings**.
 2. Selecteer **Add Calendar**.
 3. Kies een brontype.

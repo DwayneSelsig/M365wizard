@@ -19,6 +19,8 @@ Kleuren en bronnamen tonen waar een item vandaan komt.
 ## Een agenda tonen of verbergen
 
 Open **Settings** om de brongroepen te zien.
+
+![De knop Settings naast het zoekveld](/img/tools/my-calendars/settings-button.png)
 Gebruik het oog naast een optionele agenda om de zichtbaarheid te wijzigen.
 Sommige groepen hebben ook een bediening voor alle agenda's.
 Mandatory-agenda's blijven zichtbaar.

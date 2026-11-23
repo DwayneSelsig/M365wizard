@@ -11,8 +11,10 @@ prereqs: []
 
 # Persoonlijke voorkeuren
 
-Gebruik Calendar Settings om je weergave en optionele bronnen aan te passen.
+Open **Settings** om je weergave en optionele bronnen aan te passen.
 De beheerder bepaalt welke instellingen je kunt wijzigen.
+
+![De knop Settings naast het zoekveld](/img/tools/my-calendars/settings-button.png)
 
 ![Persoonlijke agenda-instellingen en tijdlijnvoorkeuren](/img/tools/my-calendars/personal-settings.png)
 

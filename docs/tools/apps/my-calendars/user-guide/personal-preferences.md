@@ -11,8 +11,10 @@ prereqs: []
 
 # Personal Preferences
 
-Use Calendar Settings to adjust your view and optional sources.
+Open **Settings** to adjust your view and optional sources.
 The administrator decides which settings you can change.
+
+![The Settings button next to the search box](/img/tools/my-calendars/settings-button.png)
 
 ![Personal calendar settings and timeline preferences](/img/tools/my-calendars/personal-settings.png)
 

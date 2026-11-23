@@ -19,6 +19,8 @@ Each color and source label helps identify where an item came from.
 ## Show Or Hide A Calendar
 
 Open **Settings** to see the source sections.
+
+![The Settings button next to the search box](/img/tools/my-calendars/settings-button.png)
 Use the eye control beside an optional calendar to change its visibility.
 Some sections also have a bulk visibility control.
 Mandatory calendars remain visible.
